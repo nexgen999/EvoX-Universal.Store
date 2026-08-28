@@ -19,7 +19,10 @@ FILES_OLD_DIR = os.path.join(BASE_DIR, "files", "payloads", "internal", "old")
 
 BASE_URL = "https://nexgen999.github.io/EvoX-Universal.Store"
 
+GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
 HEADERS = {"User-Agent": "Mozilla/5.0"}
+if GITHUB_TOKEN:
+    HEADERS["Authorization"] = f"token {GITHUB_TOKEN}"
 
 def calculate_sha256(filepath):
     sha256_hash = hashlib.sha256()
@@ -30,11 +33,11 @@ def calculate_sha256(filepath):
 
 def resolve_github_release(url):
     """
-    Si l'URL est un repo GitHub, récupère le binaire de la dernière release via l'API GitHub.
+    Si l'URL cible un projet GitHub ou un flux Release, tente d'extraire l'URL du binaire direct.
     """
     match = re.search(r"github\.com/([^/]+)/([^/]+)", url)
     if not match:
-        return url, os.path.basename(url), "v1.0"
+        return url, os.path.basename(url) or "payload.elf", "v1.0"
 
     owner, repo = match.group(1), match.group(2).rstrip(".git")
     api_url = f"https://api.github.com/repos/{owner}/{repo}/releases/latest"
@@ -49,7 +52,7 @@ def resolve_github_release(url):
                 if download_url.endswith((".elf", ".bin", ".zip", ".prx")):
                     return download_url, asset.get("name"), version
     except Exception as e:
-        print(f"Erreur API GitHub pour {owner}/{repo}: {e}")
+        print(f"[WARN] API GitHub indisponible pour {owner}/{repo}: {e}")
 
     return url, f"{repo}.elf", "v1.0"
 
@@ -73,11 +76,10 @@ def parse_opml(opml_path):
                     "author": attribs.get("author", "Unknown")
                 })
     except Exception as e:
-        print(f"Erreur lecture OPML {opml_path}: {e}")
+        print(f"[ERROR] Impossible de lire le fichier OPML {opml_path}: {e}")
     return items
 
 def generate_export_opml(category_name, items, output_path):
-    """Génère un fichier OPML récapitulatif mis à jour."""
     root = ET.Element("opml", version="2.0")
     head = ET.SubElement(root, "head")
     title = ET.SubElement(head, "title")
@@ -100,6 +102,7 @@ def generate_export_opml(category_name, items, output_path):
     tree.write(output_path, encoding="utf-8", xml_declaration=True)
 
 def process_internal_feeds():
+    print("=== TRAITEMENT DES FLUX INTERNES ===")
     os.makedirs(JSON_INT_DIR, exist_ok=True)
     os.makedirs(FILES_LATEST_DIR, exist_ok=True)
     os.makedirs(FILES_OLD_DIR, exist_ok=True)
@@ -107,15 +110,16 @@ def process_internal_feeds():
     all_aio_payloads = []
 
     if not os.path.exists(FEED_INT_DIR):
-        print(f"Dossier introuvable: {FEED_INT_DIR}")
+        print(f"[WARN] Dossier interne introuvable: {FEED_INT_DIR}")
         return
 
     for file_name in os.listdir(FEED_INT_DIR):
-        if not file_name.endswith(".opml"):
+        if not file_name.endswith(".opml") or file_name.endswith("_export.opml"):
             continue
 
         cat_name = os.path.splitext(file_name)[0]
         opml_path = os.path.join(FEED_INT_DIR, file_name)
+        print(f"-> Traitement OPML Interne: {file_name}")
         items = parse_opml(opml_path)
 
         cat_payloads = []
@@ -129,7 +133,6 @@ def process_internal_feeds():
             app_old_dir = os.path.join(FILES_OLD_DIR, cat_name, app_name)
             target_file_path = os.path.join(app_latest_dir, filename)
 
-            # Rotation des anciennes versions
             if not os.path.exists(target_file_path):
                 cat_latest_base = os.path.join(FILES_LATEST_DIR, cat_name, app_name)
                 if os.path.exists(cat_latest_base):
@@ -138,16 +141,17 @@ def process_internal_feeds():
                         if os.path.isdir(old_ver_path) and old_ver != version:
                             dest_old = os.path.join(app_old_dir, old_ver)
                             os.makedirs(dest_old, exist_ok=True)
+                            print(f"   [ARCHIVE] Déplacement de {old_ver} vers old/")
                             shutil.move(old_ver_path, dest_old)
 
                 os.makedirs(app_latest_dir, exist_ok=True)
+                print(f"   [DOWNLOAD] Telechargement de {download_url}")
                 try:
                     req = urllib.request.Request(download_url, headers=HEADERS)
                     with urllib.request.urlopen(req) as response, open(target_file_path, "wb") as out_file:
                         shutil.copyfileobj(response, out_file)
                 except Exception as e:
-                    print(f"Échec téléchargement {download_url}: {e}")
-                    continue
+                    print(f"   [ERROR] Échec téléchargement: {e}")
 
             checksum = calculate_sha256(target_file_path) if os.path.exists(target_file_path) else ""
             public_url = f"{BASE_URL}/files/payloads/internal/latest/{cat_name}/{app_name}/{version}/{filename}"
@@ -165,31 +169,36 @@ def process_internal_feeds():
             cat_payloads.append(payload_obj)
             all_aio_payloads.append(payload_obj)
 
-        # Génération du JSON de catégorie
         cat_json_data = {"name": cat_name, "payloads": cat_payloads}
-        with open(os.path.join(JSON_INT_DIR, f"{cat_name}.json"), "w", encoding="utf-8") as f:
+        json_out_path = os.path.join(JSON_INT_DIR, f"{cat_name}.json")
+        with open(json_out_path, "w", encoding="utf-8") as f:
             json.dump(cat_json_data, f, indent=2, ensure_ascii=False)
+        print(f"   [JSON OK] Généré: {json_out_path}")
 
-        # Génération de l'OPML récapitulatif
-        generate_export_opml(cat_name, items, os.path.join(BASE_DIR, "feed", "internal", f"{cat_name}_export.opml"))
+        export_opml_path = os.path.join(FEED_INT_DIR, f"{cat_name}_export.opml")
+        generate_export_opml(cat_name, items, export_opml_path)
 
-    # Génération du fichier AIO global
     aio_data = {"name": "AIO Store", "payloads": all_aio_payloads}
-    with open(os.path.join(JSON_INT_DIR, "payloads.json"), "w", encoding="utf-8") as f:
+    aio_json_path = os.path.join(JSON_INT_DIR, "payloads.json")
+    with open(aio_json_path, "w", encoding="utf-8") as f:
         json.dump(aio_data, f, indent=2, ensure_ascii=False)
+    print(f"[AIO OK] Fichier principal généré: {aio_json_path}")
 
 def process_external_feeds():
+    print("\n=== TRAITEMENT DES FLUX EXTERNES ===")
     os.makedirs(JSON_EXT_DIR, exist_ok=True)
 
     if not os.path.exists(FEED_EXT_DIR):
+        print(f"[WARN] Dossier externe introuvable: {FEED_EXT_DIR}")
         return
 
     for file_name in os.listdir(FEED_EXT_DIR):
-        if not file_name.endswith(".opml"):
+        if not file_name.endswith(".opml") or file_name.endswith("_export.opml"):
             continue
 
         cat_name = os.path.splitext(file_name)[0]
         opml_path = os.path.join(FEED_EXT_DIR, file_name)
+        print(f"-> Traitement OPML Externe: {file_name}")
         items = parse_opml(opml_path)
 
         cat_payloads = []
@@ -210,10 +219,13 @@ def process_external_feeds():
             cat_payloads.append(payload_obj)
 
         cat_json_data = {"name": cat_name, "payloads": cat_payloads}
-        with open(os.path.join(JSON_EXT_DIR, f"{cat_name}.json"), "w", encoding="utf-8") as f:
+        json_out_path = os.path.join(JSON_EXT_DIR, f"{cat_name}.json")
+        with open(json_out_path, "w", encoding="utf-8") as f:
             json.dump(cat_json_data, f, indent=2, ensure_ascii=False)
+        print(f"   [JSON OK] Généré: {json_out_path}")
 
-        generate_export_opml(cat_name, items, os.path.join(BASE_DIR, "feed", "external", f"{cat_name}_export.opml"))
+        export_opml_path = os.path.join(FEED_EXT_DIR, f"{cat_name}_export.opml")
+        generate_export_opml(cat_name, items, export_opml_path)
 
 if __name__ == "__main__":
     process_internal_feeds()
