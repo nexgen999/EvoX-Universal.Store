@@ -1,4 +1,4 @@
-# 📡 Guide des Flux OPML et Génération JSON (EvoX Universal Store)
+<pre><code># 📡 Guide des Flux OPML et Génération JSON (EvoX Universal Store)
 
 Ce document détaille le fonctionnement, l'architecture et les règles de génération des fichiers JSON à partir des flux OPML du projet **EvoX Universal Store**.
 
@@ -6,33 +6,33 @@ Ce document détaille le fonctionnement, l'architecture et les règles de géné
 
 ## 📂 Architecture Générale
 
-La structure distingue strictement les flux **internes** (hébergés et compilés pour PLDMGR) des flux **externes** (destinés à l'interface web).
+La structure distingue strictly les flux **internes** (hébergés et compilés pour PLDMGR) des flux **externes** (destinés à l'interface web).
 
 EvoX-Universal.Store/
 ├── feed/
 │   ├── internal/
-│   │   └── payloads/        <-- Fichiers .opml internes
+│   │   └── payloads/        &lt;-- Fichiers .opml internes
 │   └── external/
-│       └── payloads/        <-- Fichiers .opml externes
+│       └── payloads/        &lt;-- Fichiers .opml externes
 ├── files/
 │   └── payloads/
 │       └── internal/
-│           ├── latest/      <-- Stockage des dernières versions des binaires
+│           ├── latest/      &lt;-- Stockage des dernières versions des binaires
 │           │   └── [categorie]/
 │           │       └── [appname]/
 │           │           └── [version_build]/
 │           │               └── file.elf
-│           └── old/         <-- Archivage des anciennes versions déplacées
+│           └── old/         &lt;-- Archivage des anciennes versions déplacées
 │               └── [categorie]/
 │                   └── [appname]/
 │                       └── [version_build]/
 │                           └── file.elf
 └── json/
     ├── internal/
-    │   ├── payloads.json     <-- Fichier AIO compilé pour PLDMGR
-    │   └── [catégorie].json  <-- JSON individuel par catégorie
+    │   ├── payloads.json     &lt;-- Fichier AIO compilé pour PLDMGR
+    │   └── [catégorie].json  &lt;-- JSON individuel par catégorie
     └── external/
-        └── [catégorie].json  <-- JSON individuel pour l'interface web
+        └── [catégorie].json  &lt;-- JSON individuel pour l'interface web
 
 ---
 
@@ -40,7 +40,7 @@ EvoX-Universal.Store/
 
 ### 1. Flux Internes (`feed/internal/`)
 1. **Téléchargement & Gestion des Versions** :
-   - Les binaires (.elf, .bin, etc.) référencés dans les fichiers OPML internes sont téléchargés.
+   - Les binaires (`.elf`, `.bin`, etc.) référencés dans les fichiers OPML internes sont téléchargés.
    - La version actuelle est stockée dans : `files/payloads/internal/latest/[categorie]/[appname]/[version_build]/`
    - Si une nouvelle version de l'application est détectée, l'ancienne version présente dans `latest/` est automatiquement déplacée vers le dossier d'archivage : `files/payloads/internal/old/[categorie]/[appname]/[version_build]/`
 2. **Calcul de Hash** : Le checksum SHA-256 de chaque fichier présent dans `latest/` est calculé.
@@ -66,7 +66,7 @@ Tous les fichiers JSON générés (internes comme externes) doivent respecter la
     {
       "name": "np-fake-signin",
       "filename": "np-fake-signin_v1.3.elf",
-      "url": "https://nexgen999.github.io/EvoX-Universal.Store/files/payloads/internal/latest/PS5_Activation/np-fake-signin/v1.3/np-fake-signin_v1.3.elf",
+      "url": "[https://nexgen999.github.io/EvoX-Universal.Store/files/payloads/internal/latest/PS5_Activation/np-fake-signin/v1.3/np-fake-signin_v1.3.elf](https://nexgen999.github.io/EvoX-Universal.Store/files/payloads/internal/latest/PS5_Activation/np-fake-signin/v1.3/np-fake-signin_v1.3.elf)",
       "description": "Fake activate PS5 without PSN.",
       "version": "v1.3",
       "category": "PS5 Activation",
@@ -85,7 +85,7 @@ Le champ `name` prend la valeur fixe `"AIO Store"` et réunit l'ensemble des él
     {
       "name": "PS5-Custom-Tool-Manager-",
       "filename": "PS5-Custom-Tool-Manager-_vCustom.elf",
-      "url": "https://nexgen999.github.io/EvoX-Universal.Store/files/payloads/internal/latest/PS5_Themes-Avatars/PS5-Custom-Tool-Manager-/Custom/PS5-Custom-Tool-Manager-_vCustom.elf",
+      "url": "[https://nexgen999.github.io/EvoX-Universal.Store/files/payloads/internal/latest/PS5_Themes-Avatars/PS5-Custom-Tool-Manager-/Custom/PS5-Custom-Tool-Manager-_vCustom.elf](https://nexgen999.github.io/EvoX-Universal.Store/files/payloads/internal/latest/PS5_Themes-Avatars/PS5-Custom-Tool-Manager-/Custom/PS5-Custom-Tool-Manager-_vCustom.elf)",
       "description": "Custom manager tool for PS5 personalization.",
       "version": "Custom",
       "category": "PS5 Themes-Avatars",
@@ -94,7 +94,7 @@ Le champ `name` prend la valeur fixe `"AIO Store"` et réunit l'ensemble des él
     {
       "name": "np-fake-signin",
       "filename": "np-fake-signin_v1.3.elf",
-      "url": "https://nexgen999.github.io/EvoX-Universal.Store/files/payloads/internal/latest/PS5_Activation/np-fake-signin/v1.3/np-fake-signin_v1.3.elf",
+      "url": "[https://nexgen999.github.io/EvoX-Universal.Store/files/payloads/internal/latest/PS5_Activation/np-fake-signin/v1.3/np-fake-signin_v1.3.elf](https://nexgen999.github.io/EvoX-Universal.Store/files/payloads/internal/latest/PS5_Activation/np-fake-signin/v1.3/np-fake-signin_v1.3.elf)",
       "description": "Fake activate PS5 without PSN.",
       "version": "v1.3",
       "category": "PS5 Activation",
@@ -111,8 +111,4 @@ Le champ `name` prend la valeur fixe `"AIO Store"` et réunit l'ensemble des él
 | :--- | :--- | :--- |
 | **`name`** | String | Nom de l'application ou du binaire. |
 | **`filename`** | String | Nom complet du fichier binaire (ex: `.elf`). |
-| **`url`** | String | Lien direct de téléchargement du fichier binaire. |
-| **`description`** | String | Description brève de la fonction du payload. |
-| **`version`** | String | Tag ou numéro de version (`version_build`). |
-| **`category`** | String | Nom de la catégorie parente (correspond au nom du sous-dossier). |
-| **`checksum`** | String | Checksum SHA-256 du fichier pour vérification d'intégrité. |
+| **`url`** | String | Lien direct de téléchargement du fichier
