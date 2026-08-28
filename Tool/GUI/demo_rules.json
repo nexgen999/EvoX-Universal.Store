@@ -1,0 +1,67 @@
+{
+  "$schema": "Configuration universelle des règles de filtrage",
+  "global_settings": {
+    "user_agent": "UniversalStoreEngine/1.0",
+    "http_timeout_seconds": 30
+  },
+  "repositories": [
+    {
+      "repo": "owner/example-repo",
+      "enabled": true,
+      "include_prerelease": true,
+      "processing_mode": "multi_assets",
+      "global_asset_filters": {
+        "target_extensions": [".elf", ".bin", ".pkg", ".zip"],
+        "global_exclude_extensions": [".txt", ".md", ".pdf"],
+        "global_include_keywords": ["release", "v1"],
+        "global_exclude_keywords": ["test", "debug", "beta"]
+      },
+      "assets_rules": [
+        {
+          "target_release_type": "Stable",
+          "match_keyword": "payload.elf",
+          "extract_archive": false,
+          "clean_name_template": "payload_v{version}.elf",
+          "enabled": true
+        },
+        {
+          "target_release_type": "Stable",
+          "match_keyword": "archive_complete.zip",
+          "extract_archive": true,
+          "target_extracted_file": "payload_internal.elf",
+          "clean_name_template": "payload_internal_v{version}.elf",
+          "enabled": true
+        },
+        {
+          "target_release_type": "Pre-release",
+          "match_keyword": "experimental_build.zip",
+          "extract_archive": true,
+          "target_extracted_file": "binaries/loader.bin",
+          "clean_name_template": "loader_exp_v{version}.bin",
+          "enabled": false
+        }
+      ]
+    },
+    {
+      "repo": "git.example.com/owner/forgejo-repo",
+      "enabled": true,
+      "include_prerelease": false,
+      "processing_mode": "multi_assets",
+      "global_asset_filters": {
+        "target_extensions": [".elf"],
+        "global_exclude_extensions": [],
+        "global_include_keywords": [],
+        "global_exclude_keywords": []
+      },
+      "assets_rules": [
+        {
+          "target_release_type": "Stable",
+          "match_keyword": "standalone.elf",
+          "extract_archive": false,
+          "clean_name_template": "standalone_v{version}.elf",
+          "enabled": true
+        }
+      ]
+    }
+  ]
+}
