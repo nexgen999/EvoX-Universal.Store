@@ -31,31 +31,44 @@ def get_remote_sha256(file_url):
         print(f"      [WARN] SHA256 non calcule ({e})")
         return ""
 
+def clean_repo_name(repo_str):
+    """ Nettoie proprement .git à la fin sans tronquer les lettres du nom (ex: flycast) """
+    repo_str = repo_str.strip('/')
+    if repo_str.endswith(".git"):
+        repo_str = repo_str[:-4]
+    return repo_str
+
 def extract_clean_repo_url(url, description=""):
     """ Extrait l'URL brute du dépôt même si l'OPML contient un lien RSS FreshRSS ou HTML. """
     combined = f"{url} {description}"
     
     gh_match = re.search(r"https?://github\.com/([^/\s\"']+)/([^/\s\"']+)", combined)
     if gh_match:
-        owner, repo = gh_match.group(1), gh_match.group(2).rstrip(".git").rstrip("/")
+        owner = gh_match.group(1)
+        repo = clean_repo_name(gh_match.group(2))
         return f"https://github.com/{owner}/{repo}", "github"
 
     gl_match = re.search(r"https?://gitlab\.com/([^/\s\"']+)/([^/\s\"']+)", combined)
     if gl_match:
-        owner, repo = gl_match.group(1), gl_match.group(2).rstrip(".git").rstrip("/")
+        owner = gl_match.group(1)
+        repo = clean_repo_name(gl_match.group(2))
         return f"https://gitlab.com/{owner}/{repo}", "gitlab"
 
     cb_match = re.search(r"https?://(codeberg\.org|[^/]*forgejo[^/]*)/([^/\s\"']+)/([^/\s\"']+)", combined)
     if cb_match:
-        domain, owner, repo = cb_match.group(1), cb_match.group(2), cb_match.group(3).rstrip(".git").rstrip("/")
+        domain = cb_match.group(1)
+        owner = cb_match.group(2)
+        repo = clean_repo_name(cb_match.group(3))
         return f"https://{domain}/{owner}/{repo}", "forgejo"
 
     gt_match = re.search(r"https?://([^/]*gitea[^/]*)/([^/\s\"']+)/([^/\s\"']+)", combined)
     if gt_match:
-        domain, owner, repo = gt_match.group(1), gt_match.group(2), gt_match.group(3).rstrip(".git").rstrip("/")
+        domain = gt_match.group(1)
+        owner = gt_match.group(2)
+        repo = clean_repo_name(gt_match.group(3))
         return f"https://{domain}/{owner}/{repo}", "gitea"
 
-    # URL Directe / Web
+    # URL Directe
     clean_url = re.sub(r'/(releases|tags)\.(atom|rss|xml)$', '', url)
     clean_url = re.sub(r'\.(atom|rss|xml)$', '', clean_url)
     return clean_url, "generic"
@@ -72,6 +85,7 @@ def resolve_release_data(raw_url, description=""):
             gh_headers["Authorization"] = f"token {GITHUB_TOKEN}"
 
         data = None
+        # Tente l'API releases/latest
         try:
             api_url = f"https://api.github.com/repos/{owner}/{repo}/releases/latest"
             data = fetch_json(api_url, gh_headers)
@@ -95,7 +109,7 @@ def resolve_release_data(raw_url, description=""):
                 assets.append({"filename": name, "url": dl_url, "sha256": sha})
             return version, body, assets, "github", repo_url
 
-        # Fallback Tags (ex: Flycast)
+        # Fallback Tags (ex: repositories sans releases formelles)
         try:
             tags_url = f"https://api.github.com/repos/{owner}/{repo}/tags"
             tags = fetch_json(tags_url, gh_headers)
@@ -147,7 +161,6 @@ def parse_opml(opml_path):
         if body is not None:
             for outline in body.findall("outline"):
                 attribs = outline.attrib
-                # Priorité à htmlUrl puis xmlUrl/url
                 raw_url = attribs.get("htmlUrl") or attribs.get("xmlUrl") or attribs.get("url")
                 if not raw_url: continue
                 items.append({
