@@ -1,6 +1,6 @@
 {
   "name": "EvoX Universal Store",
-  "updated_at": "2026-08-29T16:51:53.212735Z",
+  "updated_at": "2026-08-29T17:43:53.766755Z",
   "store": [
     {
       "category": "emulation",
@@ -15,7 +15,7 @@
             {
               "filename": "flycast",
               "url": "https://github.com/flyinghead/flycast",
-              "sha256": "bbfd2c47b9ba322efb95f5c17e7d14f4a3cbd56a23e01847767d38d336afba22"
+              "sha256": "fff54dfafa247a5c48ead5833b6f34aad7405368ad7faf1d45eca994554a77d6"
             }
           ]
         },
