@@ -1,35 +1,37 @@
-name: Auto Update Store
+name: Update EvoX Store JSONs
 
 on:
   push:
     paths:
       - 'feed/**'
+  schedule:
+    - cron: '0 0 * * *' # Tourne une fois par jour à minuit
   workflow_dispatch:
 
 permissions:
   contents: write
 
 jobs:
-  build-and-update:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repository
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Set up Python
+      - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.10'
 
-      - name: Run Update Script
+      - name: Run Scraper
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python update_store.py
 
-      - name: Commit and Push Changes
+      - name: Commit and Push
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add files/ json/ feed/
+          git add json/
           git status
-          git diff --quiet && git diff --staged --quiet || (git commit -m "auto: update store files, JSONs and OPML exports [skip ci]" && git push)
+          git diff --quiet && git diff --staged --quiet || (git commit -m "auto: update evox-store.json [skip ci]" && git push)
