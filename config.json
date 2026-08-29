@@ -1,0 +1,26 @@
+{
+  "site_title": "EvoX Universal AIO Store",
+  "hero": {
+    "title_prefix": "Evox Universal",
+    "title_suffix": "AIO Store",
+    "subtitle": "Le hub central pour vos applications. Catalogue synchronisé via GitHub.",
+    "tags": [
+      { "icon": "fa-newspaper", "label": "News" },
+      { "icon": "fa-boxes-stacked", "label": "Apps" },
+      { "icon": "fa-magnifying-glass", "label": "Recherche" },
+      { "icon": "fa-download", "label": "Téléchargement" },
+      { "icon": "fa-shield-halved", "label": "SHA-256" }
+    ]
+  },
+  "quick_links": {
+    "dev_name": "nexgen999",
+    "dev_url": "https://github.com/nexgen999",
+    "repo_url": "https://github.com/nexgen999/EvoX-Universal.Store",
+    "twitter_url": "https://x.com/nexgen999",
+    "bluesky_url": "https://bsky.app/profile/nexgen999.bsky.social"
+  },
+  "store_data_path": "json/evox-store.json",
+  "footer": {
+    "text": "Evox Universal AIO Store Build by nexgen999"
+  }
+}
