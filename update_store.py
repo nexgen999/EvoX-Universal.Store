@@ -2,6 +2,7 @@ import os
 import json
 import hashlib
 import urllib.request
+import urllib.parse
 import re
 from datetime import datetime
 import xml.etree.ElementTree as ET
@@ -19,7 +20,6 @@ def fetch_json(url, headers=None):
         return json.loads(resp.read().decode())
 
 def get_remote_sha256(file_url):
-    """Calcule le SHA256 à la volée sans stocker le fichier localement."""
     try:
         req = urllib.request.Request(file_url, headers=HEADERS)
         sha256_hash = hashlib.sha256()
@@ -28,23 +28,33 @@ def get_remote_sha256(file_url):
                 sha256_hash.update(chunk)
         return sha256_hash.hexdigest()
     except Exception as e:
-        print(f"      [WARN] Sha256 non calculé ({e})")
+        print(f"      [WARN] SHA256 non calculé ({e})")
         return ""
 
 def resolve_release_data(url):
-    """
-    Scrappe l'API appropriée (GitHub, GitLab, Gitea/Forgejo) ou renvoie une URL fixe.
-    """
     # 1. GITHUB
     gh_match = re.search(r"github\.com/([^/]+)/([^/]+)", url)
     if gh_match:
         owner, repo = gh_match.group(1), gh_match.group(2).rstrip(".git")
-        api_url = f"https://api.github.com/repos/{owner}/{repo}/releases/latest"
         gh_headers = HEADERS.copy()
         if GITHUB_TOKEN:
             gh_headers["Authorization"] = f"token {GITHUB_TOKEN}"
+
+        # Essai Release 'latest' puis fallback sur l'ensemble des releases (inclut pre-releases)
+        data = None
         try:
+            api_url = f"https://api.github.com/repos/{owner}/{repo}/releases/latest"
             data = fetch_json(api_url, gh_headers)
+        except Exception:
+            try:
+                api_url = f"https://api.github.com/repos/{owner}/{repo}/releases"
+                all_releases = fetch_json(api_url, gh_headers)
+                if all_releases and isinstance(all_releases, list):
+                    data = all_releases[0]
+            except Exception as e:
+                print(f"   [ERROR GitHub] {owner}/{repo}: {e}")
+
+        if data:
             version = data.get("tag_name", "v1.0")
             body = data.get("body", "")
             assets = []
@@ -54,8 +64,6 @@ def resolve_release_data(url):
                 sha = get_remote_sha256(dl_url)
                 assets.append({"filename": name, "url": dl_url, "sha256": sha})
             return version, body, assets
-        except Exception as e:
-            print(f"   [ERROR GitHub] {owner}/{repo}: {e}")
 
     # 2. GITLAB
     gl_match = re.search(r"gitlab\.com/([^/]+)/([^/]+)", url)
@@ -79,24 +87,7 @@ def resolve_release_data(url):
         except Exception as e:
             print(f"   [ERROR GitLab] {owner}/{repo}: {e}")
 
-    # 3. GITEA / FORGEJO (Format URL type gitea.example.com/api/v1/repos/owner/repo/releases)
-    if "/api/v1/repos/" in url and "/releases" in url:
-        try:
-            data = fetch_json(url)
-            latest = data[0] if isinstance(data, list) else data
-            version = latest.get("tag_name", "v1.0")
-            body = latest.get("body", "")
-            assets = []
-            for asset in latest.get("assets", []):
-                dl_url = asset.get("browser_download_url", "")
-                name = asset.get("name", "")
-                sha = get_remote_sha256(dl_url)
-                assets.append({"filename": name, "url": dl_url, "sha256": sha})
-            return version, body, assets
-        except Exception as e:
-            print(f"   [ERROR Gitea/Forgejo] {url}: {e}")
-
-    # 4. URL FIXE / DIRECTE
+    # 3. URL FIXE
     filename = os.path.basename(url) or "file.bin"
     sha = get_remote_sha256(url)
     return "v1.0", "Direct download file", [{"filename": filename, "url": url, "sha256": sha}]
@@ -161,7 +152,6 @@ def process_all_feeds():
                 "apps": apps
             }
 
-            # Sauvegarde du JSON individuel 1 pour 1
             out_cat_dir = os.path.join(JSON_DIR, category)
             os.makedirs(out_cat_dir, exist_ok=True)
             out_json_path = os.path.join(out_cat_dir, f"{sub_category}.json")
@@ -171,7 +161,6 @@ def process_all_feeds():
 
             all_store_categories.append(cat_json_data)
 
-    # Sauvegarde du fichier global evox-store.json
     aio_store = {
         "name": "EvoX Universal Store",
         "updated_at": datetime.utcnow().isoformat() + "Z",
