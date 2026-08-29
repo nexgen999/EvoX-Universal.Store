@@ -1,6 +1,6 @@
 {
   "name": "EvoX Universal Store",
-  "updated_at": "2026-08-29T17:43:53.766755Z",
+  "updated_at": "2026-08-29T17:55:56.264387Z",
   "store": [
     {
       "category": "emulation",
@@ -10,14 +10,16 @@
           "name": "flycast",
           "description": "Flycast is a multi-platform Sega Dreamcast, Naomi, Naomi 2, and Atomiswave emulator",
           "version": "v1.0",
-          "release_notes": "Direct download file",
+          "release_notes": "Fichier direct",
           "assets": [
             {
               "filename": "flycast",
               "url": "https://github.com/flyinghead/flycast",
-              "sha256": "fff54dfafa247a5c48ead5833b6f34aad7405368ad7faf1d45eca994554a77d6"
+              "sha256": "d382dd170e4b5cb2073daadce86beaf6a24eb9ca9e1fb62eec9cb1e05ab69b08"
             }
-          ]
+          ],
+          "source_type": "github",
+          "repo_url": "https://github.com/flyinghead/flycast"
         },
         {
           "name": "flycast-dojo",
@@ -40,7 +42,9 @@
               "url": "https://github.com/blueminder/flycast-dojo/releases/download/dojo-6.46/macos-flycast-dojo-6.46.zip",
               "sha256": "c255b0986ea5ded77e367507582c6e67663ae5c62931a38546e26a7af15923b0"
             }
-          ]
+          ],
+          "source_type": "github",
+          "repo_url": "https://github.com/blueminder/flycast-dojo"
         },
         {
           "name": "duckstation",
@@ -118,7 +122,9 @@
               "url": "https://github.com/stenzek/duckstation/releases/download/latest/DuckStation-x64.AppImage",
               "sha256": "c5c8a9de4dfc10e794137dcb8bab9760ca578df2aa7be8c1215171bebbba5965"
             }
-          ]
+          ],
+          "source_type": "github",
+          "repo_url": "https://github.com/stenzek/duckstation"
         }
       ]
     }
