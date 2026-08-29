@@ -31,14 +31,22 @@ def get_remote_sha256(file_url):
         print(f"      [WARN] SHA256 non calcule ({e})")
         return ""
 
+def clean_url(url):
+    """ Supprime les suffixes RSS/Atom pour obtenir l'URL propre du dépot. """
+    url = re.sub(r'/(releases|tags)\.(atom|rss|xml)$', '', url)
+    url = re.sub(r'\.(atom|rss|xml)$', '', url)
+    return url
+
 def detect_source_type(url):
-    if "github.com" in url: return "github"
-    if "gitlab.com" in url: return "gitlab"
-    if "codeberg.org" in url or "forgejo" in url: return "forgejo"
-    if "gitea" in url: return "gitea"
+    url_lower = url.lower()
+    if "github.com" in url_lower: return "github"
+    if "gitlab.com" in url_lower: return "gitlab"
+    if "codeberg.org" in url_lower or "forgejo" in url_lower: return "forgejo"
+    if "gitea" in url_lower: return "gitea"
     return "generic"
 
-def resolve_release_data(url):
+def resolve_release_data(raw_url):
+    url = clean_url(raw_url)
     source_type = detect_source_type(url)
     
     # 1. GITHUB
@@ -51,7 +59,6 @@ def resolve_release_data(url):
             gh_headers["Authorization"] = f"token {GITHUB_TOKEN}"
 
         data = None
-        # Tente /releases/latest, puis /releases, puis /tags
         try:
             api_url = f"https://api.github.com/repos/{owner}/{repo}/releases/latest"
             data = fetch_json(api_url, gh_headers)
@@ -73,9 +80,9 @@ def resolve_release_data(url):
                 name = asset.get("name", "")
                 sha = get_remote_sha256(dl_url)
                 assets.append({"filename": name, "url": dl_url, "sha256": sha})
-            return version, body, assets, source_type, repo_url
+            return version, body, assets, "github", repo_url
 
-        # Fallback Tags (ex: Flycast si pas d'assets dans les releases)
+        # Fallback Tags (ex: Flycast)
         try:
             tags_url = f"https://api.github.com/repos/{owner}/{repo}/tags"
             tags = fetch_json(tags_url, gh_headers)
@@ -87,7 +94,7 @@ def resolve_release_data(url):
                     {"filename": f"{repo}-{tag_name}.zip", "url": zip_url, "sha256": get_remote_sha256(zip_url)},
                     {"filename": f"{repo}-{tag_name}.tar.gz", "url": tar_url, "sha256": get_remote_sha256(tar_url)}
                 ]
-                return tag_name, "Source release tag", assets, source_type, repo_url
+                return tag_name, "Source release tag", assets, "github", repo_url
         except Exception as e:
             print(f"   [ERROR Tags GitHub] {owner}/{repo}: {e}")
 
@@ -110,11 +117,11 @@ def resolve_release_data(url):
                     name = link.get("name", os.path.basename(dl_url))
                     sha = get_remote_sha256(dl_url)
                     assets.append({"filename": name, "url": dl_url, "sha256": sha})
-                return version, body, assets, source_type, repo_url
+                return version, body, assets, "gitlab", repo_url
         except Exception as e:
             print(f"   [ERROR GitLab] {owner}/{repo}: {e}")
 
-    # 3. DIRECT URL
+    # 3. DIRECT URL / GENERIC
     filename = os.path.basename(url) or "file.bin"
     sha = get_remote_sha256(url)
     return "v1.0", "Fichier direct", [{"filename": filename, "url": url, "sha256": sha}], source_type, url
