@@ -90,7 +90,7 @@
 
         .stats-bar { color: var(--text-muted); font-size: 0.82rem; margin-bottom: 12px; }
 
-        /* Table Responsive Grid */
+        /* Table */
         .table-container {
             background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 8px; overflow: hidden;
         }
@@ -100,7 +100,6 @@
         tr:nth-child(even) { background: var(--bg-row-even); }
         tr:nth-child(odd) { background: var(--bg-row-odd); }
 
-        /* Source Icon Link */
         .source-link {
             width: 34px; height: 34px; background: #1e293b; border-radius: 8px; border: 1px solid var(--border-color);
             display: flex; align-items: center; justify-content: center; color: var(--accent-blue);
@@ -126,7 +125,7 @@
         }
         .btn-icon:hover { opacity: 0.9; transform: scale(0.98); }
 
-        /* Modal Redesign */
+        /* Modal */
         .modal-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(4px);
@@ -163,12 +162,18 @@
         .btn-close { background: none; border: none; color: var(--text-muted); font-size: 1.3rem; cursor: pointer; }
         .btn-close:hover { color: #fff; }
 
-        /* Footer */
+        /* Footer Redesign */
         footer {
             margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border-color);
-            display: flex; flex-direction: column; align-items: center; gap: 12px; color: var(--text-muted); font-size: 0.82rem;
+            display: flex; flex-direction: column; align-items: center; gap: 14px; color: var(--text-muted); font-size: 0.85rem;
         }
-        .footer-socials { display: flex; gap: 10px; }
+        .supported-servers-bar {
+            display: flex; align-items: center; gap: 12px; background: #0f172a;
+            padding: 8px 16px; border-radius: 30px; border: 1px solid var(--border-color);
+        }
+        .supported-label { font-weight: bold; font-size: 0.8rem; color: var(--text-main); text-transform: uppercase; letter-spacing: 0.5px; }
+        .server-icons { display: flex; align-items: center; gap: 12px; }
+        .server-icon { color: var(--accent-blue); font-size: 1.1rem; }
     </style>
 </head>
 <body>
@@ -236,16 +241,15 @@
 
     <footer>
         <div id="footerText">Evox Universal AIO Store Build by nexgen999</div>
-        <div class="footer-socials">
-            <a href="https://github.com/nexgen999" target="_blank" class="social-btn" title="GitHub">
-                <i class="fa-brands fa-github"></i>
-            </a>
-            <a href="https://x.com/nexgen999" target="_blank" class="social-btn" title="X (Twitter)">
-                <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-            </a>
-            <a href="https://bsky.app/profile/nexgen999.bsky.social" target="_blank" class="social-btn" title="Bluesky">
-                <svg viewBox="0 0 560 500"><path d="M180 142c-29 39-78 123-88 159-15 54 13 79 66 59 71-27 108-95 122-132 14 37 51 105 122 132 53 20 81-5 66-59-10-36-59-120-88-159 47-8 120-33 120-102 0-38-31-52-70-43-39 9-95 48-150 110C225 45 169 6 130-3 91-12 60 2 60 40c0 69 73 94 120 102z"/></svg>
-            </a>
+        <div class="supported-servers-bar">
+            <span class="supported-label">Supported Servers</span>
+            <div class="server-icons">
+                <i class="fa-brands fa-github server-icon" title="GitHub"></i>
+                <i class="fa-brands fa-gitlab server-icon" title="GitLab"></i>
+                <i class="fa-solid fa-code-pull-request server-icon" title="Gitea"></i>
+                <i class="fa-solid fa-code-fork server-icon" title="Forgejo / Codeberg"></i>
+                <i class="fa-brands fa-html5 server-icon" title="HTML5 / Web Direct"></i>
+            </div>
         </div>
     </footer>
 </div>
@@ -307,7 +311,6 @@
         let iconClass = "fa-solid fa-globe";
         const urlLower = repoUrl.toLowerCase();
 
-        // Détection via sourceType ou fallback sur l'analyse de l'URL directe
         if (sourceType === 'github' || urlLower.includes('github.com')) {
             iconClass = "fa-brands fa-github";
         } else if (sourceType === 'gitlab' || urlLower.includes('gitlab.com')) {
@@ -316,6 +319,8 @@
             iconClass = "fa-solid fa-code-fork";
         } else if (sourceType === 'gitea' || urlLower.includes('gitea')) {
             iconClass = "fa-solid fa-code-pull-request";
+        } else if (sourceType === 'html5' || urlLower.endsWith('.html') || urlLower.endsWith('.htm')) {
+            iconClass = "fa-brands fa-html5";
         }
 
         return `<a href="${repoUrl}" target="_blank" class="source-link" title="Ouvrir le dépôt (${repoUrl})"><i class="${iconClass}"></i></a>`;
