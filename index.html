@@ -162,18 +162,19 @@
         .btn-close { background: none; border: none; color: var(--text-muted); font-size: 1.3rem; cursor: pointer; }
         .btn-close:hover { color: #fff; }
 
-        /* Footer Redesign */
+        /* Footer */
         footer {
             margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border-color);
             display: flex; flex-direction: column; align-items: center; gap: 14px; color: var(--text-muted); font-size: 0.85rem;
         }
-        .supported-servers-bar {
-            display: flex; align-items: center; gap: 12px; background: #0f172a;
-            padding: 8px 16px; border-radius: 30px; border: 1px solid var(--border-color);
+        .supported-providers {
+            display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;
         }
-        .supported-label { font-weight: bold; font-size: 0.8rem; color: var(--text-main); text-transform: uppercase; letter-spacing: 0.5px; }
-        .server-icons { display: flex; align-items: center; gap: 12px; }
-        .server-icon { color: var(--accent-blue); font-size: 1.1rem; }
+        .provider-badge {
+            background: #0f172a; border: 1px solid var(--border-color); color: var(--text-main);
+            padding: 6px 12px; border-radius: 20px; font-size: 0.8rem; display: flex; align-items: center; gap: 6px;
+        }
+        .provider-badge i { color: var(--accent-blue); }
     </style>
 </head>
 <body>
@@ -240,16 +241,15 @@
     </div>
 
     <footer>
-        <div id="footerText">Evox Universal AIO Store Build by nexgen999</div>
-        <div class="supported-servers-bar">
-            <span class="supported-label">Supported Servers</span>
-            <div class="server-icons">
-                <i class="fa-brands fa-github server-icon" title="GitHub"></i>
-                <i class="fa-brands fa-gitlab server-icon" title="GitLab"></i>
-                <i class="fa-solid fa-code-pull-request server-icon" title="Gitea"></i>
-                <i class="fa-solid fa-code-fork server-icon" title="Forgejo / Codeberg"></i>
-                <i class="fa-brands fa-html5 server-icon" title="HTML5 / Web Direct"></i>
-            </div>
+        <div id="footerText">
+            Evox Universal AIO Store Build by nexgen999 — Chargement de la dernière mise à jour...
+        </div>
+        <div class="supported-providers">
+            <span class="provider-badge"><i class="fa-brands fa-github"></i> GitHub</span>
+            <span class="provider-badge"><i class="fa-brands fa-gitlab"></i> GitLab</span>
+            <span class="provider-badge"><i class="fa-solid fa-code-fork"></i> Forgejo</span>
+            <span class="provider-badge"><i class="fa-solid fa-code-pull-request"></i> Gitea</span>
+            <span class="provider-badge"><i class="fa-brands fa-html5"></i> HTML5</span>
         </div>
     </footer>
 </div>
