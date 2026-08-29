@@ -31,29 +31,42 @@ def get_remote_sha256(file_url):
         print(f"      [WARN] SHA256 non calcule ({e})")
         return ""
 
-def clean_url(url):
-    """ Supprime les suffixes RSS/Atom pour obtenir l'URL propre du dépot. """
-    url = re.sub(r'/(releases|tags)\.(atom|rss|xml)$', '', url)
-    url = re.sub(r'\.(atom|rss|xml)$', '', url)
-    return url
+def extract_clean_repo_url(url, description=""):
+    """ Extrait l'URL brute du dépôt même si l'OPML contient un lien RSS FreshRSS ou HTML. """
+    combined = f"{url} {description}"
+    
+    gh_match = re.search(r"https?://github\.com/([^/\s\"']+)/([^/\s\"']+)", combined)
+    if gh_match:
+        owner, repo = gh_match.group(1), gh_match.group(2).rstrip(".git").rstrip("/")
+        return f"https://github.com/{owner}/{repo}", "github"
 
-def detect_source_type(url):
-    url_lower = url.lower()
-    if "github.com" in url_lower: return "github"
-    if "gitlab.com" in url_lower: return "gitlab"
-    if "codeberg.org" in url_lower or "forgejo" in url_lower: return "forgejo"
-    if "gitea" in url_lower: return "gitea"
-    return "generic"
+    gl_match = re.search(r"https?://gitlab\.com/([^/\s\"']+)/([^/\s\"']+)", combined)
+    if gl_match:
+        owner, repo = gl_match.group(1), gl_match.group(2).rstrip(".git").rstrip("/")
+        return f"https://gitlab.com/{owner}/{repo}", "gitlab"
 
-def resolve_release_data(raw_url):
-    url = clean_url(raw_url)
-    source_type = detect_source_type(url)
+    cb_match = re.search(r"https?://(codeberg\.org|[^/]*forgejo[^/]*)/([^/\s\"']+)/([^/\s\"']+)", combined)
+    if cb_match:
+        domain, owner, repo = cb_match.group(1), cb_match.group(2), cb_match.group(3).rstrip(".git").rstrip("/")
+        return f"https://{domain}/{owner}/{repo}", "forgejo"
+
+    gt_match = re.search(r"https?://([^/]*gitea[^/]*)/([^/\s\"']+)/([^/\s\"']+)", combined)
+    if gt_match:
+        domain, owner, repo = gt_match.group(1), gt_match.group(2), gt_match.group(3).rstrip(".git").rstrip("/")
+        return f"https://{domain}/{owner}/{repo}", "gitea"
+
+    # URL Directe / Web
+    clean_url = re.sub(r'/(releases|tags)\.(atom|rss|xml)$', '', url)
+    clean_url = re.sub(r'\.(atom|rss|xml)$', '', clean_url)
+    return clean_url, "generic"
+
+def resolve_release_data(raw_url, description=""):
+    repo_url, source_type = extract_clean_repo_url(raw_url, description)
     
     # 1. GITHUB
-    gh_match = re.search(r"github\.com/([^/]+)/([^/]+)", url)
+    gh_match = re.search(r"github\.com/([^/]+)/([^/]+)", repo_url)
     if gh_match:
-        owner, repo = gh_match.group(1), gh_match.group(2).rstrip(".git")
-        repo_url = f"https://github.com/{owner}/{repo}"
+        owner, repo = gh_match.group(1), gh_match.group(2)
         gh_headers = HEADERS.copy()
         if GITHUB_TOKEN:
             gh_headers["Authorization"] = f"token {GITHUB_TOKEN}"
@@ -69,7 +82,7 @@ def resolve_release_data(raw_url):
                 if all_rel and isinstance(all_rel, list) and len(all_rel) > 0:
                     data = all_rel[0]
             except Exception as e:
-                print(f"   [ERROR GitHub] {owner}/{repo}: {e}")
+                print(f"   [ERROR GitHub API] {owner}/{repo}: {e}")
 
         if data and data.get("assets"):
             version = data.get("tag_name", "v1.0")
@@ -99,10 +112,9 @@ def resolve_release_data(raw_url):
             print(f"   [ERROR Tags GitHub] {owner}/{repo}: {e}")
 
     # 2. GITLAB
-    gl_match = re.search(r"gitlab\.com/([^/]+)/([^/]+)", url)
+    gl_match = re.search(r"gitlab\.com/([^/]+)/([^/]+)", repo_url)
     if gl_match:
-        owner, repo = gl_match.group(1), gl_match.group(2).rstrip(".git")
-        repo_url = f"https://gitlab.com/{owner}/{repo}"
+        owner, repo = gl_match.group(1), gl_match.group(2)
         project_id = urllib.parse.quote_plus(f"{owner}/{repo}")
         api_url = f"https://gitlab.com/api/v4/projects/{project_id}/releases"
         try:
@@ -119,12 +131,12 @@ def resolve_release_data(raw_url):
                     assets.append({"filename": name, "url": dl_url, "sha256": sha})
                 return version, body, assets, "gitlab", repo_url
         except Exception as e:
-            print(f"   [ERROR GitLab] {owner}/{repo}: {e}")
+            print(f"   [ERROR GitLab API] {owner}/{repo}: {e}")
 
-    # 3. DIRECT URL / GENERIC
-    filename = os.path.basename(url) or "file.bin"
-    sha = get_remote_sha256(url)
-    return "v1.0", "Fichier direct", [{"filename": filename, "url": url, "sha256": sha}], source_type, url
+    # 3. DIRECT / GENERIC
+    filename = os.path.basename(repo_url) or "file.bin"
+    sha = get_remote_sha256(repo_url)
+    return "v1.0", "Fichier direct", [{"filename": filename, "url": repo_url, "sha256": sha}], source_type, repo_url
 
 def parse_opml(opml_path):
     items = []
@@ -135,7 +147,8 @@ def parse_opml(opml_path):
         if body is not None:
             for outline in body.findall("outline"):
                 attribs = outline.attrib
-                raw_url = attribs.get("xmlUrl") or attribs.get("htmlUrl") or attribs.get("url")
+                # Priorité à htmlUrl puis xmlUrl/url
+                raw_url = attribs.get("htmlUrl") or attribs.get("xmlUrl") or attribs.get("url")
                 if not raw_url: continue
                 items.append({
                     "name": attribs.get("text") or attribs.get("title") or "Unknown App",
@@ -165,7 +178,7 @@ def process_all_feeds():
             apps = []
 
             for item in items:
-                version, release_notes, assets, source_type, repo_url = resolve_release_data(item["raw_url"])
+                version, release_notes, assets, source_type, repo_url = resolve_release_data(item["raw_url"], item["description"])
 
                 apps.append({
                     "name": item["name"],
