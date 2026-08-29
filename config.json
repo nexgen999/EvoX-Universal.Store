@@ -16,8 +16,22 @@
     "dev_name": "nexgen999",
     "dev_url": "https://github.com/nexgen999",
     "repo_url": "https://github.com/nexgen999/EvoX-Universal.Store",
+    "email": "contact@exemple.com",
     "twitter_url": "https://x.com/nexgen999",
-    "bluesky_url": "https://bsky.app/profile/nexgen999.bsky.social"
+    "bluesky_url": "https://bsky.app/profile/nexgen999.bsky.social",
+    "threads_url": "",
+    "facebook_url": "",
+    "instagram_url": "",
+    "tiktok_url": "",
+    "youtube_url": "",
+    "twitch_url": "",
+    "kick_url": "",
+    "discord_url": "",
+    "telegram_url": "",
+    "whatsapp_url": "",
+    "snapchat_url": "",
+    "reddit_url": "",
+    "linkedin_url": ""
   },
   "store_data_path": "json/evox-store.json",
   "footer": {
