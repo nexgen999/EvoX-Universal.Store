@@ -1,6 +1,6 @@
 {
   "name": "EvoX Universal Store",
-  "updated_at": "2026-08-29T18:12:59.823225Z",
+  "updated_at": "2026-08-29T18:20:40.654533Z",
   "store": [
     {
       "category": "emulation",
@@ -9,17 +9,42 @@
         {
           "name": "flycast",
           "description": "Flycast is a multi-platform Sega Dreamcast, Naomi, Naomi 2, and Atomiswave emulator",
-          "version": "v1.0",
-          "release_notes": "Fichier direct",
+          "version": "v2.7",
+          "release_notes": "## New features\r\n* Frame rate detection and pacing\r\n* Localization (fr, hu, jp, pt_BR, sv)\r\n* Multiscreen support for Airline Pilot, Sega Strike Fighter and Derby Owners Club\r\n* Improved modem emulation\r\n* improved DreamPicoPort and DreamPotato support by @RikkiGibson, @Tails86 and @nexus382\r\n* Android: Google Auto Backup support for VMU saves and non-volatile memory\r\n\r\n## Fixed Games\r\n* Airline Pilot (Naomi, multiscreen)\r\n* Cyber Troopers Virtual-On: Oratorio Tangram (JP, online features)\r\n* Derby Owners Club (new)\r\n* Dinosaur King (ZH, new)\r\n* DreamParaPara by @dakrk (new)\r\n* F355 Challenge (JP, online features)\r\n* Fish Life (new)\r\n* Love & Berry 3 (ZH, new)\r\n* NFL 2K1, NFL 2K2, NBA 2K1, NBA 2K2 (freeze)\r\n* Power Smash (online lag)\r\n* Rune Jade (online features)\r\n* Samba de Amigo (Naomi, inputs)\r\n* Sega Strike Fighter (Naomi, multiscreen)\r\n\r\n## New Contributors\r\n* @Windsurf7 made their first contribution in https://github.com/flyinghead/flycast/pull/2229\r\n* @Kyuyrii made their first contribution in https://github.com/flyinghead/flycast/pull/2236\r\n* @eadmaster made their first contribution in https://github.com/flyinghead/flycast/pull/2252\r\n* @PLCodingStuff made their first contribution in https://github.com/flyinghead/flycast/pull/2274\r\n* @marcgardent made their first contribution in https://github.com/flyinghead/flycast/pull/2318\r\n* @AurisDSP made their first contribution in https://github.com/flyinghead/flycast/pull/2333\r\n* @engdyn made their first contribution in https://github.com/flyinghead/flycast/pull/2383\r\n\r\n**Full Changelog**: https://github.com/flyinghead/flycast/compare/v2.6...v2.7",
           "assets": [
             {
-              "filename": "flycas",
-              "url": "https://github.com/flyinghead/flycas",
-              "sha256": ""
+              "filename": "flycast-2.7.apk",
+              "url": "https://github.com/flyinghead/flycast/releases/download/v2.7/flycast-2.7.apk",
+              "sha256": "1ac54d77b8283f6d58d077396d0916ec12c15b7e4ada9d957836a64590756c00"
+            },
+            {
+              "filename": "flycast-2.7.appx",
+              "url": "https://github.com/flyinghead/flycast/releases/download/v2.7/flycast-2.7.appx",
+              "sha256": "8b6f42e19577526366805c027afab2431af1a7aa71d7b068d9c7adb51441eae6"
+            },
+            {
+              "filename": "flycast-2.7.nro",
+              "url": "https://github.com/flyinghead/flycast/releases/download/v2.7/flycast-2.7.nro",
+              "sha256": "898bf81c24cdbcc1c95b3d7eccca059004c9887feb8628cb9f36444048b12678"
+            },
+            {
+              "filename": "flycast-macOS-2.7.zip",
+              "url": "https://github.com/flyinghead/flycast/releases/download/v2.7/flycast-macOS-2.7.zip",
+              "sha256": "dbd59cb88f52a95ea4de90693bb4ac156530452d5457f2cc4f656fdfd242fc26"
+            },
+            {
+              "filename": "flycast-win64-2.7.zip",
+              "url": "https://github.com/flyinghead/flycast/releases/download/v2.7/flycast-win64-2.7.zip",
+              "sha256": "7edf489ba6b3053703a18ce8233767eb71a2d89e4bda0421b312c2167a739161"
+            },
+            {
+              "filename": "flycast-x86_64-2.7.AppImage",
+              "url": "https://github.com/flyinghead/flycast/releases/download/v2.7/flycast-x86_64-2.7.AppImage",
+              "sha256": "5b9f8a636a6acb8446bc78fe96650d8cb8233ac9f8ce69665dab3f39a1cbaae1"
             }
           ],
           "source_type": "github",
-          "repo_url": "https://github.com/flyinghead/flycas"
+          "repo_url": "https://github.com/flyinghead/flycast"
         },
         {
           "name": "flycast-dojo",
