@@ -1,37 +1,98 @@
-name: Update EvoX Store JSONs
+name: Update Store & README
 
 on:
-  push:
-    paths:
-      - 'feed/**'
   schedule:
-    - cron: '0 0 * * *' # Tourne une fois par jour à minuit
+    # Exécution automatique toutes les 6 heures
+    - cron: '0 */6 * * *'
+  push:
+    branches:
+      - main
+    paths:
+      - 'json/evox-store.json'
+      - 'feeds.opml'
   workflow_dispatch:
 
 permissions:
   contents: write
 
 jobs:
-  build:
+  update-store-and-readme:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout du dépôt
         uses: actions/checkout@v4
 
-      - name: Setup Python
+      - name: Configuration de Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.10'
+          python-version: '3.x'
 
-      - name: Run Scraper
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: python update_store.py
-
-      - name: Commit and Push
+      - name: Installation des dépendances
         run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add json/
-          git status
-          git diff --quiet && git diff --staged --quiet || (git commit -m "auto: update evox-store.json [skip ci]" && git push)
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
+      - name: Exécution du script de mise à jour du store
+        run: |
+          if [ -f update_store.py ]; then
+            python update_store.py
+          else
+            echo "update_store.py non trouvé, passage à la mise à jour du README."
+          fi
+
+      - name: Génération du tableau et mise à jour du README
+        run: |
+          python -c '
+          import json, os
+
+          json_file = "json/evox-store.json"
+          readme_file = "README.md"
+
+          if not os.path.exists(json_file) or not os.path.exists(readme_file):
+              print("Fichiers requis introuvables.")
+              exit(0)
+
+          try:
+              with open(json_file, "r", encoding="utf-8") as f:
+                  data = json.load(f)
+
+              markdown_table = "| Catégorie | Sous-catégorie | Application | Version |\n"
+              markdown_table += "| :--- | :--- | :--- | :--- |\n"
+
+              for cat in data.get("store", []):
+                  category_name = cat.get("category", "")
+                  subcategory_name = cat.get("subcategory", "")
+                  for app in cat.get("apps", []):
+                      app_name = app.get("name", "")
+                      app_version = app.get("version", "v1.0")
+                      markdown_table += f"| {category_name} | {subcategory_name} | {app_name} | {app_version} |\n"
+
+              with open(readme_file, "r", encoding="utf-8") as f:
+                  readme_content = f.read()
+
+              start_marker = "<!-- START_APP_LIST -->"
+              end_marker = "<!-- END_APP_LIST -->"
+
+              start_idx = readme_content.find(start_marker)
+              end_idx = readme_content.find(end_marker)
+
+              if start_idx != -1 and end_idx != -1:
+                  start_body = start_idx + len(start_marker)
+                  new_readme = readme_content[:start_body] + "\n" + markdown_table + "\n" + readme_content[end_idx:]
+                  with open(readme_file, "w", encoding="utf-8") as f:
+                      f.write(new_readme)
+                  print("README.md mis à jour avec succès.")
+              else:
+                  print("Balises introuvables dans README.md.")
+
+          except Exception as e:
+              print(f"Erreur lors de la mise à jour : {e}")
+              exit(1)
+          '
+
+      - name: Commit et Push des modifications
+        run: |
+          git config --local user.name "github-actions[bot]"
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git add json/evox-store.json README.md
+          git diff --quiet && git diff --staged --quiet || (git commit -m "auto: mise à jour du store et du README" && git push)
