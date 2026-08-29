@@ -13,7 +13,7 @@
             --bg-row-odd: #131d33;
             --border-color: #1e293b;
             --accent-blue: #38bdf8;
-            --accent-glow: rgba(56, 189, 248, 0.3);
+            --accent-glow: rgba(56, 189, 248, 0.25);
             --text-main: #f8fafc;
             --text-muted: #64748b;
         }
@@ -29,277 +29,152 @@
 
         .container { max-width: 1400px; margin: 0 auto; }
 
-        /* Top Header */
+        /* Top Bar */
         .top-bar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding-bottom: 15px;
-            border-bottom: 1px solid var(--border-color);
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-            gap: 10px;
+            display: flex; justify-content: space-between; align-items: center;
+            padding-bottom: 15px; border-bottom: 1px solid var(--border-color); margin-bottom: 20px;
         }
 
-        .brand-title {
-            font-size: 1.2rem;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
+        .brand-title { font-size: 1.2rem; font-weight: bold; display: flex; align-items: center; gap: 8px; }
         .brand-title span { color: var(--accent-blue); }
 
-        .quick-links {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 0.85rem;
-        }
-
+        .quick-links { display: flex; align-items: center; gap: 10px; }
         .quick-link-btn {
-            background: #1e293b;
-            border: 1px solid var(--border-color);
-            color: var(--text-main);
-            padding: 6px 12px;
-            border-radius: 20px;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            transition: all 0.2s;
+            background: #1e293b; border: 1px solid var(--border-color); color: var(--text-main);
+            padding: 6px 12px; border-radius: 20px; text-decoration: none; font-size: 0.85rem;
+            display: flex; align-items: center; gap: 6px; transition: 0.2s;
         }
-
-        .quick-link-btn:hover {
-            border-color: var(--accent-blue);
-            color: var(--accent-blue);
-        }
+        .quick-link-btn:hover { border-color: var(--accent-blue); color: var(--accent-blue); }
 
         .social-btn {
-            background: #1e293b;
-            border: 1px solid var(--border-color);
-            color: var(--text-main);
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            transition: all 0.2s;
+            background: #1e293b; border: 1px solid var(--border-color); color: var(--text-main);
+            width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            text-decoration: none; transition: 0.2s;
         }
-
-        .social-btn:hover {
-            border-color: var(--accent-blue);
-            color: var(--accent-blue);
-        }
-
+        .social-btn:hover { border-color: var(--accent-blue); color: var(--accent-blue); }
         .social-btn svg { width: 14px; height: 14px; fill: currentColor; }
 
         /* Hero Banner */
         .hero-banner {
             background: linear-gradient(135deg, #0f172a 0%, #070c14 100%);
-            border: 1px solid var(--accent-blue);
-            box-shadow: 0 0 15px var(--accent-glow);
-            border-radius: 12px;
-            padding: 30px;
-            margin-bottom: 25px;
+            border: 1px solid var(--accent-blue); box-shadow: 0 0 15px var(--accent-glow);
+            border-radius: 12px; padding: 25px; margin-bottom: 25px;
         }
-
-        .hero-title {
-            font-size: 2.5rem;
-            font-weight: 900;
-            font-style: italic;
-            letter-spacing: -1px;
-            margin-bottom: 5px;
-        }
-
-        .hero-title span {
-            color: var(--accent-blue);
-            text-shadow: 0 0 10px var(--accent-glow);
-        }
-
-        .hero-subtitle { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 15px; }
-
-        .hero-tags { display: flex; gap: 10px; flex-wrap: wrap; }
-
+        .hero-title { font-size: 2.2rem; font-weight: 900; font-style: italic; margin-bottom: 5px; }
+        .hero-title span { color: var(--accent-blue); }
+        .hero-subtitle { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 15px; }
+        .hero-tags { display: flex; gap: 8px; flex-wrap: wrap; }
         .tag {
-            background: rgba(56, 189, 248, 0.1);
-            border: 1px solid var(--accent-blue);
-            color: var(--accent-blue);
-            font-size: 0.75rem;
-            padding: 3px 8px;
-            border-radius: 4px;
-            display: flex;
-            align-items: center;
-            gap: 5px;
+            background: rgba(56, 189, 248, 0.1); border: 1px solid var(--accent-blue);
+            color: var(--accent-blue); font-size: 0.75rem; padding: 4px 8px; border-radius: 4px;
+            display: flex; align-items: center; gap: 5px;
         }
 
-        /* Search Controls */
-        .controls-bar { display: flex; flex-direction: column; gap: 15px; margin-bottom: 20px; }
+        /* Controls */
+        .controls-bar { margin-bottom: 20px; }
         .search-row { display: flex; gap: 10px; flex-wrap: wrap; }
-
         .search-box { flex: 2; min-width: 250px; position: relative; }
         .search-box i { position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: var(--text-muted); }
         .search-input {
-            width: 100%;
-            padding: 12px 12px 12px 40px;
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
-            color: var(--text-main);
-            font-size: 0.9rem;
+            width: 100%; padding: 10px 10px 10px 38px; background: var(--bg-card);
+            border: 1px solid var(--border-color); border-radius: 6px; color: var(--text-main); font-size: 0.88rem;
         }
-
         .category-select {
-            flex: 1;
-            min-width: 180px;
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            color: var(--text-main);
-            padding: 0 15px;
-            border-radius: 6px;
-            outline: none;
+            flex: 1; min-width: 160px; background: var(--bg-card); border: 1px solid var(--border-color);
+            color: var(--text-main); padding: 0 12px; border-radius: 6px; outline: none; font-size: 0.85rem;
         }
-
         .btn-refresh {
-            background: var(--accent-blue);
-            color: #000;
-            border: none;
-            padding: 0 20px;
-            border-radius: 6px;
-            font-weight: bold;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 8px;
+            background: var(--accent-blue); color: #000; border: none; padding: 0 16px;
+            border-radius: 6px; font-weight: bold; cursor: pointer; display: flex; align-items: center; gap: 6px;
         }
 
-        .stats-bar { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px; }
+        .stats-bar { color: var(--text-muted); font-size: 0.82rem; margin-bottom: 12px; }
 
-        /* Table */
+        /* Table Responsive Grid */
         .table-container {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            overflow: hidden;
+            background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 8px; overflow: hidden;
         }
-
-        table { width: 100%; border-collapse: collapse; text-align: left; font-size: 0.85rem; }
+        table { width: 100%; border-collapse: collapse; text-align: left; font-size: 0.85rem; table-layout: fixed; }
         th { background: #0b1120; color: var(--text-muted); padding: 12px 15px; font-size: 0.75rem; border-bottom: 1px solid var(--border-color); }
-        td { padding: 12px 15px; border-bottom: 1px solid var(--border-color); vertical-align: middle; }
+        td { padding: 12px 15px; border-bottom: 1px solid var(--border-color); vertical-align: middle; word-wrap: break-word; }
         tr:nth-child(even) { background: var(--bg-row-even); }
         tr:nth-child(odd) { background: var(--bg-row-odd); }
 
-        .app-icon {
-            width: 32px; height: 32px; background: #1e293b; border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            color: var(--accent-blue); font-weight: bold;
+        /* Source Icon Link */
+        .source-link {
+            width: 34px; height: 34px; background: #1e293b; border-radius: 8px; border: 1px solid var(--border-color);
+            display: flex; align-items: center; justify-content: center; color: var(--accent-blue);
+            text-decoration: none; transition: 0.2s; font-size: 1rem;
+        }
+        .source-link:hover { border-color: var(--accent-blue); transform: translateY(-2px); background: #283754; }
+
+        .app-name-title { font-weight: bold; color: #fff; font-size: 0.95rem; }
+        .app-desc { color: var(--text-muted); font-size: 0.78rem; margin-top: 3px; line-height: 1.3; }
+
+        /* Version Badge Ajusté */
+        .badge-ver {
+            background: #16243d; color: var(--accent-blue); padding: 4px 10px; border-radius: 12px;
+            font-size: 0.75rem; border: 1px solid rgba(56, 189, 248, 0.3); display: inline-block;
+            max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
         }
 
-        .app-name-title { font-weight: bold; color: #fff; }
-        .app-desc { color: var(--text-muted); font-size: 0.78rem; margin-top: 2px; }
-        .badge-ver { background: #16243d; color: var(--accent-blue); padding: 2px 8px; border-radius: 10px; font-size: 0.75rem; border: 1px solid rgba(56, 189, 248, 0.3); }
-        .badge-cat { background: #1e293b; color: var(--text-muted); padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; }
+        .badge-cat { background: #1e293b; color: var(--text-muted); padding: 3px 8px; border-radius: 4px; font-size: 0.75rem; }
 
         .btn-icon {
-            background: var(--accent-blue);
-            color: #000;
-            padding: 6px 12px;
-            border-radius: 4px;
-            border: none;
-            font-weight: bold;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 6px;
+            background: var(--accent-blue); color: #000; padding: 7px 14px; border-radius: 6px;
+            border: none; font-weight: bold; cursor: pointer; display: flex; align-items: center;
+            justify-content: center; gap: 6px; width: 100%; transition: 0.2s;
         }
+        .btn-icon:hover { opacity: 0.9; transform: scale(0.98); }
 
-        /* Modal / Popup */
+        /* Modal Redesign */
         .modal-overlay {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            display: none;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(4px);
+            display: none; justify-content: center; align-items: center; z-index: 1000;
         }
-
         .modal-content {
-            background: var(--bg-card);
-            border: 1px solid var(--accent-blue);
-            border-radius: 8px;
-            width: 90%;
-            max-width: 650px;
-            max-height: 80vh;
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-            box-shadow: 0 0 20px var(--accent-glow);
+            background: #0f172a; border: 1px solid var(--accent-blue); border-radius: 12px;
+            width: 90%; max-width: 680px; max-height: 85vh; display: flex; flex-direction: column;
+            box-shadow: 0 0 25px rgba(56, 189, 248, 0.2); overflow: hidden;
         }
-
         .modal-header {
-            padding: 15px 20px;
-            background: #0b1120;
-            border-bottom: 1px solid var(--border-color);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            padding: 16px 20px; background: #0b1120; border-bottom: 1px solid var(--border-color);
+            display: flex; justify-content: space-between; align-items: center;
         }
+        .modal-header h3 { font-size: 1.1rem; color: #fff; }
+        .modal-body { padding: 20px; overflow-y: auto; display: flex; flex-direction: column; gap: 12px; }
 
-        .modal-body {
-            padding: 20px;
-            overflow-y: auto;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
+        .asset-card {
+            background: #131d33; border: 1px solid var(--border-color); padding: 12px 16px;
+            border-radius: 8px; display: flex; flex-direction: column; gap: 8px;
         }
-
-        .asset-row {
-            background: #131d33;
-            border: 1px solid var(--border-color);
-            padding: 10px 15px;
-            border-radius: 6px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        .asset-top { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+        .asset-filename { font-family: monospace; color: #fff; font-size: 0.88rem; font-weight: 600; word-break: break-all; }
+        
+        .sha-container {
+            display: flex; align-items: center; gap: 8px; background: #090d16;
+            padding: 6px 10px; border-radius: 4px; border: 1px solid #1e293b;
         }
+        .sha-label { font-size: 0.65rem; font-weight: bold; color: var(--accent-blue); background: rgba(56, 189, 248, 0.1); padding: 2px 4px; border-radius: 3px; }
+        .sha-value { font-family: monospace; font-size: 0.72rem; color: var(--text-muted); flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .btn-copy { background: none; border: none; color: var(--text-muted); cursor: pointer; font-size: 0.75rem; }
+        .btn-copy:hover { color: var(--accent-blue); }
 
-        .asset-info { display: flex; flex-direction: column; gap: 2px; }
-        .asset-filename { font-family: monospace; color: #fff; font-size: 0.85rem; }
-        .asset-sha { font-family: monospace; color: var(--text-muted); font-size: 0.7rem; }
+        .btn-close { background: none; border: none; color: var(--text-muted); font-size: 1.3rem; cursor: pointer; }
+        .btn-close:hover { color: #fff; }
 
-        .btn-close {
-            background: none; border: none; color: var(--text-muted); font-size: 1.2rem; cursor: pointer;
-        }
-
-        footer {
-            margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border-color);
-            text-align: center; color: var(--text-muted); font-size: 0.85rem;
-            display: flex; flex-direction: column; gap: 15px; align-items: center;
-        }
-
-        .supported-providers { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
-        .provider-badge {
-            background: var(--bg-card); border: 1px solid var(--border-color);
-            padding: 4px 10px; border-radius: 6px; font-size: 0.75rem; color: var(--text-main);
-            display: flex; align-items: center; gap: 6px;
-        }
+        footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border-color); text-align: center; color: var(--text-muted); font-size: 0.82rem; }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <!-- Top Bar -->
     <div class="top-bar">
         <div class="brand-title"><i class="fa-solid fa-cube"></i> Evox Universal <span>AIO Store</span></div>
         <div class="quick-links">
             <a href="https://github.com/nexgen999" target="_blank" class="quick-link-btn"><i class="fa-brands fa-github"></i> Dev By nexgen999</a>
             <a href="https://github.com/nexgen999/EvoX-Universal.Store" target="_blank" class="quick-link-btn"><i class="fa-solid fa-code-branch"></i> GitHub Repo</a>
-            
-            <!-- SVG Fixes pour X et Bluesky -->
             <a href="https://x.com/nexgen999" target="_blank" class="social-btn" title="X (Twitter)">
                 <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
             </a>
@@ -309,7 +184,6 @@
         </div>
     </div>
 
-    <!-- Hero Banner -->
     <div class="hero-banner">
         <div class="hero-title">Evox Universal <span>AIO Store</span></div>
         <div class="hero-subtitle">Le hub central pour vos applications. Catalogue synchronisé via GitHub.</div>
@@ -322,39 +196,34 @@
         </div>
     </div>
 
-    <!-- Controls Bar -->
     <div class="controls-bar">
         <div class="search-row">
             <div class="search-box">
                 <i class="fa-solid fa-magnifying-glass"></i>
                 <input type="text" id="searchInput" class="search-input" placeholder="Rechercher une application..." onkeyup="filterStore()">
             </div>
-            
             <select id="mainCategorySelect" class="category-select" onchange="updateSubCategories(); filterStore();">
                 <option value="ALL">Toutes les catégories</option>
             </select>
-
             <select id="subCategorySelect" class="category-select" onchange="filterStore()">
                 <option value="ALL">Toutes les sous-catégories</option>
             </select>
-
             <button class="btn-refresh" onclick="loadStore()"><i class="fa-solid fa-rotate-right"></i> Actualiser</button>
         </div>
     </div>
 
     <div class="stats-bar" id="statsBar">Chargement des données...</div>
 
-    <!-- Table -->
     <div class="table-container">
         <table>
             <thead>
                 <tr>
-                    <th style="width: 40px;">Icône</th>
-                    <th>Nom / Description</th>
-                    <th>Version</th>
+                    <th style="width: 70px;">Source</th>
+                    <th style="width: 45%;">Nom / Description</th>
+                    <th style="width: 130px;">Version</th>
                     <th>Catégorie</th>
-                    <th>Assets</th>
-                    <th style="width: 120px;">Action</th>
+                    <th style="width: 100px;">Assets</th>
+                    <th style="width: 110px;">Action</th>
                 </tr>
             </thead>
             <tbody id="storeTableBody"></tbody>
@@ -362,16 +231,7 @@
     </div>
 
     <footer>
-        <div id="footerText">
-            Evox Universal AIO Store Build by nexgen999 — Chargement de la dernière mise à jour...
-        </div>
-        <div class="supported-providers">
-            <span class="provider-badge"><i class="fa-brands fa-github"></i> GitHub</span>
-            <span class="provider-badge"><i class="fa-brands fa-gitlab"></i> GitLab</span>
-            <span class="provider-badge"><i class="fa-solid fa-code-fork"></i> Forgejo</span>
-            <span class="provider-badge"><i class="fa-solid fa-code-pull-request"></i> Gitea</span>
-            <span class="provider-badge"><i class="fa-brands fa-html5"></i> HTML5</span>
-        </div>
+        <div id="footerText">Evox Universal AIO Store Build by nexgen999</div>
     </footer>
 </div>
 
@@ -379,7 +239,7 @@
 <div class="modal-overlay" id="downloadModal">
     <div class="modal-content">
         <div class="modal-header">
-            <h3 id="modalAppName">Téléchargement</h3>
+            <h3 id="modalAppName">Téléchargements disponibles</h3>
             <button class="btn-close" onclick="closeModal()">&times;</button>
         </div>
         <div class="modal-body" id="modalAssetsList"></div>
@@ -403,12 +263,11 @@
             populateMainCategories();
             filterStore();
         } catch (error) {
-            console.error("Erreur de chargement JSON:", error);
-            document.getElementById('statsBar').innerText = "Erreur de chargement du fichier evox-store.json";
+            console.error("Erreur JSON:", error);
+            document.getElementById('statsBar').innerText = "Erreur de chargement du catalogue.";
         }
     }
 
-    // Regroupe par application (une seule ligne par app)
     function getGroupedApps(store) {
         let appsList = [];
         store.forEach(catObj => {
@@ -420,27 +279,35 @@
                     mainCategory: catObj.category,
                     subCategory: catObj.subcategory,
                     category: `${catObj.category}/${catObj.subcategory}`,
-                    assets: app.assets || []
+                    assets: app.assets || [],
+                    sourceType: app.source_type || 'generic',
+                    repoUrl: app.repo_url || '#'
                 });
             });
         });
         return appsList;
     }
 
+    function getSourceIconHtml(sourceType, repoUrl) {
+        let iconClass = "fa-solid fa-globe";
+        if (sourceType === 'github') iconClass = "fa-brands fa-github";
+        else if (sourceType === 'gitlab') iconClass = "fa-brands fa-gitlab";
+        else if (sourceType === 'forgejo') iconClass = "fa-solid fa-code-fork";
+        else if (sourceType === 'gitea') iconClass = "fa-solid fa-code-pull-request";
+
+        return `<a href="${repoUrl}" target="_blank" class="source-link" title="Ouvrir le dépôt (${sourceType})"><i class="${iconClass}"></i></a>`;
+    }
+
     function populateMainCategories() {
         const select = document.getElementById('mainCategorySelect');
         select.innerHTML = '<option value="ALL">Toutes les catégories</option>';
-        
         let mainCategories = new Set();
         rawStoreData.forEach(c => mainCategories.add(c.category));
-
         mainCategories.forEach(catName => {
             const opt = document.createElement('option');
-            opt.value = catName;
-            opt.innerText = catName;
+            opt.value = catName; opt.innerText = catName;
             select.appendChild(opt);
         });
-
         updateSubCategories();
     }
 
@@ -448,18 +315,15 @@
         const selectedMain = document.getElementById('mainCategorySelect').value;
         const subSelect = document.getElementById('subCategorySelect');
         subSelect.innerHTML = '<option value="ALL">Toutes les sous-catégories</option>';
-
         let subCategories = new Set();
         rawStoreData.forEach(c => {
             if (selectedMain === 'ALL' || c.category === selectedMain) {
                 subCategories.add(c.subcategory);
             }
         });
-
         subCategories.forEach(subName => {
             const opt = document.createElement('option');
-            opt.value = subName;
-            opt.innerText = subName;
+            opt.value = subName; opt.innerText = subName;
             subSelect.appendChild(opt);
         });
     }
@@ -467,30 +331,26 @@
     function renderTable(apps) {
         const tbody = document.getElementById('storeTableBody');
         tbody.innerHTML = '';
-
         document.getElementById('statsBar').innerText = `${apps.length} application(s) affichée(s)`;
 
         if (apps.length === 0) {
-            tbody.innerHTML = `<tr><td colspan="6" style="text-align:center; color: var(--text-muted); padding:30px;">Aucune application trouvée.</td></tr>`;
+            tbody.innerHTML = `<tr><td colspan="6" style="text-align:center; color: var(--text-muted); padding:30px;">Aucun résultat.</td></tr>`;
             return;
         }
 
         apps.forEach((app, index) => {
             const tr = document.createElement('tr');
-            const firstLetter = app.name.charAt(0).toUpperCase();
-            const assetCount = app.assets.length;
+            const sourceHtml = getSourceIconHtml(app.sourceType, app.repoUrl);
 
             tr.innerHTML = `
-                <td>
-                    <div class="app-icon">${firstLetter}</div>
-                </td>
+                <td>${sourceHtml}</td>
                 <td>
                     <span class="app-name-title">${app.name}</span>
                     <div class="app-desc">${app.description}</div>
                 </td>
-                <td><span class="badge-ver">${app.version}</span></td>
+                <td><span class="badge-ver" title="${app.version}">${app.version}</span></td>
                 <td><span class="badge-cat">${app.category}</span></td>
-                <td><span style="color: var(--text-muted);">${assetCount} fichier(s)</span></td>
+                <td><span style="color: var(--text-muted);">${app.assets.length} fichier(s)</span></td>
                 <td>
                     <button class="btn-icon" onclick="openDownloadModal(${index})">
                         <i class="fa-solid fa-download"></i> Obtenir
@@ -515,22 +375,33 @@
             listContainer.innerHTML = '<p style="color: var(--text-muted);">Aucun fichier téléchargeable disponible.</p>';
         } else {
             app.assets.forEach(asset => {
-                const row = document.createElement('div');
-                row.className = 'asset-row';
-                row.innerHTML = `
-                    <div class="asset-info">
-                        <span class="asset-filename">${asset.filename}</span>
-                        <span class="asset-sha">SHA256: ${asset.sha256 || 'N/A'}</span>
+                const card = document.createElement('div');
+                card.className = 'asset-card';
+                const shaText = asset.sha256 || 'Non calculé';
+                card.innerHTML = `
+                    <div class="asset-top">
+                        <span class="asset-filename"><i class="fa-regular fa-file-code"></i> ${asset.filename}</span>
+                        <a href="${asset.url}" class="btn-icon" style="width:auto; padding:5px 12px;" target="_blank">
+                            <i class="fa-solid fa-download"></i>
+                        </a>
                     </div>
-                    <a href="${asset.url}" class="btn-icon" target="_blank">
-                        <i class="fa-solid fa-download"></i> Télécharger
-                    </a>
+                    <div class="sha-container">
+                        <span class="sha-label">SHA256</span>
+                        <span class="sha-value" id="sha-${asset.filename}">${shaText}</span>
+                        <button class="btn-copy" onclick="copyToClipboard('${shaText}')" title="Copier le SHA256">
+                            <i class="fa-regular fa-copy"></i>
+                        </button>
+                    </div>
                 `;
-                listContainer.appendChild(row);
+                listContainer.appendChild(card);
             });
         }
 
         document.getElementById('downloadModal').style.display = 'flex';
+    }
+
+    function copyToClipboard(text) {
+        navigator.clipboard.writeText(text);
     }
 
     function closeModal() {
@@ -547,7 +418,6 @@
         let filtered = allApps.filter(app => {
             const matchesSearch = app.name.toLowerCase().includes(searchVal) || 
                                   app.description.toLowerCase().includes(searchVal);
-
             const matchesMain = (selectedMain === 'ALL') || (app.mainCategory === selectedMain);
             const matchesSub = (selectedSub === 'ALL') || (app.subCategory === selectedSub);
 
