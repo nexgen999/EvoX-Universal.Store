@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EvoX Universal AIO Store</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --bg-body: #090d16;
+            --bg-card: #0f172a;
+            --bg-row-even: #0f172a;
+            --bg-row-odd: #131d33;
+            --border-color: #1e293b;
+            --accent-blue: #38bdf8;
+            --accent-glow: rgba(56, 189, 248, 0.25);
+            --text-main: #f8fafc;
+            --text-muted: #64748b;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            padding: 20px;
+        }
+
+        .container { max-width: 1400px; margin: 0 auto; }
+
+        /* Top Bar */
+        .top-bar {
+            display: flex; justify-content: space-between; align-items: center;
+            padding-bottom: 15px; border-bottom: 1px solid var(--border-color); margin-bottom: 20px;
+            flex-wrap: wrap; gap: 10px;
+        }
+
+        .brand-title { font-size: 1.2rem; font-weight: bold; display: flex; align-items: center; gap: 8px; }
+        .brand-title span { color: var(--accent-blue); }
+
+        .quick-links { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+        .quick-link-btn {
+            background: #1e293b; border: 1px solid var(--border-color); color: var(--text-main);
+            padding: 6px 12px; border-radius: 20px; text-decoration: none; font-size: 0.85rem;
+            display: flex; align-items: center; gap: 6px; transition: 0.2s;
+        }
+        .quick-link-btn:hover { border-color: var(--accent-blue); color: var(--accent-blue); }
+
+        .social-btn {
+            background: #1e293b; border: 1px solid var(--border-color); color: var(--text-main);
+            width: 32px; height: 32px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center;
+            text-decoration: none; transition: 0.2s; font-size: 0.9rem;
+        }
+        .social-btn:hover { border-color: var(--accent-blue); color: var(--accent-blue); }
+        .social-btn svg { width: 14px; height: 14px; fill: currentColor; }
+
+        /* Hero Banner */
+        .hero-banner {
+            background: linear-gradient(135deg, #0f172a 0%, #070c14 100%);
+            border: 1px solid var(--accent-blue); box-shadow: 0 0 15px var(--accent-glow);
+            border-radius: 12px; padding: 25px; margin-bottom: 25px;
+        }
+        .hero-title { font-size: 2.2rem; font-weight: 900; font-style: italic; margin-bottom: 5px; }
+        .hero-title span { color: var(--accent-blue); }
+        .hero-subtitle { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 15px; }
+        .hero-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+        .tag {
+            background: rgba(56, 189, 248, 0.1); border: 1px solid var(--accent-blue);
+            color: var(--accent-blue); font-size: 0.75rem; padding: 4px 8px; border-radius: 4px;
+            display: flex; align-items: center; gap: 5px;
+        }
+
+        /* Controls */
+        .controls-bar { margin-bottom: 20px; }
+        .search-row { display: flex; gap: 10px; flex-wrap: wrap; }
+        .search-box { flex: 2; min-width: 250px; position: relative; }
+        .search-box i { position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: var(--text-muted); }
+        .search-input {
+            width: 100%; padding: 10px 10px 10px 38px; background: var(--bg-card);
+            border: 1px solid var(--border-color); border-radius: 6px; color: var(--text-main); font-size: 0.88rem;
+        }
+        .category-select {
+            flex: 1; min-width: 160px; background: var(--bg-card); border: 1px solid var(--border-color);
+            color: var(--text-main); padding: 0 12px; border-radius: 6px; outline: none; font-size: 0.85rem;
+        }
+        .btn-refresh {
+            background: var(--accent-blue); color: #000; border: none; padding: 0 16px;
+            border-radius: 6px; font-weight: bold; cursor: pointer; display: flex; align-items: center; gap: 6px;
+        }
+
+        .stats-bar { color: var(--text-muted); font-size: 0.82rem; margin-bottom: 12px; }
+
+        /* Table */
+        .table-container {
+            background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 8px; overflow: hidden;
+        }
+        table { width: 100%; border-collapse: collapse; text-align: left; font-size: 0.85rem; table-layout: fixed; }
+        th { background: #0b1120; color: var(--text-muted); padding: 12px 15px; font-size: 0.75rem; border-bottom: 1px solid var(--border-color); }
+        td { padding: 12px 15px; border-bottom: 1px solid var(--border-color); vertical-align: middle; word-wrap: break-word; }
+        tr:nth-child(even) { background: var(--bg-row-even); }
+        tr:nth-child(odd) { background: var(--bg-row-odd); }
+
+        .source-link {
+            width: 34px; height: 34px; background: #1e293b; border-radius: 8px; border: 1px solid var(--border-color);
+            display: flex; align-items: center; justify-content: center; color: var(--accent-blue);
+            text-decoration: none; transition: 0.2s; font-size: 1.1rem;
+        }
+        .source-link:hover { border-color: var(--accent-blue); transform: translateY(-2px); background: #283754; }
+
+        .app-name-title { font-weight: bold; color: #fff; font-size: 0.95rem; }
+        .app-desc { color: var(--text-muted); font-size: 0.78rem; margin-top: 3px; line-height: 1.3; }
+
+        .badge-ver {
+            background: #16243d; color: var(--accent-blue); padding: 4px 10px; border-radius: 12px;
+            font-size: 0.75rem; border: 1px solid rgba(56, 189, 248, 0.3); display: inline-block;
+            max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+        }
+
+        .badge-cat { background: #1e293b; color: var(--text-muted); padding: 3px 8px; border-radius: 4px; font-size: 0.75rem; }
+
+        .btn-icon {
+            background: var(--accent-blue); color: #000; padding: 7px 14px; border-radius: 6px;
+            border: none; font-weight: bold; cursor: pointer; display: flex; align-items: center;
+            justify-content: center; gap: 6px; width: 100%; transition: 0.2s;
+        }
+        .btn-icon:hover { opacity: 0.9; transform: scale(0.98); }
+
+        /* Modal */
+        .modal-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(4px);
+            display: none; justify-content: center; align-items: center; z-index: 1000;
+        }
+        .modal-content {
+            background: #0f172a; border: 1px solid var(--accent-blue); border-radius: 12px;
+            width: 90%; max-width: 680px; max-height: 85vh; display: flex; flex-direction: column;
+            box-shadow: 0 0 25px rgba(56, 189, 248, 0.2); overflow: hidden;
+        }
+        .modal-header {
+            padding: 16px 20px; background: #0b1120; border-bottom: 1px solid var(--border-color);
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .modal-header h3 { font-size: 1.1rem; color: #fff; }
+        .modal-body { padding: 20px; overflow-y: auto; display: flex; flex-direction: column; gap: 12px; }
+
+        .asset-card {
+            background: #131d33; border: 1px solid var(--border-color); padding: 12px 16px;
+            border-radius: 8px; display: flex; flex-direction: column; gap: 8px;
+        }
+        .asset-top { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+        .asset-filename { font-family: monospace; color: #fff; font-size: 0.88rem; font-weight: 600; word-break: break-all; }
+        
+        .sha-container {
+            display: flex; align-items: center; gap: 8px; background: #090d16;
+            padding: 6px 10px; border-radius: 4px; border: 1px solid #1e293b;
+        }
+        .sha-label { font-size: 0.65rem; font-weight: bold; color: var(--accent-blue); background: rgba(56, 189, 248, 0.1); padding: 2px 4px; border-radius: 3px; }
+        .sha-value { font-family: monospace; font-size: 0.72rem; color: var(--text-muted); flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .btn-copy { background: none; border: none; color: var(--text-muted); cursor: pointer; font-size: 0.75rem; }
+        .btn-copy:hover { color: var(--accent-blue); }
+
+        .btn-close { background: none; border: none; color: var(--text-muted); font-size: 1.3rem; cursor: pointer; }
+        .btn-close:hover { color: #fff; }
+
+        /* Footer */
+        footer {
+            margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border-color);
+            display: flex; flex-direction: column; align-items: center; gap: 14px; color: var(--text-muted); font-size: 0.85rem;
+        }
+        .supported-providers {
+            display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;
+        }
+        .provider-badge {
+            background: #0f172a; border: 1px solid var(--border-color); color: var(--text-main);
+            padding: 6px 12px; border-radius: 20px; font-size: 0.8rem; display: flex; align-items: center; gap: 6px;
+        }
+        .provider-badge i { color: var(--accent-blue); }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="top-bar">
+        <div class="brand-title"><i class="fa-solid fa-cube"></i> Evox Universal <span>AIO Store</span></div>
+        <div class="quick-links" id="quickLinksContainer"></div>
+    </div>
+
+    <div class="hero-banner">
+        <div class="hero-title" id="heroTitle">Evox Universal <span>AIO Store</span></div>
+        <div class="hero-subtitle" id="heroSubtitle">Le hub central pour vos applications. Catalogue synchronisé via GitHub.</div>
+        <div class="hero-tags" id="heroTags">
+            <span class="tag"><i class="fa-solid fa-newspaper"></i> News</span>
+            <span class="tag"><i class="fa-solid fa-boxes-stacked"></i> Apps</span>
+            <span class="tag"><i class="fa-solid fa-magnifying-glass"></i> Recherche</span>
+            <span class="tag"><i class="fa-solid fa-download"></i> Téléchargement</span>
+            <span class="tag"><i class="fa-solid fa-shield-halved"></i> SHA-256</span>
+        </div>
+    </div>
+
+    <div class="controls-bar">
+        <div class="search-row">
+            <div class="search-box">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="searchInput" class="search-input" placeholder="Rechercher une application..." onkeyup="filterStore()">
+            </div>
+            <select id="mainCategorySelect" class="category-select" onchange="updateSubCategories(); filterStore();">
+                <option value="ALL">Toutes les catégories</option>
+            </select>
+            <select id="subCategorySelect" class="category-select" onchange="filterStore()">
+                <option value="ALL">Toutes les sous-catégories</option>
+            </select>
+            <button class="btn-refresh" onclick="loadStore()"><i class="fa-solid fa-rotate-right"></i> Actualiser</button>
+        </div>
+    </div>
+
+    <div class="stats-bar" id="statsBar">Chargement des données...</div>
+
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 70px;">Source</th>
+                    <th style="width: 45%;">Nom / Description</th>
+                    <th style="width: 130px;">Version</th>
+                    <th>Catégorie</th>
+                    <th style="width: 100px;">Assets</th>
+                    <th style="width: 110px;">Action</th>
+                </tr>
+            </thead>
+            <tbody id="storeTableBody"></tbody>
+        </table>
+    </div>
+
+    <footer>
+        <div id="footerText">
+            Evox Universal AIO Store Build by nexgen999 — Chargement de la dernière mise à jour...
+        </div>
+        <div class="supported-providers">
+            <span class="provider-badge"><i class="fa-brands fa-github"></i> GitHub</span>
+            <span class="provider-badge"><i class="fa-brands fa-gitlab"></i> GitLab</span>
+            <span class="provider-badge"><i class="fa-solid fa-code-fork"></i> Forgejo</span>
+            <span class="provider-badge"><i class="fa-solid fa-code-pull-request"></i> Gitea</span>
+            <span class="provider-badge"><i class="fa-brands fa-html5"></i> HTML5</span>
+        </div>
+    </footer>
+</div>
+
+<!-- Modal Download Popup -->
+<div class="modal-overlay" id="downloadModal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3 id="modalAppName">Téléchargements disponibles</h3>
+            <button class="btn-close" onclick="closeModal()">&times;</button>
+        </div>
+        <div class="modal-body" id="modalAssetsList"></div>
+    </div>
+</div>
+
+<script>
+    let rawStoreData = [];
+    let appConfig = {};
+
+    async function loadConfig() {
+        try {
+            const res = await fetch('config.json');
+            if (res.ok) {
+                appConfig = await res.json();
+                applyConfig();
+            }
+        } catch (e) {
+            console.warn("Fichier config.json non détecté ou invalide, utilisation des valeurs par défaut.");
+        }
+    }
+
+    function applyConfig() {
+        if (!appConfig) return;
+
+        if (appConfig.site_title) document.title = appConfig.site_title;
+
+        // Génération dynamique des liens réseaux & dev
+        if (appConfig.quick_links) {
+            const q = appConfig.quick_links;
+            const container = document.getElementById('quickLinksContainer');
+            container.innerHTML = '';
+
+            // Boutons principaux texte
+            if (q.dev_name && q.dev_url) {
+                container.innerHTML += `<a href="${q.dev_url}" target="_blank" class="quick-link-btn"><i class="fa-brands fa-github"></i> Dev By ${q.dev_name}</a>`;
+            }
+            if (q.repo_url) {
+                container.innerHTML += `<a href="${q.repo_url}" target="_blank" class="quick-link-btn"><i class="fa-solid fa-code-branch"></i> GitHub Repo</a>`;
+            }
+
+            // Dictionnaire complet des réseaux sociaux et de leurs icônes
+            const socialIcons = {
+                twitter_url: { title: 'X (Twitter)', html: '<svg viewBox="0 0 24 24" style="width:14px;height:14px;fill:currentColor;"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>' },
+                bluesky_url: { title: 'Bluesky', html: '<svg viewBox="0 0 560 500" style="width:14px;height:14px;fill:currentColor;"><path d="M180 142c-29 39-78 123-88 159-15 54 13 79 66 59 71-27 108-95 122-132 14 37 51 105 122 132 53 20 81-5 66-59-10-36-59-120-88-159 47-8 120-33 120-102 0-38-31-52-70-43-39 9-95 48-150 110C225 45 169 6 130-3 91-12 60 2 60 40c0 69 73 94 120 102z"/></svg>' },
+                threads_url: { title: 'Threads', icon: 'fa-brands fa-threads' },
+                facebook_url: { title: 'Facebook', icon: 'fa-brands fa-facebook' },
+                instagram_url: { title: 'Instagram', icon: 'fa-brands fa-instagram' },
+                tiktok_url: { title: 'TikTok', icon: 'fa-brands fa-tiktok' },
+                youtube_url: { title: 'YouTube', icon: 'fa-brands fa-youtube' },
+                twitch_url: { title: 'Twitch', icon: 'fa-brands fa-twitch' },
+                kick_url: { title: 'Kick', icon: 'fa-solid fa-gamepad' },
+                discord_url: { title: 'Discord', icon: 'fa-brands fa-discord' },
+                telegram_url: { title: 'Telegram', icon: 'fa-brands fa-telegram' },
+                whatsapp_url: { title: 'WhatsApp', icon: 'fa-brands fa-whatsapp' },
+                snapchat_url: { title: 'Snapchat', icon: 'fa-brands fa-snapchat' },
+                reddit_url: { title: 'Reddit', icon: 'fa-brands fa-reddit-alien' },
+                linkedin_url: { title: 'LinkedIn', icon: 'fa-brands fa-linkedin' },
+                email: { title: 'Email', icon: 'fa-solid fa-envelope', isEmail: true }
+            };
+
+            // Injecte le bouton seulement si le champ existe et n'est pas vide
+            Object.keys(socialIcons).forEach(key => {
+                const urlVal = q[key];
+                if (urlVal && urlVal.trim() !== '') {
+                    const item = socialIcons[key];
+                    const targetUrl = item.isEmail ? `mailto:${urlVal.trim()}` : urlVal.trim();
+                    const iconContent = item.html ? item.html : `<i class="${item.icon}"></i>`;
+                    
+                    container.innerHTML += `
+                        <a href="${targetUrl}" target="_blank" class="social-btn" title="${item.title}">
+                            ${iconContent}
+                        </a>
+                    `;
+                }
+            });
+        }
+
+        if (appConfig.hero) {
+            const h = appConfig.hero;
+            const heroTitle = document.getElementById('heroTitle');
+            if (heroTitle) {
+                heroTitle.innerHTML = `${h.title_prefix || ''} <span>${h.title_suffix || ''}</span>`;
+            }
+            const heroSub = document.getElementById('heroSubtitle');
+            if (heroSub && h.subtitle) heroSub.innerText = h.subtitle;
+
+            if (h.tags && Array.isArray(h.tags)) {
+                const tagsContainer = document.getElementById('heroTags');
+                if (tagsContainer) {
+                    tagsContainer.innerHTML = h.tags.map(t => 
+                        `<span class="tag"><i class="fa-solid ${t.icon}"></i> ${t.label}</span>`
+                    ).join('');
+                }
+            }
+        }
+    }
+
+    async function loadStore() {
+        await loadConfig();
+        
+        const storePath = appConfig.store_data_path || 'json/evox-store.json';
+        try {
+            const response = await fetch(storePath);
+            const data = await response.json();
+            rawStoreData = data.store || [];
+            
+            const footerBaseText = (appConfig.footer && appConfig.footer.text) 
+                ? appConfig.footer.text 
+                : "Evox Universal AIO Store Build by nexgen999";
+
+            if (data.updated_at) {
+                const date = new Date(data.updated_at);
+                document.getElementById('footerText').innerText = `${footerBaseText} — Dernière mise à jour : ${date.toLocaleString()}`;
+            } else {
+                document.getElementById('footerText').innerText = footerBaseText;
+            }
+
+            populateMainCategories();
+            filterStore();
+        } catch (error) {
+            console.error("Erreur JSON:", error);
+            document.getElementById('statsBar').innerText = "Erreur de chargement du catalogue.";
+        }
+    }
+
+    function getGroupedApps(store) {
+        let appsList = [];
+        store.forEach(catObj => {
+            catObj.apps.forEach(app => {
+                appsList.push({
+                    name: app.name,
+                    description: app.description || app.release_notes || '',
+                    version: app.version || 'v1.0',
+                    mainCategory: catObj.category,
+                    subCategory: catObj.subcategory,
+                    category: `${catObj.category}/${catObj.subcategory}`,
+                    assets: app.assets || [],
+                    sourceType: app.source_type || 'generic',
+                    repoUrl: app.repo_url || '#'
+                });
+            });
+        });
+        return appsList;
+    }
+
+    function getSourceIconHtml(sourceType, repoUrl) {
+        let iconClass = "fa-solid fa-globe";
+        const urlLower = repoUrl.toLowerCase();
+
+        if (sourceType === 'github' || urlLower.includes('github.com')) {
+            iconClass = "fa-brands fa-github";
+        } else if (sourceType === 'gitlab' || urlLower.includes('gitlab.com')) {
+            iconClass = "fa-brands fa-gitlab";
+        } else if (sourceType === 'forgejo' || urlLower.includes('codeberg.org') || urlLower.includes('forgejo')) {
+            iconClass = "fa-solid fa-code-fork";
+        } else if (sourceType === 'gitea' || urlLower.includes('gitea')) {
+            iconClass = "fa-solid fa-code-pull-request";
+        } else if (sourceType === 'html5' || urlLower.endsWith('.html') || urlLower.endsWith('.htm')) {
+            iconClass = "fa-brands fa-html5";
+        }
+
+        return `<a href="${repoUrl}" target="_blank" class="source-link" title="Ouvrir le dépôt (${repoUrl})"><i class="${iconClass}"></i></a>`;
+    }
+
+    function populateMainCategories() {
+        const select = document.getElementById('mainCategorySelect');
+        select.innerHTML = '<option value="ALL">Toutes les catégories</option>';
+        let mainCategories = new Set();
+        rawStoreData.forEach(c => mainCategories.add(c.category));
+        mainCategories.forEach(catName => {
+            const opt = document.createElement('option');
+            opt.value = catName; opt.innerText = catName;
+            select.appendChild(opt);
+        });
+        updateSubCategories();
+    }
+
+    function updateSubCategories() {
+        const selectedMain = document.getElementById('mainCategorySelect').value;
+        const subSelect = document.getElementById('subCategorySelect');
+        subSelect.innerHTML = '<option value="ALL">Toutes les sous-catégories</option>';
+        let subCategories = new Set();
+        rawStoreData.forEach(c => {
+            if (selectedMain === 'ALL' || c.category === selectedMain) {
+                subCategories.add(c.subcategory);
+            }
+        });
+        subCategories.forEach(subName => {
+            const opt = document.createElement('option');
+            opt.value = subName; opt.innerText = subName;
+            subSelect.appendChild(opt);
+        });
+    }
+
+    function renderTable(apps) {
+        const tbody = document.getElementById('storeTableBody');
+        tbody.innerHTML = '';
+        document.getElementById('statsBar').innerText = `${apps.length} application(s) affichée(s)`;
+
+        if (apps.length === 0) {
+            tbody.innerHTML = `<tr><td colspan="6" style="text-align:center; color: var(--text-muted); padding:30px;">Aucun résultat.</td></tr>`;
+            return;
+        }
+
+        apps.forEach((app, index) => {
+            const tr = document.createElement('tr');
+            const sourceHtml = getSourceIconHtml(app.sourceType, app.repoUrl);
+
+            tr.innerHTML = `
+                <td>${sourceHtml}</td>
+                <td>
+                    <span class="app-name-title">${app.name}</span>
+                    <div class="app-desc">${app.description}</div>
+                </td>
+                <td><span class="badge-ver" title="${app.version}">${app.version}</span></td>
+                <td><span class="badge-cat">${app.category}</span></td>
+                <td><span style="color: var(--text-muted);">${app.assets.length} fichier(s)</span></td>
+                <td>
+                    <button class="btn-icon" onclick="openDownloadModal(${index})">
+                        <i class="fa-solid fa-download"></i> Obtenir
+                    </button>
+                </td>
+            `;
+
+            tbody.appendChild(tr);
+        });
+
+        window.currentFilteredApps = apps;
+    }
+
+    function openDownloadModal(index) {
+        const app = window.currentFilteredApps[index];
+        document.getElementById('modalAppName').innerText = `${app.name} (${app.version})`;
+        
+        const listContainer = document.getElementById('modalAssetsList');
+        listContainer.innerHTML = '';
+
+        if (app.assets.length === 0) {
+            listContainer.innerHTML = '<p style="color: var(--text-muted);">Aucun fichier téléchargeable disponible.</p>';
+        } else {
+            app.assets.forEach(asset => {
+                const card = document.createElement('div');
+                card.className = 'asset-card';
+                const shaText = asset.sha256 || 'Non calculé';
+                card.innerHTML = `
+                    <div class="asset-top">
+                        <span class="asset-filename"><i class="fa-regular fa-file-code"></i> ${asset.filename}</span>
+                        <a href="${asset.url}" class="btn-icon" style="width:auto; padding:5px 12px;" target="_blank">
+                            <i class="fa-solid fa-download"></i>
+                        </a>
+                    </div>
+                    <div class="sha-container">
+                        <span class="sha-label">SHA256</span>
+                        <span class="sha-value" id="sha-${asset.filename}">${shaText}</span>
+                        <button class="btn-copy" onclick="copyToClipboard('${shaText}')" title="Copier le SHA256">
+                            <i class="fa-regular fa-copy"></i>
+                        </button>
+                    </div>
+                `;
+                listContainer.appendChild(card);
+            });
+        }
+
+        document.getElementById('downloadModal').style.display = 'flex';
+    }
+
+    function copyToClipboard(text) {
+        navigator.clipboard.writeText(text);
+    }
+
+    function closeModal() {
+        document.getElementById('downloadModal').style.display = 'none';
+    }
+
+    function filterStore() {
+        const searchVal = document.getElementById('searchInput').value.toLowerCase();
+        const selectedMain = document.getElementById('mainCategorySelect').value;
+        const selectedSub = document.getElementById('subCategorySelect').value;
+
+        let allApps = getGroupedApps(rawStoreData);
+
+        let filtered = allApps.filter(app => {
+            const matchesSearch = app.name.toLowerCase().includes(searchVal) || 
+                                  app.description.toLowerCase().includes(searchVal);
+            const matchesMain = (selectedMain === 'ALL') || (app.mainCategory === selectedMain);
+            const matchesSub = (selectedSub === 'ALL') || (app.subCategory === selectedSub);
+
+            return matchesSearch && matchesMain && matchesSub;
+        });
+
+        renderTable(filtered);
+    }
+
+    loadStore();
+</script>
+
+</body>
+</html>

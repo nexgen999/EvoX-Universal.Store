@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="fr"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>EvoX Universal Store</title>
+<style>
+:root{--bg:#0b0d12;--side:#11151d;--panel:#151a23;--line:#282f3b;--text:#f2f4f8;--muted:#8b95a5;--accent:#ffb000;--danger:#ff5f56}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:14px system-ui,sans-serif}.app-shell{height:100vh;display:grid;grid-template-columns:330px 1fr;overflow:hidden}.left{background:var(--side);border-right:1px solid var(--line);display:flex;flex-direction:column;min-height:0}.head{padding:20px;border-bottom:1px solid var(--line)}.head b{color:var(--accent)}.head small{display:block;color:var(--muted);margin-top:5px}.search{margin-top:15px;width:100%;background:#0c1017;border:1px solid var(--line);color:#fff;padding:11px;border-radius:8px;outline:0}.filters{padding:10px 20px;display:flex;gap:6px}.filters select{flex:1;background:#0c1017;border:1px solid var(--line);color:#cbd2dc;padding:8px;border-radius:7px}.list{overflow:auto;padding:8px}.item{padding:12px;border-radius:9px;margin-bottom:3px;cursor:pointer}.item:hover,.item.selected{background:#1b222d}.item.selected{border-left:3px solid var(--accent)}.item strong{display:block}.item span{display:block;color:var(--muted);font-size:11px;margin-top:4px}.right{overflow:auto}.emptyDetail{height:100%;display:grid;place-items:center;color:var(--muted)}.detail{max-width:1000px;margin:auto;padding:48px 55px}.crumb{color:var(--muted);font-size:12px}.detail h1{font-size:48px;margin:10px 0}.detail .desc{font-size:16px;color:#b6becb;max-width:780px;line-height:1.55}.chips{display:flex;gap:7px;flex-wrap:wrap;margin:18px 0}.chip{border:1px solid var(--line);padding:6px 9px;border-radius:5px;color:#aeb8c8}.heroAction{display:flex;gap:8px;margin:25px 0}.heroAction button{background:var(--accent);color:#16120a;border:0;padding:11px 18px;border-radius:7px;font-weight:900;cursor:pointer}.heroAction .ghost{background:#1a2029;color:#dbe2eb}.section{border-top:1px solid var(--line);padding-top:20px;margin-top:25px}.assets{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}.asset{background:var(--panel);border:1px solid var(--line);padding:14px;border-radius:8px}.asset strong{font-family:monospace;word-break:break-all}.asset small{display:block;color:var(--muted);font-family:monospace;margin:7px 0;word-break:break-all}.asset a,.asset button{display:inline-block;background:#252c38;color:#fff;border:1px solid #343d4b;padding:7px 9px;border-radius:6px;text-decoration:none;cursor:pointer}.asset a{background:var(--accent);color:#15120a;border-color:var(--accent);font-weight:800}.notes{color:#aab4c3;line-height:1.6;white-space:pre-wrap}.socials{position:absolute;right:25px;top:20px;display:flex;gap:4px}.socials a{color:#8994a4;text-decoration:none;padding:6px}
+.modal{display:none}.modal.open{display:none}
+@media(max-width:900px){.app-shell{grid-template-columns:270px 1fr}.detail{padding:35px}.detail h1{font-size:38px}.assets{grid-template-columns:1fr}}
+@media(max-width:650px){.app-shell{display:block;height:auto;min-height:100vh}.left{height:auto}.list{display:flex;overflow:auto}.item{min-width:180px}.right{min-height:70vh}.detail{padding:25px 17px}.detail h1{font-size:32px}.socials{position:static;margin-top:10px}}
+</style></head><body>
+
+<div class="app-shell"><aside class="left"><div class="head"><b>EvoX</b> Universal Store<small data-subtitle></small><div data-links class="socials"></div><input id="search" class="search" placeholder="Rechercher..." oninput="doFilter()"></div><div class="filters"><select data-category onchange="doFilter()"></select><select data-subcategory onchange="doFilter()"></select></div><div id="items" class="list"></div></aside>
+<main class="right"><div id="detail" class="emptyDetail">Sélectionne une application à gauche.</div></main></div>
+<script>
+setTimeout(()=>{ const OLD_RENDER=render;
+render=function(){
+ const q=($("#search")?.value||"").toLowerCase().trim(), c=$("[data-category]")?.value||"", s=$("[data-subcategory]")?.value||"";
+ filtered=flat.filter(x=>(!q||[x.name,x.description,x.version,x.categoryPath].join(" ").toLowerCase().includes(q))&&(!c||x.mainCategory===c)&&(!s||x.subCategory===s));
+ $("#items").innerHTML=filtered.map((a,i)=>`<div class="item ${selected===a?"selected":""}" onclick="showDetail(${flat.indexOf(a)})"><strong>${esc(a.name)}</strong><span>${esc(a.version||"latest")} · ${(a.assets||[]).length} fichiers</span></div>`).join("")||"<div style='padding:20px;color:#8994a4'>Aucun résultat.</div>";
+ if(selected&&!filtered.includes(selected)) selected=null;
+ if(selected) paintDetail(selected);
+}
+},0);
+function showDetail(i){selected=flat[i];render()}
+function paintDetail(a){
+ $("#detail").innerHTML=`<div class="detail"><div class="crumb">${esc(a.categoryPath)}</div><h1>${esc(a.name)}</h1><div class="desc">${esc(a.description||"")}</div><div class="chips"><span class="chip">${esc(a.version||"latest")}</span><span class="chip">${(a.assets||[]).length} fichiers</span><span class="chip">${sourceIcon(a)} ${esc(a.source_type||"source")}</span></div><div class="heroAction">${a.repo_url?`<a class="heroAction" href="${attr(a.repo_url)}" target="_blank" style="text-decoration:none"><button class="ghost">Voir la source</button></a>`:""}<button onclick='openApp(selected)'>Téléchargements</button></div><section class="section"><h3>Fichiers disponibles</h3><div class="assets">${(a.assets||[]).map(x=>`<div class="asset"><strong>${esc(x.filename)}</strong><small>${x.sha256?"SHA-256: "+esc(x.sha256):"SHA-256 non fourni"}</small><a href="${attr(x.url)}" target="_blank" rel="noopener">Télécharger</a>${x.sha256?` <button onclick="copyText('${attr(x.sha256)}',this)">Copier</button>`:""}</div>`).join("")}</div></section><section class="section"><h3>Release notes</h3><div class="notes">${esc(a.release_notes||"Aucune release note.")}</div></section></div>`;
+}
+</script>
+
+<div id="modal" class="modal"><div class="modal-box">
+<button class="modal-close" onclick="closeApp()">×</button><div id="modalTitle"></div>
+<p id="modalDesc"></p><div id="modalSource"></div><div id="modalAssets"></div>
+<details><summary>Release notes</summary><div id="modalNotes"></div></details>
+</div></div>
+<script>
+const CONFIG_URL="config.json";
+let cfg={}, store=[], flat=[], filtered=[], selected=null, view=localStorage.getItem("evox-view")||"grid";
+
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]));
+const attr=esc;
+
+async function load(){
+  try{
+    cfg=await (await fetch(CONFIG_URL+"?t="+Date.now())).json();
+  }catch(e){ cfg={}; }
+  const path=cfg.store_data_path||"json/evox-store.json";
+  try{
+    const data=await (await fetch(path+"?t="+Date.now())).json();
+    store=data.store||[];
+    flat=store.flatMap(g=>(g.apps||[]).map(a=>({...a,mainCategory:g.category||"other",subCategory:g.subcategory||"other",categoryPath:[g.category,g.subcategory].filter(Boolean).join(" / ")})));
+    applyConfig(data);
+    buildFilters();
+    render();
+  }catch(e){
+    document.querySelectorAll("[data-status]").forEach(x=>x.textContent="Impossible de charger le catalogue.");
+  }
+}
+function applyConfig(data){
+  document.title=cfg.site_title||"EvoX Universal Store";
+  const h=cfg.hero||{};
+  const title=(h.title_prefix||"EvoX Universal")+" "+(h.title_suffix||"Store");
+  document.querySelectorAll("[data-title]").forEach(x=>x.textContent=title);
+  document.querySelectorAll("[data-subtitle]").forEach(x=>x.textContent=h.subtitle||"Catalogue synchronisé automatiquement.");
+  const tags=(h.tags||[]).map(t=>`<span class="tag">${esc(t.label)}</span>`).join("");
+  document.querySelectorAll("[data-tags]").forEach(x=>x.innerHTML=tags);
+  const q=cfg.quick_links||{};
+  const links=[
+    ["dev_url","◉","Profil développeur"],["repo_url","⌘","Repository"],
+    ["twitter_url","𝕏","X"],["bluesky_url","🦋","Bluesky"],["threads_url","@", "Threads"],
+    ["facebook_url","f","Facebook"],["instagram_url","◎","Instagram"],["tiktok_url","♪","TikTok"],
+    ["youtube_url","▶","YouTube"],["twitch_url","◈","Twitch"],["kick_url","K","Kick"],
+    ["discord_url","◌","Discord"],["telegram_url","➤","Telegram"],["whatsapp_url","◔","WhatsApp"],
+    ["snapchat_url","◉","Snapchat"],["reddit_url","●","Reddit"],["linkedin_url","in","LinkedIn"],
+    ["email","✉","Email"]
+  ].filter(([k])=>q[k]);
+  document.querySelectorAll("[data-links]").forEach(el=>{
+    el.innerHTML=links.map(([k,ic,label])=>{
+      const href=k==="email"?"mailto:"+q[k]:q[k];
+      return `<a href="${attr(href)}" target="_blank" rel="noopener" title="${attr(label)}"><b>${ic}</b><span>${esc(label)}</span></a>`;
+    }).join("");
+  });
+  const footer=(cfg.footer||{}).text||"EvoX Universal Store";
+  document.querySelectorAll("[data-footer]").forEach(x=>x.textContent=footer+(data.updated_at?" · "+new Date(data.updated_at).toLocaleString("fr-FR"):""));
+}
+function buildFilters(){
+  const cats=[...new Set(flat.map(x=>x.mainCategory))].sort();
+  const subs=[...new Set(flat.map(x=>x.subCategory))].sort();
+  document.querySelectorAll("[data-category]").forEach(s=>{
+    s.innerHTML='<option value="">Toutes les catégories</option>'+cats.map(x=>`<option>${esc(x)}</option>`).join("");
+  });
+  document.querySelectorAll("[data-subcategory]").forEach(s=>{
+    s.innerHTML='<option value="">Toutes les sous-catégories</option>'+subs.map(x=>`<option>${esc(x)}</option>`).join("");
+  });
+}
+function doFilter(){
+  const q=($("#search")?.value||"").toLowerCase().trim();
+  const c=$("[data-category]")?.value||"";
+  const s=$("[data-subcategory]")?.value||"";
+  filtered=flat.filter(x=>(!q||[x.name,x.description,x.version,x.categoryPath,x.release_notes].join(" ").toLowerCase().includes(q))&&(!c||x.mainCategory===c)&&(!s||x.subCategory===s));
+  render();
+}
+function sourceIcon(a){
+  const u=(a.repo_url||"").toLowerCase(), t=(a.source_type||"").toLowerCase();
+  if(t==="github"||u.includes("github.com"))return "◉";
+  if(t==="gitlab"||u.includes("gitlab.com"))return "◈";
+  if(t==="forgejo"||u.includes("codeberg"))return "⑂";
+  if(t==="gitea"||u.includes("gitea"))return "◇";
+  if(t==="html5")return "▣";
+  return "↗";
+}
+function appIcon(a){
+  const n=(a.name||"A").trim();
+  return n.replace(/[^a-zA-Z0-9]/g,"").slice(0,2).toUpperCase()||"EX";
+}
+function platformNames(a){
+  const names=(a.assets||[]).map(x=>x.filename||"").map(n=>{
+    const s=n.toLowerCase();
+    if(s.includes("windows")||s.endsWith(".exe")||s.endsWith(".msi"))return "Windows";
+    if(s.includes("linux")||s.endsWith(".appimage"))return "Linux";
+    if(s.includes("mac")||s.endsWith(".dmg"))return "macOS";
+    if(s.endsWith(".apk"))return "Android";
+    if(s.endsWith(".appx"))return "Xbox/UWP";
+    if(s.endsWith(".nro"))return "Switch";
+    return "Autre";
+  });
+  return [...new Set(names)];
+}
+function openApp(a){
+  selected=a;
+  const modal=$("#modal");
+  if(!modal)return;
+  $("#modalTitle").textContent=a.name+" · "+(a.version||"");
+  $("#modalDesc").textContent=a.description||"";
+  $("#modalSource").innerHTML=a.repo_url?`<a href="${attr(a.repo_url)}" target="_blank" rel="noopener">${sourceIcon(a)} Source</a>`:"";
+  $("#modalAssets").innerHTML=(a.assets||[]).map((x,i)=>`
+    <div class="asset">
+      <div><strong>${esc(x.filename||"Fichier")}</strong><small>${x.sha256?"SHA-256 "+esc(x.sha256):"SHA-256 non fourni"}</small></div>
+      <div class="asset-actions">${x.sha256?`<button onclick="copyText('${attr(x.sha256)}',this)">Copier SHA</button>`:""}<a href="${attr(x.url||"#")}" target="_blank" rel="noopener">Télécharger</a></div>
+    </div>`).join("")||"<p>Aucun fichier disponible.</p>";
+  $("#modalNotes").innerHTML=a.release_notes?esc(a.release_notes).replace(/\n/g,"<br>"):"Aucune release note.";
+  modal.classList.add("open");
+}
+function closeApp(){ $("#modal")?.classList.remove("open"); }
+function copyText(v,b){navigator.clipboard?.writeText(v);if(b){const t=b.textContent;b.textContent="Copié ✓";setTimeout(()=>b.textContent=t,1200)}}
+function setView(v){view=v;localStorage.setItem("evox-view",v);document.body.dataset.view=v;document.querySelectorAll("[data-view-btn]").forEach(b=>b.classList.toggle("active",b.dataset.viewBtn===v));render();}
+function render(){
+  document.body.dataset.view=view;
+  document.querySelectorAll("[data-count]").forEach(x=>x.textContent=`${filtered.length} applications · ${flat.length} au total`);
+  const target=$("#items"); if(!target)return;
+  target.innerHTML=filtered.map((a,i)=>{
+    const plats=platformNames(a);
+    return `<article class="app" onclick='openApp(flat[${flat.indexOf(a)}])'>
+      <div class="app-icon">${esc(appIcon(a))}</div>
+      <div class="app-main">
+        <div class="app-head"><h3>${esc(a.name)}</h3><span class="version">${esc(a.version||"latest")}</span></div>
+        <p>${esc(a.description||"Aucune description.")}</p>
+        <div class="meta"><span>${esc(a.categoryPath)}</span><span>${(a.assets||[]).length} fichiers</span>${plats.slice(0,4).map(p=>`<i>${esc(p)}</i>`).join("")}</div>
+      </div>
+      <div class="app-end"><span class="source">${sourceIcon(a)}</span><button onclick='event.stopPropagation();openApp(flat[${flat.indexOf(a)}])'>Obtenir</button></div>
+    </article>`;
+  }).join("")||`<div class="empty">Aucun résultat.</div>`;
+}
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeApp()});
+window.addEventListener("click",e=>{if(e.target===$("#modal"))closeApp()});
+
+window.addEventListener("DOMContentLoaded",()=>{document.body.dataset.view=view;load();});
+</script></body></html>
