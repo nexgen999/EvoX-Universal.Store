@@ -47,7 +47,10 @@ Le fichier `config.json` permet de personnaliser l'interface web du Store sans t
 <!-- START_APP_LIST -->
 | Catégorie | Sous-catégorie | Application | Version |
 | :--- | :--- | :--- | :--- |
-| *Exemple* | *Outils* | App Example | v1.0.0 |
+| emulation | emulateurs | flycast | v2.7 |
+| emulation | emulateurs | flycast-dojo | dojo-6.46 |
+| emulation | emulateurs | duckstation | latest |
+
 <!-- END_APP_LIST -->
 
 ---
