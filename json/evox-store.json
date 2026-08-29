@@ -1,6 +1,6 @@
 {
   "name": "EvoX Universal Store",
-  "updated_at": "2026-08-29T18:05:08.655768Z",
+  "updated_at": "2026-08-29T18:12:59.823225Z",
   "store": [
     {
       "category": "emulation",
@@ -13,13 +13,13 @@
           "release_notes": "Fichier direct",
           "assets": [
             {
-              "filename": "flycast",
-              "url": "https://github.com/flyinghead/flycast",
-              "sha256": "991a9555281790cf894ad0e19b34672389e080964dc05a3feaa0215884cb7fe2"
+              "filename": "flycas",
+              "url": "https://github.com/flyinghead/flycas",
+              "sha256": ""
             }
           ],
           "source_type": "github",
-          "repo_url": "https://github.com/flyinghead/flycast"
+          "repo_url": "https://github.com/flyinghead/flycas"
         },
         {
           "name": "flycast-dojo",

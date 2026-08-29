@@ -9,13 +9,13 @@
       "release_notes": "Fichier direct",
       "assets": [
         {
-          "filename": "flycast",
-          "url": "https://github.com/flyinghead/flycast",
-          "sha256": "991a9555281790cf894ad0e19b34672389e080964dc05a3feaa0215884cb7fe2"
+          "filename": "flycas",
+          "url": "https://github.com/flyinghead/flycas",
+          "sha256": ""
         }
       ],
       "source_type": "github",
-      "repo_url": "https://github.com/flyinghead/flycast"
+      "repo_url": "https://github.com/flyinghead/flycas"
     },
     {
       "name": "flycast-dojo",
