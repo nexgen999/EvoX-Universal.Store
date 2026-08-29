@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EvoX AIO Store</title>
+    <title>EvoX Universal AIO Store</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -45,6 +45,8 @@
             padding-bottom: 15px;
             border-bottom: 1px solid var(--border-color);
             margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 10px;
         }
 
         .brand-title {
@@ -61,8 +63,10 @@
 
         .quick-links {
             display: flex;
-            gap: 15px;
+            align-items: center;
+            gap: 12px;
             font-size: 0.85rem;
+            flex-wrap: wrap;
         }
 
         .quick-link-btn {
@@ -75,6 +79,32 @@
             display: flex;
             align-items: center;
             gap: 6px;
+            transition: all 0.2s;
+        }
+
+        .quick-link-btn:hover {
+            border-color: var(--accent-blue);
+            color: var(--accent-blue);
+        }
+
+        .social-btn {
+            background: #1e293b;
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+
+        .social-btn:hover {
+            border-color: var(--accent-blue);
+            color: var(--accent-blue);
         }
 
         /* Hero Banner Cyberpunk */
@@ -90,7 +120,7 @@
         }
 
         .hero-title {
-            font-size: 2.8rem;
+            font-size: 2.5rem;
             font-weight: 900;
             font-style: italic;
             letter-spacing: -1px;
@@ -134,34 +164,15 @@
             margin-bottom: 20px;
         }
 
-        .filter-tabs {
-            display: flex;
-            gap: 10px;
-        }
-
-        .tab-btn {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            color: var(--text-muted);
-            padding: 8px 16px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: bold;
-        }
-
-        .tab-btn.active {
-            background: var(--accent-blue);
-            color: #000;
-            border-color: var(--accent-blue);
-        }
-
         .search-row {
             display: flex;
             gap: 10px;
+            flex-wrap: wrap;
         }
 
         .search-box {
-            flex: 1;
+            flex: 2;
+            min-width: 250px;
             position: relative;
         }
 
@@ -184,11 +195,14 @@
         }
 
         .category-select {
+            flex: 1;
+            min-width: 180px;
             background: var(--bg-card);
             border: 1px solid var(--border-color);
             color: var(--text-main);
             padding: 0 15px;
             border-radius: 6px;
+            outline: none;
         }
 
         .btn-refresh {
@@ -328,11 +342,38 @@
             opacity: 0.8;
         }
 
+        /* Footer */
         footer {
-            margin-top: 30px;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
             text-align: center;
             color: var(--text-muted);
-            font-size: 0.8rem;
+            font-size: 0.85rem;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .supported-providers {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .provider-badge {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
     </style>
 </head>
@@ -341,20 +382,22 @@
 <div class="container">
     <!-- Top Bar -->
     <div class="top-bar">
-        <div class="brand-title"><i class="fa-solid fa-cube"></i> EvoX <span>AIO STORE</span></div>
+        <div class="brand-title"><i class="fa-solid fa-cube"></i> Evox Universal <span>AIO Store</span></div>
         <div class="quick-links">
-            <a href="#" class="quick-link-btn"><i class="fa-solid fa-rocket"></i> Launch Payload</a>
-            <a href="#" class="quick-link-btn"><i class="fa-solid fa-code-branch"></i> GitHub Repo</a>
+            <a href="https://github.com/nexgen999" target="_blank" class="quick-link-btn"><i class="fa-brands fa-github"></i> Dev By nexgen999</a>
+            <a href="https://github.com/nexgen999/EvoX-Universal.Store" target="_blank" class="quick-link-btn"><i class="fa-solid fa-code-branch"></i> GitHub Repo</a>
+            <a href="https://x.com/nexgen999" target="_blank" class="social-btn" title="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="https://bsky.app/profile/nexgen999.bsky.social" target="_blank" class="social-btn" title="Bluesky"><i class="fa-solid fa-cloud"></i></a>
         </div>
     </div>
 
     <!-- Hero Banner -->
     <div class="hero-banner">
-        <div class="hero-title">evoX <span>STORE</span></div>
-        <div class="hero-subtitle">Le hub central pour les payloads et applications PKG PS5. Catalogue synchronisé via GitHub.</div>
+        <div class="hero-title">Evox Universal <span>AIO Store</span></div>
+        <div class="hero-subtitle">Le hub central pour vos applications. Catalogue synchronisé via GitHub.</div>
         <div class="hero-tags">
-            <span class="tag"><i class="fa-solid fa-tag"></i> Payloads</span>
-            <span class="tag"><i class="fa-solid fa-box"></i> PKG</span>
+            <span class="tag"><i class="fa-solid fa-newspaper"></i> News</span>
+            <span class="tag"><i class="fa-solid fa-boxes-stacked"></i> Apps</span>
             <span class="tag"><i class="fa-solid fa-magnifying-glass"></i> Recherche</span>
             <span class="tag"><i class="fa-solid fa-download"></i> Téléchargement</span>
             <span class="tag"><i class="fa-solid fa-shield-halved"></i> SHA-256</span>
@@ -366,11 +409,18 @@
         <div class="search-row">
             <div class="search-box">
                 <i class="fa-solid fa-magnifying-glass"></i>
-                <input type="text" id="searchInput" class="search-input" placeholder="Rechercher un payload ou un package..." onkeyup="filterStore()">
+                <input type="text" id="searchInput" class="search-input" placeholder="Rechercher une application ou un fichier..." onkeyup="filterStore()">
             </div>
-            <select id="categorySelect" class="category-select" onchange="filterStore()">
+            
+            <!-- Deux menus déroulants distincts -->
+            <select id="mainCategorySelect" class="category-select" onchange="updateSubCategories(); filterStore();">
                 <option value="ALL">Toutes les catégories</option>
             </select>
+
+            <select id="subCategorySelect" class="category-select" onchange="filterStore()">
+                <option value="ALL">Toutes les sous-catégories</option>
+            </select>
+
             <button class="btn-refresh" onclick="loadStore()"><i class="fa-solid fa-rotate-right"></i> Actualiser</button>
         </div>
     </div>
@@ -398,8 +448,18 @@
         </table>
     </div>
 
-    <footer id="footerText">
-        EvoX AIO Store — Catalogue dynamique
+    <!-- Footer -->
+    <footer>
+        <div id="footerText">
+            Evox Universal AIO Store Build by nexgen999 — Chargement de la dernière mise à jour...
+        </div>
+        <div class="supported-providers">
+            <span class="provider-badge"><i class="fa-brands fa-github"></i> GitHub</span>
+            <span class="provider-badge"><i class="fa-brands fa-gitlab"></i> GitLab</span>
+            <span class="provider-badge"><i class="fa-solid fa-code-fork"></i> Forgejo</span>
+            <span class="provider-badge"><i class="fa-solid fa-code-pull-request"></i> Gitea</span>
+            <span class="provider-badge"><i class="fa-brands fa-html5"></i> HTML5</span>
+        </div>
     </footer>
 </div>
 
@@ -414,18 +474,17 @@
             
             if (data.updated_at) {
                 const date = new Date(data.updated_at);
-                document.getElementById('footerText').innerText = `EvoX AIO Store — Dernière mise à jour : ${date.toLocaleString()}`;
+                document.getElementById('footerText').innerText = `Evox Universal AIO Store Build by nexgen999 — Dernière mise à jour : ${date.toLocaleString()}`;
             }
 
-            populateCategories();
-            renderTable(flattenData(rawStoreData));
+            populateMainCategories();
+            filterStore();
         } catch (error) {
             console.error("Erreur de chargement JSON:", error);
             document.getElementById('statsBar').innerText = "Erreur de chargement du fichier evox-store.json";
         }
     }
 
-    // Transforme la structure arborescente (catégorie > sous-catégorie > apps > assets) en liste à plat pour le tableau
     function flattenData(store) {
         let rows = [];
         store.forEach(catObj => {
@@ -436,6 +495,8 @@
                             name: app.name,
                             description: app.description || app.release_notes || '',
                             version: app.version || 'v1.0',
+                            mainCategory: catObj.category,
+                            subCategory: catObj.subcategory,
                             category: `${catObj.category}/${catObj.subcategory}`,
                             filename: asset.filename,
                             url: asset.url,
@@ -447,6 +508,8 @@
                         name: app.name,
                         description: app.description || '',
                         version: app.version || 'v1.0',
+                        mainCategory: catObj.category,
+                        subCategory: catObj.subcategory,
                         category: `${catObj.category}/${catObj.subcategory}`,
                         filename: app.name,
                         url: '#',
@@ -458,18 +521,41 @@
         return rows;
     }
 
-    function populateCategories() {
-        const select = document.getElementById('categorySelect');
+    function populateMainCategories() {
+        const select = document.getElementById('mainCategorySelect');
         select.innerHTML = '<option value="ALL">Toutes les catégories</option>';
         
-        let categoriesSet = new Set();
-        rawStoreData.forEach(c => categoriesSet.add(`${c.category}/${c.subcategory}`));
+        let mainCategories = new Set();
+        rawStoreData.forEach(c => mainCategories.add(c.category));
 
-        categoriesSet.forEach(catName => {
+        mainCategories.forEach(catName => {
             const opt = document.createElement('option');
             opt.value = catName;
             opt.innerText = catName;
             select.appendChild(opt);
+        });
+
+        updateSubCategories();
+    }
+
+    function updateSubCategories() {
+        const selectedMain = document.getElementById('mainCategorySelect').value;
+        const subSelect = document.getElementById('subCategorySelect');
+        subSelect.innerHTML = '<option value="ALL">Toutes les sous-catégories</option>';
+
+        let subCategories = new Set();
+
+        rawStoreData.forEach(c => {
+            if (selectedMain === 'ALL' || c.category === selectedMain) {
+                subCategories.add(c.subcategory);
+            }
+        });
+
+        subCategories.forEach(subName => {
+            const opt = document.createElement('option');
+            opt.value = subName;
+            opt.innerText = subName;
+            subSelect.appendChild(opt);
         });
     }
 
@@ -486,8 +572,6 @@
 
         rows.forEach(item => {
             const tr = document.createElement('tr');
-            
-            // Extraction de la première lettre pour l'icône générique
             const firstLetter = item.name.charAt(0).toUpperCase();
 
             tr.innerHTML = `
@@ -517,7 +601,8 @@
 
     function filterStore() {
         const searchVal = document.getElementById('searchInput').value.toLowerCase();
-        const selectedCat = document.getElementById('categorySelect').value;
+        const selectedMain = document.getElementById('mainCategorySelect').value;
+        const selectedSub = document.getElementById('subCategorySelect').value;
 
         let allRows = flattenData(rawStoreData);
 
@@ -526,9 +611,10 @@
                                   row.description.toLowerCase().includes(searchVal) || 
                                   row.filename.toLowerCase().includes(searchVal);
 
-            const matchesCat = (selectedCat === 'ALL') || (row.category === selectedCat);
+            const matchesMain = (selectedMain === 'ALL') || (row.mainCategory === selectedMain);
+            const matchesSub = (selectedSub === 'ALL') || (row.subCategory === selectedSub);
 
-            return matchesSearch && matchesCat;
+            return matchesSearch && matchesMain && matchesSub;
         });
 
         renderTable(filtered);
