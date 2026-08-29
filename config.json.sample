@@ -1,0 +1,40 @@
+{
+  "site_title": "EvoX Universal AIO Store",
+  "hero": {
+    "title_prefix": "Evox Universal",
+    "title_suffix": "AIO Store",
+    "subtitle": "Le hub central pour vos applications. Catalogue synchronisé via GitHub.",
+    "tags": [
+      { "icon": "fa-newspaper", "label": "News" },
+      { "icon": "fa-boxes-stacked", "label": "Apps" },
+      { "icon": "fa-magnifying-glass", "label": "Recherche" },
+      { "icon": "fa-download", "label": "Téléchargement" },
+      { "icon": "fa-shield-halved", "label": "SHA-256" }
+    ]
+  },
+  "quick_links": {
+    "dev_name": "VotreNom",
+    "dev_url": "https://github.com/votre-username",
+    "repo_url": "https://github.com/votre-username/votre-repo",
+    "email": "",
+    "twitter_url": "",
+    "bluesky_url": "",
+    "threads_url": "",
+    "facebook_url": "",
+    "instagram_url": "",
+    "tiktok_url": "",
+    "youtube_url": "",
+    "twitch_url": "",
+    "kick_url": "",
+    "discord_url": "",
+    "telegram_url": "",
+    "whatsapp_url": "",
+    "snapchat_url": "",
+    "reddit_url": "",
+    "linkedin_url": ""
+  },
+  "store_data_path": "json/evox-store.json",
+  "footer": {
+    "text": "Evox Universal AIO Store Build par VotreNom"
+  }
+}
