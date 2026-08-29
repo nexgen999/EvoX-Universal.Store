@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>EvoX Universal Store</title>
+<style>
+:root{
+  --bg:#090c11;--side:#10151d;--panel:#151b24;--panel2:#1a212c;
+  --line:#293241;--text:#f4f7fb;--muted:#8f9bad;--accent:#ffb000;
+  --accent2:#ffd15a;--shadow:0 18px 50px rgba(0,0,0,.25)
+}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;background:var(--bg);color:var(--text);font:14px Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+button,input,select{font:inherit}
+button,a{touch-action:manipulation}
+.app{min-height:100vh;display:grid;grid-template-columns:310px minmax(0,1fr)}
+.sidebar{background:var(--side);border-right:1px solid var(--line);display:flex;flex-direction:column;min-width:0;min-height:100vh}
+.brand{padding:22px 20px 16px;border-bottom:1px solid var(--line)}
+.brand b{color:var(--accent)} .brand strong{font-size:18px}
+.brand p{color:var(--muted);line-height:1.45;margin:7px 0 0}
+.searchbox{padding:14px 16px;border-bottom:1px solid var(--line)}
+.search{width:100%;background:#0b0f15;border:1px solid var(--line);border-radius:10px;padding:12px 13px;color:#fff;outline:none}
+.search:focus{border-color:#59677b}
+.filters{padding:12px 16px;display:grid;gap:8px;border-bottom:1px solid var(--line)}
+.select{width:100%;min-width:0;background:#0b0f15;color:#dfe6ef;border:1px solid var(--line);border-radius:9px;padding:10px}
+.catalog-head{padding:14px 18px 7px;display:flex;align-items:center;justify-content:space-between;color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.08em}
+.sidebar-list{overflow:auto;padding:6px 10px 18px;flex:1}
+.side-item{display:grid;grid-template-columns:38px minmax(0,1fr) auto;gap:10px;align-items:center;padding:11px 10px;margin:2px 0;border-radius:10px;cursor:pointer}
+.side-item:hover{background:#171e28}.side-item.active{background:#1c2430;box-shadow:inset 3px 0 var(--accent)}
+.side-icon{width:34px;height:34px;border-radius:9px;background:#222b38;color:var(--accent);display:grid;place-items:center;font-weight:900}
+.side-name{font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.side-meta{display:block;color:var(--muted);font-size:11px;margin-top:3px}
+.side-count{color:#78869a;font-size:11px}
+.main{min-width:0;overflow:auto}
+.topbar{height:64px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:10px;padding:0 28px;position:sticky;top:0;background:rgba(9,12,17,.92);backdrop-filter:blur(14px);z-index:5}
+.topbar .links{margin-left:auto;display:flex;gap:4px;overflow:auto}.links a{color:#9ca8b8;text-decoration:none;padding:8px 9px;border-radius:8px;white-space:nowrap}.links a:hover{background:#171e28;color:#fff}
+.content{max-width:1250px;margin:0 auto;padding:34px 40px 70px}
+.view-title{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:25px}
+.kicker{color:var(--accent);font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.12em}
+h1{font-size:42px;line-height:1.05;margin:7px 0}.subtitle{color:var(--muted);max-width:760px;line-height:1.6}
+.stats{display:flex;gap:8px;flex-wrap:wrap}.stat{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:9px 11px;color:#b5c0cf}.stat b{color:#fff}
+.toolbar{display:flex;gap:8px;align-items:center;margin-bottom:22px;flex-wrap:wrap}.toolbar .spacer{flex:1}
+.btn{border:1px solid var(--line);background:var(--panel);color:#dfe6ef;border-radius:9px;padding:10px 13px;cursor:pointer}.btn:hover{border-color:#465365}.btn.primary{background:var(--accent);border-color:var(--accent);color:#15120a;font-weight:900}.btn.active{outline:2px solid rgba(255,176,0,.18)}
+.section-title{display:flex;align-items:center;justify-content:space-between;gap:15px;margin:30px 0 13px}.section-title h2{margin:0;font-size:20px}.section-title span{color:var(--muted);font-size:12px}
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.cards .card{min-width:0}body[data-view="list"] .cards{display:block}body[data-view="list"] .card{display:grid;grid-template-columns:48px minmax(0,1fr) auto;gap:14px;align-items:center;margin-bottom:9px}body[data-view="list"] .card .app-icon{margin:0}body[data-view="list"] .card .desc{margin:7px 0;display:block;-webkit-line-clamp:2}body[data-view="list"] .card .card-foot{margin:0;display:flex;gap:12px}.tabs{display:flex;gap:5px;margin-right:10px}.tab{border:1px solid transparent;background:transparent;color:#8f9bad;border-radius:8px;padding:8px 11px;cursor:pointer}.tab:hover{background:#171e28;color:#fff}.tab.active{background:#1c2430;color:#fff;border-color:#313b4a}.tab .badge{display:inline-grid;place-items:center;min-width:18px;height:18px;padding:0 5px;margin-left:5px;border-radius:99px;background:var(--accent);color:#17120a;font-size:10px;font-weight:900}.page{display:none}.page.active{display:block}.changelog-page{max-width:1000px;margin:0 auto;padding:34px 40px 70px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px;cursor:pointer;transition:.15s;min-width:0}.card:hover{transform:translateY(-2px);border-color:#465365;box-shadow:var(--shadow)}
+.card-head{display:flex;gap:12px;align-items:flex-start}.app-icon{width:48px;height:48px;flex:0 0 48px;border-radius:12px;background:#202936;color:var(--accent);display:grid;place-items:center;font-weight:950;font-size:15px}
+.card h3{margin:0;font-size:16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.version{color:var(--accent2);font-size:11px;margin-top:4px}.desc{color:#9da8b8;line-height:1.45;margin:13px 0;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.meta{display:flex;gap:6px;flex-wrap:wrap;color:#7f8c9f;font-size:11px}.pill{background:#202833;border:1px solid #2d3745;border-radius:99px;padding:4px 7px}
+.card-foot{display:flex;justify-content:space-between;align-items:center;margin-top:15px}.source{color:#8e9bad;font-size:12px}.get{border:0;background:var(--accent);color:#15120a;font-weight:900;border-radius:8px;padding:8px 11px;cursor:pointer}
+.changelog{display:grid;gap:8px}.change{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:10px;padding:13px 15px}.change-top{display:flex;justify-content:space-between;gap:10px}.change strong{font-size:14px}.change small{color:var(--muted)}.change p{margin:7px 0 0;color:#a9b3c2;white-space:pre-wrap;line-height:1.5}
+.detail{display:none}.detail.open{display:block}.overview.hidden{display:none}
+.detail-head{display:flex;gap:15px;align-items:flex-start}.detail-icon{width:64px;height:64px;flex:0 0 64px;border-radius:16px;background:#202936;color:var(--accent);display:grid;place-items:center;font-size:20px;font-weight:950}
+.detail h2{font-size:42px;margin:0}.crumb{color:var(--muted);font-size:12px;margin-bottom:7px}.detail-desc{color:#aeb8c7;line-height:1.65;max-width:900px;margin:14px 0}
+.actions{display:flex;gap:9px;flex-wrap:wrap;margin:20px 0 28px}.assets{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.asset{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px;min-width:0}.asset-name{font:700 13px ui-monospace,SFMono-Regular,Consolas,monospace;word-break:break-all}.sha{display:block;color:#7f8c9f;font:11px ui-monospace,SFMono-Regular,Consolas,monospace;margin:8px 0;word-break:break-all}.asset-actions{display:flex;gap:7px}.asset-actions a,.asset-actions button{border:1px solid var(--line);background:#222b37;color:#fff;border-radius:7px;padding:7px 9px;text-decoration:none;cursor:pointer}.asset-actions a{background:var(--accent);border-color:var(--accent);color:#15120a;font-weight:900}
+.notes{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px;color:#aeb8c7;line-height:1.65;white-space:pre-wrap}
+.empty{padding:35px;border:1px dashed var(--line);border-radius:12px;color:var(--muted);text-align:center}
+@media(max-width:1100px){.app{grid-template-columns:270px 1fr}.cards{grid-template-columns:repeat(2,minmax(0,1fr))}.content{padding:30px}}
+@media(max-width:760px){.tabs{width:100%;margin-right:0}.tab{flex:1}.topbar .links{width:100%}
+  .app{display:block}.sidebar{min-height:0;height:auto;border-right:0;border-bottom:1px solid var(--line)}.sidebar-list{display:flex;gap:5px;overflow:auto;padding:6px 10px 12px}.side-item{min-width:190px}.catalog-head{display:none}
+  .topbar{height:auto;min-height:56px;padding:8px 14px}.topbar .links{margin-left:0;width:100%}
+  .content{padding:24px 16px 55px}h1{font-size:34px}.view-title{display:block}.stats{margin-top:15px}.cards{grid-template-columns:1fr}.assets{grid-template-columns:1fr}
+}
+@media(max-width:480px){.detail h2{font-size:30px}.detail-icon{width:52px;height:52px;flex-basis:52px}.toolbar .btn{flex:1}.toolbar .spacer{display:none}.side-item{min-width:170px}}
+
+/* === EvoX Universal Store v2.1 === */
+.filterbar{
+  display:grid;
+  grid-template-columns:minmax(230px,.8fr) minmax(220px,1.4fr) minmax(180px,.8fr) minmax(180px,.8fr);
+  gap:10px;align-items:center;margin-bottom:26px;padding:12px;
+  background:var(--panel);border:1px solid var(--line);border-radius:14px;
+}
+.filter-brand{min-width:0;display:flex;flex-direction:column;gap:3px;padding:0 4px}
+.filter-brand strong{font-size:16px;white-space:nowrap}.filter-brand b{color:var(--accent)}
+.filter-brand span{font-size:11px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.filterbar .search{width:100%;height:42px}
+.filterbar .select{height:42px}
+.category-block{min-width:0}
+.cards{grid-template-columns:repeat(3,minmax(0,1fr));align-items:stretch}
+.card{height:100%;display:flex;flex-direction:column}
+.card .desc{flex:1}
+.card-foot{margin-top:auto;padding-top:15px}
+
+/* The list mode is a true, stable one-row-per-application layout. */
+body[data-view="list"] .cards{display:flex;flex-direction:column;gap:8px}
+body[data-view="list"] .card{
+  display:grid;
+  grid-template-columns:48px minmax(0,1fr) minmax(150px,auto) auto;
+  grid-template-areas:"icon info meta action";
+  gap:14px;align-items:center;
+  min-height:82px;height:auto;padding:12px 14px;
+}
+body[data-view="list"] .card .app-icon{grid-area:icon;width:48px;height:48px}
+body[data-view="list"] .card-info{grid-area:info;min-width:0}
+body[data-view="list"] .card-title{display:flex;align-items:baseline;gap:9px;min-width:0}
+body[data-view="list"] .card-title h3{font-size:15px;min-width:0;overflow:hidden;text-overflow:ellipsis}
+body[data-view="list"] .card-title .version{flex:0 0 auto}
+body[data-view="list"] .card .desc{
+  margin:5px 0 0;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+body[data-view="list"] .card .meta{grid-area:meta;justify-content:flex-end;max-width:360px}
+body[data-view="list"] .card-foot{
+  grid-area:action;margin:0;padding:0;display:flex;align-items:center;gap:8px
+}
+body[data-view="list"] .card-foot .source{display:none}
+body[data-view="list"] .card .get{white-space:nowrap}
+body[data-view="list"] .card:hover{transform:none}
+@media(max-width:1150px){
+  .filterbar{grid-template-columns:1fr 1.4fr 1fr 1fr}
+  body[data-view="list"] .card{grid-template-columns:48px minmax(160px,1fr) minmax(100px,auto) auto}
+  body[data-view="list"] .card .meta .pill:nth-child(n+3){display:none}
+}
+@media(max-width:850px){
+  .filterbar{grid-template-columns:1fr 1fr}
+  .filter-brand{grid-column:1/-1}
+  .cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+  body[data-view="list"] .card{
+    grid-template-columns:48px minmax(0,1fr) auto;
+    grid-template-areas:"icon info action";
+  }
+  body[data-view="list"] .card .meta{display:none}
+}
+@media(max-width:600px){
+  .filterbar{grid-template-columns:1fr;padding:10px}
+  .filter-brand{grid-column:auto}
+  .filter-brand span{white-space:normal}
+  .cards{grid-template-columns:1fr}
+  body[data-view="list"] .card{
+    grid-template-columns:42px minmax(0,1fr) auto;
+    gap:10px;padding:10px;
+  }
+  body[data-view="list"] .card .app-icon{width:42px;height:42px}
+  body[data-view="list"] .card .desc{font-size:12px}
+  body[data-view="list"] .card .get{padding:7px 9px}
+  body[data-view="list"] .card .meta{display:none}
+}
+
+.source svg,.btn svg{width:15px;height:15px;vertical-align:-3px}.source{display:inline-flex;align-items:center;gap:5px}\n</style>
+</head>
+<body>
+<div class="app">
+  <main class="main">
+    <header class="topbar">
+      <nav class="tabs">
+        <button class="tab active" data-tab="catalogue" onclick="setTab('catalogue')">▦ Catalogue</button>
+        <button class="tab" data-tab="updates" onclick="setTab('updates')">🕘 Mises à jour <span class="badge" id="updatesBadge">0</span></button>
+      </nav>
+      <div class="links" data-links></div>
+    </header>
+    <div class="content">
+      <div class="filterbar">
+        <div class="filter-brand"><strong><b>EvoX</b> Universal Store</strong><span data-subtitle>Catalogue synchronisé via GitHub.</span></div>
+        <input id="search" class="search" placeholder="Rechercher..." oninput="doFilter()">
+        <select class="select" data-category onchange="doFilter()"></select>
+        <select class="select" data-subcategory onchange="doFilter()"></select>
+      </div>
+      <section id="overview" class="overview">
+        <div class="view-title">
+          <div><div class="kicker">Catalogue complet</div><h1 data-title>EvoX Universal Store</h1><div class="subtitle">Tout le catalogue est visible ici. Utilise les filtres uniquement si tu veux réduire la liste.</div></div>
+          <div class="stats"><div class="stat"><b data-count>0</b> applications</div><div class="stat"><b data-categories>0</b> catégories</div></div>
+        </div>
+        <div class="toolbar"><div class="spacer"></div><button class="btn" onclick="load()">↻ Actualiser</button><button class="btn active" data-view-btn="grid" onclick="setView('grid')">▦ Tuiles</button><button class="btn" data-view-btn="list" onclick="setView('list')">☷ Liste</button></div>
+        <div id="allSections"></div>
+
+      </section>
+
+      <section id="updatesPage" class="page">
+        <div class="changelog-page">
+          <div class="kicker">Historique</div>
+          <h1>🕘 Mises à jour</h1>
+          <p class="subtitle">Toutes les release notes disponibles dans le catalogue, sans avoir à ouvrir chaque application.</p>
+          <div id="changelog" class="changelog"></div>
+        </div>
+      </section>
+
+      <section id="detail" class="detail"></section>
+    </div>
+  </main>
+</div>
+<script>
+const CONFIG_URL="config.json";
+let cfg={},store=[],flat=[],filtered=[],selected=null,view=localStorage.getItem("evox-view")||"grid",activeTab="catalogue";
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]));
+const attr=esc;
+async function load(){
+  try{cfg=await (await fetch(CONFIG_URL+"?t="+Date.now())).json()}catch(e){cfg={}};
+  const path=cfg.store_data_path||"json/evox-store.json";
+  try{
+    const data=await (await fetch(path+"?t="+Date.now())).json();
+    store=data.store||[];
+    flat=store.flatMap(g=>(g.apps||[]).map(a=>({...a,mainCategory:g.category||"other",subCategory:g.subcategory||"other",categoryPath:[g.category,g.subcategory].filter(Boolean).join(" / ")})));
+    applyConfig(data);buildFilters();doFilter(false);
+  }catch(e){$("#allSections").innerHTML='<div class="empty">Impossible de charger le catalogue.</div>'}
+}
+function applyConfig(data){
+  document.title=cfg.site_title||"EvoX Universal Store";
+  const h=cfg.hero||{},title=(h.title_prefix||"EvoX Universal")+" "+(h.title_suffix||"Store");
+  document.querySelectorAll("[data-title]").forEach(x=>x.textContent=title);
+  document.querySelectorAll("[data-subtitle]").forEach(x=>x.textContent=h.subtitle||"Catalogue synchronisé automatiquement.");
+  const q=cfg.quick_links||{};
+  const links=[["dev_url","◉","Profil développeur"],["repo_url","⌘","Repository"],["twitter_url","𝕏","X"],["bluesky_url","🦋","Bluesky"],["threads_url","@","Threads"],["facebook_url","f","Facebook"],["instagram_url","◎","Instagram"],["tiktok_url","♪","TikTok"],["youtube_url","▶","YouTube"],["discord_url","◌","Discord"],["telegram_url","➤","Telegram"],["email","✉","Email"]].filter(([k])=>q[k]);
+  document.querySelectorAll("[data-links]").forEach(el=>el.innerHTML=links.map(([k,ic,label])=>{const href=k==="email"?"mailto:"+q[k]:q[k];return `<a href="${attr(href)}" target="_blank" rel="noopener" title="${attr(label)}"><b>${ic}</b> ${esc(label)}</a>`}).join(""));
+}
+function buildFilters(){
+  const cats=[...new Set(flat.map(x=>x.mainCategory))].sort(),subs=[...new Set(flat.map(x=>x.subCategory))].sort();
+  document.querySelectorAll("[data-category]").forEach(s=>s.innerHTML='<option value="">Toutes les catégories</option>'+cats.map(x=>`<option value="${attr(x)}">${esc(x)}</option>`).join(""));
+  document.querySelectorAll("[data-subcategory]").forEach(s=>s.innerHTML='<option value="">Toutes les sous-catégories</option>'+subs.map(x=>`<option value="${attr(x)}">${esc(x)}</option>`).join(""));
+  $("[data-categories]").textContent=cats.length;
+}
+function doFilter(reselect=true){
+  const q=($("#search")?.value||"").toLowerCase().trim(),c=$("[data-category]")?.value||"",s=$("[data-subcategory]")?.value||"";
+  filtered=flat.filter(x=>(!q||[x.name,x.description,x.version,x.categoryPath,x.release_notes].join(" ").toLowerCase().includes(q))&&(!c||x.mainCategory===c)&&(!s||x.subCategory===s));
+  if(reselect && selected && !filtered.includes(selected)) showOverview(); else render();
+}
+function appIcon(a){return ((a.name||"EX").replace(/[^a-zA-Z0-9]/g,"").slice(0,2)||"EX").toUpperCase()}
+
+function repoIcon(a){
+  const u=(a.repo_url||"").toLowerCase(), t=(a.source_type||"").toLowerCase();
+  if(t==="github"||u.includes("github.com")) return '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .7A12 12 0 0 0 8.2 24c.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.4-4-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.8.1-.8.1-.8 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.4-5.5-6A4.7 4.7 0 0 1 5 7.4c-.1-.3-.6-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.4 11.4 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.6.3 2.8.1 3.1a4.7 4.7 0 0 1 1.3 3.3c0 4.6-2.8 5.7-5.5 6 .4.3.8 1 .8 2v3c0 .3.2.7.8.6A12 12 0 0 0 12 .7Z"/></svg>';
+  if(t==="gitlab"||u.includes("gitlab.com")) return '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="m12 21.6-3.4-10h6.8L12 21.6Zm0 0L1.8 11.6 5.5 1.5c.2-.5.8-.5 1 0L8.6 7h6.8l2.1-5.5c.2-.5.8-.5 1 0l3.7 10.1L12 21.6Z"/></svg>';
+  if(t==="gitea"||u.includes("gitea")) return '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6 4h11a3 3 0 0 1 0 6h-5v2h3a3 3 0 1 1 0 6H8a4 4 0 0 1 0-8h1V7H6a3 3 0 0 1 0-3Zm3 12h6a1 1 0 1 0 0-2H9a1 1 0 0 0 0 2Zm3-8h5a1 1 0 0 0 0-2h-5v2Z"/></svg>';
+  if(t==="forgejo"||u.includes("forgejo")) return '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 3a4 4 0 0 0-1 7.9V14a4 4 0 0 0 4 4h1v3h2v-5H10a2 2 0 0 1-2-2v-3.1A4 4 0 1 0 7 3Zm10 7a4 4 0 1 0-1-7.9V5a2 2 0 0 1 2 2v4h-3v2h3a4 4 0 0 0 0-8h-1v2h1a2 2 0 0 1 0 4h-1v2Z"/></svg>';
+  if(t==="html5"||u.endsWith(".html")) return '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4 2h16l-1.5 18L12 22l-6.5-2L4 2Zm3.2 4 .2 2.1h9.2l-.3 3H7.7l.2 2.1h8.1l-.2 2.2-3.8 1-3.8-1-.2-1.5H6l.4 3.1 5.6 1.7 5.6-1.7L18.7 6H7.2Z"/></svg>';
+  return '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm1 5v5.6l4 2.3-1 1.7-5-3V7h2Z"/></svg>';
+}
+
+function sourceIcon(a){const u=(a.repo_url||"").toLowerCase(),t=(a.source_type||"").toLowerCase();if(t==="github"||u.includes("github.com"))return "◉";if(t==="gitlab"||u.includes("gitlab.com"))return "◈";if(t==="forgejo"||u.includes("codeberg"))return "⑂";if(t==="gitea"||u.includes("gitea"))return "◇";if(t==="html5")return "▣";return "↗"}
+function platformNames(a){return [...new Set((a.assets||[]).map(x=>{const s=(x.filename||"").toLowerCase();if(s.includes("windows")||s.endsWith(".exe")||s.endsWith(".msi"))return"Windows";if(s.includes("linux")||s.endsWith(".appimage"))return"Linux";if(s.includes("mac")||s.endsWith(".dmg"))return"macOS";if(s.endsWith(".apk"))return"Android";if(s.endsWith(".appx"))return"Xbox/UWP";if(s.endsWith(".nro"))return"Switch";return"Autre"}))]}
+function render(){
+  document.body.dataset.view=view;
+  document.querySelectorAll("[data-view-btn]").forEach(b=>b.classList.toggle("active",b.dataset.viewBtn===view));
+  document.querySelectorAll("[data-tab]").forEach(b=>b.classList.toggle("active",b.dataset.tab===activeTab));
+  $("#overview").classList.toggle("hidden",activeTab!=="catalogue" || !!selected);
+  $("#updatesPage").classList.toggle("active",activeTab==="updates" && !selected);
+  $("#detail").classList.toggle("open",activeTab==="catalogue" && !!selected);
+  $("[data-count]").textContent=filtered.length;
+  if(activeTab==="updates" && !selected){renderChangelog();return}
+  if(selected){paintDetail(selected);return}
+  const groups={};filtered.forEach(a=>(groups[a.categoryPath||"Autres"]??=[]).push(a));
+  $("#allSections").innerHTML=Object.entries(groups).map(([name,apps])=>`<section><div class="section-title"><h2>${esc(name)}</h2><span>${apps.length} application${apps.length>1?"s":""}</span></div><div class="cards">${apps.map(cardHtml).join("")}</div></section>`).join("")||'<div class="empty">Aucun résultat.</div>';
+}
+function setTab(tab){
+  activeTab=tab;
+  if(tab==="updates") selected=null;
+  render();
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
+function cardHtml(a){
+  const plats=platformNames(a);
+  return `<article class="card" onclick="showDetailByObject(${flat.indexOf(a)})">
+    <div class="app-icon">${esc(appIcon(a))}</div>
+    <div class="card-info">
+      <div class="card-title"><h3>${esc(a.name)}</h3><div class="version">${esc(a.version||"latest")}</div></div>
+      <p class="desc">${esc(a.description||"Aucune description.")}</p>
+    </div>
+    <div class="meta"><span class="pill">${a.assets?.length||0} fichiers</span>${plats.slice(0,3).map(p=>`<span class="pill">${esc(p)}</span>`).join("")}</div>
+    <div class="card-foot"><span class="source">${repoIcon(a)} <span>${esc(a.source_type||"source")}</span></span><button class="get" onclick="event.stopPropagation();showDetailByObject(${flat.indexOf(a)})">Voir</button></div>
+  </article>`
+}
+function copyText(v,b){navigator.clipboard?.writeText(v);if(b){const t=b.textContent;b.textContent="Copié ✓";setTimeout(()=>b.textContent=t,1200)}}
+function setView(v){view=v;localStorage.setItem("evox-view",v);document.body.dataset.view=v;document.querySelectorAll("[data-view-btn]").forEach(b=>b.classList.toggle("active",b.dataset.viewBtn===v));render()}
+window.addEventListener("DOMContentLoaded",()=>{document.body.dataset.view=view;document.querySelectorAll("[data-view-btn]").forEach(b=>b.classList.toggle("active",b.dataset.viewBtn===view));load()});
+</script>
+</body>
+</html>
