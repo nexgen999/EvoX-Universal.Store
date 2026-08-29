@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EvoX Universal Store</title>
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --accent-color: #38bdf8;
+            --text-color: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-color: #334155;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            color: var(--accent-color);
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            color: var(--text-muted);
+            font-size: 0.9em;
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 12px 20px;
+            font-size: 16px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            background-color: var(--card-bg);
+            color: var(--text-color);
+            margin-bottom: 30px;
+            box-sizing: border-box;
+        }
+
+        .category-title {
+            color: var(--accent-color);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+
+        .subcategory-title {
+            color: var(--text-color);
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 20px;
+            margin-top: 15px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 10px;
+        }
+
+        .app-name {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        .version-badge {
+            background-color: var(--border-color);
+            color: var(--accent-color);
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.8em;
+        }
+
+        .description {
+            color: var(--text-muted);
+            font-size: 0.9em;
+            margin-bottom: 15px;
+        }
+
+        .release-notes {
+            background-color: rgba(0, 0, 0, 0.2);
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 0.85em;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+            max-height: 100px;
+            overflow-y: auto;
+            white-space: pre-wrap;
+        }
+
+        .assets-list {
+            margin-top: 10px;
+        }
+
+        .download-btn {
+            display: block;
+            background-color: var(--accent-color);
+            color: #000;
+            text-align: center;
+            padding: 8px 12px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 5px;
+            word-break: break-all;
+        }
+
+        .download-btn:hover {
+            opacity: 0.9;
+        }
+
+        .sha256 {
+            font-size: 0.7em;
+            color: var(--text-muted);
+            word-break: break-all;
+            margin-top: 2px;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>EvoX Universal Store</h1>
+        <div class="subtitle" id="last-update">Chargement des données...</div>
+    </header>
+
+    <input type="text" id="search" class="search-box" placeholder="Rechercher une application ou un payload..." onkeyup="filterApps()">
+
+    <div id="store-content"></div>
+</div>
+
+<script>
+    let storeData = [];
+
+    async function loadStore() {
+        try {
+            const response = await fetch('json/evox-store.json');
+            const data = await response.json();
+            storeData = data.store || [];
+            
+            if (data.updated_at) {
+                const date = new Date(data.updated_at);
+                document.getElementById('last-update').innerText = `Dernière mise à jour : ${date.toLocaleString()}`;
+            }
+
+            renderStore(storeData);
+        } catch (error) {
+            console.error('Erreur de chargement du store :', error);
+            document.getElementById('last-update').innerText = 'Erreur lors du chargement des données.';
+        }
+    }
+
+    function renderStore(data) {
+        const container = document.getElementById('store-content');
+        container.innerHTML = '';
+
+        if (data.length === 0) {
+            container.innerHTML = '<p style="text-align:center; color: var(--text-muted);">Aucune application trouvée.</p>';
+            return;
+        }
+
+        data.forEach(cat => {
+            const catTitle = document.createElement('h2');
+            catTitle.className = 'category-title';
+            catTitle.innerText = `${cat.category} / ${cat.subcategory}`;
+            container.appendChild(catTitle);
+
+            const grid = document.createElement('div');
+            grid.className = 'grid';
+
+            cat.apps.forEach(app => {
+                const card = document.createElement('div');
+                card.className = 'card';
+
+                let assetsHtml = '';
+                app.assets.forEach(asset => {
+                    assetsHtml += `
+                        <a href="${asset.url}" class="download-btn" target="_blank"> Télécharger ${asset.filename}</a>
+                        ${asset.sha256 ? `<div class="sha256">SHA256: ${asset.sha256}</div>` : ''}
+                    `;
+                });
+
+                card.innerHTML = `
+                    <div>
+                        <div class="card-header">
+                            <span class="app-name">${app.name}</span>
+                            <span class="version-badge">${app.version}</span>
+                        </div>
+                        <div class="description">${app.description || 'Pas de description.'}</div>
+                        ${app.release_notes ? `<div class="release-notes">${app.release_notes}</div>` : ''}
+                    </div>
+                    <div class="assets-list">
+                        ${assetsHtml}
+                    </div>
+                `;
+
+                grid.appendChild(card);
+            });
+
+            container.appendChild(grid);
+        });
+    }
+
+    function filterApps() {
+        const query = document.getElementById('search').value.toLowerCase();
+        if (!query) {
+            renderStore(storeData);
+            return;
+        }
+
+        const filtered = storeData.map(cat => {
+            const filteredApps = cat.apps.filter(app => 
+                app.name.toLowerCase().includes(query) || 
+                (app.description && app.description.toLowerCase().includes(query))
+            );
+
+            if (filteredApps.length > 0) {
+                return { ...cat, apps: filteredApps };
+            }
+            return null;
+        }).filter(item => item !== null);
+
+        renderStore(filtered);
+    }
+
+    loadStore();
+</script>
+
+</body>
+</html>
