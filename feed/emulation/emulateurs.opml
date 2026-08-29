@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<opml version="2.0">
+  <head>
+    <title>emulateurs</title>
+  </head>
+  <body>
+    <outline text="flycast" title="flycast" type="rss" xmlUrl="https://github.com/flyinghead/flycast" author="flyinghead" description="Flycast is a multi-platform Sega Dreamcast, Naomi, Naomi 2, and Atomiswave emulator"/>
+    <outline text="flycast-dojo" title="flycast-dojo" type="rss" xmlUrl="https://github.com/blueminder/flycast-dojo" author="blueminder" description="Flycast Dojo is a fork of Flycast, a multi-platform Sega Dreamcast, Naomi and Atomiswave emulator derived from Reicast, with a focus on netplay features and replay"/>
+    <outline text="duckstation" title="duckstation" type="rss" xmlUrl="https://github.com/stenzek/duckstation" author="stenzek" description="DuckStation - PlayStation 1, aka. PSX Emulator"/>
+  </body>
+</opml>
