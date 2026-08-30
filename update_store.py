@@ -7,21 +7,15 @@ import re
 from datetime import datetime
 import xml.etree.ElementTree as ET
 
-BASE_DIR = os.path.dirname(os.abspath(__file__))
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 FEED_DIR = os.path.join(BASE_DIR, "feed")
 JSON_DIR = os.path.join(BASE_DIR, "json")
 
 GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
-HEADERS = {
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
-}
+HEADERS = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"}
 
 def fetch_json(url, headers=None):
-    req_headers = HEADERS.copy()
-    req_headers["Accept"] = "application/json"
-    if headers:
-        req_headers.update(headers)
-    req = urllib.request.Request(url, headers=req_headers)
+    req = urllib.request.Request(url, headers=headers or HEADERS)
     with urllib.request.urlopen(req) as resp:
         return json.loads(resp.read().decode())
 
@@ -38,32 +32,45 @@ def get_remote_sha256(file_url):
         return ""
 
 def clean_repo_name(repo_str):
+    """ Nettoie proprement .git à la fin sans tronquer les lettres du nom (ex: flycast) """
     repo_str = repo_str.strip('/')
     if repo_str.endswith(".git"):
         repo_str = repo_str[:-4]
     return repo_str
 
 def extract_clean_repo_url(url, description=""):
+    """ Extrait l'URL brute du dépôt même si l'OPML contient un lien RSS FreshRSS ou HTML. """
     combined = f"{url} {description}"
     
-    # GitHub
     gh_match = re.search(r"https?://github\.com/([^/\s\"']+)/([^/\s\"']+)", combined)
     if gh_match:
-        return f"https://github.com/{gh_match.group(1)}/{clean_repo_name(gh_match.group(2))}", "github"
+        owner = gh_match.group(1)
+        repo = clean_repo_name(gh_match.group(2))
+        return f"https://github.com/{owner}/{repo}", "github"
 
-    # GitLab
     gl_match = re.search(r"https?://gitlab\.com/([^/\s\"']+)/([^/\s\"']+)", combined)
     if gl_match:
-        return f"https://gitlab.com/{gl_match.group(1)}/{clean_repo_name(gl_match.group(2))}", "gitlab"
+        owner = gl_match.group(1)
+        repo = clean_repo_name(gl_match.group(2))
+        return f"https://gitlab.com/{owner}/{repo}", "gitlab"
 
-    # Forgejo / Gitea
-    cb_match = re.search(r"https?://([^/\s\"']+)/(?:projects/)?([^/\s\"']+)/([^/\s\"']+)", combined)
-    if cb_match:
-        domain, owner, repo = cb_match.group(1), cb_match.group(2), clean_repo_name(cb_match.group(3))
-        if domain.startswith("git.") or "codeberg" in domain or any(k in combined.lower() for k in ["forgejo", "gitea", "eden"]):
-            return f"https://{domain}/projects/{owner}/{repo}", "forgejo"
+    # Match générique pour n'importe quel domaine Forgejo / Gitea (ex: git.etawen.dev ou codeberg.org)
+    cb_match = re.search(r"https?://([^/\s\"']+)/([^/\s\"']+)/([^/\s\"']+)", combined)
+    if cb_match and ("forgejo" in combined.lower() or "gitea" in combined.lower() or "git.etawen.dev" in combined.lower() or "codeberg.org" in combined.lower()):
+        domain = cb_match.group(1)
+        owner = cb_match.group(2)
+        repo = clean_repo_name(cb_match.group(3))
+        return f"https://{domain}/{owner}/{repo}", "forgejo"
 
-    clean_url = re.sub(r'/(releases|tags|src).*$', '', url)
+    # Fallback capture des liens Forgejo/Gitea même sans mot-clé explicite si domaine spécifique
+    if "git.etawen.dev" in combined:
+        m = re.search(r"https?://git\.etawen\.dev/([^/\s\"']+)/([^/\s\"']+)", combined)
+        if m:
+            return f"https://git.etawen.dev/{m.group(1)}/{clean_repo_name(m.group(2))}", "forgejo"
+
+    # URL Directe
+    clean_url = re.sub(r'/(releases|tags)\.(atom|rss|xml)$', '', url)
+    clean_url = re.sub(r'\.(atom|rss|xml)$', '', clean_url)
     return clean_url, "generic"
 
 def resolve_release_data(raw_url, description=""):
@@ -77,21 +84,29 @@ def resolve_release_data(raw_url, description=""):
         if GITHUB_TOKEN:
             gh_headers["Authorization"] = f"token {GITHUB_TOKEN}"
 
+        data = None
         try:
             api_url = f"https://api.github.com/repos/{owner}/{repo}/releases/latest"
             data = fetch_json(api_url, gh_headers)
-            if data and data.get("assets"):
-                version = data.get("tag_name", "v1.0")
-                body = data.get("body", "")
-                assets = []
-                for asset in data.get("assets", []):
-                    dl_url = asset.get("browser_download_url", "")
-                    name = asset.get("name", "")
-                    sha = get_remote_sha256(dl_url)
-                    assets.append({"filename": name, "url": dl_url, "sha256": sha})
-                return version, body, assets, "github", repo_url
         except Exception:
-            pass
+            try:
+                api_url = f"https://api.github.com/repos/{owner}/{repo}/releases"
+                all_rel = fetch_json(api_url, gh_headers)
+                if all_rel and isinstance(all_rel, list) and len(all_rel) > 0:
+                    data = all_rel[0]
+            except Exception as e:
+                print(f"   [ERROR GitHub API] {owner}/{repo}: {e}")
+
+        if data and data.get("assets"):
+            version = data.get("tag_name", "v1.0")
+            body = data.get("body", "")
+            assets = []
+            for asset in data.get("assets", []):
+                dl_url = asset.get("browser_download_url", "")
+                name = asset.get("name", "")
+                sha = get_remote_sha256(dl_url)
+                assets.append({"filename": name, "url": dl_url, "sha256": sha})
+            return version, body, assets, "github", repo_url
 
         try:
             tags_url = f"https://api.github.com/repos/{owner}/{repo}/tags"
@@ -99,7 +114,12 @@ def resolve_release_data(raw_url, description=""):
             if tags and len(tags) > 0:
                 tag_name = tags[0].get("name", "latest")
                 zip_url = f"https://github.com/{owner}/{repo}/archive/refs/tags/{tag_name}.zip"
-                return tag_name, "Source release tag", [{"filename": f"{repo}-{tag_name}.zip", "url": zip_url, "sha256": get_remote_sha256(zip_url)}], "github", repo_url
+                tar_url = f"https://github.com/{owner}/{repo}/archive/refs/tags/{tag_name}.tar.gz"
+                assets = [
+                    {"filename": f"{repo}-{tag_name}.zip", "url": zip_url, "sha256": get_remote_sha256(zip_url)},
+                    {"filename": f"{repo}-{tag_name}.tar.gz", "url": tar_url, "sha256": get_remote_sha256(tar_url)}
+                ]
+                return tag_name, "Source release tag", assets, "github", repo_url
         except Exception as e:
             print(f"   [ERROR Tags GitHub] {owner}/{repo}: {e}")
 
@@ -125,27 +145,50 @@ def resolve_release_data(raw_url, description=""):
         except Exception as e:
             print(f"   [ERROR GitLab API] {owner}/{repo}: {e}")
 
-    # 3. FORGEJO / GITEA / EDEN
-    if source_type == "forgejo":
+    # 3. FORGEJO / GITEA (ex: git.etawen.dev, codeberg.org, etc.)
+    if source_type == "forgejo" or "git.etawen.dev" in repo_url:
         try:
             parsed = urllib.parse.urlparse(repo_url)
             domain = f"{parsed.scheme}://{parsed.netloc}"
-            
-            clean_path = re.sub(r"^/projects/", "/", parsed.path)
-            parts = clean_path.strip("/").split("/")
+            parts = parsed.path.strip("/").split("/")
             
             if len(parts) >= 2:
                 owner, repo = parts[0], parts[1]
+                api_url = f"{domain}/api/v1/repos/{owner}/{repo}/releases/latest"
                 
-                tag_in_url = re.search(r"/tag/([^/\s\"']+)", raw_url)
-                tag = tag_in_url.group(1) if tag_in_url else "master"
-                zip_url = f"{domain}/projects/{owner}/{repo}/archive/{tag}.zip"
-                sha_val = get_remote_sha256(zip_url)
-                
-                return tag, "Forgejo Release Archive", [{"filename": f"{repo}-{tag}.zip", "url": zip_url, "sha256": sha_val}], "forgejo", repo_url
+                data = None
+                try:
+                    data = fetch_json(api_url)
+                except Exception:
+                    # Fallback sur la liste complète des releases si /latest échoue
+                    api_url_all = f"{domain}/api/v1/repos/{owner}/{repo}/releases"
+                    all_rel = fetch_json(api_url_all)
+                    if all_rel and isinstance(all_rel, list) and len(all_rel) > 0:
+                        data = all_rel[0]
 
+                if data:
+                    version = data.get("tag_name", "v1.0")
+                    body = data.get("body", "")
+                    assets = []
+                    
+                    for asset in data.get("assets", []):
+                        dl_url = asset.get("browser_download_url", "")
+                        # Gestion des liens relatifs retournés par certaines instances
+                        if dl_url.startswith("/"):
+                            dl_url = f"{domain}{dl_url}"
+                            
+                        name = asset.get("name", os.path.basename(dl_url))
+                        sha = get_remote_sha256(dl_url)
+                        assets.append({"filename": name, "url": dl_url, "sha256": sha})
+                    
+                    # Si aucun asset binaire n'est attaché, on utilise le zip source
+                    if not assets:
+                        zip_url = data.get("zipball_url", f"{domain}/{owner}/{repo}/archive/{version}.zip")
+                        assets.append({"filename": f"{repo}-{version}.zip", "url": zip_url, "sha256": get_remote_sha256(zip_url)})
+
+                    return version, body, assets, "forgejo", repo_url
         except Exception as e:
-            print(f"   [ERROR Forgejo] {repo_url}: {e}")
+            print(f"   [ERROR Forgejo API] {repo_url}: {e}")
 
     # 4. DIRECT / GENERIC
     filename = os.path.basename(repo_url) or "file.bin"
