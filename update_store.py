@@ -12,7 +12,9 @@ FEED_DIR = os.path.join(BASE_DIR, "feed")
 JSON_DIR = os.path.join(BASE_DIR, "json")
 
 GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
-HEADERS = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"}
+HEADERS = {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+}
 
 def fetch_json(url, headers=None):
     req_headers = HEADERS.copy()
@@ -36,7 +38,7 @@ def get_remote_sha256(file_url):
         return ""
 
 def clean_repo_name(repo_str):
-    """ Nettoie proprement .git à la fin sans tronquer les lettres du nom """
+    """ Nettoie proprement .git à la fin sans tronquer le nom """
     repo_str = repo_str.strip('/')
     if repo_str.endswith(".git"):
         repo_str = repo_str[:-4]
@@ -56,7 +58,7 @@ def extract_clean_repo_url(url, description=""):
     if gl_match:
         return f"https://gitlab.com/{gl_match.group(1)}/{clean_repo_name(gl_match.group(2))}", "gitlab"
 
-    # Forgejo / Gitea (capture tout domaine git.* ou URLs avec sous-routes)
+    # Forgejo / Gitea (capture git.*, codeberg, etc. y compris /projects/)
     cb_match = re.search(r"https?://([^/\s\"']+)/(?:projects/)?([^/\s\"']+)/([^/\s\"']+)", combined)
     if cb_match:
         domain, owner, repo = cb_match.group(1), cb_match.group(2), clean_repo_name(cb_match.group(3))
@@ -153,7 +155,7 @@ def resolve_release_data(raw_url, description=""):
                 owner, repo = parts[0], parts[1]
                 data = None
                 
-                # Etape 1: Tente de récupérer les Releases
+                # 1. API Release
                 try:
                     api_url = f"{domain}/api/v1/repos/{owner}/{repo}/releases/latest"
                     data = fetch_json(api_url)
@@ -175,7 +177,6 @@ def resolve_release_data(raw_url, description=""):
                         dl_url = asset.get("browser_download_url", "")
                         if dl_url.startswith("/"):
                             dl_url = f"{domain}{dl_url}"
-                            
                         name = asset.get("name", os.path.basename(dl_url))
                         sha = get_remote_sha256(dl_url)
                         assets.append({"filename": name, "url": dl_url, "sha256": sha})
@@ -186,7 +187,7 @@ def resolve_release_data(raw_url, description=""):
 
                     return version, body, assets, "forgejo", repo_url
 
-                # Etape 2: Fallback API Tags
+                # 2. API Tags
                 try:
                     tags_api = f"{domain}/api/v1/repos/{owner}/{repo}/tags"
                     tags = fetch_json(tags_api)
@@ -197,7 +198,7 @@ def resolve_release_data(raw_url, description=""):
                 except Exception:
                     pass
 
-                # Etape 3: Fallback API Commits (POUR RYUBING ET KENJI-NX SANS RELEASE/TAG)
+                # 3. API Commits
                 try:
                     commits_api = f"{domain}/api/v1/repos/{owner}/{repo}/commits"
                     commits = fetch_json(commits_api)
@@ -207,7 +208,6 @@ def resolve_release_data(raw_url, description=""):
                         version = f"commit-{short_sha}" if short_sha else "latest"
                         commit_msg = commits[0].get("commit", {}).get("message", "Dernier commit master")
                         
-                        # Génère l'archive de la branche principale (master/main)
                         zip_url = f"{domain}/{owner}/{repo}/archive/master.zip"
                         sha256_val = get_remote_sha256(zip_url)
                         if not sha256_val:
@@ -216,8 +216,18 @@ def resolve_release_data(raw_url, description=""):
 
                         assets = [{"filename": f"{repo}-{version}.zip", "url": zip_url, "sha256": sha256_val}]
                         return version, f"Build automatique ({commit_date}): {commit_msg}", assets, "forgejo", repo_url
-                except Exception as e:
-                    print(f"   [ERROR Commit Forgejo] {owner}/{repo}: {e}")
+                except Exception:
+                    pass
+
+                # 4. ULTIME SECOURS (Bypass API bloquée pour Ryubing / kenji-nx)
+                zip_url = f"{domain}/{owner}/{repo}/archive/master.zip"
+                sha_val = get_remote_sha256(zip_url)
+                if not sha_val:
+                    zip_url = f"{domain}/{owner}/{repo}/archive/main.zip"
+                    sha_val = get_remote_sha256(zip_url)
+
+                assets = [{"filename": f"{repo}-latest.zip", "url": zip_url, "sha256": sha_val}]
+                return "latest", "Archive source directe", assets, "forgejo", repo_url
 
         except Exception as e:
             print(f"   [ERROR Forgejo API] {repo_url}: {e}")
