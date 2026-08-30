@@ -1,6 +1,6 @@
 {
   "name": "EvoX Universal Store",
-  "updated_at": "2026-08-30T16:28:42.568895Z",
+  "updated_at": "2026-08-30T16:31:13.315615Z",
   "store": [
     {
       "category": "forgejo_test",
@@ -106,7 +106,7 @@
             {
               "filename": "Ryubing",
               "url": "https://git.ryujinx.app/projects/Ryubing",
-              "sha256": "986e58e67074fdbacd91294eaf81da126775546be15f8d0a595f2552aa75a617"
+              "sha256": "c520d363fa5ba53fae6a6e490c01d9862bea0bd63aae5263a262c6b0c6682e58"
             }
           ],
           "source_type": "generic",
@@ -121,7 +121,7 @@
             {
               "filename": "Kenji-NX",
               "url": "https://git.ryujinx.app/projects/Kenji-NX",
-              "sha256": "a08c1cea30127dffb515b902a3aa2611350261b7b806e0e25dc580a97420f503"
+              "sha256": "c842bd30936702390d86c18cce681c6427eea6bbbb397a89c734bf30693d7da5"
             }
           ],
           "source_type": "generic",
@@ -136,7 +136,7 @@
             {
               "filename": "releases",
               "url": "https://git.eden-emu.dev/eden-emu/eden/releases",
-              "sha256": "ed571a3238799226cd2ce75cddca101bbefd1163de2383267d6f376d4715ddb6"
+              "sha256": "00bd1d3fdf664b1cfe155f7953cb5f6b2f52462f26c0d0758bb00cdd05730686"
             }
           ],
           "source_type": "generic",
@@ -151,7 +151,7 @@
             {
               "filename": "releases",
               "url": "https://git.eden-emu.dev/eden-ci/nightly/releases",
-              "sha256": "98309017e9ede6afe5acfb8ed8a2a515ce9a075f36e8659dc35c3968c132e90e"
+              "sha256": "4df99132742a2aa4930e7dee9958b5d42020fa3fee0c797c190768ae4508d0d2"
             }
           ],
           "source_type": "generic",
@@ -323,7 +323,7 @@
             {
               "filename": "RetroArch-Win64-setup.exe",
               "url": "https://buildbot.libretro.com/nightly/windows/x86_64/RetroArch-Win64-setup.exe",
-              "sha256": "44ec32e20d456533f2febb41939996ee8d3b3b828bce077838cf7a4114b772c4"
+              "sha256": "cda4e98802fa9712d0c024eec0616dbc26837a15d72e1fd25f780fac6acc8b39"
             }
           ],
           "source_type": "generic",
