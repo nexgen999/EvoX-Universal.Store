@@ -1,7 +1,28 @@
 {
   "name": "EvoX Universal Store",
-  "updated_at": "2026-08-30T11:43:37.973872Z",
+  "updated_at": "2026-08-30T12:22:31.718025Z",
   "store": [
+    {
+      "category": "forgejo_test",
+      "subcategory": "forgejo_test",
+      "apps": [
+        {
+          "name": "elf-arsenal",
+          "description": "elf-arsenal",
+          "version": "v1.0",
+          "release_notes": "Fichier direct",
+          "assets": [
+            {
+              "filename": "elf-arsenal",
+              "url": "https://git.etawen.dev/soniciso/elf-arsenal",
+              "sha256": "0f8d87e966f3fe6cba131f43a91ba558d6f5664c432bfb27a0aa41ac5552cd95"
+            }
+          ],
+          "source_type": "generic",
+          "repo_url": "https://git.etawen.dev/soniciso/elf-arsenal"
+        }
+      ]
+    },
     {
       "category": "emulation",
       "subcategory": "emulateurs",
@@ -150,6 +171,57 @@
           ],
           "source_type": "github",
           "repo_url": "https://github.com/stenzek/duckstation"
+        }
+      ]
+    },
+    {
+      "category": "gitlab_test",
+      "subcategory": "gitlab_test",
+      "apps": [
+        {
+          "name": "emulationstation-de",
+          "description": "ES-DE",
+          "version": "v3.4.1",
+          "release_notes": "## Version 3.4.1 / 3.4.1-58\n\n**Release date:** 2026-04-10\n\n### Release overview\n\nThis release adds official (although experimental) support for Linux on AArch64, which is aiming for operating systems such as the upcoming SteamOS release for ARM. It also adds support for a lot of new emulators across all the main supported operating systems.\n\nFor Android specifically there are three new systems enabled, those being Namco-Sega-Nintendo Triforce (triforce), Microsoft Xbox (xbox) and Microsoft Xbox 360 (xbox360). And although the Sega Model 3 (model3) system was technically supported in the previous release, it wasn't really usable in practice due to only MAME being available for these games, but now these games are fully playable due to the new SUPER3 emulator. Likewise PICO-8 is now much more usable on Android as the official Raspberry Pi build can be used via an unofficial PICO-8 wrapper. Support for multi-user setups has also been fully rolled out for all RetroArch cores as of this release, meaning ES-DE should now work correctly in Android multi-user environments.\n\nOn macOS three new systems have been enabled as well, those being OpenBOR Game Engine (openbor), Namco-Sega-Nintendo Triforce (triforce) and Microsoft Xbox 360 (xbox360).\n\nAs for general cross-platform topics, a new language has been added, which is Vietnamese. There are also a couple of general bug fixes and translation updates as well as some dependency library updates. There are also quite a number of new standalone emulators and RetroArch cores added for many systems, see below for all details.\n\nUnder the hood the remaining ancient Raspberry Pi specific code and configuration has now been fully removed, meaning there is no longer any device-specific code or configuration whatsoever in ES-DE and everything is instead completely generalized.\n\n### Detailed list of changes\n\n* (Linux) Added initial support for the AArch64/ARM64 architecture (including its own set of find rules, import rules and system configuration)\n* (Android) Changed all RetroArch emulator entries to use %INTERNALDATA% and %EXTERNALDATA% to support multi-user setups\n* (Android) Added support for using the \"Launch games on the other screen\" option on devices where both screens have the same display name\n* Added translations for Vietnamese (vi_VN)\n* Added North America as an additional ScreenScraper region\n* Added a j2me platform to the j2me system so that these games can be scraped using TheGamesDB\n* Added scraper-start and scraper-end custom events for the multi-scraper\n* (Android) Added support for the Namco-Sega-Nintendo Triforce (triforce) system using the Dolphin RetroArch core\n* (Android) Added support for the Microsoft Xbox (xbox) system using the X1 BOX emulator\n* (Android) Added hakuX standalone as an alternative emulator for the xbox system\n* (Android) Added support for the Microsoft Xbox 360 (xbox360) system using the aX360e emulator\n* (Android) Added SUPER3 standalone as the default emulator for the model3 system\n* (Android) Added PICO-8 standalone as the default emulator for the pico8 system\n* (Android) Added aPS3e Game Serial, aPS3e Directory and aPS3e ISO standalone as alternative emulators for the consolearcade system\n* (Android) Added GameNative standalone as an alternative emulator for the epic system\n* (Android) Added idTech4A++ standalone as an alternative emulator for the doom, ports and quake systems\n* (Android) Added the Boom 3 RetroArch core as an alternative emulator for the doom system\n* (Android) Changed the launch command for GameNative for the steam system to make launching work with their new behavior\n* (Android) Added GameNative emulator entries for Steam, Epic, GOG and Custom games for the windows system\n* (Android) Removed the generic GameNative emulator entry from the windows system\n* (Android) Made it possible to run both Steam games and locally installed games using the GameHub Lite emulator entry\n* (Android) Added a find rule entry for the new package name for Azahar\n* (Android) Added a find rule entry for the new package name for future GameHub Lite releases\n* (Android) Added a find rule entry for the MelonDualDS fork of melonDS\n* (Android) Added a find rule entry for the GL build of Visual Pinball\n* (Android) Set the official Vita3K release as the primary find rule entry instead of the Vita3K ZX fork\n* (Android) Changed Pizza Boy GBC/C to use %ROMSAF% instead of %ROM% as the developer has changed the way games are launched from frontends\n* (Android) Added the .idtech file extension to the doom, ports and quake systems\n* (Android) Added the .ps3 file extension to the consolearcade system\n* (Android) Added the .pk4 file extension to the doom system\n* (Android) Added the .epic and .pcgame file extensions to the epic system\n* (Android) Added the .pcgame file extension to the steam system\n* (Android) Added the .epic, .gog and .pcgame file extensions to the windows system\n* (Android) Added support for escaping forward slashes in %EXTRA% and %EXTRAARRAY% variable definitions\n* (Linux) Added UMU standalone as an alternative emulator for the pcarcade and type-x systems\n* (Linux) Added Plastic standalone as an alternative emulator for the famicom and nes systems\n* (Linux) Added support for the manually downloaded release of FS-UAE Launcher\n* (Linux) Added support for the Flatpak release of EasyRPG Player\n* (Linux) Added support for the Flatpak release of VBA-M\n* (Linux) Added support for the Flatpak release of Ymir\n* (Linux) Added support for the repository/AUR release of azahar\n* (Linux) Added systempath find rules for xenia and xenia_canary\n* (Linux) Added staticpath find rules for the new pkgforge-dev AppImage filename for xenia canary\n* (Linux) Added staticpath find rules for the new official xenia canary AppImage\n* (macOS) Added support for the OpenBOR Game Engine (openbor) system\n* (macOS) Added support for the Namco-Sega-Nintendo Triforce (triforce) system using the Dolphin RetroArch core\n* (macOS) Added support for the Microsoft Xbox 360 (xbox360) system using the XeniOS emulator\n* (macOS) Added the YabaSanshiro RetroArch core as an alternative emulator for the saturn and saturnjp systems\n* (macOS) Added the vitaQuake 3 RetroArch core as an alternative emulator for the quake system\n* (macOS) Added Mariani standalone as the default emulator for the apple2 system\n* (macOS) Added Supermodel standalone as the default emulator for the model3 system\n* (macOS) Added Supermodel standalone as an alternative emulator for the arcade and mame systems\n* Added a popular standalone emulator as the default emulator for the switch system\n* Added the Azahar RetroArch core as the default emulator for the n3ds system\n* Added the AmiArcadia RetroArch core as the default emulator for the arcadia system\n* Added the JollyCV RetroArch core as the default emulator for the crvision system\n* Added the Dolphin RetroArch core as the default emulator for the triforce system on Linux and Windows\n* Added the ClownMDEmu RetroArch core as an alternative emulator for the genesis, megacd, megacdjp, megadrive, megadrivejp and segacd systems\n* Added the SkyEmu RetroArch core as an alternative emulator for the gb, gba, gbc and nds systems\n* Added the JollyCV RetroArch core as an alternative emulator for the colecovision system\n* Added the Dolphin RetroArch core as an alternative emulator for the consolearcade system\n* Added Dolphin standalone as an alternative emulator for the consolearcade system\n* Added Dolphin standalone as an alternative emulator for the triforce system\n* Added the Mini vMac RetroArch core as an alternative emulator for the macintosh system\n* Added the Craft (Minecraft) RetroArch core as an alternative emulator for the ports system\n* Added Geargrafx standalone as an alternative emulator for the pcengine, pcenginecd, supergrafx, tg16 and tg-cd systems on Linux, macOS and Windows\n* Added the Geargrafx RetroArch core as an alternative emulator for the pcenginecd and tg-cd systems\n* Added the Gearlynx RetroArch core as an alternative emulator for the atarilynx system\n* Added RPCS3 ISO standalone as an alternative emulator for the consolearcade and ps3 systems on Linux, macOS and Windows\n* Added Mesen standalone as an alternative emulator for the gba system on Linux and Windows\n* Added KEGS standalone as an alternative emulator for the apple2gs system on Linux, macOS and Windows\n* Changed the launch parameter for EasyRPG Player standalone on Linux, macOS and Windows to support zipped games\n* Added the .bigpimg file extension to the atarijaguar and atarijaguarcd systems on Linux and Windows\n* Added the .gbx file extension to the gb, gba and gbc systems\n* Added the .7z and .zip file extensions to the apple2 and wasm systems\n* Added the .tvc file extension to the arcadia system\n* Added the .iso file extension to the ps3 system\n* Added the .myv file extension to the colecovision system\n* Added the .img file extension to the macintosh system\n* Added the .xiso file extension to the xbox system\n* (Linux) Changed to building the AppImages using appimagetool-uruntime provided by the PkgForge project\n* (Linux) Changed the AppImage build scripts to use the bundled TLS/SSL certificates\n* (Linux) Added an AppImage build script for the AArch64 architecture\n* (Linux) Added RetroArch core find rule entries for NixOS and Nixpkgs\n* (linear-es-de) Added an OLED color scheme (thanks c-fan for the patch)\n* (linear-es-de) Updated the system metadata from the upstream system-metadata repository\n* The theme downloader will now use the bundled certificates on all platforms if built with the BUNDLED_CERTS option\n* Removed the obsolete and unsupported CEC functionality\n* Removed all specific configuration and code for the Raspberry Pi\n* Updated LunaSVG to commit b350c01cb09b48f1e894463dcb54d1b46d407162\n* (macOS) Added zstd as a dependency\n* (macOS) Updated Ogg to 1.3.6\n* (macOS) Removed obsolete entries for the Vorbis and Opus encoders from the build scripts\n* (Windows) Updated OpenSSL to 3.6.1\n* Updated the MAME index files to include ROMs up to MAME version 0.286\n* Bundled the February 2026 release of the Mozilla TLS/SSL certificates\n* Translation updates for all languages\n\n### Bug fixes\n\n* (Android) The game importer would crash if attempting to open it without any import rules defined\n* Custom event scripts would not run if the path to the application data directory contained spaces\n* Some SVG files would not render if they contained Windows-style line breaks\n* The apple2gs system had two lowercase .7z extensions instead of one in lowercase and one in uppercase\n* The logo for the Sinclair ZX Spectrum Next (zxnext) system was missing for the Linear and Slate themes",
+          "assets": [
+            {
+              "filename": "ES-DE_3.4.1-x64.dmg",
+              "url": "https://gitlab.com/es-de/emulationstation-de/-/package_files/288889701/download",
+              "sha256": "2bab445b3efef263b54fedc4c0cbac76c477f72221130f49fc11796d0294bf6a"
+            },
+            {
+              "filename": "ES-DE_x64.AppImage",
+              "url": "https://gitlab.com/es-de/emulationstation-de/-/package_files/288156961/download",
+              "sha256": "3c61a44d738d55163daa58ede70720b425a0df62460c04dc23dd3ca586723581"
+            },
+            {
+              "filename": "ES-DE_x64_SteamDeck.AppImage",
+              "url": "https://gitlab.com/es-de/emulationstation-de/-/package_files/288156987/download",
+              "sha256": "afccca1cd07a591daa4c14e9aa58c6bef41257fcddcbc8a21c534472846a93d8"
+            },
+            {
+              "filename": "ES-DE_3.4.1-arm64.dmg",
+              "url": "https://gitlab.com/es-de/emulationstation-de/-/package_files/288889626/download",
+              "sha256": "e7b2f404a3df47f299884177d2b76cd45c2d1550807b32e7829f37a25a53776f"
+            },
+            {
+              "filename": "ES-DE_3.4.1-x64.exe",
+              "url": "https://gitlab.com/es-de/emulationstation-de/-/package_files/288156889/download",
+              "sha256": "23b65dd46c8241d2a6a87e8a99d2d7c6a2c40f34ad0c74bf3219ff1aa95edac1"
+            },
+            {
+              "filename": "ES-DE_aarch64.AppImage",
+              "url": "https://gitlab.com/es-de/emulationstation-de/-/package_files/326321114/download",
+              "sha256": "b84eababe6d6388223cf8b1658bb237bc0125362acaae70e1ece55397c1eb414"
+            },
+            {
+              "filename": "ES-DE_3.4.1-x64_Portable.zip",
+              "url": "https://gitlab.com/es-de/emulationstation-de/-/package_files/288156909/download",
+              "sha256": "b082110241a5a672353729e3787609f406c4c149dddbd791993bda0a3185d4b5"
+            }
+          ],
+          "source_type": "gitlab",
+          "repo_url": "https://gitlab.com/es-de/emulationstation-de"
         }
       ]
     }
