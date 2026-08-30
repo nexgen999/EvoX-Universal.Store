@@ -62,7 +62,7 @@ def extract_clean_repo_url(url, description=""):
     if gl_match:
         return f"https://gitlab.com/{gl_match.group(1)}/{clean_repo_name(gl_match.group(2))}", "gitlab"
 
-    # Forgejo / Gitea
+    # Forgejo / Gitea (Fix du double /projects/)
     cb_match = re.search(r"https?://([^/\s\"']+)/(?:projects/)?([^/\s\"']+)/([^/\s\"']+)", combined)
     if cb_match:
         domain, owner, repo = cb_match.group(1), cb_match.group(2), clean_repo_name(cb_match.group(3))
@@ -144,22 +144,24 @@ def resolve_release_data(raw_url, description=""):
         except Exception as e:
             print(f"   [ERROR GitLab API] {owner}/{repo}: {e}")
 
-    # 3. FORGEJO / GITEA (SCRAPING HTML DIRECT)
+    # 3. FORGEJO / GITEA (SCRAPING HTML DES RELEASES ET DOWNLOADS)
     if source_type == "forgejo":
         try:
             parsed = urllib.parse.urlparse(repo_url)
             domain = f"{parsed.scheme}://{parsed.netloc}"
+            
+            # Nettoyage propre du path sans doubler /projects/
             clean_path = re.sub(r"^/projects/", "/", parsed.path)
             parts = clean_path.strip("/").split("/")
             
             if len(parts) >= 2:
                 owner, repo = parts[0], parts[1]
                 
-                # Scraping de la page HTML des releases
+                # Ciblage prioritaire de la page HTML des releases
                 html_targets = [
-                    raw_url,
                     f"{domain}/projects/{owner}/{repo}/releases",
-                    f"{domain}/{owner}/{repo}/releases"
+                    f"{domain}/{owner}/{repo}/releases",
+                    raw_url
                 ]
                 
                 for target_url in html_targets:
@@ -167,19 +169,23 @@ def resolve_release_data(raw_url, description=""):
                         html_content = fetch_html(target_url)
                         soup = BeautifulSoup(html_content, 'html.parser')
                         
-                        # Extraire les liens d'ancres (Zip / Tar.gz / Attachments)
-                        links = soup.find_all('a', href=True)
-                        extracted_assets = []
+                        # Extraire le dernier tag/version présent dans le HTML
                         tag_found = "latest"
-                        
-                        # Recherche d'un tag dans la page
-                        tag_match = re.search(r"/tag/([^/\s\"']+)", target_url) or re.search(r"/tag/([^/\s\"']+)", html_content)
+                        tag_match = re.search(r"/(?:tag|releases/tag|releases/tag/v?)/([^/\s\"']+)", html_content)
                         if tag_match:
                             tag_found = tag_match.group(1)
 
+                        extracted_assets = []
+                        links = soup.find_all('a', href=True)
+                        
                         for link in links:
                             href = link['href']
-                            if any(href.endswith(ext) for ext in ['.zip', '.tar.gz', '.7z', '.AppImage', '.exe', '.apk']):
+                            # Filtre spécifique pour capturer les binaires de releases (/releases/download/...)
+                            if "/releases/download/" in href or any(href.endswith(ext) for ext in ['.zip', '.tar.gz', '.7z', '.AppImage', '.exe']):
+                                # Eviter de reprendre l'archive brute du code source si un binaire existe
+                                if "/archive/" in href and len(extracted_assets) > 0:
+                                    continue
+
                                 full_dl = href if href.startswith("http") else f"{domain}{href}"
                                 name = os.path.basename(href)
                                 sha = get_remote_sha256(full_dl)
@@ -187,12 +193,12 @@ def resolve_release_data(raw_url, description=""):
                                     extracted_assets.append({"filename": name, "url": full_dl, "sha256": sha})
 
                         if extracted_assets:
-                            return tag_found, f"Release HTML Scraped ({tag_found})", extracted_assets, "forgejo", repo_url
+                            return tag_found, f"Release HTML ({tag_found})", extracted_assets, "forgejo", repo_url
 
                     except Exception:
                         continue
 
-                # Ultimate Fallback en cas d'échec du parser
+                # Fallback propre sans doublon dans l'URL
                 tag_in_url = re.search(r"/tag/([^/\s\"']+)", raw_url)
                 fallback_tag = tag_in_url.group(1) if tag_in_url else "master"
                 zip_url = f"{domain}/projects/{owner}/{repo}/archive/{fallback_tag}.zip"
