@@ -1,6 +1,6 @@
 {
   "name": "EvoX Universal Store",
-  "updated_at": "2026-08-30T13:25:11.263476Z",
+  "updated_at": "2026-08-30T13:29:34.464798Z",
   "store": [
     {
       "category": "forgejo_test",
@@ -185,13 +185,13 @@
           "release_notes": "Fichier direct",
           "assets": [
             {
-              "filename": "file.bin",
-              "url": "https://buildbot.libretro.com/nightly/windows/x86_64/",
-              "sha256": "8e9966f5f6e3891968be1ca9ea04220c2c0759c93679eebc5248a7eff3c25a16"
+              "filename": "RetroArch-Win64-setup.exe",
+              "url": "https://buildbot.libretro.com/nightly/windows/x86_64/RetroArch-Win64-setup.exe",
+              "sha256": "44ec32e20d456533f2febb41939996ee8d3b3b828bce077838cf7a4114b772c4"
             }
           ],
           "source_type": "generic",
-          "repo_url": "https://buildbot.libretro.com/nightly/windows/x86_64/"
+          "repo_url": "https://buildbot.libretro.com/nightly/windows/x86_64/RetroArch-Win64-setup.exe"
         }
       ]
     },
