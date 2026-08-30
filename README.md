@@ -48,6 +48,13 @@ Le fichier `config.json` permet de personnaliser l'interface web du Store sans t
 | Catégorie | Sous-catégorie | Application | Version |
 | :--- | :--- | :--- | :--- |
 | forgejo_test | forgejo_test | elf-arsenal | v1.6.22 |
+| Switch-Emu | Switch-Emu | Citron-neo_windows-nightly | nightly-windows |
+| Switch-Emu | Switch-Emu | Citron-neo_android-nightly | nightly-windows |
+| Switch-Emu | Switch-Emu | Ryujinx-Nextendo | v1.7.9 |
+| Switch-Emu | Switch-Emu | Ryubing | v1.0 |
+| Switch-Emu | Switch-Emu | Kenji-NX | v1.0 |
+| Switch-Emu | Switch-Emu | eden-stable | v1.0 |
+| Switch-Emu | Switch-Emu | eden-nightly | v1.0 |
 | github_test | github_test | flycast | v2.7 |
 | github_test | github_test | flycast-dojo | dojo-6.46 |
 | github_test | github_test | duckstation | latest |

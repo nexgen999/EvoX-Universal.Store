@@ -1,6 +1,6 @@
 {
   "name": "EvoX Universal Store",
-  "updated_at": "2026-08-30T13:53:11.752173Z",
+  "updated_at": "2026-08-30T16:28:42.568895Z",
   "store": [
     {
       "category": "forgejo_test",
@@ -20,6 +20,142 @@
           ],
           "source_type": "forgejo",
           "repo_url": "https://git.etawen.dev/soniciso/elf-arsenal"
+        }
+      ]
+    },
+    {
+      "category": "Switch-Emu",
+      "subcategory": "Switch-Emu",
+      "apps": [
+        {
+          "name": "Citron-neo_windows-nightly",
+          "description": "Citron-neo_windows-nightly",
+          "version": "nightly-windows",
+          "release_notes": "**Citron Upstream Commit:** [`356b629`](https://github.com/citron-neo/emulator/commit/356b6290862669c486999fa729d597a16bc80211)\n\nThis build is based on the latest Citron emulator source code from the upstream repository.\n\n**Build Details:**\n- Platform: Windows (x64)\n- Toolchains: Clangtron and native clang-cl/MSVC ABI\n- Build Type: Nightly\n- Date: 2026-08-21\n",
+          "assets": [
+            {
+              "filename": "Citron-windows-nightly-356b62908-x64-clang-cl.zip",
+              "url": "https://github.com/citron-neo/CI/releases/download/nightly-windows/Citron-windows-nightly-356b62908-x64-clang-cl.zip",
+              "sha256": "aef0c358fe6cabc52c6ecb200bfc71fbf986cdbc66ddb2954b9280ef072d1f22"
+            },
+            {
+              "filename": "Citron-windows-nightly-356b62908-x64-clangtron.zip",
+              "url": "https://github.com/citron-neo/CI/releases/download/nightly-windows/Citron-windows-nightly-356b62908-x64-clangtron.zip",
+              "sha256": "10c5ce9450a9392a4fc157c2ac2b577e1e7d4e62727ab620483550530e2a1037"
+            }
+          ],
+          "source_type": "github",
+          "repo_url": "https://github.com/citron-neo/CI"
+        },
+        {
+          "name": "Citron-neo_android-nightly",
+          "description": "Citron-neo_android-nightly",
+          "version": "nightly-windows",
+          "release_notes": "**Citron Upstream Commit:** [`356b629`](https://github.com/citron-neo/emulator/commit/356b6290862669c486999fa729d597a16bc80211)\n\nThis build is based on the latest Citron emulator source code from the upstream repository.\n\n**Build Details:**\n- Platform: Windows (x64)\n- Toolchains: Clangtron and native clang-cl/MSVC ABI\n- Build Type: Nightly\n- Date: 2026-08-21\n",
+          "assets": [
+            {
+              "filename": "Citron-windows-nightly-356b62908-x64-clang-cl.zip",
+              "url": "https://github.com/citron-neo/CI/releases/download/nightly-windows/Citron-windows-nightly-356b62908-x64-clang-cl.zip",
+              "sha256": "aef0c358fe6cabc52c6ecb200bfc71fbf986cdbc66ddb2954b9280ef072d1f22"
+            },
+            {
+              "filename": "Citron-windows-nightly-356b62908-x64-clangtron.zip",
+              "url": "https://github.com/citron-neo/CI/releases/download/nightly-windows/Citron-windows-nightly-356b62908-x64-clangtron.zip",
+              "sha256": "10c5ce9450a9392a4fc157c2ac2b577e1e7d4e62727ab620483550530e2a1037"
+            }
+          ],
+          "source_type": "github",
+          "repo_url": "https://github.com/citron-neo/CI"
+        },
+        {
+          "name": "Ryujinx-Nextendo",
+          "description": "Ryujinx-Nextendo",
+          "version": "v1.7.9",
+          "release_notes": "## Mario Tennis Aces and ARMS join the network\r\n\r\nBoth games are now recognised by Nextendo and can be launched straight into online play.\r\nAs with every other supported title, one game version is supported at a time — **ARMS\r\n5.5.1** and **Mario Tennis Aces 3.1.1**, both the latest. If your copy is on an older\r\nversion, Nextendo now tells you before launch instead of letting you walk into a\r\nconnection error with no explanation.\r\n\r\n## Mario Tennis Aces picks the closest server for you\r\n\r\nTennis leans on peer-to-peer far more than the other titles, and players on the far side\r\nof the world were paying for it. The game now resolves a real GeoDNS name instead of a\r\nfixed address, so you are routed to whichever of the two live Tennis nodes is nearest —\r\none in Europe, one in North America. Every other game is untouched.\r\n\r\nThis is a first step, not the destination: the two nodes are separate for now, and\r\ncross-node play is what comes next. If you would rather stay on the European node, set\r\n`NEXTENDO_TENNIS_GEODNS=0` and the previous behaviour comes back. Running your own\r\nprivate server? The redirect never applies to you — your server keeps Tennis, exactly as\r\nit keeps everything else.\r\n\r\nBoth of the above come from **@CollectingW**, who also set up and hosts the second node.\r\n\r\n## Splatfest data now ships with the emulator\r\n\r\nSplatoon 3 Splatfests need a data package the console would normally receive over the\r\nair. Until now you had to be handed that package and drop it in yourself. It is included\r\nin this build, in `portable/bcat-seed/`, so a fresh install is ready for the event with\r\nnothing to configure.\r\n\r\nThe package is included for all four Splatfest regions — Japan, the Americas, Europe and\r\nAsia-Pacific — because the game asks for the one matching the region you picked in-game, and\r\nthat choice can only be changed once a month. Whichever you are on, the data is there.\r\n\r\nTwo consequences worth knowing. **The in-app updater will not put it there for you** — it\r\ndeliberately leaves your `portable` folder alone so it never touches your saves, keys or\r\nsettings. If you update from inside the emulator, extract this archive over your\r\ninstallation afterwards to get the package. And if you are on macOS, the build has no\r\n`portable` folder at all; take the separate package asset attached to this release.\r\n\r\n## Splatoon 2 no longer wipes Splatoon 3's event data\r\n\r\nThe two games share one folder for their downloaded data, and Splatoon 2 refreshed it by\r\ndeleting the whole thing before writing its own files. Anyone who installed the Splatoon\r\n3 event package and then launched Splatoon 2 once lost it, silently — and on a fresh\r\ninstall that deletion was guaranteed on the very first launch.\r\n\r\nSplatoon 2 now removes only the folders it owns. Nothing to do on your side: existing\r\ninstallations are handled correctly from the first launch after updating.\r\n\r\n## The console clock now follows your PC\r\n\r\nTwo settings are on by default from this release.\r\n\r\n**Match system time** keeps the emulated console's clock on your computer's. Without it\r\nthe console clock drifts, and an event whose phases change at fixed times puts you in the\r\nwrong one — you get the announcement while everyone else is already playing.\r\n\r\n**Ignore missing services** lets a game continue when it asks for something the emulator\r\ndoes not implement, instead of stopping. Several of those are called during online play\r\nand their absence changes nothing.\r\n\r\nBoth were settings every online player ended up having to find on their own.\r\n\r\n## Discord shows the right game again\r\n\r\nNextendo-compatible titles appear on Discord under **Ryujinx | Nextendo** rather than\r\nplain Ryujinx. ARMS and Mario Tennis Aces were missing from the list that decides this,\r\nso they were announced as ordinary Ryujinx sessions. Fixed, and Mario Tennis Aces now\r\nshows its real cover art.\r\n\r\n## Splatoon 3: an event logo on the title screen\r\n\r\nDuring a Splatfest, the Splatoon 3 title screen can now show the event's logo instead of\r\nthe usual one. The server decides — nothing to install, nothing to toggle, and when the\r\nevent ends the title screen returns to normal on its own.\r\n\r\nWorth saying plainly, because Splatoon 3 otherwise allows no mods at all: **nothing is\r\nadded to your game**. Nintendo shipped several logos inside the title screen file already;\r\nthe emulator simply serves a different one, in memory, while the game loads. Your files are\r\nnever modified and no game data is distributed. If the server says nothing, or cannot be\r\nreached, the title screen is left completely untouched.\r\n\r\n\r\n## Downloads\r\n\r\n| Platform | File |\r\n|---|---|\r\n| Windows x64 | `Nextendo-1.7.9-win-x64.zip` |\r\n| Linux x64 | `Nextendo-1.7.9-linux-x64.tar.gz` |\r\n| macOS (universal) | `Ryujinx-Nextendo-1.7.9-macos_universal.tar.gz` |\r\n| Splatfest package (all regions) | `bcat-seed-JUEA-00210.zip` |\r\n\r\nExtract the archive and keep the `portable` folder next to the executable — that is where\r\nyour saves, keys and settings live.\r\n\r\nUpdating from inside the emulator? Extract the archive over your installation afterwards,\r\nor take the Splatfest package on its own — the in-app updater never writes into `portable`.\r\n",
+          "assets": [
+            {
+              "filename": "bcat-seed-JUEA-00210.zip",
+              "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.7.9/bcat-seed-JUEA-00210.zip",
+              "sha256": "65504252c798df09fe1343c9d7f3338cb0a93f403884cbee2617fc34a530eea6"
+            },
+            {
+              "filename": "Nextendo-1.7.9-linux-x64.tar.gz",
+              "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.7.9/Nextendo-1.7.9-linux-x64.tar.gz",
+              "sha256": "0ba0b9d12c9c2b2b7cca4e9d8ed593c1995f39558bf4c5d7025c9955a909a066"
+            },
+            {
+              "filename": "Nextendo-1.7.9-win-x64.zip",
+              "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.7.9/Nextendo-1.7.9-win-x64.zip",
+              "sha256": "708d7054cd94079aba99c979070e8ff8737cf9a369f5cdcba89b46eeb94a28e6"
+            },
+            {
+              "filename": "Ryujinx-Nextendo-1.7.9-macos_universal.tar.gz",
+              "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.7.9/Ryujinx-Nextendo-1.7.9-macos_universal.tar.gz",
+              "sha256": "75a92cb7aa564f0b15977d698ae84fe3c7bf68730a3a644b5aa528f1b69f8d13"
+            }
+          ],
+          "source_type": "github",
+          "repo_url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo"
+        },
+        {
+          "name": "Ryubing",
+          "description": "Ryubing",
+          "version": "v1.0",
+          "release_notes": "Fichier direct",
+          "assets": [
+            {
+              "filename": "Ryubing",
+              "url": "https://git.ryujinx.app/projects/Ryubing",
+              "sha256": "986e58e67074fdbacd91294eaf81da126775546be15f8d0a595f2552aa75a617"
+            }
+          ],
+          "source_type": "generic",
+          "repo_url": "https://git.ryujinx.app/projects/Ryubing"
+        },
+        {
+          "name": "Kenji-NX",
+          "description": "Kenji-NX",
+          "version": "v1.0",
+          "release_notes": "Fichier direct",
+          "assets": [
+            {
+              "filename": "Kenji-NX",
+              "url": "https://git.ryujinx.app/projects/Kenji-NX",
+              "sha256": "a08c1cea30127dffb515b902a3aa2611350261b7b806e0e25dc580a97420f503"
+            }
+          ],
+          "source_type": "generic",
+          "repo_url": "https://git.ryujinx.app/projects/Kenji-NX"
+        },
+        {
+          "name": "eden-stable",
+          "description": "eden-stable",
+          "version": "v1.0",
+          "release_notes": "Fichier direct",
+          "assets": [
+            {
+              "filename": "releases",
+              "url": "https://git.eden-emu.dev/eden-emu/eden/releases",
+              "sha256": "ed571a3238799226cd2ce75cddca101bbefd1163de2383267d6f376d4715ddb6"
+            }
+          ],
+          "source_type": "generic",
+          "repo_url": "https://git.eden-emu.dev/eden-emu/eden/releases"
+        },
+        {
+          "name": "eden-nightly",
+          "description": "eden-nightly",
+          "version": "v1.0",
+          "release_notes": "Fichier direct",
+          "assets": [
+            {
+              "filename": "releases",
+              "url": "https://git.eden-emu.dev/eden-ci/nightly/releases",
+              "sha256": "98309017e9ede6afe5acfb8ed8a2a515ce9a075f36e8659dc35c3968c132e90e"
+            }
+          ],
+          "source_type": "generic",
+          "repo_url": "https://git.eden-emu.dev/eden-ci/nightly/releases"
         }
       ]
     },
