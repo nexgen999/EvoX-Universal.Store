@@ -47,7 +47,7 @@ Le fichier `config.json` permet de personnaliser l'interface web du Store sans t
 <!-- START_APP_LIST -->
 | Catégorie | Sous-catégorie | Application | Version |
 | :--- | :--- | :--- | :--- |
-| forgejo_test | forgejo_test | elf-arsenal | v1.0 |
+| forgejo_test | forgejo_test | elf-arsenal | v1.6.22 |
 | emulation | emulateurs | flycast | v2.7 |
 | emulation | emulateurs | flycast-dojo | dojo-6.46 |
 | emulation | emulateurs | duckstation | latest |
