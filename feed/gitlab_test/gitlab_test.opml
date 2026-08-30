@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<opml version="2.0">
+  <head>
+    <title>gitlab_test</title>
+  </head>
+  <body>
+    <outline text="emulationstation-de" title="emulationstation-de" type="rss" xmlUrl="https://gitlab.com/es-de/emulationstation-de" author="es-de" description="ES-DE"/>
+  </body>
+</opml>

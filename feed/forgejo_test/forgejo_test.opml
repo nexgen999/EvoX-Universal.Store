@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<opml version="2.0">
+  <head>
+    <title>forgejo_test</title>
+  </head>
+  <body>
+    <outline text="elf-arsenal" title="elf-arsenal" type="rss" xmlUrl="https://git.etawen.dev/soniciso/elf-arsenal" author="soniciso" description="elf-arsenal"/>
+  </body>
+</opml>
