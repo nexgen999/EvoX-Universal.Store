@@ -4,6 +4,6 @@
     <title>html_test</title>
   </head>
   <body>
-    <outline text="retroarch_windows_nightly" title="retroarch_windows_nightly" type="rss" xmlUrl="https://buildbot.libretro.com/nightly/windows/x86_64/" author="retroarch" description="retroarch"/>
+    <outline text="retroarch_windows_nightly" title="retroarch_windows_nightly" type="rss" xmlUrl="https://buildbot.libretro.com/nightly/windows/x86_64/RetroArch-Win64-setup.exe" author="retroarch" description="retroarch"/>
   </body>
 </opml>
