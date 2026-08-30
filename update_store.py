@@ -54,19 +54,15 @@ def extract_clean_repo_url(url, description=""):
         repo = clean_repo_name(gl_match.group(2))
         return f"https://gitlab.com/{owner}/{repo}", "gitlab"
 
-    # Match générique pour n'importe quel domaine Forgejo / Gitea (ex: git.etawen.dev ou codeberg.org)
-    cb_match = re.search(r"https?://([^/\s\"']+)/([^/\s\"']+)/([^/\s\"']+)", combined)
-    if cb_match and ("forgejo" in combined.lower() or "gitea" in combined.lower() or "git.etawen.dev" in combined.lower() or "codeberg.org" in combined.lower()):
+    # Match générique Forgejo / Gitea (prend en compte les sous-routes comme /projects/)
+    cb_match = re.search(r"https?://([^/\s\"']+)/(?:projects/)?([^/\s\"']+)/([^/\s\"']+)", combined)
+    if cb_match:
         domain = cb_match.group(1)
         owner = cb_match.group(2)
         repo = clean_repo_name(cb_match.group(3))
-        return f"https://{domain}/{owner}/{repo}", "forgejo"
-
-    # Fallback capture des liens Forgejo/Gitea même sans mot-clé explicite si domaine spécifique
-    if "git.etawen.dev" in combined:
-        m = re.search(r"https?://git\.etawen\.dev/([^/\s\"']+)/([^/\s\"']+)", combined)
-        if m:
-            return f"https://git.etawen.dev/{m.group(1)}/{clean_repo_name(m.group(2))}", "forgejo"
+        known_domains = ["git.etawen.dev", "git.eden-emu.dev", "git.ryujinx.app", "codeberg.org"]
+        if any(kd in domain for kd in known_domains) or "forgejo" in combined.lower() or "gitea" in combined.lower():
+            return f"https://{domain}/{owner}/{repo}", "forgejo"
 
     # URL Directe
     clean_url = re.sub(r'/(releases|tags)\.(atom|rss|xml)$', '', url)
@@ -145,26 +141,30 @@ def resolve_release_data(raw_url, description=""):
         except Exception as e:
             print(f"   [ERROR GitLab API] {owner}/{repo}: {e}")
 
-    # 3. FORGEJO / GITEA (ex: git.etawen.dev, codeberg.org, etc.)
-    if source_type == "forgejo" or "git.etawen.dev" in repo_url:
+    # 3. FORGEJO / GITEA
+    if source_type == "forgejo":
         try:
             parsed = urllib.parse.urlparse(repo_url)
             domain = f"{parsed.scheme}://{parsed.netloc}"
-            parts = parsed.path.strip("/").split("/")
+            
+            clean_path = re.sub(r"^/projects/", "/", parsed.path)
+            parts = clean_path.strip("/").split("/")
             
             if len(parts) >= 2:
                 owner, repo = parts[0], parts[1]
-                api_url = f"{domain}/api/v1/repos/{owner}/{repo}/releases/latest"
-                
                 data = None
+                
                 try:
+                    api_url = f"{domain}/api/v1/repos/{owner}/{repo}/releases/latest"
                     data = fetch_json(api_url)
                 except Exception:
-                    # Fallback sur la liste complète des releases si /latest échoue
-                    api_url_all = f"{domain}/api/v1/repos/{owner}/{repo}/releases"
-                    all_rel = fetch_json(api_url_all)
-                    if all_rel and isinstance(all_rel, list) and len(all_rel) > 0:
-                        data = all_rel[0]
+                    try:
+                        api_url_all = f"{domain}/api/v1/repos/{owner}/{repo}/releases"
+                        all_rel = fetch_json(api_url_all)
+                        if all_rel and isinstance(all_rel, list) and len(all_rel) > 0:
+                            data = all_rel[0]
+                    except Exception:
+                        pass
 
                 if data:
                     version = data.get("tag_name", "v1.0")
@@ -173,7 +173,6 @@ def resolve_release_data(raw_url, description=""):
                     
                     for asset in data.get("assets", []):
                         dl_url = asset.get("browser_download_url", "")
-                        # Gestion des liens relatifs retournés par certaines instances
                         if dl_url.startswith("/"):
                             dl_url = f"{domain}{dl_url}"
                             
@@ -181,12 +180,23 @@ def resolve_release_data(raw_url, description=""):
                         sha = get_remote_sha256(dl_url)
                         assets.append({"filename": name, "url": dl_url, "sha256": sha})
                     
-                    # Si aucun asset binaire n'est attaché, on utilise le zip source
                     if not assets:
                         zip_url = data.get("zipball_url", f"{domain}/{owner}/{repo}/archive/{version}.zip")
                         assets.append({"filename": f"{repo}-{version}.zip", "url": zip_url, "sha256": get_remote_sha256(zip_url)})
 
                     return version, body, assets, "forgejo", repo_url
+
+                # Fallback Tags si aucune release formelle n'a été créée
+                try:
+                    tags_api = f"{domain}/api/v1/repos/{owner}/{repo}/tags"
+                    tags = fetch_json(tags_api)
+                    if tags and len(tags) > 0:
+                        tag_name = tags[0].get("name", "latest")
+                        zip_url = f"{domain}/{owner}/{repo}/archive/{tag_name}.zip"
+                        return tag_name, "Source release tag", [{"filename": f"{repo}-{tag_name}.zip", "url": zip_url, "sha256": get_remote_sha256(zip_url)}], "forgejo", repo_url
+                except Exception:
+                    pass
+
         except Exception as e:
             print(f"   [ERROR Forgejo API] {repo_url}: {e}")
 
