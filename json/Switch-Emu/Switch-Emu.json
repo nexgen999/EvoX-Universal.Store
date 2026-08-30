@@ -75,62 +75,72 @@
     {
       "name": "Ryubing",
       "description": "Ryubing",
-      "version": "v1.0",
-      "release_notes": "Fichier direct",
+      "version": "master",
+      "release_notes": "Fallback archive",
       "assets": [
         {
-          "filename": "Ryubing",
-          "url": "https://git.ryujinx.app/projects/Ryubing",
-          "sha256": "662b88c803548ad3249837784760a9bf68586d48680c9c82f103203b108e7e6b"
+          "filename": "Ryubing-master.zip",
+          "url": "https://git.ryujinx.app/projects/projects/Ryubing/archive/master.zip",
+          "sha256": "a41d9babe086bf61dce3efc0355a88d85c37c9dd43e14160b53ec7c06613d2ac"
         }
       ],
-      "source_type": "generic",
-      "repo_url": "https://git.ryujinx.app/projects/Ryubing"
+      "source_type": "forgejo",
+      "repo_url": "https://git.ryujinx.app/projects/projects/Ryubing"
     },
     {
       "name": "Kenji-NX",
       "description": "Kenji-NX",
-      "version": "v1.0",
-      "release_notes": "Fichier direct",
+      "version": "master",
+      "release_notes": "Fallback archive",
       "assets": [
         {
-          "filename": "Kenji-NX",
-          "url": "https://git.ryujinx.app/projects/Kenji-NX",
-          "sha256": "52e2d161abedf246c1df42040728678638ec42187d6918565b6dc9e8489d67b4"
+          "filename": "Kenji-NX-master.zip",
+          "url": "https://git.ryujinx.app/projects/projects/Kenji-NX/archive/master.zip",
+          "sha256": "ed4b864956dc057fde585d54cc1f320211a59ce3a5603bd01ef5b41c9485430d"
         }
       ],
-      "source_type": "generic",
-      "repo_url": "https://git.ryujinx.app/projects/Kenji-NX"
+      "source_type": "forgejo",
+      "repo_url": "https://git.ryujinx.app/projects/projects/Kenji-NX"
     },
     {
       "name": "eden-stable",
       "description": "eden-stable",
-      "version": "v1.0",
-      "release_notes": "Fichier direct",
+      "version": "latest",
+      "release_notes": "Release HTML Scraped (latest)",
       "assets": [
         {
-          "filename": "eden",
-          "url": "https://git.eden-emu.dev/eden-emu/eden",
-          "sha256": "46d4ab435476852cb5523c6dfe5d0f75a1ac14a565c6406066f22f41e017c1dc"
+          "filename": "master.zip",
+          "url": "https://git.eden-emu.dev/eden-emu/eden/archive/master.zip",
+          "sha256": "93e2b5e95fcbafb3b4ffe9ced4d3134c5374e777a2f6b0b95b115b707ac83f49"
+        },
+        {
+          "filename": "master.tar.gz",
+          "url": "https://git.eden-emu.dev/eden-emu/eden/archive/master.tar.gz",
+          "sha256": "f0d92ec2c0f302ee7c8390c97c715f926fbb095a16afbe45d980dbf12f984f70"
         }
       ],
-      "source_type": "generic",
-      "repo_url": "https://git.eden-emu.dev/eden-emu/eden"
+      "source_type": "forgejo",
+      "repo_url": "https://git.eden-emu.dev/projects/eden-emu/eden"
     },
     {
       "name": "eden-nightly",
       "description": "eden-nightly",
-      "version": "v1.0",
-      "release_notes": "Fichier direct",
+      "version": "latest",
+      "release_notes": "Release HTML Scraped (latest)",
       "assets": [
         {
-          "filename": "nightly",
-          "url": "https://git.eden-emu.dev/eden-ci/nightly",
-          "sha256": "36177a6b15300f0e2812db9929d72c322731d7371aa62f4ac0f611cf3c907518"
+          "filename": "master.zip",
+          "url": "https://git.eden-emu.dev/eden-ci/nightly/archive/master.zip",
+          "sha256": "7192da7cb76bc4befe1d30ec66a0d86ffff39a957743dcbea4f579e2e47f7a8d"
+        },
+        {
+          "filename": "master.tar.gz",
+          "url": "https://git.eden-emu.dev/eden-ci/nightly/archive/master.tar.gz",
+          "sha256": "d43a5d9d186c2b680894d2e34b5768c4840a26d25bdf56ac5ed2abc624281abb"
         }
       ],
-      "source_type": "generic",
-      "repo_url": "https://git.eden-emu.dev/eden-ci/nightly"
+      "source_type": "forgejo",
+      "repo_url": "https://git.eden-emu.dev/projects/eden-ci/nightly"
     }
   ]
 }
