@@ -6,9 +6,8 @@ import urllib.parse
 import re
 from datetime import datetime
 import xml.etree.ElementTree as ET
-from bs4 import BeautifulSoup
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+BASE_DIR = os.path.dirname(os.abspath(__file__))
 FEED_DIR = os.path.join(BASE_DIR, "feed")
 JSON_DIR = os.path.join(BASE_DIR, "json")
 
@@ -26,17 +25,12 @@ def fetch_json(url, headers=None):
     with urllib.request.urlopen(req) as resp:
         return json.loads(resp.read().decode())
 
-def fetch_html(url):
-    req = urllib.request.Request(url, headers=HEADERS)
-    with urllib.request.urlopen(req) as resp:
-        return resp.read().decode('utf-8', errors='ignore')
-
 def get_remote_sha256(file_url):
     try:
         req = urllib.request.Request(file_url, headers=HEADERS)
         sha256_hash = hashlib.sha256()
         with urllib.request.urlopen(req) as resp:
-            while chunk := resp.read(65536):
+            while chunk := resp.read(8192):
                 sha256_hash.update(chunk)
         return sha256_hash.hexdigest()
     except Exception as e:
@@ -62,11 +56,11 @@ def extract_clean_repo_url(url, description=""):
     if gl_match:
         return f"https://gitlab.com/{gl_match.group(1)}/{clean_repo_name(gl_match.group(2))}", "gitlab"
 
-    # Forgejo / Gitea (Fix du double /projects/)
+    # Forgejo / Gitea
     cb_match = re.search(r"https?://([^/\s\"']+)/(?:projects/)?([^/\s\"']+)/([^/\s\"']+)", combined)
     if cb_match:
         domain, owner, repo = cb_match.group(1), cb_match.group(2), clean_repo_name(cb_match.group(3))
-        if domain.startswith("git.") or "codeberg" in domain or any(k in combined.lower() for k in ["forgejo", "gitea", "eden", "ryujinx"]):
+        if domain.startswith("git.") or "codeberg" in domain or any(k in combined.lower() for k in ["forgejo", "gitea", "eden"]):
             return f"https://{domain}/projects/{owner}/{repo}", "forgejo"
 
     clean_url = re.sub(r'/(releases|tags|src).*$', '', url)
@@ -131,7 +125,7 @@ def resolve_release_data(raw_url, description=""):
         except Exception as e:
             print(f"   [ERROR GitLab API] {owner}/{repo}: {e}")
 
-    # 3. FORGEJO / GITEA / RYUJINX / EDEN
+    # 3. FORGEJO / GITEA / EDEN
     if source_type == "forgejo":
         try:
             parsed = urllib.parse.urlparse(repo_url)
@@ -143,30 +137,6 @@ def resolve_release_data(raw_url, description=""):
             if len(parts) >= 2:
                 owner, repo = parts[0], parts[1]
                 
-                # CAS SPÉCIFIQUE : Ryujinx / Kenji-NX releases
-                if "git.ryujinx.app" in domain:
-                    try:
-                        rel_page = f"{domain}/projects/{owner}/{repo}/releases"
-                        html = fetch_html(rel_page)
-                        soup = BeautifulSoup(html, 'html.parser')
-                        
-                        tag_match = re.search(r"/releases/tag/([^/\s\"']+)", html)
-                        tag = tag_match.group(1) if tag_match else "latest"
-                        
-                        assets = []
-                        for a in soup.find_all('a', href=True):
-                            if "/releases/download/" in a['href']:
-                                dl_url = f"{domain}{a['href']}" if a['href'].startswith("/") else a['href']
-                                name = os.path.basename(dl_url)
-                                sha = get_remote_sha256(dl_url)
-                                assets.append({"filename": name, "url": dl_url, "sha256": sha})
-                        
-                        if assets:
-                            return tag, "Ryujinx Release Asset", assets, "forgejo", repo_url
-                    except Exception as e:
-                        print(f"   [WARN Ryujinx Special Handling] {repo_url}: {e}")
-
-                # COMPORTEMENT PAR DÉFAUT STABLE (Eden, Codeberg...)
                 tag_in_url = re.search(r"/tag/([^/\s\"']+)", raw_url)
                 tag = tag_in_url.group(1) if tag_in_url else "master"
                 zip_url = f"{domain}/projects/{owner}/{repo}/archive/{tag}.zip"
