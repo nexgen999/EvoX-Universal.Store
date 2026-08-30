@@ -1,6 +1,6 @@
 {
   "name": "EvoX Universal Store",
-  "updated_at": "2026-08-30T18:52:00.160231Z",
+  "updated_at": "2026-08-30T20:54:23.754259Z",
   "store": [
     {
       "category": "forgejo_test",
@@ -106,7 +106,7 @@
             {
               "filename": "Ryubing",
               "url": "https://git.ryujinx.app/projects/Ryubing",
-              "sha256": "60f60007510b6f4e87257102886bf66d4eae2dec67f1c1d411505adec7034ffa"
+              "sha256": "81b8842582499a1f44747cd01d5c519e837dd88c14664685248c577d30584bc5"
             }
           ],
           "source_type": "forgejo",
@@ -121,7 +121,7 @@
             {
               "filename": "Kenji-NX",
               "url": "https://git.ryujinx.app/projects/Kenji-NX",
-              "sha256": "718705f1c1d483ca81304a49ae235710a9bb2f1ca2f0a30ce8547ae90b2db239"
+              "sha256": "3aa74f51e660d1633b2ce22df8a729a52bef460362586bb1820c3bcb2a65114e"
             }
           ],
           "source_type": "forgejo",
