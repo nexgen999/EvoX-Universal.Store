@@ -7,8 +7,8 @@
     <outline text="Citron-neo_windows-nightly" title="Citron-neo_windows-nightly" type="rss" xmlUrl="https://github.com/citron-neo/CI/releases/tag/nightly-windows" author="citron-neo" description="Citron-neo_windows-nightly"/>
     <outline text="Citron-neo_android-nightly" title="Citron-neo_android-nightly" type="rss" xmlUrl="https://github.com/citron-neo/CI/releases/tag/nightly-android" author="citron-neo" description="Citron-neo_android-nightly"/>
     <outline text="Ryujinx-Nextendo" title="Ryujinx-Nextendo" type="rss" xmlUrl="https://github.com/NextendoNetwork/Ryujinx-Nextendo" author="NextendoNetwork" description="Ryujinx-Nextendo"/>
-    <outline text="Ryubing" title="Ryubing" type="rss" xmlUrl="https://git.ryujinx.app/projects/Ryubing" author="projects" description="Ryubing"/>
-    <outline text="Kenji-NX" title="Kenji-NX" type="rss" xmlUrl="https://git.ryujinx.app/projects/Kenji-NX" author="projects" description="Kenji-NX"/>
+    <outline text="Ryubing" title="Ryubing" type="rss" xmlUrl="https://git.ryujinx.app/projects/Ryubing//releases" author="projects" description="Ryubing"/>
+    <outline text="Kenji-NX" title="Kenji-NX" type="rss" xmlUrl="https://git.ryujinx.app/projects/Kenji-NX/releases" author="projects" description="Kenji-NX"/>
     <outline text="eden-stable" title="eden-stable" type="rss" xmlUrl="https://git.eden-emu.dev/eden-emu/eden" author="eden-emu" description="eden-stable"/>
     <outline text="eden-nightly" title="eden-nightly" type="rss" xmlUrl="https://git.eden-emu.dev/eden-ci/nightly" author="eden-ci" description="eden-nightly"/>
   </body>
