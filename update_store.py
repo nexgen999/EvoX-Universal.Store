@@ -16,6 +16,7 @@ GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
 }
+VALID_EXTENSIONS = ('.zip', '.tar.gz', '.tgz', '.7z', '.AppImage', '.exe', '.apk', '.pkg', '.bin', '.elf')
 
 def fetch_json(url, headers=None):
     req_headers = HEADERS.copy()
@@ -23,24 +24,28 @@ def fetch_json(url, headers=None):
     if headers:
         req_headers.update(headers)
     req = urllib.request.Request(url, headers=req_headers)
-    with urllib.request.urlopen(req) as resp:
+    with urllib.request.urlopen(req, timeout=8) as resp:
         return json.loads(resp.read().decode())
 
 def fetch_html(url):
     req = urllib.request.Request(url, headers=HEADERS)
-    with urllib.request.urlopen(req) as resp:
+    with urllib.request.urlopen(req, timeout=8) as resp:
         return resp.read().decode('utf-8', errors='ignore')
 
 def get_remote_sha256(file_url):
+    # Sécurité : On ne télécharge que si c'est une extension de binaire/archive
+    if not any(file_url.lower().endswith(ext) or f"{ext}?" in file_url.lower() for ext in VALID_EXTENSIONS) and "/releases/download/" not in file_url:
+        return ""
+        
     try:
         req = urllib.request.Request(file_url, headers=HEADERS)
         sha256_hash = hashlib.sha256()
-        with urllib.request.urlopen(req) as resp:
-            while chunk := resp.read(8192):
+        with urllib.request.urlopen(req, timeout=10) as resp:
+            while chunk := resp.read(65536): # Chunks de 64Ko pour accélérer
                 sha256_hash.update(chunk)
         return sha256_hash.hexdigest()
     except Exception as e:
-        print(f"      [WARN] SHA256 non calcule ({e})")
+        print(f"      [WARN] SHA256 non calcule pour {file_url} ({e})")
         return ""
 
 def clean_repo_name(repo_str):
@@ -62,7 +67,7 @@ def extract_clean_repo_url(url, description=""):
     if gl_match:
         return f"https://gitlab.com/{gl_match.group(1)}/{clean_repo_name(gl_match.group(2))}", "gitlab"
 
-    # Forgejo / Gitea (Fix du double /projects/)
+    # Forgejo / Gitea
     cb_match = re.search(r"https?://([^/\s\"']+)/(?:projects/)?([^/\s\"']+)/([^/\s\"']+)", combined)
     if cb_match:
         domain, owner, repo = cb_match.group(1), cb_match.group(2), clean_repo_name(cb_match.group(3))
@@ -83,29 +88,21 @@ def resolve_release_data(raw_url, description=""):
         if GITHUB_TOKEN:
             gh_headers["Authorization"] = f"token {GITHUB_TOKEN}"
 
-        data = None
         try:
             api_url = f"https://api.github.com/repos/{owner}/{repo}/releases/latest"
             data = fetch_json(api_url, gh_headers)
+            if data and data.get("assets"):
+                version = data.get("tag_name", "v1.0")
+                body = data.get("body", "")
+                assets = []
+                for asset in data.get("assets", []):
+                    dl_url = asset.get("browser_download_url", "")
+                    name = asset.get("name", "")
+                    sha = get_remote_sha256(dl_url)
+                    assets.append({"filename": name, "url": dl_url, "sha256": sha})
+                return version, body, assets, "github", repo_url
         except Exception:
-            try:
-                api_url = f"https://api.github.com/repos/{owner}/{repo}/releases"
-                all_rel = fetch_json(api_url, gh_headers)
-                if all_rel and isinstance(all_rel, list) and len(all_rel) > 0:
-                    data = all_rel[0]
-            except Exception as e:
-                print(f"   [ERROR GitHub API] {owner}/{repo}: {e}")
-
-        if data and data.get("assets"):
-            version = data.get("tag_name", "v1.0")
-            body = data.get("body", "")
-            assets = []
-            for asset in data.get("assets", []):
-                dl_url = asset.get("browser_download_url", "")
-                name = asset.get("name", "")
-                sha = get_remote_sha256(dl_url)
-                assets.append({"filename": name, "url": dl_url, "sha256": sha})
-            return version, body, assets, "github", repo_url
+            pass
 
         try:
             tags_url = f"https://api.github.com/repos/{owner}/{repo}/tags"
@@ -113,12 +110,7 @@ def resolve_release_data(raw_url, description=""):
             if tags and len(tags) > 0:
                 tag_name = tags[0].get("name", "latest")
                 zip_url = f"https://github.com/{owner}/{repo}/archive/refs/tags/{tag_name}.zip"
-                tar_url = f"https://github.com/{owner}/{repo}/archive/refs/tags/{tag_name}.tar.gz"
-                assets = [
-                    {"filename": f"{repo}-{tag_name}.zip", "url": zip_url, "sha256": get_remote_sha256(zip_url)},
-                    {"filename": f"{repo}-{tag_name}.tar.gz", "url": tar_url, "sha256": get_remote_sha256(tar_url)}
-                ]
-                return tag_name, "Source release tag", assets, "github", repo_url
+                return tag_name, "Source release tag", [{"filename": f"{repo}-{tag_name}.zip", "url": zip_url, "sha256": get_remote_sha256(zip_url)}], "github", repo_url
         except Exception as e:
             print(f"   [ERROR Tags GitHub] {owner}/{repo}: {e}")
 
@@ -144,75 +136,54 @@ def resolve_release_data(raw_url, description=""):
         except Exception as e:
             print(f"   [ERROR GitLab API] {owner}/{repo}: {e}")
 
-    # 3. FORGEJO / GITEA (SCRAPING HTML DES RELEASES ET DOWNLOADS)
+    # 3. FORGEJO / GITEA
     if source_type == "forgejo":
         try:
             parsed = urllib.parse.urlparse(repo_url)
             domain = f"{parsed.scheme}://{parsed.netloc}"
             
-            # Nettoyage propre du path sans doubler /projects/
             clean_path = re.sub(r"^/projects/", "/", parsed.path)
             parts = clean_path.strip("/").split("/")
             
             if len(parts) >= 2:
                 owner, repo = parts[0], parts[1]
                 
-                # Ciblage prioritaire de la page HTML des releases
-                html_targets = [
-                    f"{domain}/projects/{owner}/{repo}/releases",
-                    f"{domain}/{owner}/{repo}/releases",
-                    raw_url
-                ]
-                
-                for target_url in html_targets:
-                    try:
-                        html_content = fetch_html(target_url)
-                        soup = BeautifulSoup(html_content, 'html.parser')
-                        
-                        # Extraire le dernier tag/version présent dans le HTML
-                        tag_found = "latest"
-                        tag_match = re.search(r"/(?:tag|releases/tag|releases/tag/v?)/([^/\s\"']+)", html_content)
-                        if tag_match:
-                            tag_found = tag_match.group(1)
+                target_url = f"{domain}/projects/{owner}/{repo}/releases"
+                try:
+                    html_content = fetch_html(target_url)
+                    soup = BeautifulSoup(html_content, 'html.parser')
+                    
+                    tag_found = "latest"
+                    tag_match = re.search(r"/(?:tag|releases/tag)/([^/\s\"']+)", html_content)
+                    if tag_match:
+                        tag_found = tag_match.group(1)
 
-                        extracted_assets = []
-                        links = soup.find_all('a', href=True)
-                        
-                        for link in links:
-                            href = link['href']
-                            # Filtre spécifique pour capturer les binaires de releases (/releases/download/...)
-                            if "/releases/download/" in href or any(href.endswith(ext) for ext in ['.zip', '.tar.gz', '.7z', '.AppImage', '.exe']):
-                                # Eviter de reprendre l'archive brute du code source si un binaire existe
-                                if "/archive/" in href and len(extracted_assets) > 0:
-                                    continue
+                    extracted_assets = []
+                    for link in soup.find_all('a', href=True):
+                        href = link['href']
+                        if "/releases/download/" in href or any(href.lower().endswith(ext) for ext in VALID_EXTENSIONS):
+                            full_dl = href if href.startswith("http") else f"{domain}{href}"
+                            name = os.path.basename(href)
+                            sha = get_remote_sha256(full_dl)
+                            extracted_assets.append({"filename": name, "url": full_dl, "sha256": sha})
 
-                                full_dl = href if href.startswith("http") else f"{domain}{href}"
-                                name = os.path.basename(href)
-                                sha = get_remote_sha256(full_dl)
-                                if sha:
-                                    extracted_assets.append({"filename": name, "url": full_dl, "sha256": sha})
+                    if extracted_assets:
+                        return tag_found, f"Release HTML ({tag_found})", extracted_assets, "forgejo", repo_url
+                except Exception as e:
+                    print(f"   [WARN HTML Forgejo] {target_url}: {e}")
 
-                        if extracted_assets:
-                            return tag_found, f"Release HTML ({tag_found})", extracted_assets, "forgejo", repo_url
-
-                    except Exception:
-                        continue
-
-                # Fallback propre sans doublon dans l'URL
+                # Fallback léger sans télécharger tout l'archive si échec
                 tag_in_url = re.search(r"/tag/([^/\s\"']+)", raw_url)
                 fallback_tag = tag_in_url.group(1) if tag_in_url else "master"
                 zip_url = f"{domain}/projects/{owner}/{repo}/archive/{fallback_tag}.zip"
-                sha_val = get_remote_sha256(zip_url)
-                
-                return fallback_tag, "Fallback archive", [{"filename": f"{repo}-{fallback_tag}.zip", "url": zip_url, "sha256": sha_val}], "forgejo", repo_url
+                return fallback_tag, "Fallback archive", [{"filename": f"{repo}-{fallback_tag}.zip", "url": zip_url, "sha256": ""}], "forgejo", repo_url
 
         except Exception as e:
             print(f"   [ERROR Forgejo HTML] {repo_url}: {e}")
 
     # 4. DIRECT / GENERIC
     filename = os.path.basename(repo_url) or "file.bin"
-    sha = get_remote_sha256(repo_url)
-    return "v1.0", "Fichier direct", [{"filename": filename, "url": repo_url, "sha256": sha}], source_type, repo_url
+    return "v1.0", "Fichier direct", [{"filename": filename, "url": repo_url, "sha256": ""}], source_type, repo_url
 
 def parse_opml(opml_path):
     items = []
