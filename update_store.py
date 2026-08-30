@@ -13,7 +13,7 @@ JSON_DIR = os.path.join(BASE_DIR, "json")
 
 GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
 HEADERS = {
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 }
 
 def fetch_json(url, headers=None):
@@ -34,7 +34,7 @@ def get_remote_sha256(file_url):
                 sha256_hash.update(chunk)
         return sha256_hash.hexdigest()
     except Exception as e:
-        print(f"      [WARN] SHA256 non calcule ({e})")
+        print(f"      [WARN] SHA256 non calcule pour {file_url} ({e})")
         return ""
 
 def clean_repo_name(repo_str):
@@ -56,14 +56,14 @@ def extract_clean_repo_url(url, description=""):
     if gl_match:
         return f"https://gitlab.com/{gl_match.group(1)}/{clean_repo_name(gl_match.group(2))}", "gitlab"
 
-    # Forgejo / Gitea (prise en compte explicite de /projects/)
+    # Forgejo / Gitea (prise en compte de /projects/)
     cb_match = re.search(r"https?://([^/\s\"']+)/(?:projects/)?([^/\s\"']+)/([^/\s\"']+)", combined)
     if cb_match:
         domain, owner, repo = cb_match.group(1), cb_match.group(2), clean_repo_name(cb_match.group(3))
         if domain.startswith("git.") or "codeberg" in domain or any(k in combined.lower() for k in ["forgejo", "gitea", "eden", "ryujinx"]):
             return f"https://{domain}/projects/{owner}/{repo}", "forgejo"
 
-    clean_url = re.sub(r'/(releases|tags|src)\.*$', '', url)
+    clean_url = re.sub(r'/(releases|tags|src).*$', '', url)
     return clean_url, "generic"
 
 def resolve_release_data(raw_url, description=""):
@@ -138,21 +138,37 @@ def resolve_release_data(raw_url, description=""):
         except Exception as e:
             print(f"   [ERROR GitLab API] {owner}/{repo}: {e}")
 
-    # 3. FORGEJO / GITEA (AVEC SUPPORT DES TAGS/PROJECTS)
+    # 3. FORGEJO / GITEA (AVEC PARSING DIRECT DES TAGS HTML)
     if source_type == "forgejo":
         try:
             parsed = urllib.parse.urlparse(repo_url)
             domain = f"{parsed.scheme}://{parsed.netloc}"
             
-            # Nettoyage de la route
             clean_path = re.sub(r"^/projects/", "/", parsed.path)
             parts = clean_path.strip("/").split("/")
             
             if len(parts) >= 2:
                 owner, repo = parts[0], parts[1]
-                data = None
                 
-                # Test des endpoints d'API possibles
+                # A. Extraction prioritaire si l'URL dans l'OPML contient déjà un tag (/tag/X.Y.Z)
+                tag_in_url = re.search(r"/tag/([^/\s\"']+)", raw_url)
+                if tag_in_url:
+                    found_tag = tag_in_url.group(1)
+                    zip_url = f"{domain}/projects/{owner}/{repo}/archive/{found_tag}.zip"
+                    tar_url = f"{domain}/projects/{owner}/{repo}/archive/{found_tag}.tar.gz"
+                    
+                    sha_zip = get_remote_sha256(zip_url)
+                    assets = []
+                    if sha_zip:
+                        assets.append({"filename": f"{repo}-{found_tag}.zip", "url": zip_url, "sha256": sha_zip})
+                    else:
+                        # Fallback URL sans /projects/
+                        zip_url_alt = f"{domain}/{owner}/{repo}/archive/{found_tag}.zip"
+                        assets.append({"filename": f"{repo}-{found_tag}.zip", "url": zip_url_alt, "sha256": get_remote_sha256(zip_url_alt)})
+                        
+                    return found_tag, f"Release tag {found_tag}", assets, "forgejo", repo_url
+
+                # B. Recherche par API Releases
                 api_endpoints = [
                     f"{domain}/api/v1/repos/{owner}/{repo}/releases",
                     f"{domain}/api/v1/repos/projects/{owner}/{repo}/releases"
@@ -163,63 +179,36 @@ def resolve_release_data(raw_url, description=""):
                         releases_list = fetch_json(api_url)
                         if isinstance(releases_list, list) and len(releases_list) > 0:
                             data = releases_list[0]
-                            break
-                    except Exception:
-                        continue
-
-                if data:
-                    version = data.get("tag_name", "v1.0")
-                    body = data.get("body", "")
-                    assets = []
-                    
-                    for asset in data.get("assets", []):
-                        dl_url = asset.get("browser_download_url", "")
-                        if dl_url.startswith("/"):
-                            dl_url = f"{domain}{dl_url}"
-                        name = asset.get("name", os.path.basename(dl_url))
-                        sha = get_remote_sha256(dl_url)
-                        assets.append({"filename": name, "url": dl_url, "sha256": sha})
-                    
-                    # Si aucun binaire attaché, construction de l'archive de tag
-                    if not assets:
-                        zip_url = f"{domain}/projects/{owner}/{repo}/archive/{version}.zip"
-                        sha_val = get_remote_sha256(zip_url)
-                        if not sha_val:
-                            zip_url = f"{domain}/{owner}/{repo}/archive/{version}.zip"
-                            sha_val = get_remote_sha256(zip_url)
-                        assets.append({"filename": f"{repo}-{version}.zip", "url": zip_url, "sha256": sha_val})
-
-                    return version, body, assets, "forgejo", repo_url
-
-                # Extraction via l'API Tags en cas d'absence de section Releases
-                tag_endpoints = [
-                    f"{domain}/api/v1/repos/{owner}/{repo}/tags",
-                    f"{domain}/api/v1/repos/projects/{owner}/{repo}/tags"
-                ]
-                for tag_url in tag_endpoints:
-                    try:
-                        tags = fetch_json(tag_url)
-                        if isinstance(tags, list) and len(tags) > 0:
-                            tag_name = tags[0].get("name", "1.0.0")
-                            zip_url = f"{domain}/projects/{owner}/{repo}/archive/{tag_name}.zip"
-                            sha_val = get_remote_sha256(zip_url)
-                            if not sha_val:
-                                zip_url = f"{domain}/{owner}/{repo}/archive/{tag_name}.zip"
+                            version = data.get("tag_name", "v1.0")
+                            body = data.get("body", "")
+                            assets = []
+                            
+                            for asset in data.get("assets", []):
+                                dl_url = asset.get("browser_download_url", "")
+                                if dl_url.startswith("/"):
+                                    dl_url = f"{domain}{dl_url}"
+                                name = asset.get("name", os.path.basename(dl_url))
+                                sha = get_remote_sha256(dl_url)
+                                assets.append({"filename": name, "url": dl_url, "sha256": sha})
+                            
+                            if not assets:
+                                zip_url = f"{domain}/projects/{owner}/{repo}/archive/{version}.zip"
                                 sha_val = get_remote_sha256(zip_url)
-                            return tag_name, "Source release tag", [{"filename": f"{repo}-{tag_name}.zip", "url": zip_url, "sha256": sha_val}], "forgejo", repo_url
+                                assets.append({"filename": f"{repo}-{version}.zip", "url": zip_url, "sha256": sha_val})
+
+                            return version, body, assets, "forgejo", repo_url
                     except Exception:
                         continue
 
-                # Extraction manuelle directe pour les URLs soumises contenant un tag (ex: /tag/1.3.3)
-                tag_match = re.search(r"/tag/([^/\s\"']+)", raw_url)
-                if tag_match:
-                    found_tag = tag_match.group(1)
-                    zip_url = f"{domain}/projects/{owner}/{repo}/archive/{found_tag}.zip"
+                # C. Fallback direct sur l'archive master/main si tout le reste échoue
+                zip_url = f"{domain}/projects/{owner}/{repo}/archive/master.zip"
+                sha_val = get_remote_sha256(zip_url)
+                if not sha_val:
+                    zip_url = f"{domain}/projects/{owner}/{repo}/archive/main.zip"
                     sha_val = get_remote_sha256(zip_url)
-                    if not sha_val:
-                        zip_url = f"{domain}/{owner}/{repo}/archive/{found_tag}.zip"
-                        sha_val = get_remote_sha256(zip_url)
-                    return found_tag, "Tag extrait directement de l'URL", [{"filename": f"{repo}-{found_tag}.zip", "url": zip_url, "sha256": sha_val}], "forgejo", repo_url
+
+                assets = [{"filename": f"{repo}-latest.zip", "url": zip_url, "sha256": sha_val}]
+                return "latest", "Archive source directe", assets, "forgejo", repo_url
 
         except Exception as e:
             print(f"   [ERROR Forgejo API] {repo_url}: {e}")
