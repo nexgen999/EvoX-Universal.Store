@@ -49,7 +49,7 @@ Le fichier `config.json` permet de personnaliser l'interface web du Store sans t
 | :--- | :--- | :--- | :--- |
 | forgejo_test | forgejo_test | elf-arsenal | v1.6.22 |
 | Switch-Emu | Switch-Emu | Citron-neo_windows-nightly | nightly-windows |
-| Switch-Emu | Switch-Emu | Citron-neo_android-nightly | nightly-windows |
+| Switch-Emu | Switch-Emu | Citron-neo_android-nightly | nightly-android |
 | Switch-Emu | Switch-Emu | Ryujinx-Nextendo | v1.7.9 |
 | Switch-Emu | Switch-Emu | Ryubing | v1.0 |
 | Switch-Emu | Switch-Emu | Kenji-NX | v1.0 |
