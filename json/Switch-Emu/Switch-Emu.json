@@ -81,7 +81,7 @@
         {
           "filename": "Ryubing-master.zip",
           "url": "https://git.ryujinx.app/projects/projects/Ryubing/archive/master.zip",
-          "sha256": "bcd4a6507cdc473dec5ef22ac1bab58ac6be4019f3003b2e3b68e2e1f4b59a8d"
+          "sha256": ""
         }
       ],
       "source_type": "forgejo",
@@ -96,7 +96,7 @@
         {
           "filename": "Kenji-NX-master.zip",
           "url": "https://git.ryujinx.app/projects/projects/Kenji-NX/archive/master.zip",
-          "sha256": "7e463663641adc31dcaaaa781284d10b54524bdbe19f084b70b1315fc7d0595e"
+          "sha256": ""
         }
       ],
       "source_type": "forgejo",
@@ -105,18 +105,13 @@
     {
       "name": "eden-stable",
       "description": "eden-stable",
-      "version": "v1788071122.e5b656e372",
-      "release_notes": "Release HTML Scraped (v1788071122.e5b656e372)",
+      "version": "master",
+      "release_notes": "Fallback archive",
       "assets": [
         {
-          "filename": "master.zip",
-          "url": "https://git.eden-emu.dev/eden-emu/eden/archive/master.zip",
-          "sha256": "444de0e1091e30269c6e5efa24d4566b4cda73cf42ddfbda1e143d4c25f8b161"
-        },
-        {
-          "filename": "master.tar.gz",
-          "url": "https://git.eden-emu.dev/eden-emu/eden/archive/master.tar.gz",
-          "sha256": "fa0022281819213a413d2de9a95185b1afbe5fba6f2a87ec6058aa395a231749"
+          "filename": "eden-master.zip",
+          "url": "https://git.eden-emu.dev/projects/eden-emu/eden/archive/master.zip",
+          "sha256": ""
         }
       ],
       "source_type": "forgejo",
@@ -125,18 +120,13 @@
     {
       "name": "eden-nightly",
       "description": "eden-nightly",
-      "version": "latest",
-      "release_notes": "Release HTML Scraped (latest)",
+      "version": "master",
+      "release_notes": "Fallback archive",
       "assets": [
         {
-          "filename": "master.zip",
-          "url": "https://git.eden-emu.dev/eden-ci/nightly/archive/master.zip",
-          "sha256": "7192da7cb76bc4befe1d30ec66a0d86ffff39a957743dcbea4f579e2e47f7a8d"
-        },
-        {
-          "filename": "master.tar.gz",
-          "url": "https://git.eden-emu.dev/eden-ci/nightly/archive/master.tar.gz",
-          "sha256": "d43a5d9d186c2b680894d2e34b5768c4840a26d25bdf56ac5ed2abc624281abb"
+          "filename": "nightly-master.zip",
+          "url": "https://git.eden-emu.dev/projects/eden-ci/nightly/archive/master.zip",
+          "sha256": ""
         }
       ],
       "source_type": "forgejo",
