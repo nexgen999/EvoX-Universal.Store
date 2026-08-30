@@ -1,6 +1,6 @@
 {
   "name": "EvoX Universal Store",
-  "updated_at": "2026-08-30T16:42:41.396113Z",
+  "updated_at": "2026-08-30T16:53:36.983972Z",
   "store": [
     {
       "category": "forgejo_test",
@@ -106,10 +106,10 @@
             {
               "filename": "Ryubing",
               "url": "https://git.ryujinx.app/projects/Ryubing",
-              "sha256": "b0fed34d087ec7b360490843d7acf6329ec7cb508ceee4d510f14d754a31f656"
+              "sha256": "83c6bf14792ea3076a066862df9c43e7b527f43ced472a56adb25f87d7361018"
             }
           ],
-          "source_type": "generic",
+          "source_type": "forgejo",
           "repo_url": "https://git.ryujinx.app/projects/Ryubing"
         },
         {
@@ -121,41 +121,371 @@
             {
               "filename": "Kenji-NX",
               "url": "https://git.ryujinx.app/projects/Kenji-NX",
-              "sha256": "1ff6697df03f084f54a24cc76461397547c62fb1dd1e60063822a446c83d5640"
+              "sha256": "9e5d5dc62e9478e294d14660fb3d4798835659eab657363bb2c9f2556cb6ad5b"
             }
           ],
-          "source_type": "generic",
+          "source_type": "forgejo",
           "repo_url": "https://git.ryujinx.app/projects/Kenji-NX"
         },
         {
           "name": "eden-stable",
           "description": "eden-stable",
-          "version": "v1.0",
-          "release_notes": "Fichier direct",
+          "version": "v0.2.1",
+          "release_notes": "## Changelog\n\nThis is a hotfix release for 0.2.0, addressing some crashes and bugs that occurred in certain situations. CPU and graphics performance will remain largely the same.\n\nThis release does *not* use SDL3, and remains on SDL2.\n\n# Universal\n\n- The Windows auto updater now accounts for the current build ID and will properly fetch the corresponding build to your currently installed Eden\n- Fixed crashes and errors that could occur when large amounts of games and external content files were present\n- Fixed crashes on 12th-gen Intel CPUs\n- Fixed MK8DX freeze when the native controller applet was used\n- Fixed a rare case of weird noises playing on shutdown\n- Fixed mods that expect a real value out of `DefaultDataSpace`\n- Fixed some minor issues with emulated controller thread contention\n\n# Internal\n\n- Fixed several build errors:\n  - Newer Xbyak removed Xeon Phi features\n  - Unused variable errors in NCE\n  - Removed `httplib` version restrictions\n\n# Packages\n\n## Targets\n\nEach build is optimized for a specific architecture and uses a specific compiler.\n\n- **aarch64/arm64**: For devices that use the armv8-a instruction set; e.g. Snapdragon X, all Android devices, and Apple Silicon Macs.\n- **amd64**: For devices that use the amd64 (aka x86_64) instruction set; this is exclusively used by Intel and AMD CPUs and is only found on desktops.\n- **v3**: For devices that use the x86_64-v3 instruction set or newer; this is found on Ryzen, Intel 4th Generation (Haswell), and newer.\n\n### PGO\n\nPGO builds usually perform ~10-30% better than standard builds, and are thus generally recommended for all users.\n\n## Linux\n\nLinux packages are distributed via AppImage.\n[zsync](https://zsync.moria.org.uk/) files are provided for easier updating, such as via\n[AM](https://github.com/ivan-hc/AM).\n\n| Build Type | Standard | PGO (Recommended) | Notes |\n|------------|----------|-----------|-------|\n| amd64 | [Standard AppImage](https://stable.eden-emu.dev/v0.2.1/Eden-Linux-v0.2.1-amd64-gcc-standard.AppImage) ([zsync](https://stable.eden-emu.dev/v0.2.1/Eden-Linux-amd64-gcc-standard.AppImage.zsync)) | [PGO AppImage](https://stable.eden-emu.dev/v0.2.1/Eden-Linux-v0.2.1-amd64-clang-pgo.AppImage) ([zsync](https://stable.eden-emu.dev/v0.2.1/Eden-Linux-amd64-clang-pgo.AppImage.zsync)) |  |\n| Legacy amd64 | [Standard AppImage](https://stable.eden-emu.dev/v0.2.1/Eden-Linux-v0.2.1-legacy-gcc-standard.AppImage) ([zsync](https://stable.eden-emu.dev/v0.2.1/Eden-Linux-legacy-gcc-standard.AppImage.zsync)) | [PGO AppImage](https://stable.eden-emu.dev/v0.2.1/Eden-Linux-v0.2.1-legacy-clang-pgo.AppImage) ([zsync](https://stable.eden-emu.dev/v0.2.1/Eden-Linux-legacy-clang-pgo.AppImage.zsync)) | Pre-Ryzen or Haswell CPUs (expect sadness) |\n| Steam Deck | [Standard AppImage](https://stable.eden-emu.dev/v0.2.1/Eden-Linux-v0.2.1-steamdeck-gcc-standard.AppImage) ([zsync](https://stable.eden-emu.dev/v0.2.1/Eden-Linux-steamdeck-gcc-standard.AppImage.zsync)) | [PGO AppImage](https://stable.eden-emu.dev/v0.2.1/Eden-Linux-v0.2.1-steamdeck-clang-pgo.AppImage) ([zsync](https://stable.eden-emu.dev/v0.2.1/Eden-Linux-steamdeck-clang-pgo.AppImage.zsync)) | Zen 2 |\n| Zen 4 | [Standard AppImage](https://stable.eden-emu.dev/v0.2.1/Eden-Linux-v0.2.1-rog-ally-gcc-standard.AppImage) ([zsync](https://stable.eden-emu.dev/v0.2.1/Eden-Linux-rog-ally-gcc-standard.AppImage.zsync)) | [PGO AppImage](https://stable.eden-emu.dev/v0.2.1/Eden-Linux-v0.2.1-rog-ally-clang-pgo.AppImage) ([zsync](https://stable.eden-emu.dev/v0.2.1/Eden-Linux-rog-ally-clang-pgo.AppImage.zsync)) | Zen 4 (AMD Z1/Z2, ROG Ally X, Legion Go S) |\n| ARM (aarch64) | [Standard AppImage](https://stable.eden-emu.dev/v0.2.1/Eden-Linux-v0.2.1-aarch64-gcc-standard.AppImage) ([zsync](https://stable.eden-emu.dev/v0.2.1/Eden-Linux-aarch64-gcc-standard.AppImage.zsync)) | [PGO AppImage](https://stable.eden-emu.dev/v0.2.1/Eden-Linux-v0.2.1-aarch64-clang-pgo.AppImage) ([zsync](https://stable.eden-emu.dev/v0.2.1/Eden-Linux-aarch64-clang-pgo.AppImage.zsync)) |  |\n\n### Room Executables\n\nThese are statically linked Linux executables for the `eden-room` binary.\n\n- [aarch64](https://stable.eden-emu.dev/v0.2.1/eden-room-aarch64-unknown-linux-musl)\n- [x86_64](https://stable.eden-emu.dev/v0.2.1/eden-room-x86_64-unknown-linux-musl)\n\n## Windows\n\nWindows packages are in-place zip files. Setup files are soon to come.\n\n| Build Type | Standard | PGO (Recommended) | Notes |\n|------------|----------|-------------------|-------|\n| amd64/x86_64 (MSVC) | [MSVC zip](https://stable.eden-emu.dev/v0.2.1/Eden-Windows-v0.2.1-amd64-msvc-standard.zip) |  | Use if you encounter graphical issues on other builds (e.g. Pokemon Scarlet & Violet) |\n| amd64/x86_64 v3 | [Standard zip](https://stable.eden-emu.dev/v0.2.1/Eden-Windows-v0.2.1-amd64-gcc-standard.zip) | [PGO zip](https://stable.eden-emu.dev/v0.2.1/Eden-Windows-v0.2.1-amd64-clang-pgo.zip) | Built with MinGW. Requires Ryzen, 4th gen Intel, or newer |\n| Zen 4 | [Standard zip](https://stable.eden-emu.dev/v0.2.1/Eden-Windows-v0.2.1-rog-ally-gcc-standard.zip) | [PGO zip](https://stable.eden-emu.dev/v0.2.1/Eden-Windows-v0.2.1-rog-ally-clang-pgo.zip) | Requires Zen 4 or newer (e.g. ROG Ally X, Legion Go S). Incompatible with Intel |\n| aarch64/arm64 | [Standard zip](https://stable.eden-emu.dev/v0.2.1/Eden-Windows-v0.2.1-arm64-clang-standard.zip) | [PGO zip](https://stable.eden-emu.dev/v0.2.1/Eden-Windows-v0.2.1-arm64-clang-pgo.zip) | Snapdragon devices |\n\n## Android\n\n| Build  | Notes |\n|--------|-------|\n| [Standard APK](https://stable.eden-emu.dev/v0.2.1/Eden-Android-v0.2.1-standard.apk) | The standard build. Most users should use this. |\n| [Genshin Spoof APK](https://stable.eden-emu.dev/v0.2.1/Eden-Android-v0.2.1-optimized.apk) | Spoofs Eden as Genshin Impact, which may enable optimizations/frame generation on some flagship devices. |\n| [Legacy APK](https://stable.eden-emu.dev/v0.2.1/Eden-Android-v0.2.1-legacy.apk) | For Snapdragon 865 and other unsupported chipsets |\n\n## macOS\n\nmacOS comes in a DMG image. These builds are currently experimental, and you should expect major graphical glitches and crashes.\nIn order to run the app, you *may* need to go to System Settings -> Privacy & Security -> Security -> Allow untrusted app.\n\n- [macOS DMG](https://stable.eden-emu.dev/v0.2.1/Eden-macOS-v0.2.1.dmg)\n\n## Torrent\n\nA torrent containing all artifacts. To use this, simply download the torrent and import it into your\nfavorite torrent client (BitTorrent only!), and artifacts will be downloaded automatically.\n- [Torrent](https://stable.eden-emu.dev/v0.2.1/Eden-v0.2.1.torrent)",
           "assets": [
             {
-              "filename": "releases",
-              "url": "https://git.eden-emu.dev/eden-emu/eden/releases",
-              "sha256": "c163d29491530897a9cf445c8671b4aebffb69b61f7e7ad2623015ed079490f0"
+              "filename": "Eden-Android-v0.2.1-chromeos.apk",
+              "url": "https://stable.eden-emu.dev/v0.2.1/Eden-Android-v0.2.1-chromeos.apk",
+              "sha256": "554353f78e39bb486fa92c7524c2ca21890cd74b04ba6ef45f0f57b6683af6cc"
+            },
+            {
+              "filename": "Eden-Android-v0.2.1-legacy.apk",
+              "url": "https://stable.eden-emu.dev/v0.2.1/Eden-Android-v0.2.1-legacy.apk",
+              "sha256": "d7239e7fbe5e4e97a76892ef003312bec18ceccd14fa41aab26a99c68169f3b8"
+            },
+            {
+              "filename": "Eden-Android-v0.2.1-optimized.apk",
+              "url": "https://stable.eden-emu.dev/v0.2.1/Eden-Android-v0.2.1-optimized.apk",
+              "sha256": "27d76e3f4a9fb35825bdbd4343f957aef26cf38e4ef008e190f2602922ca4586"
+            },
+            {
+              "filename": "Eden-Android-v0.2.1-standard.apk",
+              "url": "https://stable.eden-emu.dev/v0.2.1/Eden-Android-v0.2.1-standard.apk",
+              "sha256": "befbf70b1a05715811fe092ef9cf71e6f1c1672008a6c5caa31d633e99615668"
+            },
+            {
+              "filename": "Eden-Linux-aarch64-clang-pgo.AppImage.zsync",
+              "url": "https://stable.eden-emu.dev/v0.2.1/Eden-Linux-aarch64-clang-pgo.AppImage.zsync",
+              "sha256": "0674ebea6f26db914de15d1058e0957c00ca246d0fc98c3764ba494319cbf4a8"
+            },
+            {
+              "filename": "Eden-Linux-aarch64-gcc-standard.AppImage.zsync",
+              "url": "https://stable.eden-emu.dev/v0.2.1/Eden-Linux-aarch64-gcc-standard.AppImage.zsync",
+              "sha256": "c0c1073c761e4d418e1194dbc1a2c475fe72a7f94b6059258acb119574e8a8c6"
+            },
+            {
+              "filename": "Eden-Linux-amd64-clang-pgo.AppImage.zsync",
+              "url": "https://stable.eden-emu.dev/v0.2.1/Eden-Linux-amd64-clang-pgo.AppImage.zsync",
+              "sha256": "f74663c3f16de8c408bc0066c57c848d3e17f5d63f00a64df3ecfb3e88914ac6"
+            },
+            {
+              "filename": "Eden-Linux-amd64-gcc-standard.AppImage.zsync",
+              "url": "https://stable.eden-emu.dev/v0.2.1/Eden-Linux-amd64-gcc-standard.AppImage.zsync",
+              "sha256": "acc208743d0f8154fea804bcbf2255ea179b38f3e0c391270eff6f61196a0a1a"
+            },
+            {
+              "filename": "Eden-Linux-legacy-clang-pgo.AppImage.zsync",
+              "url": "https://stable.eden-emu.dev/v0.2.1/Eden-Linux-legacy-clang-pgo.AppImage.zsync",
+              "sha256": "18df407c5659acade5374e7b6dd46d3cbd6e89f0c26e21a032f836ec6fb26b77"
+            },
+            {
+              "filename": "Eden-Linux-legacy-gcc-standard.AppImage.zsync",
+              "url": "https://stable.eden-emu.dev/v0.2.1/Eden-Linux-legacy-gcc-standard.AppImage.zsync",
+              "sha256": "3a516b6b6a8ea0abe2509cbcd5258d189ce026df226657b155ed3c9197e37c8a"
+            },
+            {
+              "filename": "Eden-Linux-rog-ally-clang-pgo.AppImage.zsync",
+              "url": "https://stable.eden-emu.dev/v0.2.1/Eden-Linux-rog-ally-clang-pgo.AppImage.zsync",
+              "sha256": "350748e1d895a5eda2baf086ba4c7933fe0c0c9f419bc2f4f38c9ecb3a5cc6f5"
+            },
+            {
+              "filename": "Eden-Linux-rog-ally-gcc-standard.AppImage.zsync",
+              "url": "https://stable.eden-emu.dev/v0.2.1/Eden-Linux-rog-ally-gcc-standard.AppImage.zsync",
+              "sha256": "e952213cf463e8add4b7c09848ca7b4f9ef2d34253638c15d456be6013279ad9"
+            },
+            {
+              "filename": "Eden-Linux-steamdeck-clang-pgo.AppImage.zsync",
+              "url": "https://stable.eden-emu.dev/v0.2.1/Eden-Linux-steamdeck-clang-pgo.AppImage.zsync",
+              "sha256": "ba491d226e09c222cb00c16744b469ee2a4df6449a0383fb0d296e94273b57c0"
+            },
+            {
+              "filename": "Eden-Linux-steamdeck-gcc-standard.AppImage.zsync",
+              "url": "https://stable.eden-emu.dev/v0.2.1/Eden-Linux-steamdeck-gcc-standard.AppImage.zsync",
+              "sha256": "c7ae716b4ac21037c635ce76263912efda6db0f1d2b1232451144aa273fbd757"
+            },
+            {
+              "filename": "Eden-Linux-v0.2.1-aarch64-clang-pgo.AppImage",
+              "url": "https://stable.eden-emu.dev/v0.2.1/Eden-Linux-v0.2.1-aarch64-clang-pgo.AppImage",
+              "sha256": "b64f926cbf74fd870a39b144971084323d895d51919b91e906328e7f81bea087"
+            },
+            {
+              "filename": "Eden-Linux-v0.2.1-aarch64-gcc-standard.AppImage",
+              "url": "https://stable.eden-emu.dev/v0.2.1/Eden-Linux-v0.2.1-aarch64-gcc-standard.AppImage",
+              "sha256": "494014f67401bbbe7d48da7128d769734cf97863bfb2349d48cd2a118173e769"
+            },
+            {
+              "filename": "Eden-Linux-v0.2.1-amd64-clang-pgo.AppImage",
+              "url": "https://stable.eden-emu.dev/v0.2.1/Eden-Linux-v0.2.1-amd64-clang-pgo.AppImage",
+              "sha256": "7a28bf988b0648831989722bdbaa90ab31371b403808199813e0ea7c8b25ba6d"
+            },
+            {
+              "filename": "Eden-Linux-v0.2.1-amd64-gcc-standard.AppImage",
+              "url": "https://stable.eden-emu.dev/v0.2.1/Eden-Linux-v0.2.1-amd64-gcc-standard.AppImage",
+              "sha256": "2fae658397daf13c118082a3eb65d61a6519967b5e22e6667756baecf6000c5a"
+            },
+            {
+              "filename": "Eden-Linux-v0.2.1-legacy-clang-pgo.AppImage",
+              "url": "https://stable.eden-emu.dev/v0.2.1/Eden-Linux-v0.2.1-legacy-clang-pgo.AppImage",
+              "sha256": "4fff7f24d45fabb4afc652f1b0841e3a16156f273a3a0f904b7f7be601665517"
+            },
+            {
+              "filename": "Eden-Linux-v0.2.1-legacy-gcc-standard.AppImage",
+              "url": "https://stable.eden-emu.dev/v0.2.1/Eden-Linux-v0.2.1-legacy-gcc-standard.AppImage",
+              "sha256": "2003a408753b9663a3cb72080085df7fe5f09b7825f542c1a01ad123bdb7c8e2"
+            },
+            {
+              "filename": "Eden-Linux-v0.2.1-rog-ally-clang-pgo.AppImage",
+              "url": "https://stable.eden-emu.dev/v0.2.1/Eden-Linux-v0.2.1-rog-ally-clang-pgo.AppImage",
+              "sha256": "024dfe307f7e5b539b3549bd9245f6b71c9baa9cc744f31d58d3181857d85ffc"
+            },
+            {
+              "filename": "Eden-Linux-v0.2.1-rog-ally-gcc-standard.AppImage",
+              "url": "https://stable.eden-emu.dev/v0.2.1/Eden-Linux-v0.2.1-rog-ally-gcc-standard.AppImage",
+              "sha256": "e72dda08df9f841faa6633182c161022e22147c0a98453eaddaeb11dfcf15645"
+            },
+            {
+              "filename": "Eden-Linux-v0.2.1-steamdeck-clang-pgo.AppImage",
+              "url": "https://stable.eden-emu.dev/v0.2.1/Eden-Linux-v0.2.1-steamdeck-clang-pgo.AppImage",
+              "sha256": "5cc5b358ac6449b40021b20ba2430b4d12302737db15c8cbe5b46ce9aab85ce5"
+            },
+            {
+              "filename": "Eden-Linux-v0.2.1-steamdeck-gcc-standard.AppImage",
+              "url": "https://stable.eden-emu.dev/v0.2.1/Eden-Linux-v0.2.1-steamdeck-gcc-standard.AppImage",
+              "sha256": "26517064d7063583f429a9cb7ee06737c8980586a7b63ef303de169b559b0b56"
+            },
+            {
+              "filename": "Eden-Windows-v0.2.1-amd64-clang-pgo.zip",
+              "url": "https://stable.eden-emu.dev/v0.2.1/Eden-Windows-v0.2.1-amd64-clang-pgo.zip",
+              "sha256": "6c1b53ce325170a026cc0f87098380027dc6170d94ba95f913aab7596fd097cb"
+            },
+            {
+              "filename": "Eden-Windows-v0.2.1-amd64-gcc-standard.zip",
+              "url": "https://stable.eden-emu.dev/v0.2.1/Eden-Windows-v0.2.1-amd64-gcc-standard.zip",
+              "sha256": "b9824ee73d0aa16e783d52c4d1772a84003133fa30cd8968c5edbe4ea435c32f"
+            },
+            {
+              "filename": "Eden-Windows-v0.2.1-amd64-msvc-standard.zip",
+              "url": "https://stable.eden-emu.dev/v0.2.1/Eden-Windows-v0.2.1-amd64-msvc-standard.zip",
+              "sha256": "ff498e5da9630216926ac3cbe9fb493b14930665c728a40a8f5b59507fdd7ebf"
+            },
+            {
+              "filename": "Eden-Windows-v0.2.1-arm64-clang-pgo.zip",
+              "url": "https://stable.eden-emu.dev/v0.2.1/Eden-Windows-v0.2.1-arm64-clang-pgo.zip",
+              "sha256": "ed03e04606d06d8efa63f239775e19a3b5539227c042f133c3170234c9fd277a"
+            },
+            {
+              "filename": "Eden-Windows-v0.2.1-arm64-clang-standard.zip",
+              "url": "https://stable.eden-emu.dev/v0.2.1/Eden-Windows-v0.2.1-arm64-clang-standard.zip",
+              "sha256": "7df16b64bb0a0225acddcb498e524aa7854c24708022ecbea599cc1aebf010dc"
+            },
+            {
+              "filename": "Eden-Windows-v0.2.1-rog-ally-clang-pgo.zip",
+              "url": "https://stable.eden-emu.dev/v0.2.1/Eden-Windows-v0.2.1-rog-ally-clang-pgo.zip",
+              "sha256": "91b10090ee2d3576077bbf10c79f3f426874f67d61b05a62519bd924df965516"
+            },
+            {
+              "filename": "Eden-Windows-v0.2.1-rog-ally-gcc-standard.zip",
+              "url": "https://stable.eden-emu.dev/v0.2.1/Eden-Windows-v0.2.1-rog-ally-gcc-standard.zip",
+              "sha256": "1b36a48a182adbd8bbcfbe477e5a6dbf6c68f3ce47945edcf50c45f3007d9342"
+            },
+            {
+              "filename": "Eden-macOS-v0.2.1.dmg",
+              "url": "https://stable.eden-emu.dev/v0.2.1/Eden-macOS-v0.2.1.dmg",
+              "sha256": "40575fc79a61550fbb9e332cbae94ccd20f5de20ff61b4b60fe1d42f2525c0b5"
+            },
+            {
+              "filename": "Eden-v0.2.1.torrent",
+              "url": "https://stable.eden-emu.dev/v0.2.1/Eden-v0.2.1.torrent",
+              "sha256": "5fb8d679000e586f4b35e724a9ab50a249b0a7db336b8840026c1ad5cdd1b283"
+            },
+            {
+              "filename": "eden-room-aarch64-unknown-linux-musl",
+              "url": "https://stable.eden-emu.dev/v0.2.1/eden-room-aarch64-unknown-linux-musl",
+              "sha256": "eceb921de6266d9ed74566bb36e1e0a2d3133c61ce777614d82570d297657347"
+            },
+            {
+              "filename": "eden-room-x86_64-unknown-linux-musl",
+              "url": "https://stable.eden-emu.dev/v0.2.1/eden-room-x86_64-unknown-linux-musl",
+              "sha256": "f597d53268c5dc43df5a42554b8cf11de69f1d1dca000bfd25819e0aaa3c6340"
             }
           ],
-          "source_type": "generic",
-          "repo_url": "https://git.eden-emu.dev/eden-emu/eden/releases"
+          "source_type": "forgejo",
+          "repo_url": "https://git.eden-emu.dev/eden-emu/eden"
         },
         {
           "name": "eden-nightly",
           "description": "eden-nightly",
-          "version": "v1.0",
-          "release_notes": "Fichier direct",
+          "version": "v1788034417.3df41c1e7a",
+          "release_notes": "Nightly build of commit [`3df41c1e7a`](https://git.eden-emu.dev/eden-emu/eden/compare/54cd5fb8eb..3df41c1e7a859cf200e37d94453d63dc4a0a3232).\n\n## Changelog\n\n- [android, ui] carousel: display-wise scaling, snapping fix, bottom insets rework (#4307) [`3df41c1e7a`](https://git.eden-emu.dev/eden-emu/eden/commit/3df41c1e7a859cf200e37d94453d63dc4a0a3232)\n  - PR #[4307](https://git.eden-emu.dev/eden-emu/eden/pulls/4307) merged on 2026-08-29 by xbzk\n- [common/net] fix linking errors due to C++11 ABI typedef mishandle (#4260) [`f4a8f9421a`](https://git.eden-emu.dev/eden-emu/eden/commit/f4a8f9421a9181e7a5062d8856da74823933defa)\n  - PR #[4260](https://git.eden-emu.dev/eden-emu/eden/pulls/4260) merged on 2026-08-29 by lizzie\n- [service, nvhost] added machinery to allow microsleep between nvdec read requests to avoid guest panic in some games (#4316) [`c0a85d0e53`](https://git.eden-emu.dev/eden-emu/eden/commit/c0a85d0e538e04fb56b0f7ca561422119b9f526f)\n  - PR #[4316](https://git.eden-emu.dev/eden-emu/eden/pulls/4316) merged on 2026-08-29 by xbzk\n\n\n# Packages\n\n## Targets\n\nEach build is optimized for a specific architecture and uses a specific compiler.\n\n- **aarch64/arm64**: For devices that use the armv8-a instruction set; e.g. Snapdragon X, all Android devices, and Apple Silicon Macs.\n- **amd64**: For devices that use the amd64 (aka x86_64) instruction set; this is exclusively used by Intel and AMD CPUs and is only found on desktops.\n- **v3**: For devices that use the x86_64-v3 instruction set or newer; this is found on Ryzen, Intel 4th Generation (Haswell), and newer.\n\n### PGO\n\nPGO builds usually perform ~10-30% better than standard builds, and are thus generally recommended for all users.\n\n## Linux\n\nLinux packages are distributed via AppImage.\n[zsync](https://zsync.moria.org.uk/) files are provided for easier updating, such as via\n[AM](https://github.com/ivan-hc/AM).\n\n| Build Type | Standard | PGO (Recommended) | Notes |\n|------------|----------|-----------|-------|\n| amd64 | [Standard AppImage](https://nightly.eden-emu.dev/v1788034417.3df41c1e7a/Eden-Linux-3df41c1e7a-amd64-gcc-standard.AppImage) ([zsync](https://nightly.eden-emu.dev/v1788034417.3df41c1e7a/Eden-Linux-amd64-gcc-standard.AppImage.zsync)) | [PGO AppImage](https://nightly.eden-emu.dev/v1788034417.3df41c1e7a/Eden-Linux-3df41c1e7a-amd64-clang-pgo.AppImage) ([zsync](https://nightly.eden-emu.dev/v1788034417.3df41c1e7a/Eden-Linux-amd64-clang-pgo.AppImage.zsync)) |  |\n| Legacy amd64 | [Standard AppImage](https://nightly.eden-emu.dev/v1788034417.3df41c1e7a/Eden-Linux-3df41c1e7a-legacy-gcc-standard.AppImage) ([zsync](https://nightly.eden-emu.dev/v1788034417.3df41c1e7a/Eden-Linux-legacy-gcc-standard.AppImage.zsync)) | [PGO AppImage](https://nightly.eden-emu.dev/v1788034417.3df41c1e7a/Eden-Linux-3df41c1e7a-legacy-clang-pgo.AppImage) ([zsync](https://nightly.eden-emu.dev/v1788034417.3df41c1e7a/Eden-Linux-legacy-clang-pgo.AppImage.zsync)) | Pre-Ryzen or Haswell CPUs (expect sadness) |\n| Steam Deck | [Standard AppImage](https://nightly.eden-emu.dev/v1788034417.3df41c1e7a/Eden-Linux-3df41c1e7a-steamdeck-gcc-standard.AppImage) ([zsync](https://nightly.eden-emu.dev/v1788034417.3df41c1e7a/Eden-Linux-steamdeck-gcc-standard.AppImage.zsync)) | [PGO AppImage](https://nightly.eden-emu.dev/v1788034417.3df41c1e7a/Eden-Linux-3df41c1e7a-steamdeck-clang-pgo.AppImage) ([zsync](https://nightly.eden-emu.dev/v1788034417.3df41c1e7a/Eden-Linux-steamdeck-clang-pgo.AppImage.zsync)) | Zen 2 |\n| Zen 4 | [Standard AppImage](https://nightly.eden-emu.dev/v1788034417.3df41c1e7a/Eden-Linux-3df41c1e7a-rog-ally-gcc-standard.AppImage) ([zsync](https://nightly.eden-emu.dev/v1788034417.3df41c1e7a/Eden-Linux-rog-ally-gcc-standard.AppImage.zsync)) | [PGO AppImage](https://nightly.eden-emu.dev/v1788034417.3df41c1e7a/Eden-Linux-3df41c1e7a-rog-ally-clang-pgo.AppImage) ([zsync](https://nightly.eden-emu.dev/v1788034417.3df41c1e7a/Eden-Linux-rog-ally-clang-pgo.AppImage.zsync)) | Zen 4 (AMD Z1/Z2, ROG Ally X, Legion Go S) |\n| ARM (aarch64) | [Standard AppImage](https://nightly.eden-emu.dev/v1788034417.3df41c1e7a/Eden-Linux-3df41c1e7a-aarch64-gcc-standard.AppImage) ([zsync](https://nightly.eden-emu.dev/v1788034417.3df41c1e7a/Eden-Linux-aarch64-gcc-standard.AppImage.zsync)) | [PGO AppImage](https://nightly.eden-emu.dev/v1788034417.3df41c1e7a/Eden-Linux-3df41c1e7a-aarch64-clang-pgo.AppImage) ([zsync](https://nightly.eden-emu.dev/v1788034417.3df41c1e7a/Eden-Linux-aarch64-clang-pgo.AppImage.zsync)) |  |\n\n## Windows\n\nWindows packages are in-place zip files. Setup files are soon to come.\n\n| Build Type | Standard | PGO (Recommended) | Notes |\n|------------|----------|-------------------|-------|\n| amd64/x86_64 (MSVC) | [MSVC zip](https://nightly.eden-emu.dev/v1788034417.3df41c1e7a/Eden-Windows-3df41c1e7a-amd64-msvc-standard.zip) |  | Use if you encounter graphical issues on other builds (e.g. Pokemon Scarlet & Violet) |\n| amd64/x86_64 v3 | [Standard zip](https://nightly.eden-emu.dev/v1788034417.3df41c1e7a/Eden-Windows-3df41c1e7a-amd64-gcc-standard.zip) | [PGO zip](https://nightly.eden-emu.dev/v1788034417.3df41c1e7a/Eden-Windows-3df41c1e7a-amd64-clang-pgo.zip) | Built with MinGW. Requires Ryzen, 4th gen Intel, or newer |\n| Zen 4 | [Standard zip](https://nightly.eden-emu.dev/v1788034417.3df41c1e7a/Eden-Windows-3df41c1e7a-rog-ally-gcc-standard.zip) | [PGO zip](https://nightly.eden-emu.dev/v1788034417.3df41c1e7a/Eden-Windows-3df41c1e7a-rog-ally-clang-pgo.zip) | Requires Zen 4 or newer (e.g. ROG Ally X, Legion Go S). Incompatible with Intel |\n| aarch64/arm64 | [Standard zip](https://nightly.eden-emu.dev/v1788034417.3df41c1e7a/Eden-Windows-3df41c1e7a-arm64-clang-standard.zip) | [PGO zip](https://nightly.eden-emu.dev/v1788034417.3df41c1e7a/Eden-Windows-3df41c1e7a-arm64-clang-pgo.zip) | Snapdragon devices |\n\n## Android\n\n| Build  | Notes |\n|--------|-------|\n| [Standard APK](https://nightly.eden-emu.dev/v1788034417.3df41c1e7a/Eden-Android-3df41c1e7a-standard.apk) | The standard build. Most users should use this. |\n| [Genshin Spoof APK](https://nightly.eden-emu.dev/v1788034417.3df41c1e7a/Eden-Android-3df41c1e7a-optimized.apk) | Spoofs Eden as Genshin Impact, which may enable optimizations/frame generation on some flagship devices. |\n| [Legacy APK](https://nightly.eden-emu.dev/v1788034417.3df41c1e7a/Eden-Android-3df41c1e7a-legacy.apk) | For Snapdragon 865 and other unsupported chipsets |\n\n## macOS\n\nmacOS comes in a DMG image. These builds are currently experimental, and you should expect major graphical glitches and crashes.\nIn order to run the app, you *may* need to go to System Settings -> Privacy & Security -> Security -> Allow untrusted app.\n\n- [macOS DMG](https://nightly.eden-emu.dev/v1788034417.3df41c1e7a/Eden-macOS-3df41c1e7a.dmg)\n\n## Torrent\n\nA torrent containing all artifacts. To use this, simply download the torrent and import it into your\nfavorite torrent client (BitTorrent only!), and artifacts will be downloaded automatically.\n- [Torrent](https://nightly.eden-emu.dev/v1788034417.3df41c1e7a/Eden-3df41c1e7a.torrent)",
           "assets": [
             {
-              "filename": "releases",
-              "url": "https://git.eden-emu.dev/eden-ci/nightly/releases",
-              "sha256": "6d71deb37457e8ff3ce9a0d166108f9f4ac7e5287d203d5ef8e7450b996bd445"
+              "filename": "Eden-3df41c1e7a.torrent",
+              "url": "https://nightly.eden-emu.dev/v1788034417.3df41c1e7a/Eden-3df41c1e7a.torrent",
+              "sha256": "44777c0f030571a69ed1ee35090f16f7ea65190d2594c09c3bd4addf7ff2aeea"
+            },
+            {
+              "filename": "Eden-Android-3df41c1e7a-chromeos.apk",
+              "url": "https://nightly.eden-emu.dev/v1788034417.3df41c1e7a/Eden-Android-3df41c1e7a-chromeos.apk",
+              "sha256": "b8d8cc2b083ba966b94e9754ead23943ee0a0ea3386a4458249b1588cca1af76"
+            },
+            {
+              "filename": "Eden-Android-3df41c1e7a-legacy.apk",
+              "url": "https://nightly.eden-emu.dev/v1788034417.3df41c1e7a/Eden-Android-3df41c1e7a-legacy.apk",
+              "sha256": "8df054f48d11fd6993e53ee8a0dd499f5c1c91691e80128d66584a52acdcdc13"
+            },
+            {
+              "filename": "Eden-Android-3df41c1e7a-optimized.apk",
+              "url": "https://nightly.eden-emu.dev/v1788034417.3df41c1e7a/Eden-Android-3df41c1e7a-optimized.apk",
+              "sha256": "ae38710138b52b907c247e590bc7be90e714c512f84249547fa74437babc07e9"
+            },
+            {
+              "filename": "Eden-Android-3df41c1e7a-standard.apk",
+              "url": "https://nightly.eden-emu.dev/v1788034417.3df41c1e7a/Eden-Android-3df41c1e7a-standard.apk",
+              "sha256": "1dc73c6a593dbcb2e14a4cfce25b6376686f4256fc0d573ee2e762200bb08f1d"
+            },
+            {
+              "filename": "Eden-Linux-3df41c1e7a-aarch64-clang-pgo.AppImage",
+              "url": "https://nightly.eden-emu.dev/v1788034417.3df41c1e7a/Eden-Linux-3df41c1e7a-aarch64-clang-pgo.AppImage",
+              "sha256": "85aeecfa8cb79ce87917160ac5f1335f39cb0f8eba2197375ec9121aa87b8a70"
+            },
+            {
+              "filename": "Eden-Linux-3df41c1e7a-aarch64-gcc-standard.AppImage",
+              "url": "https://nightly.eden-emu.dev/v1788034417.3df41c1e7a/Eden-Linux-3df41c1e7a-aarch64-gcc-standard.AppImage",
+              "sha256": "4f1f454af8e08b3c08def0fd022a12953ccfdb2aa2728b71c90d62d94673d16d"
+            },
+            {
+              "filename": "Eden-Linux-3df41c1e7a-amd64-clang-pgo.AppImage",
+              "url": "https://nightly.eden-emu.dev/v1788034417.3df41c1e7a/Eden-Linux-3df41c1e7a-amd64-clang-pgo.AppImage",
+              "sha256": "a2a313a7e332d71d12dea948a2385ef29683ac49637b0fb63b273d6cbd41cff9"
+            },
+            {
+              "filename": "Eden-Linux-3df41c1e7a-amd64-gcc-standard.AppImage",
+              "url": "https://nightly.eden-emu.dev/v1788034417.3df41c1e7a/Eden-Linux-3df41c1e7a-amd64-gcc-standard.AppImage",
+              "sha256": "a48bede7c0ae20edf71fa4884a542f390cb919aa02f91bdd30e66601fc8fb96f"
+            },
+            {
+              "filename": "Eden-Linux-3df41c1e7a-legacy-clang-pgo.AppImage",
+              "url": "https://nightly.eden-emu.dev/v1788034417.3df41c1e7a/Eden-Linux-3df41c1e7a-legacy-clang-pgo.AppImage",
+              "sha256": "ef985003fdd9eb3a6ab22760529e7cba035bae4cdf373e0a08d781de02a50fe2"
+            },
+            {
+              "filename": "Eden-Linux-3df41c1e7a-legacy-gcc-standard.AppImage",
+              "url": "https://nightly.eden-emu.dev/v1788034417.3df41c1e7a/Eden-Linux-3df41c1e7a-legacy-gcc-standard.AppImage",
+              "sha256": "bb158becb1c8df287f6eb167b1b0bd3119b5edd71a86b0480c6fe06aa2ded88a"
+            },
+            {
+              "filename": "Eden-Linux-3df41c1e7a-rog-ally-clang-pgo.AppImage",
+              "url": "https://nightly.eden-emu.dev/v1788034417.3df41c1e7a/Eden-Linux-3df41c1e7a-rog-ally-clang-pgo.AppImage",
+              "sha256": "ef8347093f6fb41be30200a21e84cefdad60a4e907ea31d5235102e254d02029"
+            },
+            {
+              "filename": "Eden-Linux-3df41c1e7a-rog-ally-gcc-standard.AppImage",
+              "url": "https://nightly.eden-emu.dev/v1788034417.3df41c1e7a/Eden-Linux-3df41c1e7a-rog-ally-gcc-standard.AppImage",
+              "sha256": "1456b4371bb254e6b595bc811f4a172860f859423b2364431ddfec9805653891"
+            },
+            {
+              "filename": "Eden-Linux-3df41c1e7a-steamdeck-clang-pgo.AppImage",
+              "url": "https://nightly.eden-emu.dev/v1788034417.3df41c1e7a/Eden-Linux-3df41c1e7a-steamdeck-clang-pgo.AppImage",
+              "sha256": "3dffcc6e9d6564ea21c573d847f713b0e9452fea071855cd829b344d763a006f"
+            },
+            {
+              "filename": "Eden-Linux-3df41c1e7a-steamdeck-gcc-standard.AppImage",
+              "url": "https://nightly.eden-emu.dev/v1788034417.3df41c1e7a/Eden-Linux-3df41c1e7a-steamdeck-gcc-standard.AppImage",
+              "sha256": "d6508c5259bf5c7442342ed652d6bb7243b213e048d066a3280550539d9c8e68"
+            },
+            {
+              "filename": "Eden-Linux-aarch64-clang-pgo.AppImage.zsync",
+              "url": "https://nightly.eden-emu.dev/v1788034417.3df41c1e7a/Eden-Linux-aarch64-clang-pgo.AppImage.zsync",
+              "sha256": "18d302b4723c37a0c89f351be49f4bfee864df8764ec39e678f6973779deae83"
+            },
+            {
+              "filename": "Eden-Linux-aarch64-gcc-standard.AppImage.zsync",
+              "url": "https://nightly.eden-emu.dev/v1788034417.3df41c1e7a/Eden-Linux-aarch64-gcc-standard.AppImage.zsync",
+              "sha256": "cce41d192755dd28096b93b04cd73b7772cde9596094d1151503a1e9bcc27fb5"
+            },
+            {
+              "filename": "Eden-Linux-amd64-clang-pgo.AppImage.zsync",
+              "url": "https://nightly.eden-emu.dev/v1788034417.3df41c1e7a/Eden-Linux-amd64-clang-pgo.AppImage.zsync",
+              "sha256": "03e58d8de9cecc2039d48cd3916432f4eed8cc968b1a8948009dd500fb5b56c8"
+            },
+            {
+              "filename": "Eden-Linux-amd64-gcc-standard.AppImage.zsync",
+              "url": "https://nightly.eden-emu.dev/v1788034417.3df41c1e7a/Eden-Linux-amd64-gcc-standard.AppImage.zsync",
+              "sha256": "511fd31f719c9d5b5cf6eb4e6661dab71e860457ddf2822a06edc680d6036ef0"
+            },
+            {
+              "filename": "Eden-Linux-legacy-clang-pgo.AppImage.zsync",
+              "url": "https://nightly.eden-emu.dev/v1788034417.3df41c1e7a/Eden-Linux-legacy-clang-pgo.AppImage.zsync",
+              "sha256": "06cc454d678b5d2cf031263d24558131f81de9f5b538705c890f423402d0f8e0"
+            },
+            {
+              "filename": "Eden-Linux-legacy-gcc-standard.AppImage.zsync",
+              "url": "https://nightly.eden-emu.dev/v1788034417.3df41c1e7a/Eden-Linux-legacy-gcc-standard.AppImage.zsync",
+              "sha256": "588c00ede6d0a988cc96f68990a18c44bc41cec0810b35740bb46a62615b03b7"
+            },
+            {
+              "filename": "Eden-Linux-rog-ally-clang-pgo.AppImage.zsync",
+              "url": "https://nightly.eden-emu.dev/v1788034417.3df41c1e7a/Eden-Linux-rog-ally-clang-pgo.AppImage.zsync",
+              "sha256": "e450bfb05b9c9a08c2b3e9e829fe717a9711c387dc6e8199b19e4c23ca0ccbfe"
+            },
+            {
+              "filename": "Eden-Linux-rog-ally-gcc-standard.AppImage.zsync",
+              "url": "https://nightly.eden-emu.dev/v1788034417.3df41c1e7a/Eden-Linux-rog-ally-gcc-standard.AppImage.zsync",
+              "sha256": "87182d7282bb17c30ce406c5905519b5832f66ee64b5654529e5eea1d1949b35"
+            },
+            {
+              "filename": "Eden-Linux-steamdeck-clang-pgo.AppImage.zsync",
+              "url": "https://nightly.eden-emu.dev/v1788034417.3df41c1e7a/Eden-Linux-steamdeck-clang-pgo.AppImage.zsync",
+              "sha256": "5a22f0fb4d1daf55e4f32e25aea80c8f9669b98bf785d455d86fd21241855e09"
+            },
+            {
+              "filename": "Eden-Linux-steamdeck-gcc-standard.AppImage.zsync",
+              "url": "https://nightly.eden-emu.dev/v1788034417.3df41c1e7a/Eden-Linux-steamdeck-gcc-standard.AppImage.zsync",
+              "sha256": "8c5a512d660ba9903daf4d95c4ae72b251b3849f8d0629578f8305670ff131bc"
+            },
+            {
+              "filename": "Eden-Windows-3df41c1e7a-amd64-clang-pgo.zip",
+              "url": "https://nightly.eden-emu.dev/v1788034417.3df41c1e7a/Eden-Windows-3df41c1e7a-amd64-clang-pgo.zip",
+              "sha256": "a3b2b68efbb957bf2de37855d3005cded8fb864eb31b2ec2e38b102d6b7ef29b"
+            },
+            {
+              "filename": "Eden-Windows-3df41c1e7a-amd64-gcc-standard.zip",
+              "url": "https://nightly.eden-emu.dev/v1788034417.3df41c1e7a/Eden-Windows-3df41c1e7a-amd64-gcc-standard.zip",
+              "sha256": "8c791b885de4d0312216e16dc4af6befbcce30a6607c203118b026714a3b811d"
+            },
+            {
+              "filename": "Eden-Windows-3df41c1e7a-amd64-msvc-standard.zip",
+              "url": "https://nightly.eden-emu.dev/v1788034417.3df41c1e7a/Eden-Windows-3df41c1e7a-amd64-msvc-standard.zip",
+              "sha256": "3f3a86f989e38d8b5d71765abc99604705636baeeb7aed84075d145489894fdf"
+            },
+            {
+              "filename": "Eden-Windows-3df41c1e7a-arm64-clang-pgo.zip",
+              "url": "https://nightly.eden-emu.dev/v1788034417.3df41c1e7a/Eden-Windows-3df41c1e7a-arm64-clang-pgo.zip",
+              "sha256": "da18e982d636c08e6d9f9f295dc3cdbea7953ef439927aaac12a57b185255238"
+            },
+            {
+              "filename": "Eden-Windows-3df41c1e7a-arm64-clang-standard.zip",
+              "url": "https://nightly.eden-emu.dev/v1788034417.3df41c1e7a/Eden-Windows-3df41c1e7a-arm64-clang-standard.zip",
+              "sha256": "3573ea1c55af70f4ba23e78a6aeee36f8bc02c5d5a18317fce23afba644d9c4b"
+            },
+            {
+              "filename": "Eden-Windows-3df41c1e7a-rog-ally-clang-pgo.zip",
+              "url": "https://nightly.eden-emu.dev/v1788034417.3df41c1e7a/Eden-Windows-3df41c1e7a-rog-ally-clang-pgo.zip",
+              "sha256": "2608b9bf9d2fd1bf17a9b7053c00a61cb617c0a6e647004f9d1226c14b50f23e"
+            },
+            {
+              "filename": "Eden-Windows-3df41c1e7a-rog-ally-gcc-standard.zip",
+              "url": "https://nightly.eden-emu.dev/v1788034417.3df41c1e7a/Eden-Windows-3df41c1e7a-rog-ally-gcc-standard.zip",
+              "sha256": "5eec7979a4917bd6d7391283f4d2c1d90843d924b70344e21e5f51aff91ecb8d"
+            },
+            {
+              "filename": "Eden-macOS-3df41c1e7a.dmg",
+              "url": "https://nightly.eden-emu.dev/v1788034417.3df41c1e7a/Eden-macOS-3df41c1e7a.dmg",
+              "sha256": "17c1b23e09720b1dcf62b322e0ab60153fed1e3a0ecace339c4110044e64d3c6"
             }
           ],
-          "source_type": "generic",
-          "repo_url": "https://git.eden-emu.dev/eden-ci/nightly/releases"
+          "source_type": "forgejo",
+          "repo_url": "https://git.eden-emu.dev/eden-ci/nightly"
         }
       ]
     },
