@@ -1,6 +1,6 @@
 {
   "name": "EvoX Universal Store",
-  "updated_at": "2026-08-30T12:32:49.188781Z",
+  "updated_at": "2026-08-30T13:25:11.263476Z",
   "store": [
     {
       "category": "forgejo_test",
@@ -24,8 +24,8 @@
       ]
     },
     {
-      "category": "emulation",
-      "subcategory": "emulateurs",
+      "category": "github_test",
+      "subcategory": "github_test",
       "apps": [
         {
           "name": "flycast",
@@ -171,6 +171,27 @@
           ],
           "source_type": "github",
           "repo_url": "https://github.com/stenzek/duckstation"
+        }
+      ]
+    },
+    {
+      "category": "html_test",
+      "subcategory": "html_test",
+      "apps": [
+        {
+          "name": "retroarch_windows_nightly",
+          "description": "retroarch",
+          "version": "v1.0",
+          "release_notes": "Fichier direct",
+          "assets": [
+            {
+              "filename": "file.bin",
+              "url": "https://buildbot.libretro.com/nightly/windows/x86_64/",
+              "sha256": "8e9966f5f6e3891968be1ca9ea04220c2c0759c93679eebc5248a7eff3c25a16"
+            }
+          ],
+          "source_type": "generic",
+          "repo_url": "https://buildbot.libretro.com/nightly/windows/x86_64/"
         }
       ]
     },
