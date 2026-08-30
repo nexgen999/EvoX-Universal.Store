@@ -54,19 +54,19 @@ def extract_clean_repo_url(url, description=""):
         repo = clean_repo_name(gl_match.group(2))
         return f"https://gitlab.com/{owner}/{repo}", "gitlab"
 
-    cb_match = re.search(r"https?://(codeberg\.org|[^/]*forgejo[^/]*)/([^/\s\"']+)/([^/\s\"']+)", combined)
-    if cb_match:
+    # Match générique pour n'importe quel domaine Forgejo / Gitea (ex: git.etawen.dev ou codeberg.org)
+    cb_match = re.search(r"https?://([^/\s\"']+)/([^/\s\"']+)/([^/\s\"']+)", combined)
+    if cb_match and ("forgejo" in combined.lower() or "gitea" in combined.lower() or "git.etawen.dev" in combined.lower() or "codeberg.org" in combined.lower()):
         domain = cb_match.group(1)
         owner = cb_match.group(2)
         repo = clean_repo_name(cb_match.group(3))
         return f"https://{domain}/{owner}/{repo}", "forgejo"
 
-    gt_match = re.search(r"https?://([^/]*gitea[^/]*)/([^/\s\"']+)/([^/\s\"']+)", combined)
-    if gt_match:
-        domain = gt_match.group(1)
-        owner = gt_match.group(2)
-        repo = clean_repo_name(gt_match.group(3))
-        return f"https://{domain}/{owner}/{repo}", "gitea"
+    # Fallback capture des liens Forgejo/Gitea même sans mot-clé explicite si domaine spécifique
+    if "git.etawen.dev" in combined:
+        m = re.search(r"https?://git\.etawen\.dev/([^/\s\"']+)/([^/\s\"']+)", combined)
+        if m:
+            return f"https://git.etawen.dev/{m.group(1)}/{clean_repo_name(m.group(2))}", "forgejo"
 
     # URL Directe
     clean_url = re.sub(r'/(releases|tags)\.(atom|rss|xml)$', '', url)
@@ -85,7 +85,6 @@ def resolve_release_data(raw_url, description=""):
             gh_headers["Authorization"] = f"token {GITHUB_TOKEN}"
 
         data = None
-        # Tente l'API releases/latest
         try:
             api_url = f"https://api.github.com/repos/{owner}/{repo}/releases/latest"
             data = fetch_json(api_url, gh_headers)
@@ -109,7 +108,6 @@ def resolve_release_data(raw_url, description=""):
                 assets.append({"filename": name, "url": dl_url, "sha256": sha})
             return version, body, assets, "github", repo_url
 
-        # Fallback Tags (ex: repositories sans releases formelles)
         try:
             tags_url = f"https://api.github.com/repos/{owner}/{repo}/tags"
             tags = fetch_json(tags_url, gh_headers)
@@ -147,7 +145,52 @@ def resolve_release_data(raw_url, description=""):
         except Exception as e:
             print(f"   [ERROR GitLab API] {owner}/{repo}: {e}")
 
-    # 3. DIRECT / GENERIC
+    # 3. FORGEJO / GITEA (ex: git.etawen.dev, codeberg.org, etc.)
+    if source_type == "forgejo" or "git.etawen.dev" in repo_url:
+        try:
+            parsed = urllib.parse.urlparse(repo_url)
+            domain = f"{parsed.scheme}://{parsed.netloc}"
+            parts = parsed.path.strip("/").split("/")
+            
+            if len(parts) >= 2:
+                owner, repo = parts[0], parts[1]
+                api_url = f"{domain}/api/v1/repos/{owner}/{repo}/releases/latest"
+                
+                data = None
+                try:
+                    data = fetch_json(api_url)
+                except Exception:
+                    # Fallback sur la liste complète des releases si /latest échoue
+                    api_url_all = f"{domain}/api/v1/repos/{owner}/{repo}/releases"
+                    all_rel = fetch_json(api_url_all)
+                    if all_rel and isinstance(all_rel, list) and len(all_rel) > 0:
+                        data = all_rel[0]
+
+                if data:
+                    version = data.get("tag_name", "v1.0")
+                    body = data.get("body", "")
+                    assets = []
+                    
+                    for asset in data.get("assets", []):
+                        dl_url = asset.get("browser_download_url", "")
+                        # Gestion des liens relatifs retournés par certaines instances
+                        if dl_url.startswith("/"):
+                            dl_url = f"{domain}{dl_url}"
+                            
+                        name = asset.get("name", os.path.basename(dl_url))
+                        sha = get_remote_sha256(dl_url)
+                        assets.append({"filename": name, "url": dl_url, "sha256": sha})
+                    
+                    # Si aucun asset binaire n'est attaché, on utilise le zip source
+                    if not assets:
+                        zip_url = data.get("zipball_url", f"{domain}/{owner}/{repo}/archive/{version}.zip")
+                        assets.append({"filename": f"{repo}-{version}.zip", "url": zip_url, "sha256": get_remote_sha256(zip_url)})
+
+                    return version, body, assets, "forgejo", repo_url
+        except Exception as e:
+            print(f"   [ERROR Forgejo API] {repo_url}: {e}")
+
+    # 4. DIRECT / GENERIC
     filename = os.path.basename(repo_url) or "file.bin"
     sha = get_remote_sha256(repo_url)
     return "v1.0", "Fichier direct", [{"filename": filename, "url": repo_url, "sha256": sha}], source_type, repo_url
