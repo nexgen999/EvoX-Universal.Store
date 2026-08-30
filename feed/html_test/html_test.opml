@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<opml version="2.0">
+  <head>
+    <title>html_test</title>
+  </head>
+  <body>
+    <outline text="retroarch_windows_nightly" title="retroarch_windows_nightly" type="rss" xmlUrl="https://buildbot.libretro.com/nightly/windows/x86_64/" author="retroarch" description="retroarch"/>
+  </body>
+</opml>
