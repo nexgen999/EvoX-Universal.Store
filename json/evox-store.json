@@ -1,6 +1,6 @@
 {
   "name": "EvoX Universal Store",
-  "updated_at": "2026-08-30T17:18:53.770355Z",
+  "updated_at": "2026-08-30T17:29:11.541655Z",
   "store": [
     {
       "category": "forgejo_test",
@@ -19,7 +19,7 @@
             }
           ],
           "source_type": "forgejo",
-          "repo_url": "https://git.etawen.dev/soniciso/elf-arsenal"
+          "repo_url": "https://git.etawen.dev/projects/soniciso/elf-arsenal"
         }
       ]
     },
@@ -105,12 +105,12 @@
           "assets": [
             {
               "filename": "Ryubing",
-              "url": "https://git.ryujinx.app/projects/Ryubing",
-              "sha256": "78eab1ab5d27b638ae89099a5e53154b25a821d2c86a7b37e1e98f2ab0c46a1f"
+              "url": "https://git.ryujinx.app/projects/projects/Ryubing",
+              "sha256": "e795fff1aa060654428391449073c68caac55d413c7c2374690864b267b7ac0e"
             }
           ],
           "source_type": "forgejo",
-          "repo_url": "https://git.ryujinx.app/projects/Ryubing"
+          "repo_url": "https://git.ryujinx.app/projects/projects/Ryubing"
         },
         {
           "name": "Kenji-NX",
@@ -120,12 +120,12 @@
           "assets": [
             {
               "filename": "Kenji-NX",
-              "url": "https://git.ryujinx.app/projects/Kenji-NX",
-              "sha256": "f2b2eaa6f3f8a711b446cb6d57999e2eea9e8c2fff58ff3b7affae239fe702ec"
+              "url": "https://git.ryujinx.app/projects/projects/Kenji-NX",
+              "sha256": "8232e89618fc57d76a37c683e1360696a4c03e75a460dca994dba718d8f5b663"
             }
           ],
           "source_type": "forgejo",
-          "repo_url": "https://git.ryujinx.app/projects/Kenji-NX"
+          "repo_url": "https://git.ryujinx.app/projects/projects/Kenji-NX"
         },
         {
           "name": "eden-stable",
@@ -310,7 +310,7 @@
             }
           ],
           "source_type": "forgejo",
-          "repo_url": "https://git.eden-emu.dev/eden-emu/eden"
+          "repo_url": "https://git.eden-emu.dev/projects/eden-emu/eden"
         },
         {
           "name": "eden-nightly",
@@ -485,7 +485,7 @@
             }
           ],
           "source_type": "forgejo",
-          "repo_url": "https://git.eden-emu.dev/eden-ci/nightly"
+          "repo_url": "https://git.eden-emu.dev/projects/eden-ci/nightly"
         }
       ]
     },
