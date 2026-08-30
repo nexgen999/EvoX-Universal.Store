@@ -1,0 +1,250 @@
+{
+  "name": "EvoX Universal Store",
+  "updated_at": "2026-08-30T13:53:11.752173Z",
+  "store": [
+    {
+      "category": "forgejo_test",
+      "subcategory": "forgejo_test",
+      "apps": [
+        {
+          "name": "elf-arsenal",
+          "description": "elf-arsenal",
+          "version": "v1.6.22",
+          "release_notes": "Bumps embedded garlic-worker to **v1.1.5**.\n\nWorker changes:\n- `copy_dir_recursive` (PS5) + `copy_dir_pfs` (PS4) now check `copy_file` return codes and fail loudly instead of silently truncating.  Encrypt paths bail with an ERROR log + save_unmount if the copy step fails (out of space or otherwise).  Latent hazard closed — server-side saveblocks-headroom already prevents the ENOSPC case in the wild.\n- User-Agent bumped from `sonicloader-worker/v1.1.4` -> `sonicloader-worker/v1.1.5` so HTOS-web can distinguish updated vs stale workers in the fleet.\n\nBuild pipeline:\n- Top-level workflow now rebuilds `payloads/garlic-worker.elf` from `garlic-worker-src/` on every push instead of shipping a stale pre-committed binary.  Future worker source edits flow into the fleet automatically.",
+          "assets": [
+            {
+              "filename": "elf-arsenal.elf",
+              "url": "https://git.etawen.dev/soniciso/elf-arsenal/releases/download/v1.6.22/elf-arsenal.elf",
+              "sha256": "ee8f47e4d6a5fd85cef113341aa1eb74d68e373a58fcb1fb5a9274acd2b83bd2"
+            }
+          ],
+          "source_type": "forgejo",
+          "repo_url": "https://git.etawen.dev/soniciso/elf-arsenal"
+        }
+      ]
+    },
+    {
+      "category": "github_test",
+      "subcategory": "github_test",
+      "apps": [
+        {
+          "name": "flycast",
+          "description": "Flycast is a multi-platform Sega Dreamcast, Naomi, Naomi 2, and Atomiswave emulator",
+          "version": "v2.7",
+          "release_notes": "## New features\r\n* Frame rate detection and pacing\r\n* Localization (fr, hu, jp, pt_BR, sv)\r\n* Multiscreen support for Airline Pilot, Sega Strike Fighter and Derby Owners Club\r\n* Improved modem emulation\r\n* improved DreamPicoPort and DreamPotato support by @RikkiGibson, @Tails86 and @nexus382\r\n* Android: Google Auto Backup support for VMU saves and non-volatile memory\r\n\r\n## Fixed Games\r\n* Airline Pilot (Naomi, multiscreen)\r\n* Cyber Troopers Virtual-On: Oratorio Tangram (JP, online features)\r\n* Derby Owners Club (new)\r\n* Dinosaur King (ZH, new)\r\n* DreamParaPara by @dakrk (new)\r\n* F355 Challenge (JP, online features)\r\n* Fish Life (new)\r\n* Love & Berry 3 (ZH, new)\r\n* NFL 2K1, NFL 2K2, NBA 2K1, NBA 2K2 (freeze)\r\n* Power Smash (online lag)\r\n* Rune Jade (online features)\r\n* Samba de Amigo (Naomi, inputs)\r\n* Sega Strike Fighter (Naomi, multiscreen)\r\n\r\n## New Contributors\r\n* @Windsurf7 made their first contribution in https://github.com/flyinghead/flycast/pull/2229\r\n* @Kyuyrii made their first contribution in https://github.com/flyinghead/flycast/pull/2236\r\n* @eadmaster made their first contribution in https://github.com/flyinghead/flycast/pull/2252\r\n* @PLCodingStuff made their first contribution in https://github.com/flyinghead/flycast/pull/2274\r\n* @marcgardent made their first contribution in https://github.com/flyinghead/flycast/pull/2318\r\n* @AurisDSP made their first contribution in https://github.com/flyinghead/flycast/pull/2333\r\n* @engdyn made their first contribution in https://github.com/flyinghead/flycast/pull/2383\r\n\r\n**Full Changelog**: https://github.com/flyinghead/flycast/compare/v2.6...v2.7",
+          "assets": [
+            {
+              "filename": "flycast-2.7.apk",
+              "url": "https://github.com/flyinghead/flycast/releases/download/v2.7/flycast-2.7.apk",
+              "sha256": "1ac54d77b8283f6d58d077396d0916ec12c15b7e4ada9d957836a64590756c00"
+            },
+            {
+              "filename": "flycast-2.7.appx",
+              "url": "https://github.com/flyinghead/flycast/releases/download/v2.7/flycast-2.7.appx",
+              "sha256": "8b6f42e19577526366805c027afab2431af1a7aa71d7b068d9c7adb51441eae6"
+            },
+            {
+              "filename": "flycast-2.7.nro",
+              "url": "https://github.com/flyinghead/flycast/releases/download/v2.7/flycast-2.7.nro",
+              "sha256": "898bf81c24cdbcc1c95b3d7eccca059004c9887feb8628cb9f36444048b12678"
+            },
+            {
+              "filename": "flycast-macOS-2.7.zip",
+              "url": "https://github.com/flyinghead/flycast/releases/download/v2.7/flycast-macOS-2.7.zip",
+              "sha256": "dbd59cb88f52a95ea4de90693bb4ac156530452d5457f2cc4f656fdfd242fc26"
+            },
+            {
+              "filename": "flycast-win64-2.7.zip",
+              "url": "https://github.com/flyinghead/flycast/releases/download/v2.7/flycast-win64-2.7.zip",
+              "sha256": "7edf489ba6b3053703a18ce8233767eb71a2d89e4bda0421b312c2167a739161"
+            },
+            {
+              "filename": "flycast-x86_64-2.7.AppImage",
+              "url": "https://github.com/flyinghead/flycast/releases/download/v2.7/flycast-x86_64-2.7.AppImage",
+              "sha256": "5b9f8a636a6acb8446bc78fe96650d8cb8233ac9f8ce69665dab3f39a1cbaae1"
+            }
+          ],
+          "source_type": "github",
+          "repo_url": "https://github.com/flyinghead/flycast"
+        },
+        {
+          "name": "flycast-dojo",
+          "description": "Flycast Dojo is a fork of Flycast, a multi-platform Sega Dreamcast, Naomi and Atomiswave emulator derived from Reicast, with a focus on netplay features and replay",
+          "version": "dojo-6.46",
+          "release_notes": "### Flycast Dojo 6.46 Changelog\r\n* Session Transmission: Send Spectate Start Message Once. Fixes Replays/Spectating.\r\n\r\n### Flycast Dojo 6.45 Changelog\r\n* Fightcade: Hide player names until received from service. Show correct order.\r\n* Session Stream: Enable guest score transmission\r\n\r\n### Flycast Dojo 6.44 Release Notes\r\n* Test Game: Fix Offline Game Launch\r\n\r\n_Flycast Dojo 6.43 includes various enhancements to Test Game mode, including loading controller profiles in the Settings prior to game launch for previews, as well as a Main Menu button to enter the emulator's main interface from the Test Game screen off of Fightcade. This new version also includes improved netplay savestate tracking for replays in preparation for netplay savestate auto-updating._\r\n\r\n![image](https://github.com/blueminder/flycast-dojo/assets/504581/8f7b29d3-c3b7-414b-b177-999fd2212c4a)\r\n\r\n### Flycast Dojo 6.43 Release Notes\r\n* Test Game: Fix Game Launch, Main Menu, Emulator Exit\r\n\r\n### Flycast Dojo 6.42 Release Notes\r\n* Netplay Savestates: Download list of commits locally with savestate download\r\n* Replays/Spectating: If commit from header unavailable, use Commit based on Quark Epoch\r\n\r\n### Flycast Dojo 6.39 Release Notes\r\n* Replays/Spectating: Get commit by Quark Epoch time & Game Name when missing from header\r\n* Replays/Spectating: Record current Savestate Commit on Session Start\r\n* Netplay Savestate Download: Make copy with commit extension for Replay versioning\r\n* Test Game: Add Main Menu Button\r\n\r\n### Flycast Dojo 6.36 Release Notes\r\n* Test Game: Load Button Names in Settings\r\n* Linux: Copy missing shared memory (EEPROM/NVMEM/VMU) from shared directory before game launch\r\n\r\n_Flycast Dojo 6.35 introduces more enhancements and bug fixes for controller mapping and button check. Button Check now also supports macro buttons, finally giving an accurate picture of what is seen in-game. To make button mapping more intuitive, the hovered row is now highlighted._\r\n\r\n![image](https://github.com/blueminder/flycast-dojo/assets/504581/f83dc976-ca56-4e93-b0bb-0e7680c332dd)\r\n\r\n### Flycast Dojo 6.35 Release Notes\r\n* Marvel vs. Capcom 2 (NAOMI): Change Button Names (Assist A/B -> 1/2, Strong -> Heavy)\r\n* Controller Mapping: Highlight hovered row for Button Assignment\r\n\r\n### Flycast Dojo 6.34 Release Notes\r\n* Macros: Refactor Macro Assignment, Show in Button Check\r\n\r\n_Flycast Dojo 6.33 is a minor update for Mac OS that fixes launching Dreamcast games from Fightcade and other clients using the included file definitions._\r\n\r\n### Flycast Dojo 6.33 Release Notes\r\n- Mac OS & Linux: Fix Game Entry JSON location, Use base directory env vars when available\r\n\r\n_Flycast Dojo 6.32 includes bug fixes and features based on the feedback of the last Fightcade release. Test Game now loads all button and system definitions for the target game upon launch, and system selection is disabled in the controller mapping menu when a game is loaded to prevent player confusion._\r\n\r\n![image](https://github.com/blueminder/flycast-dojo/assets/504581/d20963b5-4890-4e92-bb68-aba083a72a73)\r\n\r\n_Many Lua functions were also added to give the modding community a head start in making interesting Training scripts in Flycast Dojo. You can now read signed integers and floats from memory, read frame number, draw color progress bars, as well as draw lines and rectangles for hitboxes. Special thanks to N-Bee, mountainmanjed, & Magnetro for suggestions and help._\r\n\r\n![image](https://github.com/blueminder/flycast-dojo/assets/504581/a9d59fc3-138a-4784-a0d0-d402f5675c7b)\r\n\r\n_Lastly, for those of you who want to stay on your controller during Training Mode dummy recording, I added buttons for cycling between input slots, playing, and recording your selection. They can be found in the Training Mode section of your Controller Mapping settings._\r\n\r\n![image](https://github.com/blueminder/flycast-dojo/assets/504581/d9f2630a-e46c-4d9a-bf74-68818ac064b3)\r\n\r\n### Flycast Dojo 6.32 Release Notes\r\n\r\n- Linux: Copy Default VMU from shared dir when supported game is detected.\r\n- Lua: Rectangles, Lines; Support Floating point numbers\r\n\r\n### Flycast Dojo 6.31 Release Notes\r\n\r\n- Lua: Get Frame Number\r\n- Training: Dummy Recording, Select/Record/Play Input Slot Button\r\n- Match Codes/Relays: Hide Code/Key command line toggle\r\n- Lua: Rectangles, Lines (`rect`, `line`)\r\n- Lua: Color Progress Bars (`bargraphColor`)\r\n- Lua: Read Signed Integers from Memory (`read8s`, `read16s`, `read32s`)\r\n- Lua: Read Float from Memory (`read32f`)\r\n- Game Entries: Add all DC multiplayer game filenames (according to MobyGames) from Redump collection\r\n- Test Game: Show Button Names without launching game. Leaving Button Check goes back to Test Game screen.\r\n- Training: Switch Player, Check for null gamepad\r\n- Credits: Update Patrons\r\n- Test Game: Restrict input mapping to target game system\r\n- Controller Mapping: Disable system select when in game. Default to loaded game platform.\r\n- Training: Load Lua scripts in Paxtez MvC2 mods\r\n\r\n_Flycast Dojo 6.30 contains more bug fixes, and the ability to spectate & watch replays from sessions held on relays in addition to Match Codes._\r\n\r\n![image](https://github.com/blueminder/flycast-dojo/assets/504581/cbcb1007-1303-49de-a801-542b4e2da550)\r\n\r\n_I also added an A+Start macro intended for Capcom vs SNK 2 players to perform a one-button taunt when playing the Dreamcast version._\r\n\r\n<img src=\"https://github.com/blueminder/flycast-dojo/assets/504581/1c08c0c3-e183-4119-bbb9-ee70c0f48f76\" width=\"440\">\r\n\r\n### Flycast Dojo 6.30 Release Notes\r\n* Stream Receive: Force virtual assignment when mode toggled. Should not be saved.\r\n\r\n### Flycast Dojo 6.29 Release Notes\r\n* GUI, Spectate Match Code Sessions & Relays, convert to Popup\r\n* Relays: Allow mode selection after GUI cancel\r\n* Rename SpectateMatchCode option to SpectateKey\r\n* Training, Replays: Disable \"Show Hotkeys\" button (Fixes crashes)\r\n* Relay Match Spectating & Replay streaming\r\n* A+Start Macro, for DC CvS2 one button taunt\r\n* Add proper ROM path to parent when data folder is detected\r\n* Match Codes, Relays: Send all netplay steps to stdout\r\n\r\n_Flycast Dojo 6.28 serves as a bug fix release for Flycast Dojo 6.26. This release fixes Match Code & Relay launching from command line, the Windows internal updater to accept new releases, allows games without savestates to be played online again, and cleans up integration details needed for matchmaking frontends. Special thanks to Ren, ToastRider, & pof for reporting bugs, integration, and debugging assistance._\r\n\r\n### Flycast Dojo 6.28 Release Notes\r\n* Mac: Set proper Content Path when `DOJO_BASE_DIR` is assigned\r\n* Relays, CMD: Use Relay Key entered in arguments (Thanks Ren) \r\n* Relays: Fix Relay command line start\r\n* Savestate Download: Don't show successful save if file is not found\r\n* Client Join: send to stdout\r\n\r\n### Flycast Dojo 6.27 Release Notes\r\n* Savestate Download: Fix flickering screen, allow game to be launched when missing savestate\r\n* Internal Updater, Windows: Fix Updater, Accepts `application/zip` content type (Thanks ToastRider)\r\n* Match Codes: Start matchmaking session after host/join selection\r\n* Match Codes, Relay Keys: Send codes to stdout\r\n* GGPO: Send session start to stdout\r\n\r\n_Flycast Dojo 6.26 introduces a new connection method: relay servers. For users on networks where a direct P2P connection over Match Codes do not work, relay servers will allow you to tunnel all game traffic through a server visible by both parties on the open internet. Just point to your server of choice, and exchange codes with your opponent like you would with Match Codes. This should serve as an alternative to Fightcade's own tunnels or using a Virtual LAN with Direct IP._\r\n\r\n![image](https://github.com/blueminder/flycast-dojo/assets/504581/7d51a6f0-4d7c-4852-a051-21bc47cbc904)\r\n\r\n_New UI changes where also made in this go-around. All modes and connection methods are now available in the drop-down on the main menu, and helpful description text is available for each selection. Icons now adorn the interface, and the netplay flow has been cleaned up for all connection methods._\r\n\r\n![image](https://github.com/blueminder/flycast-dojo/assets/504581/be076808-547b-495a-ae72-64e27e733a1e)\r\n\r\n_Since this is the first release with relays, this will be the first time they will be tested in the wild. I have put up 7 servers around the world according to the most active regions where Match Codes have been used. Once relays are in a solid place, I'll be releasing the server code so that people can host their own. Server capacity and new locations will be determined after initial testing and feedback of what is up now. (An extra special thanks to our [Patreon contributors](https://www.patreon.com/projectdojo), who make server deploys possible!)_\r\n\r\n_In future releases, I plan on combining the hole punching used in Match Codes with relays through automatic detection. In the mean time, you can start with Match Codes and switch over to a relay when that doesn't work._\r\n\r\n<a name=\"relay_servers\"></a>\r\n\r\n![image](https://github.com/blueminder/flycast-dojo/assets/504581/647fa5d0-ed90-4c9d-9588-76d915a70079)\r\n\r\n**Relay Servers**\r\n* us-west-1.match.dojo.ooo (Hillsboro, OR, USA)\r\n* us-east-1.match.dojo.ooo (Ashburn, VA, USA)\r\n* chl-1.match.dojo.ooo (Santiago, Chile)\r\n* esp-1.match.dojo.ooo (Madrid, Spain)\r\n* fin-1.match.dojo.ooo (Helsinki, Finland)\r\n* kor-1.match.dojo.ooo (Seoul, South Korea)\r\n* aus-1.match.dojo.ooo (Sydney, Australia)\r\n\r\n_For news, support, and potential matchmaking, head over to the [Dojo Project Discord](https://discord.gg/JKBJhjea3J). I'll be looking over the server performance and taking feedback there. Enjoy!_\r\n\r\n### Flycast Dojo 6.26 Release Notes\r\n* Relay Servers\r\n* Font Awesome Icon Integration\r\n* Connection Flow UI Overhaul\r\n  * Match Codes\r\n  * IP Entry\r\n* Main Screen: Mode & Connection Method Selection\r\n* Main Screen: Mode Descriptions\r\n* Savestate Download: Remove stuck modal on main menu return",
+          "assets": [
+            {
+              "filename": "flycast-dojo-6.46.zip",
+              "url": "https://github.com/blueminder/flycast-dojo/releases/download/dojo-6.46/flycast-dojo-6.46.zip",
+              "sha256": "72379fd0bb9d1d1c09b4529b852069452c1066bc78f104156621d1b85bbfcaf8"
+            },
+            {
+              "filename": "linux-flycast-dojo-6.46.zip",
+              "url": "https://github.com/blueminder/flycast-dojo/releases/download/dojo-6.46/linux-flycast-dojo-6.46.zip",
+              "sha256": "ae72479e050ce40ece31debadfffb362d75861e33ae5869fc6f5cd18329d4181"
+            },
+            {
+              "filename": "macos-flycast-dojo-6.46.zip",
+              "url": "https://github.com/blueminder/flycast-dojo/releases/download/dojo-6.46/macos-flycast-dojo-6.46.zip",
+              "sha256": "c255b0986ea5ded77e367507582c6e67663ae5c62931a38546e26a7af15923b0"
+            }
+          ],
+          "source_type": "github",
+          "repo_url": "https://github.com/blueminder/flycast-dojo"
+        },
+        {
+          "name": "duckstation",
+          "description": "DuckStation - PlayStation 1, aka. PSX Emulator",
+          "version": "latest",
+          "release_notes": "## Commits\r\n- 6336c532a Cheats: Fix importing semi-broken files\r\n- c475fd699 Qt: Fix some machine translation errors\r\n- e8473a1e0 Qt: Fix incorrect highlight in memory viewer\r\n- 5e1aee1e2 Qt: Add missing icons to cheat import popup\r\n- 856905864 FullscreenUI: Add on-screen keyboard\r\n- ec212bfd1 FullscreenUI: Fix initial input not activating on some popup dialogs\r\n- 3c4f2bf25 FullscreenUI: Add missing PS icon for D-Pad\r\n- 527b402c6 ImGuiManager: Remove Host::BeginTextInput()\r\n- 943db2376 Achivements: Add rich presence monitor debug setting\r\n- e7157e366 FullscreenUI: Increase padding on value backgrounds\r\n- 24deeeef8 System: Fix initial capture mode on start\r\n- 56226045d FullscreenUI: Render loading screen with separate draw list\r\n- b984cb7ac System: Improve game setting reload workflow\r\n- 88df5c983 System: Persist settings interface objects\r\n- 8013df929 Qt: Fix window title when editing game specific controller config\r\n- 49d39aad7 PageFaultHandler: Set SA_NODEFER on MacOS as well\r\n- 4cf3404a1 PageFaultHandler: Determine write flag from ESR on MacOS ARM64\r\n- 7304bfe25 CPU: Ensure RAM code pages are invalidated on core thread\r\n- 83a03fe95 CPU/CodeCache: Assert that handlers execute on core thread\r\n- b0c0a8ab7 PageFaultHandler: Remove the exception handler mutex\r\n- f4a828303 FullscreenUI: Fix compiler warning\r\n- 1c3948c97 Qt: Update machine translations\r\n- 400c269b4 GameDB: Sentou Kokka - Air Land Battle\r\n- d8d8a0816 CDROM: Reduce pause-while-paused delay\r\n- eb938ce10 dep/rcheevos: Bump to f1417fb\r\n- d954b7a3d ImGuiOverlays: Clear list on save state selector close\r\n- b25e2358b GPUDevice: Don't immediately trim textures queued in same frame\r\n- 0bf64996c ImGuiOverlays: Add animation to save state selector\r\n- 25783d844 ImGuiOverlays: Close save state selector on device switch\r\n- 8de6b0ac7 GameDB: Add HASH for Beyond the Beyond (#3782)\r\n- 48719b86b Bus: Fix CPE parsing when dev logging is disabled\r\n- 96e0c4d38 LRUCache: Fix m_manual_evict not respected when adding\r\n- 824a1072e LRUCache: Add custom deleter override\r\n- 0b28c198f FullscreenUI: Remove shared_ptr usage\r\n- 5422093cd Misc: Use relative time when displaying timestamps\r\n- a444b1265 GameDB: Add hashes for multiple games (#3784)\r\n- 5f3db8ed0 Qt: Improve Italian translation (#3783)\r\n- 12e575260 dep/rcheevos: Replace usage of sscanf() in rc_json_get_datetime()\r\n- 8bc6dc8d4 Qt: Update Italian translation again (#3785)\r\n- 7940507f0 Achievements: Use title format in submit time tooltip\r\n- ad2a8a637 System: Ensure achievements game is identified before loading state\r\n- c992e1c6b Atualização Português do Brasil (#3787)\r\n- fc741c826 GPU/TextureCache: Fix CPU thread read on GPU thread\r\n- 889a0fd2d GPU/TextureCache: Fix last_vram_write and num_splits not being serialized\r\n- ee211591b GPU/TextureCache: Limit the amount of uploads saved to state\r\n- 8e8e13de3 System: Reserve state memory for texture cache when enabled\r\n- e2823b429 GameDB: Felony 11-79/Runabout\r\n- 535154dcb MediaCapture: Show file size in OSD\r\n- 9d05a8756 Host: Fix broken relative time plurals\r\n- 3f9453fda Host: Merge FullscreenUI relative time variant with Host\r\n- 392e19b2a Qt: Add translation update and cleanup scripts\r\n- 764a06bc2 CI: Ensure translations are cleaned on pull request\r\n- f40cd5155 dep/rcheevos: Add rc_client_set_unofficial_achievement_unlock_state()\r\n- 4beec807d SQLiteHelpers: Add BindInt64()/ColumnInt64()\r\n- a679377ce FullscreenUI: Permit empty footer array component\r\n- 2743bb25e Achievements: Track unlocks of unofficial achievements locally\r\n- 240b19932 PageFaultHandler: Read ESR on Linux ARM64 as well\r\n- 06e6d4c2c Data: Update SDL game controller database\r\n- 614faf7d3 Qt: Clarify RetroAchievements login message\r\n- 04187ba0c Qt: Use variadic arg() instead of chaining multiple invocations\r\n- 939918806 Qt: Group toolbar-related menu items into a submenu (#3789)\r\n- 6f7fc33fe Qt: Update machine translations\r\n- fe899efd1 Update duckstation-qt_es.ts (#3786)\r\n- 78ff46ad1 Tests: Fix util-tests building\r\n- bf5a6162d MemoryCardImage: Replace full-width characters with ASCII\r\n- c4e99c4ae CDImageMDS: Fix games not detecting due to empty path\r\n- dbf928ff6 FullscreenUI: Fix inverted parameters\r\n- c776dee9e CDImage: Replace filename identifier with path\r\n- aea63ce41 Spanish (Spain) translation update 2026/08/25 (#3790)\r\n- a736f4492 Update Italian translation (#3791)\r\n- f18017eeb Qt: Fix localised disc regions in game list\r\n- f5e22bc71 FullscreenUI: Fix cheats menu hotkey in batch mode\r\n- 88e4ca533 Qt: Enable verification for unscanned files\r\n- fe2306b1f ImGuiManager: Tweak OSD fade in time",
+          "assets": [
+            {
+              "filename": "DuckStation-arm64.AppImage",
+              "url": "https://github.com/stenzek/duckstation/releases/download/latest/DuckStation-arm64.AppImage",
+              "sha256": "9e6814087f1549bf86a161ef551e02078f88d62dc5aa52b77fe78bb493671bdf"
+            },
+            {
+              "filename": "DuckStation-armhf.AppImage",
+              "url": "https://github.com/stenzek/duckstation/releases/download/latest/DuckStation-armhf.AppImage",
+              "sha256": "3926efe5ec0b556757b8ea0a485275695aab8510b2df7650cf399b6da20f8ab2"
+            },
+            {
+              "filename": "duckstation-mac-release.zip",
+              "url": "https://github.com/stenzek/duckstation/releases/download/latest/duckstation-mac-release.zip",
+              "sha256": "1870ef7c34f619861cf9bedfe73772cb2106061058ce6e40a7b41dc328835a96"
+            },
+            {
+              "filename": "duckstation-windows-arm64-installer.exe",
+              "url": "https://github.com/stenzek/duckstation/releases/download/latest/duckstation-windows-arm64-installer.exe",
+              "sha256": "654e8409c1fa54668605edd2ebe0653948e0ae3c7aba683a2d92276b09de9a40"
+            },
+            {
+              "filename": "duckstation-windows-arm64-release-symbols.7z",
+              "url": "https://github.com/stenzek/duckstation/releases/download/latest/duckstation-windows-arm64-release-symbols.7z",
+              "sha256": "5e92cdc8b53e9d2aff04391bd24da76ae9821c6d845c5b5fed9be61de24c3612"
+            },
+            {
+              "filename": "duckstation-windows-arm64-release.zip",
+              "url": "https://github.com/stenzek/duckstation/releases/download/latest/duckstation-windows-arm64-release.zip",
+              "sha256": "2567e71afc1102a062d9bfb408b66ccdf850326b505169717c33503fdaff55e8"
+            },
+            {
+              "filename": "duckstation-windows-x64-installer.exe",
+              "url": "https://github.com/stenzek/duckstation/releases/download/latest/duckstation-windows-x64-installer.exe",
+              "sha256": "91a135927010d965acd0dcb83f3854c5861ea5e57f4d1dfb88473cbc493bddde"
+            },
+            {
+              "filename": "duckstation-windows-x64-release-symbols.7z",
+              "url": "https://github.com/stenzek/duckstation/releases/download/latest/duckstation-windows-x64-release-symbols.7z",
+              "sha256": "84f5c71d3db4c58ebca38ba984d10a3db05dd8f7dd4d47bbb10234da063f95a1"
+            },
+            {
+              "filename": "duckstation-windows-x64-release.zip",
+              "url": "https://github.com/stenzek/duckstation/releases/download/latest/duckstation-windows-x64-release.zip",
+              "sha256": "70b32aed305a5ea6b645f89f6ae3d35ca4f09099270a608b85253cc9e971a9f2"
+            },
+            {
+              "filename": "duckstation-windows-x64-sse2-installer.exe",
+              "url": "https://github.com/stenzek/duckstation/releases/download/latest/duckstation-windows-x64-sse2-installer.exe",
+              "sha256": "92e465a1c816adde837dd33f7abb06243c80f87a1111a5704633fee6bb21895d"
+            },
+            {
+              "filename": "duckstation-windows-x64-sse2-release-symbols.7z",
+              "url": "https://github.com/stenzek/duckstation/releases/download/latest/duckstation-windows-x64-sse2-release-symbols.7z",
+              "sha256": "eed080c6f0b7cad3667669f2f2d9d15e60bcc060d25eb88fbf557f3251ec8e30"
+            },
+            {
+              "filename": "duckstation-windows-x64-sse2-release.zip",
+              "url": "https://github.com/stenzek/duckstation/releases/download/latest/duckstation-windows-x64-sse2-release.zip",
+              "sha256": "8ab564589de218f3128a93799523ec370da392b9c1740d5f4e944f4e10f053b9"
+            },
+            {
+              "filename": "DuckStation-x64-SSE2.AppImage",
+              "url": "https://github.com/stenzek/duckstation/releases/download/latest/DuckStation-x64-SSE2.AppImage",
+              "sha256": "df74dd4d2a7bc33f71e35f820c3a3146c8ca3ef3a4df00cb0f2ec480399c1749"
+            },
+            {
+              "filename": "DuckStation-x64.AppImage",
+              "url": "https://github.com/stenzek/duckstation/releases/download/latest/DuckStation-x64.AppImage",
+              "sha256": "c5c8a9de4dfc10e794137dcb8bab9760ca578df2aa7be8c1215171bebbba5965"
+            }
+          ],
+          "source_type": "github",
+          "repo_url": "https://github.com/stenzek/duckstation"
+        }
+      ]
+    },
+    {
+      "category": "html_test",
+      "subcategory": "html_test",
+      "apps": [
+        {
+          "name": "retroarch_windows_nightly",
+          "description": "retroarch",
+          "version": "v1.0",
+          "release_notes": "Fichier direct",
+          "assets": [
+            {
+              "filename": "RetroArch-Win64-setup.exe",
+              "url": "https://buildbot.libretro.com/nightly/windows/x86_64/RetroArch-Win64-setup.exe",
+              "sha256": "44ec32e20d456533f2febb41939996ee8d3b3b828bce077838cf7a4114b772c4"
+            }
+          ],
+          "source_type": "generic",
+          "repo_url": "https://buildbot.libretro.com/nightly/windows/x86_64/RetroArch-Win64-setup.exe"
+        }
+      ]
+    },
+    {
+      "category": "gitlab_test",
+      "subcategory": "gitlab_test",
+      "apps": [
+        {
+          "name": "emulationstation-de",
+          "description": "ES-DE",
+          "version": "v3.4.1",
+          "release_notes": "## Version 3.4.1 / 3.4.1-58\n\n**Release date:** 2026-04-10\n\n### Release overview\n\nThis release adds official (although experimental) support for Linux on AArch64, which is aiming for operating systems such as the upcoming SteamOS release for ARM. It also adds support for a lot of new emulators across all the main supported operating systems.\n\nFor Android specifically there are three new systems enabled, those being Namco-Sega-Nintendo Triforce (triforce), Microsoft Xbox (xbox) and Microsoft Xbox 360 (xbox360). And although the Sega Model 3 (model3) system was technically supported in the previous release, it wasn't really usable in practice due to only MAME being available for these games, but now these games are fully playable due to the new SUPER3 emulator. Likewise PICO-8 is now much more usable on Android as the official Raspberry Pi build can be used via an unofficial PICO-8 wrapper. Support for multi-user setups has also been fully rolled out for all RetroArch cores as of this release, meaning ES-DE should now work correctly in Android multi-user environments.\n\nOn macOS three new systems have been enabled as well, those being OpenBOR Game Engine (openbor), Namco-Sega-Nintendo Triforce (triforce) and Microsoft Xbox 360 (xbox360).\n\nAs for general cross-platform topics, a new language has been added, which is Vietnamese. There are also a couple of general bug fixes and translation updates as well as some dependency library updates. There are also quite a number of new standalone emulators and RetroArch cores added for many systems, see below for all details.\n\nUnder the hood the remaining ancient Raspberry Pi specific code and configuration has now been fully removed, meaning there is no longer any device-specific code or configuration whatsoever in ES-DE and everything is instead completely generalized.\n\n### Detailed list of changes\n\n* (Linux) Added initial support for the AArch64/ARM64 architecture (including its own set of find rules, import rules and system configuration)\n* (Android) Changed all RetroArch emulator entries to use %INTERNALDATA% and %EXTERNALDATA% to support multi-user setups\n* (Android) Added support for using the \"Launch games on the other screen\" option on devices where both screens have the same display name\n* Added translations for Vietnamese (vi_VN)\n* Added North America as an additional ScreenScraper region\n* Added a j2me platform to the j2me system so that these games can be scraped using TheGamesDB\n* Added scraper-start and scraper-end custom events for the multi-scraper\n* (Android) Added support for the Namco-Sega-Nintendo Triforce (triforce) system using the Dolphin RetroArch core\n* (Android) Added support for the Microsoft Xbox (xbox) system using the X1 BOX emulator\n* (Android) Added hakuX standalone as an alternative emulator for the xbox system\n* (Android) Added support for the Microsoft Xbox 360 (xbox360) system using the aX360e emulator\n* (Android) Added SUPER3 standalone as the default emulator for the model3 system\n* (Android) Added PICO-8 standalone as the default emulator for the pico8 system\n* (Android) Added aPS3e Game Serial, aPS3e Directory and aPS3e ISO standalone as alternative emulators for the consolearcade system\n* (Android) Added GameNative standalone as an alternative emulator for the epic system\n* (Android) Added idTech4A++ standalone as an alternative emulator for the doom, ports and quake systems\n* (Android) Added the Boom 3 RetroArch core as an alternative emulator for the doom system\n* (Android) Changed the launch command for GameNative for the steam system to make launching work with their new behavior\n* (Android) Added GameNative emulator entries for Steam, Epic, GOG and Custom games for the windows system\n* (Android) Removed the generic GameNative emulator entry from the windows system\n* (Android) Made it possible to run both Steam games and locally installed games using the GameHub Lite emulator entry\n* (Android) Added a find rule entry for the new package name for Azahar\n* (Android) Added a find rule entry for the new package name for future GameHub Lite releases\n* (Android) Added a find rule entry for the MelonDualDS fork of melonDS\n* (Android) Added a find rule entry for the GL build of Visual Pinball\n* (Android) Set the official Vita3K release as the primary find rule entry instead of the Vita3K ZX fork\n* (Android) Changed Pizza Boy GBC/C to use %ROMSAF% instead of %ROM% as the developer has changed the way games are launched from frontends\n* (Android) Added the .idtech file extension to the doom, ports and quake systems\n* (Android) Added the .ps3 file extension to the consolearcade system\n* (Android) Added the .pk4 file extension to the doom system\n* (Android) Added the .epic and .pcgame file extensions to the epic system\n* (Android) Added the .pcgame file extension to the steam system\n* (Android) Added the .epic, .gog and .pcgame file extensions to the windows system\n* (Android) Added support for escaping forward slashes in %EXTRA% and %EXTRAARRAY% variable definitions\n* (Linux) Added UMU standalone as an alternative emulator for the pcarcade and type-x systems\n* (Linux) Added Plastic standalone as an alternative emulator for the famicom and nes systems\n* (Linux) Added support for the manually downloaded release of FS-UAE Launcher\n* (Linux) Added support for the Flatpak release of EasyRPG Player\n* (Linux) Added support for the Flatpak release of VBA-M\n* (Linux) Added support for the Flatpak release of Ymir\n* (Linux) Added support for the repository/AUR release of azahar\n* (Linux) Added systempath find rules for xenia and xenia_canary\n* (Linux) Added staticpath find rules for the new pkgforge-dev AppImage filename for xenia canary\n* (Linux) Added staticpath find rules for the new official xenia canary AppImage\n* (macOS) Added support for the OpenBOR Game Engine (openbor) system\n* (macOS) Added support for the Namco-Sega-Nintendo Triforce (triforce) system using the Dolphin RetroArch core\n* (macOS) Added support for the Microsoft Xbox 360 (xbox360) system using the XeniOS emulator\n* (macOS) Added the YabaSanshiro RetroArch core as an alternative emulator for the saturn and saturnjp systems\n* (macOS) Added the vitaQuake 3 RetroArch core as an alternative emulator for the quake system\n* (macOS) Added Mariani standalone as the default emulator for the apple2 system\n* (macOS) Added Supermodel standalone as the default emulator for the model3 system\n* (macOS) Added Supermodel standalone as an alternative emulator for the arcade and mame systems\n* Added a popular standalone emulator as the default emulator for the switch system\n* Added the Azahar RetroArch core as the default emulator for the n3ds system\n* Added the AmiArcadia RetroArch core as the default emulator for the arcadia system\n* Added the JollyCV RetroArch core as the default emulator for the crvision system\n* Added the Dolphin RetroArch core as the default emulator for the triforce system on Linux and Windows\n* Added the ClownMDEmu RetroArch core as an alternative emulator for the genesis, megacd, megacdjp, megadrive, megadrivejp and segacd systems\n* Added the SkyEmu RetroArch core as an alternative emulator for the gb, gba, gbc and nds systems\n* Added the JollyCV RetroArch core as an alternative emulator for the colecovision system\n* Added the Dolphin RetroArch core as an alternative emulator for the consolearcade system\n* Added Dolphin standalone as an alternative emulator for the consolearcade system\n* Added Dolphin standalone as an alternative emulator for the triforce system\n* Added the Mini vMac RetroArch core as an alternative emulator for the macintosh system\n* Added the Craft (Minecraft) RetroArch core as an alternative emulator for the ports system\n* Added Geargrafx standalone as an alternative emulator for the pcengine, pcenginecd, supergrafx, tg16 and tg-cd systems on Linux, macOS and Windows\n* Added the Geargrafx RetroArch core as an alternative emulator for the pcenginecd and tg-cd systems\n* Added the Gearlynx RetroArch core as an alternative emulator for the atarilynx system\n* Added RPCS3 ISO standalone as an alternative emulator for the consolearcade and ps3 systems on Linux, macOS and Windows\n* Added Mesen standalone as an alternative emulator for the gba system on Linux and Windows\n* Added KEGS standalone as an alternative emulator for the apple2gs system on Linux, macOS and Windows\n* Changed the launch parameter for EasyRPG Player standalone on Linux, macOS and Windows to support zipped games\n* Added the .bigpimg file extension to the atarijaguar and atarijaguarcd systems on Linux and Windows\n* Added the .gbx file extension to the gb, gba and gbc systems\n* Added the .7z and .zip file extensions to the apple2 and wasm systems\n* Added the .tvc file extension to the arcadia system\n* Added the .iso file extension to the ps3 system\n* Added the .myv file extension to the colecovision system\n* Added the .img file extension to the macintosh system\n* Added the .xiso file extension to the xbox system\n* (Linux) Changed to building the AppImages using appimagetool-uruntime provided by the PkgForge project\n* (Linux) Changed the AppImage build scripts to use the bundled TLS/SSL certificates\n* (Linux) Added an AppImage build script for the AArch64 architecture\n* (Linux) Added RetroArch core find rule entries for NixOS and Nixpkgs\n* (linear-es-de) Added an OLED color scheme (thanks c-fan for the patch)\n* (linear-es-de) Updated the system metadata from the upstream system-metadata repository\n* The theme downloader will now use the bundled certificates on all platforms if built with the BUNDLED_CERTS option\n* Removed the obsolete and unsupported CEC functionality\n* Removed all specific configuration and code for the Raspberry Pi\n* Updated LunaSVG to commit b350c01cb09b48f1e894463dcb54d1b46d407162\n* (macOS) Added zstd as a dependency\n* (macOS) Updated Ogg to 1.3.6\n* (macOS) Removed obsolete entries for the Vorbis and Opus encoders from the build scripts\n* (Windows) Updated OpenSSL to 3.6.1\n* Updated the MAME index files to include ROMs up to MAME version 0.286\n* Bundled the February 2026 release of the Mozilla TLS/SSL certificates\n* Translation updates for all languages\n\n### Bug fixes\n\n* (Android) The game importer would crash if attempting to open it without any import rules defined\n* Custom event scripts would not run if the path to the application data directory contained spaces\n* Some SVG files would not render if they contained Windows-style line breaks\n* The apple2gs system had two lowercase .7z extensions instead of one in lowercase and one in uppercase\n* The logo for the Sinclair ZX Spectrum Next (zxnext) system was missing for the Linear and Slate themes",
+          "assets": [
+            {
+              "filename": "ES-DE_3.4.1-x64.dmg",
+              "url": "https://gitlab.com/es-de/emulationstation-de/-/package_files/288889701/download",
+              "sha256": "2bab445b3efef263b54fedc4c0cbac76c477f72221130f49fc11796d0294bf6a"
+            },
+            {
+              "filename": "ES-DE_x64.AppImage",
+              "url": "https://gitlab.com/es-de/emulationstation-de/-/package_files/288156961/download",
+              "sha256": "3c61a44d738d55163daa58ede70720b425a0df62460c04dc23dd3ca586723581"
+            },
+            {
+              "filename": "ES-DE_x64_SteamDeck.AppImage",
+              "url": "https://gitlab.com/es-de/emulationstation-de/-/package_files/288156987/download",
+              "sha256": "afccca1cd07a591daa4c14e9aa58c6bef41257fcddcbc8a21c534472846a93d8"
+            },
+            {
+              "filename": "ES-DE_3.4.1-arm64.dmg",
+              "url": "https://gitlab.com/es-de/emulationstation-de/-/package_files/288889626/download",
+              "sha256": "e7b2f404a3df47f299884177d2b76cd45c2d1550807b32e7829f37a25a53776f"
+            },
+            {
+              "filename": "ES-DE_3.4.1-x64.exe",
+              "url": "https://gitlab.com/es-de/emulationstation-de/-/package_files/288156889/download",
+              "sha256": "23b65dd46c8241d2a6a87e8a99d2d7c6a2c40f34ad0c74bf3219ff1aa95edac1"
+            },
+            {
+              "filename": "ES-DE_aarch64.AppImage",
+              "url": "https://gitlab.com/es-de/emulationstation-de/-/package_files/326321114/download",
+              "sha256": "b84eababe6d6388223cf8b1658bb237bc0125362acaae70e1ece55397c1eb414"
+            },
+            {
+              "filename": "ES-DE_3.4.1-x64_Portable.zip",
+              "url": "https://gitlab.com/es-de/emulationstation-de/-/package_files/288156909/download",
+              "sha256": "b082110241a5a672353729e3787609f406c4c149dddbd791993bda0a3185d4b5"
+            }
+          ],
+          "source_type": "gitlab",
+          "repo_url": "https://gitlab.com/es-de/emulationstation-de"
+        }
+      ]
+    }
+  ]
+}
