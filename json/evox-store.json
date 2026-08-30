@@ -1,6 +1,6 @@
 {
   "name": "EvoX Universal Store",
-  "updated_at": "2026-08-30T17:00:42.560208Z",
+  "updated_at": "2026-08-30T17:05:30.228517Z",
   "store": [
     {
       "category": "forgejo_test",
@@ -106,7 +106,7 @@
             {
               "filename": "Ryubing",
               "url": "https://git.ryujinx.app/projects/Ryubing",
-              "sha256": "d96ed747b7fc54d0f314df0697ab50d074dbd0a2ae72e208c16a5d0f34165846"
+              "sha256": "7e2b1ae6ce7955a4f97e4c5e7db7467e4a6dc9f67411445ce0d21719b1ce0ab6"
             }
           ],
           "source_type": "forgejo",
@@ -119,13 +119,13 @@
           "release_notes": "Fichier direct",
           "assets": [
             {
-              "filename": "Kenji-NX",
-              "url": "https://git.ryujinx.app/projects/Kenji-NX",
-              "sha256": "50562249f46069f76aff781c1be73176b3f13ef065125355704f3e7ffedab822"
+              "filename": "releases",
+              "url": "https://git.ryujinx.app/Kenji-NX/releases",
+              "sha256": "53cab4c0fd38cb387a4652ff7ac5ed3914c5e5e5da6753fdfa94f752a392701c"
             }
           ],
           "source_type": "forgejo",
-          "repo_url": "https://git.ryujinx.app/projects/Kenji-NX"
+          "repo_url": "https://git.ryujinx.app/Kenji-NX/releases"
         },
         {
           "name": "eden-stable",
