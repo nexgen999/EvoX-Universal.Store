@@ -30,9 +30,12 @@ jobs:
       - name: Installation des dépendances
         run: |
           python -m pip install --upgrade pip
+          pip install beautifulsoup4
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
       - name: Exécution du script de mise à jour du store
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           if [ -f update_store.py ]; then
             python update_store.py
@@ -94,5 +97,5 @@ jobs:
         run: |
           git config --local user.name "github-actions[bot]"
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          git add json/evox-store.json README.md
+          git add json/ README.md
           git diff --quiet && git diff --staged --quiet || (git commit -m "auto: mise à jour du store et du README" && git push)
