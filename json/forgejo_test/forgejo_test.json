@@ -1,0 +1,26 @@
+{
+  "category": "forgejo_test",
+  "subcategory": "forgejo_test",
+  "apps": [
+    {
+      "name": "elf-arsenal",
+      "description": "elf-arsenal",
+      "version": "latest",
+      "release_notes": "Release HTML Scraped (latest)",
+      "assets": [
+        {
+          "filename": "main.zip",
+          "url": "https://git.etawen.dev/soniciso/elf-arsenal/archive/main.zip",
+          "sha256": "4045e837a014a6030c48c042b435d2a5ab675df1385cdb58215f1dd39fcad32a"
+        },
+        {
+          "filename": "main.tar.gz",
+          "url": "https://git.etawen.dev/soniciso/elf-arsenal/archive/main.tar.gz",
+          "sha256": "57e93292e33d69d03a67a37d64fc70e38de076526f8a8b5ca1f7df12ce0553d8"
+        }
+      ],
+      "source_type": "forgejo",
+      "repo_url": "https://git.etawen.dev/projects/soniciso/elf-arsenal"
+    }
+  ]
+}
