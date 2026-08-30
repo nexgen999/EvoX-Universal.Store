@@ -11,37 +11,37 @@
         {
           "filename": "ES-DE_3.4.1-x64.dmg",
           "url": "https://gitlab.com/es-de/emulationstation-de/-/package_files/288889701/download",
-          "sha256": ""
+          "sha256": "2bab445b3efef263b54fedc4c0cbac76c477f72221130f49fc11796d0294bf6a"
         },
         {
           "filename": "ES-DE_x64.AppImage",
           "url": "https://gitlab.com/es-de/emulationstation-de/-/package_files/288156961/download",
-          "sha256": ""
+          "sha256": "3c61a44d738d55163daa58ede70720b425a0df62460c04dc23dd3ca586723581"
         },
         {
           "filename": "ES-DE_x64_SteamDeck.AppImage",
           "url": "https://gitlab.com/es-de/emulationstation-de/-/package_files/288156987/download",
-          "sha256": ""
+          "sha256": "afccca1cd07a591daa4c14e9aa58c6bef41257fcddcbc8a21c534472846a93d8"
         },
         {
           "filename": "ES-DE_3.4.1-arm64.dmg",
           "url": "https://gitlab.com/es-de/emulationstation-de/-/package_files/288889626/download",
-          "sha256": ""
+          "sha256": "e7b2f404a3df47f299884177d2b76cd45c2d1550807b32e7829f37a25a53776f"
         },
         {
           "filename": "ES-DE_3.4.1-x64.exe",
           "url": "https://gitlab.com/es-de/emulationstation-de/-/package_files/288156889/download",
-          "sha256": ""
+          "sha256": "23b65dd46c8241d2a6a87e8a99d2d7c6a2c40f34ad0c74bf3219ff1aa95edac1"
         },
         {
           "filename": "ES-DE_aarch64.AppImage",
           "url": "https://gitlab.com/es-de/emulationstation-de/-/package_files/326321114/download",
-          "sha256": ""
+          "sha256": "b84eababe6d6388223cf8b1658bb237bc0125362acaae70e1ece55397c1eb414"
         },
         {
           "filename": "ES-DE_3.4.1-x64_Portable.zip",
           "url": "https://gitlab.com/es-de/emulationstation-de/-/package_files/288156909/download",
-          "sha256": ""
+          "sha256": "b082110241a5a672353729e3787609f406c4c149dddbd791993bda0a3185d4b5"
         }
       ],
       "source_type": "gitlab",

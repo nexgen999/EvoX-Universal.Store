@@ -76,12 +76,12 @@
       "name": "Ryubing",
       "description": "Ryubing",
       "version": "master",
-      "release_notes": "Fallback archive",
+      "release_notes": "Forgejo Release Archive",
       "assets": [
         {
           "filename": "Ryubing-master.zip",
           "url": "https://git.ryujinx.app/projects/projects/Ryubing/archive/master.zip",
-          "sha256": ""
+          "sha256": "95d21915918642c09289a8963cf74b564a7f7ea13ba7cc3f5e2130329185daaa"
         }
       ],
       "source_type": "forgejo",
@@ -91,12 +91,12 @@
       "name": "Kenji-NX",
       "description": "Kenji-NX",
       "version": "master",
-      "release_notes": "Fallback archive",
+      "release_notes": "Forgejo Release Archive",
       "assets": [
         {
           "filename": "Kenji-NX-master.zip",
           "url": "https://git.ryujinx.app/projects/projects/Kenji-NX/archive/master.zip",
-          "sha256": ""
+          "sha256": "aa8beef4a7924847439cc1d63a09aa83c2aebf5553a8bc5956df3df83103ee90"
         }
       ],
       "source_type": "forgejo",
@@ -106,7 +106,7 @@
       "name": "eden-stable",
       "description": "eden-stable",
       "version": "master",
-      "release_notes": "Fallback archive",
+      "release_notes": "Forgejo Release Archive",
       "assets": [
         {
           "filename": "eden-master.zip",
@@ -121,7 +121,7 @@
       "name": "eden-nightly",
       "description": "eden-nightly",
       "version": "master",
-      "release_notes": "Fallback archive",
+      "release_notes": "Forgejo Release Archive",
       "assets": [
         {
           "filename": "nightly-master.zip",

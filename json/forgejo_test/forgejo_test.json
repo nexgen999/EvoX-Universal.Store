@@ -6,7 +6,7 @@
       "name": "elf-arsenal",
       "description": "elf-arsenal",
       "version": "master",
-      "release_notes": "Fallback archive",
+      "release_notes": "Forgejo Release Archive",
       "assets": [
         {
           "filename": "elf-arsenal-master.zip",

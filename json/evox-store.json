@@ -1,6 +1,6 @@
 {
   "name": "EvoX Universal Store",
-  "updated_at": "2026-08-30T18:02:42.195404Z",
+  "updated_at": "2026-08-30T18:07:02.310231Z",
   "store": [
     {
       "category": "forgejo_test",
@@ -10,7 +10,7 @@
           "name": "elf-arsenal",
           "description": "elf-arsenal",
           "version": "master",
-          "release_notes": "Fallback archive",
+          "release_notes": "Forgejo Release Archive",
           "assets": [
             {
               "filename": "elf-arsenal-master.zip",
@@ -101,12 +101,12 @@
           "name": "Ryubing",
           "description": "Ryubing",
           "version": "master",
-          "release_notes": "Fallback archive",
+          "release_notes": "Forgejo Release Archive",
           "assets": [
             {
               "filename": "Ryubing-master.zip",
               "url": "https://git.ryujinx.app/projects/projects/Ryubing/archive/master.zip",
-              "sha256": ""
+              "sha256": "95d21915918642c09289a8963cf74b564a7f7ea13ba7cc3f5e2130329185daaa"
             }
           ],
           "source_type": "forgejo",
@@ -116,12 +116,12 @@
           "name": "Kenji-NX",
           "description": "Kenji-NX",
           "version": "master",
-          "release_notes": "Fallback archive",
+          "release_notes": "Forgejo Release Archive",
           "assets": [
             {
               "filename": "Kenji-NX-master.zip",
               "url": "https://git.ryujinx.app/projects/projects/Kenji-NX/archive/master.zip",
-              "sha256": ""
+              "sha256": "aa8beef4a7924847439cc1d63a09aa83c2aebf5553a8bc5956df3df83103ee90"
             }
           ],
           "source_type": "forgejo",
@@ -131,7 +131,7 @@
           "name": "eden-stable",
           "description": "eden-stable",
           "version": "master",
-          "release_notes": "Fallback archive",
+          "release_notes": "Forgejo Release Archive",
           "assets": [
             {
               "filename": "eden-master.zip",
@@ -146,7 +146,7 @@
           "name": "eden-nightly",
           "description": "eden-nightly",
           "version": "master",
-          "release_notes": "Fallback archive",
+          "release_notes": "Forgejo Release Archive",
           "assets": [
             {
               "filename": "nightly-master.zip",
@@ -323,7 +323,7 @@
             {
               "filename": "RetroArch-Win64-setup.exe",
               "url": "https://buildbot.libretro.com/nightly/windows/x86_64/RetroArch-Win64-setup.exe",
-              "sha256": ""
+              "sha256": "cda4e98802fa9712d0c024eec0616dbc26837a15d72e1fd25f780fac6acc8b39"
             }
           ],
           "source_type": "generic",
@@ -344,37 +344,37 @@
             {
               "filename": "ES-DE_3.4.1-x64.dmg",
               "url": "https://gitlab.com/es-de/emulationstation-de/-/package_files/288889701/download",
-              "sha256": ""
+              "sha256": "2bab445b3efef263b54fedc4c0cbac76c477f72221130f49fc11796d0294bf6a"
             },
             {
               "filename": "ES-DE_x64.AppImage",
               "url": "https://gitlab.com/es-de/emulationstation-de/-/package_files/288156961/download",
-              "sha256": ""
+              "sha256": "3c61a44d738d55163daa58ede70720b425a0df62460c04dc23dd3ca586723581"
             },
             {
               "filename": "ES-DE_x64_SteamDeck.AppImage",
               "url": "https://gitlab.com/es-de/emulationstation-de/-/package_files/288156987/download",
-              "sha256": ""
+              "sha256": "afccca1cd07a591daa4c14e9aa58c6bef41257fcddcbc8a21c534472846a93d8"
             },
             {
               "filename": "ES-DE_3.4.1-arm64.dmg",
               "url": "https://gitlab.com/es-de/emulationstation-de/-/package_files/288889626/download",
-              "sha256": ""
+              "sha256": "e7b2f404a3df47f299884177d2b76cd45c2d1550807b32e7829f37a25a53776f"
             },
             {
               "filename": "ES-DE_3.4.1-x64.exe",
               "url": "https://gitlab.com/es-de/emulationstation-de/-/package_files/288156889/download",
-              "sha256": ""
+              "sha256": "23b65dd46c8241d2a6a87e8a99d2d7c6a2c40f34ad0c74bf3219ff1aa95edac1"
             },
             {
               "filename": "ES-DE_aarch64.AppImage",
               "url": "https://gitlab.com/es-de/emulationstation-de/-/package_files/326321114/download",
-              "sha256": ""
+              "sha256": "b84eababe6d6388223cf8b1658bb237bc0125362acaae70e1ece55397c1eb414"
             },
             {
               "filename": "ES-DE_3.4.1-x64_Portable.zip",
               "url": "https://gitlab.com/es-de/emulationstation-de/-/package_files/288156909/download",
-              "sha256": ""
+              "sha256": "b082110241a5a672353729e3787609f406c4c149dddbd791993bda0a3185d4b5"
             }
           ],
           "source_type": "gitlab",
