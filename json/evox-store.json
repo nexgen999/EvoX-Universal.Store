@@ -1,6 +1,6 @@
 {
   "name": "EvoX Universal Store",
-  "updated_at": "2026-08-30T16:31:13.315615Z",
+  "updated_at": "2026-08-30T16:35:21.508196Z",
   "store": [
     {
       "category": "forgejo_test",
@@ -104,13 +104,13 @@
           "release_notes": "Fichier direct",
           "assets": [
             {
-              "filename": "Ryubing",
-              "url": "https://git.ryujinx.app/projects/Ryubing",
-              "sha256": "c520d363fa5ba53fae6a6e490c01d9862bea0bd63aae5263a262c6b0c6682e58"
+              "filename": "releases",
+              "url": "https://git.ryujinx.app/projects/Ryubing/releases",
+              "sha256": "b3b3a089281163fb8bc321bbd48be2d2d3ffe2aacfd26a459d64e73e29d83082"
             }
           ],
           "source_type": "generic",
-          "repo_url": "https://git.ryujinx.app/projects/Ryubing"
+          "repo_url": "https://git.ryujinx.app/projects/Ryubing/releases"
         },
         {
           "name": "Kenji-NX",
@@ -119,13 +119,13 @@
           "release_notes": "Fichier direct",
           "assets": [
             {
-              "filename": "Kenji-NX",
-              "url": "https://git.ryujinx.app/projects/Kenji-NX",
-              "sha256": "c842bd30936702390d86c18cce681c6427eea6bbbb397a89c734bf30693d7da5"
+              "filename": "releases",
+              "url": "https://git.ryujinx.app/projects/Kenji-NX/releases",
+              "sha256": "876ed6bac6a3d6fafaf3a6e53c507e736a3f3649d2a9700bd88f7f73c35f6185"
             }
           ],
           "source_type": "generic",
-          "repo_url": "https://git.ryujinx.app/projects/Kenji-NX"
+          "repo_url": "https://git.ryujinx.app/projects/Kenji-NX/releases"
         },
         {
           "name": "eden-stable",
@@ -134,13 +134,13 @@
           "release_notes": "Fichier direct",
           "assets": [
             {
-              "filename": "releases",
-              "url": "https://git.eden-emu.dev/eden-emu/eden/releases",
-              "sha256": "00bd1d3fdf664b1cfe155f7953cb5f6b2f52462f26c0d0758bb00cdd05730686"
+              "filename": "eden",
+              "url": "https://git.eden-emu.dev/eden-emu/eden",
+              "sha256": "b0985e4ed7c5e37ded4567254fb089aa69cc7d32372945fe268043f5a0b338b4"
             }
           ],
           "source_type": "generic",
-          "repo_url": "https://git.eden-emu.dev/eden-emu/eden/releases"
+          "repo_url": "https://git.eden-emu.dev/eden-emu/eden"
         },
         {
           "name": "eden-nightly",
@@ -149,13 +149,13 @@
           "release_notes": "Fichier direct",
           "assets": [
             {
-              "filename": "releases",
-              "url": "https://git.eden-emu.dev/eden-ci/nightly/releases",
-              "sha256": "4df99132742a2aa4930e7dee9958b5d42020fa3fee0c797c190768ae4508d0d2"
+              "filename": "nightly",
+              "url": "https://git.eden-emu.dev/eden-ci/nightly",
+              "sha256": "acf00e820275cc7a05e128914f37ee01ebf33a4ec627578a97d8e5bcd56a7b12"
             }
           ],
           "source_type": "generic",
-          "repo_url": "https://git.eden-emu.dev/eden-ci/nightly/releases"
+          "repo_url": "https://git.eden-emu.dev/eden-ci/nightly"
         }
       ]
     },
