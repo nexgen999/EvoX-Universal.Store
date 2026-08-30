@@ -15,7 +15,11 @@ GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
 HEADERS = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"}
 
 def fetch_json(url, headers=None):
-    req = urllib.request.Request(url, headers=headers or HEADERS)
+    req_headers = HEADERS.copy()
+    req_headers["Accept"] = "application/json"
+    if headers:
+        req_headers.update(headers)
+    req = urllib.request.Request(url, headers=req_headers)
     with urllib.request.urlopen(req) as resp:
         return json.loads(resp.read().decode())
 
@@ -42,26 +46,21 @@ def extract_clean_repo_url(url, description=""):
     """ Extrait l'URL brute du dépôt même si l'OPML contient un lien RSS FreshRSS ou HTML. """
     combined = f"{url} {description}"
     
+    # GitHub
     gh_match = re.search(r"https?://github\.com/([^/\s\"']+)/([^/\s\"']+)", combined)
     if gh_match:
-        owner = gh_match.group(1)
-        repo = clean_repo_name(gh_match.group(2))
-        return f"https://github.com/{owner}/{repo}", "github"
+        return f"https://github.com/{gh_match.group(1)}/{clean_repo_name(gh_match.group(2))}", "github"
 
+    # GitLab
     gl_match = re.search(r"https?://gitlab\.com/([^/\s\"']+)/([^/\s\"']+)", combined)
     if gl_match:
-        owner = gl_match.group(1)
-        repo = clean_repo_name(gl_match.group(2))
-        return f"https://gitlab.com/{owner}/{repo}", "gitlab"
+        return f"https://gitlab.com/{gl_match.group(1)}/{clean_repo_name(gl_match.group(2))}", "gitlab"
 
-    # Match générique Forgejo / Gitea (prend en compte les sous-routes comme /projects/)
+    # Forgejo / Gitea (capture git.*, codeberg, etc. y compris /projects/)
     cb_match = re.search(r"https?://([^/\s\"']+)/(?:projects/)?([^/\s\"']+)/([^/\s\"']+)", combined)
     if cb_match:
-        domain = cb_match.group(1)
-        owner = cb_match.group(2)
-        repo = clean_repo_name(cb_match.group(3))
-        known_domains = ["git.etawen.dev", "git.eden-emu.dev", "git.ryujinx.app", "codeberg.org"]
-        if any(kd in domain for kd in known_domains) or "forgejo" in combined.lower() or "gitea" in combined.lower():
+        domain, owner, repo = cb_match.group(1), cb_match.group(2), clean_repo_name(cb_match.group(3))
+        if domain.startswith("git.") or "codeberg" in domain or any(k in combined.lower() for k in ["forgejo", "gitea", "eden", "ryujinx"]):
             return f"https://{domain}/{owner}/{repo}", "forgejo"
 
     # URL Directe
@@ -186,11 +185,11 @@ def resolve_release_data(raw_url, description=""):
 
                     return version, body, assets, "forgejo", repo_url
 
-                # Fallback Tags si aucune release formelle n'a été créée
+                # Fallback API Tags si aucune release n'est publiée
                 try:
                     tags_api = f"{domain}/api/v1/repos/{owner}/{repo}/tags"
                     tags = fetch_json(tags_api)
-                    if tags and len(tags) > 0:
+                    if tags and isinstance(tags, list) and len(tags) > 0:
                         tag_name = tags[0].get("name", "latest")
                         zip_url = f"{domain}/{owner}/{repo}/archive/{tag_name}.zip"
                         return tag_name, "Source release tag", [{"filename": f"{repo}-{tag_name}.zip", "url": zip_url, "sha256": get_remote_sha256(zip_url)}], "forgejo", repo_url
