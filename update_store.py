@@ -36,7 +36,7 @@ def get_remote_sha256(file_url):
         return ""
 
 def clean_repo_name(repo_str):
-    """ Nettoie proprement .git à la fin sans tronquer les lettres du nom (ex: flycast) """
+    """ Nettoie proprement .git à la fin sans tronquer les lettres du nom """
     repo_str = repo_str.strip('/')
     if repo_str.endswith(".git"):
         repo_str = repo_str[:-4]
@@ -56,7 +56,7 @@ def extract_clean_repo_url(url, description=""):
     if gl_match:
         return f"https://gitlab.com/{gl_match.group(1)}/{clean_repo_name(gl_match.group(2))}", "gitlab"
 
-    # Forgejo / Gitea (capture git.*, codeberg, etc. y compris /projects/)
+    # Forgejo / Gitea (capture tout domaine git.* ou URLs avec sous-routes)
     cb_match = re.search(r"https?://([^/\s\"']+)/(?:projects/)?([^/\s\"']+)/([^/\s\"']+)", combined)
     if cb_match:
         domain, owner, repo = cb_match.group(1), cb_match.group(2), clean_repo_name(cb_match.group(3))
@@ -153,6 +153,7 @@ def resolve_release_data(raw_url, description=""):
                 owner, repo = parts[0], parts[1]
                 data = None
                 
+                # Etape 1: Tente de récupérer les Releases
                 try:
                     api_url = f"{domain}/api/v1/repos/{owner}/{repo}/releases/latest"
                     data = fetch_json(api_url)
@@ -185,7 +186,7 @@ def resolve_release_data(raw_url, description=""):
 
                     return version, body, assets, "forgejo", repo_url
 
-                # Fallback API Tags si aucune release n'est publiée
+                # Etape 2: Fallback API Tags
                 try:
                     tags_api = f"{domain}/api/v1/repos/{owner}/{repo}/tags"
                     tags = fetch_json(tags_api)
@@ -195,6 +196,28 @@ def resolve_release_data(raw_url, description=""):
                         return tag_name, "Source release tag", [{"filename": f"{repo}-{tag_name}.zip", "url": zip_url, "sha256": get_remote_sha256(zip_url)}], "forgejo", repo_url
                 except Exception:
                     pass
+
+                # Etape 3: Fallback API Commits (POUR RYUBING ET KENJI-NX SANS RELEASE/TAG)
+                try:
+                    commits_api = f"{domain}/api/v1/repos/{owner}/{repo}/commits"
+                    commits = fetch_json(commits_api)
+                    if commits and isinstance(commits, list) and len(commits) > 0:
+                        short_sha = commits[0].get("sha", "")[:7]
+                        commit_date = commits[0].get("commit", {}).get("committer", {}).get("date", "")[:10]
+                        version = f"commit-{short_sha}" if short_sha else "latest"
+                        commit_msg = commits[0].get("commit", {}).get("message", "Dernier commit master")
+                        
+                        # Génère l'archive de la branche principale (master/main)
+                        zip_url = f"{domain}/{owner}/{repo}/archive/master.zip"
+                        sha256_val = get_remote_sha256(zip_url)
+                        if not sha256_val:
+                            zip_url = f"{domain}/{owner}/{repo}/archive/main.zip"
+                            sha256_val = get_remote_sha256(zip_url)
+
+                        assets = [{"filename": f"{repo}-{version}.zip", "url": zip_url, "sha256": sha256_val}]
+                        return version, f"Build automatique ({commit_date}): {commit_msg}", assets, "forgejo", repo_url
+                except Exception as e:
+                    print(f"   [ERROR Commit Forgejo] {owner}/{repo}: {e}")
 
         except Exception as e:
             print(f"   [ERROR Forgejo API] {repo_url}: {e}")
