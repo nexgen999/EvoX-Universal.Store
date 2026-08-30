@@ -75,62 +75,62 @@
     {
       "name": "Ryubing",
       "description": "Ryubing",
-      "version": "master",
-      "release_notes": "Forgejo Release Archive",
+      "version": "v1.0",
+      "release_notes": "Fichier direct",
       "assets": [
         {
-          "filename": "Ryubing-master.zip",
-          "url": "https://git.ryujinx.app/projects/projects/Ryubing/archive/master.zip",
-          "sha256": "95d21915918642c09289a8963cf74b564a7f7ea13ba7cc3f5e2130329185daaa"
+          "filename": "Ryubing",
+          "url": "https://git.ryujinx.app/projects/Ryubing",
+          "sha256": "662b88c803548ad3249837784760a9bf68586d48680c9c82f103203b108e7e6b"
         }
       ],
-      "source_type": "forgejo",
-      "repo_url": "https://git.ryujinx.app/projects/projects/Ryubing"
+      "source_type": "generic",
+      "repo_url": "https://git.ryujinx.app/projects/Ryubing"
     },
     {
       "name": "Kenji-NX",
       "description": "Kenji-NX",
-      "version": "master",
-      "release_notes": "Forgejo Release Archive",
+      "version": "v1.0",
+      "release_notes": "Fichier direct",
       "assets": [
         {
-          "filename": "Kenji-NX-master.zip",
-          "url": "https://git.ryujinx.app/projects/projects/Kenji-NX/archive/master.zip",
-          "sha256": "aa8beef4a7924847439cc1d63a09aa83c2aebf5553a8bc5956df3df83103ee90"
+          "filename": "Kenji-NX",
+          "url": "https://git.ryujinx.app/projects/Kenji-NX",
+          "sha256": "52e2d161abedf246c1df42040728678638ec42187d6918565b6dc9e8489d67b4"
         }
       ],
-      "source_type": "forgejo",
-      "repo_url": "https://git.ryujinx.app/projects/projects/Kenji-NX"
+      "source_type": "generic",
+      "repo_url": "https://git.ryujinx.app/projects/Kenji-NX"
     },
     {
       "name": "eden-stable",
       "description": "eden-stable",
-      "version": "master",
-      "release_notes": "Forgejo Release Archive",
+      "version": "v1.0",
+      "release_notes": "Fichier direct",
       "assets": [
         {
-          "filename": "eden-master.zip",
-          "url": "https://git.eden-emu.dev/projects/eden-emu/eden/archive/master.zip",
-          "sha256": ""
+          "filename": "eden",
+          "url": "https://git.eden-emu.dev/eden-emu/eden",
+          "sha256": "46d4ab435476852cb5523c6dfe5d0f75a1ac14a565c6406066f22f41e017c1dc"
         }
       ],
-      "source_type": "forgejo",
-      "repo_url": "https://git.eden-emu.dev/projects/eden-emu/eden"
+      "source_type": "generic",
+      "repo_url": "https://git.eden-emu.dev/eden-emu/eden"
     },
     {
       "name": "eden-nightly",
       "description": "eden-nightly",
-      "version": "master",
-      "release_notes": "Forgejo Release Archive",
+      "version": "v1.0",
+      "release_notes": "Fichier direct",
       "assets": [
         {
-          "filename": "nightly-master.zip",
-          "url": "https://git.eden-emu.dev/projects/eden-ci/nightly/archive/master.zip",
-          "sha256": ""
+          "filename": "nightly",
+          "url": "https://git.eden-emu.dev/eden-ci/nightly",
+          "sha256": "36177a6b15300f0e2812db9929d72c322731d7371aa62f4ac0f611cf3c907518"
         }
       ],
-      "source_type": "forgejo",
-      "repo_url": "https://git.eden-emu.dev/projects/eden-ci/nightly"
+      "source_type": "generic",
+      "repo_url": "https://git.eden-emu.dev/eden-ci/nightly"
     }
   ]
 }
