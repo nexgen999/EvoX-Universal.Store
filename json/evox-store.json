@@ -1,6 +1,6 @@
 {
   "name": "EvoX Universal Store",
-  "updated_at": "2026-09-05T10:25:57.895741Z",
+  "updated_at": "2026-09-05T14:59:46.880538Z",
   "store": [
     {
       "category": "forgejo_test",
@@ -106,7 +106,7 @@
             {
               "filename": "Ryubing",
               "url": "https://git.ryujinx.app/projects/Ryubing",
-              "sha256": "c7bf5d552e6895eb505b736216678aa2fe0847e027079575ec9e01067fe393fa"
+              "sha256": "b77e6db7a3477df56c516910214c908736bcd05c02fe7774bd1f85e3f553f4fc"
             }
           ],
           "source_type": "forgejo",
@@ -121,7 +121,7 @@
             {
               "filename": "Kenji-NX",
               "url": "https://git.ryujinx.app/projects/Kenji-NX",
-              "sha256": "96df5f4ba41e60eef9178e143d8e8a0ff952c6d455e1cb4e3534f1c33932f234"
+              "sha256": "16d4c619dca98b5d54e58b6c03c20108f455d01c49d92b0e493757e408936839"
             }
           ],
           "source_type": "forgejo",
@@ -502,7 +502,7 @@
             {
               "filename": "RetroArch-Win64-setup.exe",
               "url": "https://buildbot.libretro.com/nightly/windows/x86_64/RetroArch-Win64-setup.exe",
-              "sha256": "5e3d223512c4ea94ff453c1cc63d86f0159092d10218b6ce50c02defe1d51d23"
+              "sha256": "c20c2aae400625190bd8be88cc9af45cd9bfe87dd89f6e0446c95f66bb715ec3"
             }
           ],
           "source_type": "generic",
