@@ -71,77 +71,77 @@
       "name": "duckstation",
       "description": "DuckStation - PlayStation 1, aka. PSX Emulator",
       "version": "latest",
-      "release_notes": "## Commits\r\n- 6336c532a Cheats: Fix importing semi-broken files\r\n- c475fd699 Qt: Fix some machine translation errors\r\n- e8473a1e0 Qt: Fix incorrect highlight in memory viewer\r\n- 5e1aee1e2 Qt: Add missing icons to cheat import popup\r\n- 856905864 FullscreenUI: Add on-screen keyboard\r\n- ec212bfd1 FullscreenUI: Fix initial input not activating on some popup dialogs\r\n- 3c4f2bf25 FullscreenUI: Add missing PS icon for D-Pad\r\n- 527b402c6 ImGuiManager: Remove Host::BeginTextInput()\r\n- 943db2376 Achivements: Add rich presence monitor debug setting\r\n- e7157e366 FullscreenUI: Increase padding on value backgrounds\r\n- 24deeeef8 System: Fix initial capture mode on start\r\n- 56226045d FullscreenUI: Render loading screen with separate draw list\r\n- b984cb7ac System: Improve game setting reload workflow\r\n- 88df5c983 System: Persist settings interface objects\r\n- 8013df929 Qt: Fix window title when editing game specific controller config\r\n- 49d39aad7 PageFaultHandler: Set SA_NODEFER on MacOS as well\r\n- 4cf3404a1 PageFaultHandler: Determine write flag from ESR on MacOS ARM64\r\n- 7304bfe25 CPU: Ensure RAM code pages are invalidated on core thread\r\n- 83a03fe95 CPU/CodeCache: Assert that handlers execute on core thread\r\n- b0c0a8ab7 PageFaultHandler: Remove the exception handler mutex\r\n- f4a828303 FullscreenUI: Fix compiler warning\r\n- 1c3948c97 Qt: Update machine translations\r\n- 400c269b4 GameDB: Sentou Kokka - Air Land Battle\r\n- d8d8a0816 CDROM: Reduce pause-while-paused delay\r\n- eb938ce10 dep/rcheevos: Bump to f1417fb\r\n- d954b7a3d ImGuiOverlays: Clear list on save state selector close\r\n- b25e2358b GPUDevice: Don't immediately trim textures queued in same frame\r\n- 0bf64996c ImGuiOverlays: Add animation to save state selector\r\n- 25783d844 ImGuiOverlays: Close save state selector on device switch\r\n- 8de6b0ac7 GameDB: Add HASH for Beyond the Beyond (#3782)\r\n- 48719b86b Bus: Fix CPE parsing when dev logging is disabled\r\n- 96e0c4d38 LRUCache: Fix m_manual_evict not respected when adding\r\n- 824a1072e LRUCache: Add custom deleter override\r\n- 0b28c198f FullscreenUI: Remove shared_ptr usage\r\n- 5422093cd Misc: Use relative time when displaying timestamps\r\n- a444b1265 GameDB: Add hashes for multiple games (#3784)\r\n- 5f3db8ed0 Qt: Improve Italian translation (#3783)\r\n- 12e575260 dep/rcheevos: Replace usage of sscanf() in rc_json_get_datetime()\r\n- 8bc6dc8d4 Qt: Update Italian translation again (#3785)\r\n- 7940507f0 Achievements: Use title format in submit time tooltip\r\n- ad2a8a637 System: Ensure achievements game is identified before loading state\r\n- c992e1c6b Atualização Português do Brasil (#3787)\r\n- fc741c826 GPU/TextureCache: Fix CPU thread read on GPU thread\r\n- 889a0fd2d GPU/TextureCache: Fix last_vram_write and num_splits not being serialized\r\n- ee211591b GPU/TextureCache: Limit the amount of uploads saved to state\r\n- 8e8e13de3 System: Reserve state memory for texture cache when enabled\r\n- e2823b429 GameDB: Felony 11-79/Runabout\r\n- 535154dcb MediaCapture: Show file size in OSD\r\n- 9d05a8756 Host: Fix broken relative time plurals\r\n- 3f9453fda Host: Merge FullscreenUI relative time variant with Host\r\n- 392e19b2a Qt: Add translation update and cleanup scripts\r\n- 764a06bc2 CI: Ensure translations are cleaned on pull request\r\n- f40cd5155 dep/rcheevos: Add rc_client_set_unofficial_achievement_unlock_state()\r\n- 4beec807d SQLiteHelpers: Add BindInt64()/ColumnInt64()\r\n- a679377ce FullscreenUI: Permit empty footer array component\r\n- 2743bb25e Achievements: Track unlocks of unofficial achievements locally\r\n- 240b19932 PageFaultHandler: Read ESR on Linux ARM64 as well\r\n- 06e6d4c2c Data: Update SDL game controller database\r\n- 614faf7d3 Qt: Clarify RetroAchievements login message\r\n- 04187ba0c Qt: Use variadic arg() instead of chaining multiple invocations\r\n- 939918806 Qt: Group toolbar-related menu items into a submenu (#3789)\r\n- 6f7fc33fe Qt: Update machine translations\r\n- fe899efd1 Update duckstation-qt_es.ts (#3786)\r\n- 78ff46ad1 Tests: Fix util-tests building\r\n- bf5a6162d MemoryCardImage: Replace full-width characters with ASCII\r\n- c4e99c4ae CDImageMDS: Fix games not detecting due to empty path\r\n- dbf928ff6 FullscreenUI: Fix inverted parameters\r\n- c776dee9e CDImage: Replace filename identifier with path\r\n- aea63ce41 Spanish (Spain) translation update 2026/08/25 (#3790)\r\n- a736f4492 Update Italian translation (#3791)\r\n- f18017eeb Qt: Fix localised disc regions in game list\r\n- f5e22bc71 FullscreenUI: Fix cheats menu hotkey in batch mode\r\n- 88e4ca533 Qt: Enable verification for unscanned files\r\n- fe2306b1f ImGuiManager: Tweak OSD fade in time",
+      "release_notes": "## Commits\r\n- 9287950af VideoPresenter: Fix prerotation handling with blur/transitions\r\n- b0f7c5c16 Update duckstation-qt_es.ts (#3792)\r\n- 20b626d41 MSBuild: Explicitly list plugins to copy\r\n- e05146d7a MSBuild: Track Qt translation outputs\r\n- 1e2ee51b1 MSBuild: Track Qt resource outputs\r\n- 8c7b74ca2 MSBuild: Fix Qt MOC dependency tracking\r\n- bf15b0df6 MSBuild: Generate Qt MOC files in parallel\r\n- 46364b24b MSBuild: Track QRC asset dependencies\r\n- 7652c0446 MSBuild: Generate Qt translations in parallel\r\n- 78cd1f248 MSBuild: Generate Qt UI headers in parallel\r\n- f34d2c475 Achievements: Add category badge to popup\r\n- f1d54ab74 Qt: Fix trailing slash being added to game directories\r\n- ec81e45b2 Settings: Disable gpu_force_video_timing in hardcore mode\r\n- 274143dfd CI: Update deps to 20260905\r\n- 9c91b9156 Common: Remove unused include\r\n- 7762f953c Build: Use C++23 across the board\r\n- 6f23cc25d System: Allow live-changing console region\r\n- 31948bcb5 Misc: Use static operator()\r\n- 084bc6fb3 Achievements: Fix padding in notifications/lists\r\n- 1cafea4e5 Qt: Slight improvement to track summary list\r\n- b91b9b247 Qt: Add RA Game ID to game properties\r\n- c05866d2b Qt: Add styling to select disc dialog\r\n- ebc51ff0c System: Don't copy non-sensitive user preferences to game settings\r\n- f1f8ee797 System: Disable post-processing when resetting settings\r\n- 75448944d dep/rcheevos: Bump to e871ef5\r\n- d9182a04d Qt: Add threads view to debugger\r\n- 118bb6616 Qt: Add call stack to debugger\r\n- 4a0cdd2dc Qt: Link stack view to memory view\r\n- 5100c5164 Qt: Use QPointer in DebuggerWindow\r\n- 3bc1e8cdf SettingsInterface: Create type aliases for string lists\r\n- 3eee1e61e INISettingsInterface: Don't set dirty if unchanged in SetKeyValueList()\r\n- 92fb83b6a Qt: Save debugger breakpoints to inis\r\n- f5ffb6b51 System: Fix unused function warning\r\n- 5aeeb72e6 VideoThread: Fix rare crash if device initialization fails\r\n- 0d33bd177 Settings: Ensure pcdrv_root is a native path\r\n- 3f44ac2e9 Deps: Bump to 20260906\r\n- f39feb9d8 Image: Load libpng/libjpeg/libwebp dynamically\r\n- fa77cd485 CMake: Don't unnecessarily bundle\r\n- c359ccfcb DynamicLibrary: Log loaded library paths on Linux\r\n- 2179487e5 SDLInputSource: Remove unused variable\r\n- fa935c296 SQLiteHelpers: Format file\r\n- 38751bdf7 SDLInputSource: Load SDL dynamically\r\n- 025872c52 Qt: Warn when LD_LIBRARY_PATH is overridden on Linux\r\n- b42b6981e Qt: Create desktop file before setup wizard on Linux\r\n- f1f6b0ee7 ImGuiManager: Load FreeType/plutosvg dynamically\r\n- 3ccc0c45f Util: Centralize dynlib loading\r\n- 17a721c8f ZipHelpers: Load libzip on-demand\r\n- 1f065b5ea CMake: Make bundle building on MacOS optional\r\n- d9071e49b CocoaTools: Return nullopt if not running from bundle\r\n- 69fe55034 DynamicLibrary: Drop MacOS Frameworks hack\r\n- 0fbd997d4 Misc: Remove atexit() usage\r\n- 0206d926f SDLInputSource: Centralize SDL subsystem loading\r\n- 7d169057d README: Update feature list\r\n- e05b9b9f9 FullscreenUI: Fix 'Use Global Setting' showing in global postfx settings\r\n- 3f5dca5ce FullscreenUI: Use expand icon for dropdowns\r\n- 2cb1bf7b9 GPUDevice: Add SingleTextureAndUBOAndPushConstants layout\r\n- 91c5a79b2 FullscreenUI: Use SingleTextureAndUBOAndPushConstants for blur apply\r\n- 4973361c5 GameList: Add AudioCD type\r\n- 00989b7ec Qt: Make game properties inaccessible for PSF/Audio CDs\r\n- 0cb515fe4 GameList: Reorder list entry types\r\n- 1d07ae225 Update duckstation-qt_es.ts (#3794)\r\n- 73c226615 DynLibs: Fix libjpeg load regression on Windows\r\n- 35d1f0629 Atualização Português do Brasil (#3793)\r\n- 443ef825b Qt: Merge import buttons in the memory card editor (#3795)\r\n- cbe7951be CPU/CodeCache: Remove thread_local recursive guard\r\n- 1ab327d6d GPUDevice: Drop SingleTextureAndUBOAndPushConstants\r\n- 3b30876e9 l10n: update Swedish Qt translation (#3796)",
       "assets": [
         {
           "filename": "DuckStation-arm64.AppImage",
           "url": "https://github.com/stenzek/duckstation/releases/download/latest/DuckStation-arm64.AppImage",
-          "sha256": "9e6814087f1549bf86a161ef551e02078f88d62dc5aa52b77fe78bb493671bdf"
+          "sha256": "5a1cb1687ed3ca835f16467581ced12092ca62562fbf5c987c69efc3af757d37"
         },
         {
           "filename": "DuckStation-armhf.AppImage",
           "url": "https://github.com/stenzek/duckstation/releases/download/latest/DuckStation-armhf.AppImage",
-          "sha256": "3926efe5ec0b556757b8ea0a485275695aab8510b2df7650cf399b6da20f8ab2"
+          "sha256": "dae6787bb2f8f4e95d4145c7b1e50600c62569c66cff4cdc34a51fc7f04b7ae9"
         },
         {
           "filename": "duckstation-mac-release.zip",
           "url": "https://github.com/stenzek/duckstation/releases/download/latest/duckstation-mac-release.zip",
-          "sha256": "1870ef7c34f619861cf9bedfe73772cb2106061058ce6e40a7b41dc328835a96"
+          "sha256": "be27a4bb0449bf32882f19952479c9ddd01be5b75b5457fd9c94c041bfbd72c9"
         },
         {
           "filename": "duckstation-windows-arm64-installer.exe",
           "url": "https://github.com/stenzek/duckstation/releases/download/latest/duckstation-windows-arm64-installer.exe",
-          "sha256": "654e8409c1fa54668605edd2ebe0653948e0ae3c7aba683a2d92276b09de9a40"
+          "sha256": "69dce27f0dffb7cafa1ceb26121173138d5ef2aa82826ceec184441c5724553c"
         },
         {
           "filename": "duckstation-windows-arm64-release-symbols.7z",
           "url": "https://github.com/stenzek/duckstation/releases/download/latest/duckstation-windows-arm64-release-symbols.7z",
-          "sha256": "5e92cdc8b53e9d2aff04391bd24da76ae9821c6d845c5b5fed9be61de24c3612"
+          "sha256": "4ce7b6e1c0d4281d27c726712cbbb346a5a9fad5f5bf06aaedc55c0d93cf1b08"
         },
         {
           "filename": "duckstation-windows-arm64-release.zip",
           "url": "https://github.com/stenzek/duckstation/releases/download/latest/duckstation-windows-arm64-release.zip",
-          "sha256": "2567e71afc1102a062d9bfb408b66ccdf850326b505169717c33503fdaff55e8"
+          "sha256": "7738b457e95a8b874ac9945652408adaeed1ddfd136183fffafbb310416b2a12"
         },
         {
           "filename": "duckstation-windows-x64-installer.exe",
           "url": "https://github.com/stenzek/duckstation/releases/download/latest/duckstation-windows-x64-installer.exe",
-          "sha256": "91a135927010d965acd0dcb83f3854c5861ea5e57f4d1dfb88473cbc493bddde"
+          "sha256": "17e28ba169efe396d6dcf6df77c7cc293d20009f4d7bb7e67e123ea6b1b2766c"
         },
         {
           "filename": "duckstation-windows-x64-release-symbols.7z",
           "url": "https://github.com/stenzek/duckstation/releases/download/latest/duckstation-windows-x64-release-symbols.7z",
-          "sha256": "84f5c71d3db4c58ebca38ba984d10a3db05dd8f7dd4d47bbb10234da063f95a1"
+          "sha256": "582064a8648ae03526e3dd618c568198b29b4bb9e00d1f29382a281b5ff59c91"
         },
         {
           "filename": "duckstation-windows-x64-release.zip",
           "url": "https://github.com/stenzek/duckstation/releases/download/latest/duckstation-windows-x64-release.zip",
-          "sha256": "70b32aed305a5ea6b645f89f6ae3d35ca4f09099270a608b85253cc9e971a9f2"
+          "sha256": "1964a577b5197a313435ce43afc12d4d966f729269ef36ef43de50a652bf3489"
         },
         {
           "filename": "duckstation-windows-x64-sse2-installer.exe",
           "url": "https://github.com/stenzek/duckstation/releases/download/latest/duckstation-windows-x64-sse2-installer.exe",
-          "sha256": "92e465a1c816adde837dd33f7abb06243c80f87a1111a5704633fee6bb21895d"
+          "sha256": "e30021ce64cb8249770d12757a0bf4c3c4f056d1475e0cb80167f356f340eb41"
         },
         {
           "filename": "duckstation-windows-x64-sse2-release-symbols.7z",
           "url": "https://github.com/stenzek/duckstation/releases/download/latest/duckstation-windows-x64-sse2-release-symbols.7z",
-          "sha256": "eed080c6f0b7cad3667669f2f2d9d15e60bcc060d25eb88fbf557f3251ec8e30"
+          "sha256": "dbf51d0f0054235c830243b0af46d19bd0c413fce0e4f941190441b103c09c7c"
         },
         {
           "filename": "duckstation-windows-x64-sse2-release.zip",
           "url": "https://github.com/stenzek/duckstation/releases/download/latest/duckstation-windows-x64-sse2-release.zip",
-          "sha256": "8ab564589de218f3128a93799523ec370da392b9c1740d5f4e944f4e10f053b9"
+          "sha256": "e766938658a94ae5324f0d97c50d7859d9d7125e03dd70b5b09be4b68fe34f6a"
         },
         {
           "filename": "DuckStation-x64-SSE2.AppImage",
           "url": "https://github.com/stenzek/duckstation/releases/download/latest/DuckStation-x64-SSE2.AppImage",
-          "sha256": "df74dd4d2a7bc33f71e35f820c3a3146c8ca3ef3a4df00cb0f2ec480399c1749"
+          "sha256": "4f8d6841c07dbb6661894692200bb49bf111e81fa8dab0329b2a399228a6ab55"
         },
         {
           "filename": "DuckStation-x64.AppImage",
           "url": "https://github.com/stenzek/duckstation/releases/download/latest/DuckStation-x64.AppImage",
-          "sha256": "c5c8a9de4dfc10e794137dcb8bab9760ca578df2aa7be8c1215171bebbba5965"
+          "sha256": "78f39d17e7c62ca64be1d5bd478d1191bb41c34c176e9b43683fd77832608cf7"
         }
       ],
       "source_type": "github",
