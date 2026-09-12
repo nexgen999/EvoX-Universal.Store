@@ -11,7 +11,7 @@
         {
           "filename": "RetroArch-Win64-setup.exe",
           "url": "https://buildbot.libretro.com/nightly/windows/x86_64/RetroArch-Win64-setup.exe",
-          "sha256": "6ecc2fcbddc8aa3e939e892f98adbccf1b2a245e0353c70878ae9a5fb417bee7"
+          "sha256": "97d01060cba7eb168cc1cc5878bdcb7e496856e5e732b7cda597961441c00329"
         }
       ],
       "source_type": "generic",
