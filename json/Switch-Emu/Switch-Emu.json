@@ -76,7 +76,7 @@
         {
           "filename": "Ryubing",
           "url": "https://git.ryujinx.app/projects/Ryubing",
-          "sha256": "67f10f4fe9c001ee0d5e770f0925c066ce5e719674eb374fcc981533191db692"
+          "sha256": "c13383bcb20ca61c1d63aa7246729ff0d21b80a821f6f4b6ebb8a508fb1ef590"
         }
       ],
       "source_type": "forgejo",
@@ -91,7 +91,7 @@
         {
           "filename": "Kenji-NX",
           "url": "https://git.ryujinx.app/projects/Kenji-NX",
-          "sha256": "37862ab42abc4b1de4fa6f269145d4f5cf645fb493020f293da102c9823f3d43"
+          "sha256": "4001d7d847c8ba092fc22d4e80fdb6247c03e201fc7ad0b2f973ede286f6e977"
         }
       ],
       "source_type": "forgejo",
