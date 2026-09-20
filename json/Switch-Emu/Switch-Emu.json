@@ -45,23 +45,23 @@
     {
       "name": "Ryujinx-Nextendo",
       "description": "Ryujinx-Nextendo",
-      "version": "v1.8.3",
-      "release_notes": "## Super Mario Bros. Wonder\n\nWonder now works on Nextendo. Built-in patches for build `FF773E90972D544EB79406EAA65396D53C43EFB9` (game version **1.2.1**): pinned-certificate bypass and two peer-name rejections. Another game update would not receive them and could not reach our servers.\n\nBuilt-in patches are now applied **unconditionally**. They used to depend on an external mod existing for the title — with no mod installed we returned before applying them, and the game went straight to the real Nintendo servers.\n\n## Super Mario Bros. 35 launches again\n\nThe version table required **1.1.2, which never existed**. The last SMB35 update was 1.0.2 (12 November 2020); the game shut down in March 2021. Anyone who updated to 1.8.2 was refused launch over a version that cannot be obtained.\n\nReported by **ffsaga**.\n\n---\n\n> ⚠️ **Friends still do not show as online.** The friend list stays empty across every game. This is a server-side presence issue we are still working on, not something this build changes.\n\nThe macOS build is attached automatically a few minutes after publication.",
+      "version": "v1.8.5",
+      "release_notes": "> **If you installed 1.8.4, please update.** That build could not reach the Nextendo servers at all — no online, no NAT check, empty friend list — and its auto-updater could not install anything. It has been removed. This release fixes all of it. 1.8.3 was never affected.\r\n\r\n## Crash Team Racing Nitro-Fueled\r\n\r\nCTR now plays online on Nextendo. Built-in patches for build `1C689518406930512C13DDF4217E7676` (game version **1.0.15**) — another game update would not receive them and could not reach our servers.\r\n\r\n**Signed authentication.** CTR embeds Demonware's RSA public key and checks the response signature in `bdAuth::validateResponseSignature` *before* it ever looks at the login ticket. An unsigned reply fails outright, no matter how correct the rest of it is. The patch replaces that key so our signed replies verify.\r\n\r\n**Friends past the first twenty.** CTR sorts your friend list and only ever asks the server about the first 20 names, so a friend ranked below that was invisible to room lookup — in both directions, which is why two people could each fail to see the other's room. `maxUserIdsPerQuery` is lifted from 20 to 300.\r\n\r\n**Demonware routing.** Activision titles never touch Nintendo's services: authentication over TLS, the lobby and NAT discovery on port 3074, and the shared `stun.<region>` responders all live under `demonware.net`, which is now redirected alongside the Nintendo hostnames.\r\n\r\n## Nintendo 64 – Nintendo Classics, and Metal Gear Solid: Peace Walker\r\n\r\nBoth already had built-in patches in Citron but not here. Ported across byte-for-byte:\r\n\r\n- Nintendo 64 – Nintendo Classics **4.2.0** (unreleased still / just added patches). \r\n- METAL GEAR SOLID: Peace Walker – Master Collection\r\n\r\n## Its own account identity\r\n\r\nRyujinx now signs in as `nextendo-ryujinx` rather than sharing the generic `nextendo-emulator` client ID, and requests the full scope set. This lets the account portal tell the clients apart and give each one its own branding and permissions.\r\n\r\nThe BAAS id_token also now carries the installed game version, so version compatibility can be enforced server-side instead of relying only on the client's own table.\r\n\r\n---\r\n\r\n> ⚠️ **Crash Team Racing needs game version 1.0.15.** The patches are tied to that exact build ID; any other update will not receive them and will not connect.",
       "assets": [
         {
-          "filename": "Ryujinx-Nextendo-1.8.3-linux_x64.tar.gz",
-          "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.8.3/Ryujinx-Nextendo-1.8.3-linux_x64.tar.gz",
-          "sha256": "5c97e05855309da6b6aab648e62b393119957984f5c8ad41749fcbabe996ee3c"
+          "filename": "Ryujinx-Nextendo-1.8.5-linux_x64.tar.gz",
+          "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.8.5/Ryujinx-Nextendo-1.8.5-linux_x64.tar.gz",
+          "sha256": "be290780becfc53b89028d45764f9296ad3a0cf1d14db9428b103a5819225b62"
         },
         {
-          "filename": "Ryujinx-Nextendo-1.8.3-macos_universal.tar.gz",
-          "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.8.3/Ryujinx-Nextendo-1.8.3-macos_universal.tar.gz",
-          "sha256": "f706b9ff5a709f1e37b7f907df873992fc480495589b0c956c6fd906d77425c9"
+          "filename": "Ryujinx-Nextendo-1.8.5-macos_universal.tar.gz",
+          "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.8.5/Ryujinx-Nextendo-1.8.5-macos_universal.tar.gz",
+          "sha256": "08f52052364d3d57a2998c03e81762b82540b6a95d90308d312c2b4525aa9b63"
         },
         {
-          "filename": "Ryujinx-Nextendo-1.8.3-win_x64.zip",
-          "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.8.3/Ryujinx-Nextendo-1.8.3-win_x64.zip",
-          "sha256": "e94b519ac1e52d22f63a92b73dae9dd4b36394a8191b6a7581afdc35feb9a298"
+          "filename": "Ryujinx-Nextendo-1.8.5-win_x64.zip",
+          "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.8.5/Ryujinx-Nextendo-1.8.5-win_x64.zip",
+          "sha256": "dc02e1f1e3450fe7695191a18b63a7cd1080bac4f0b1517c8b0405eda7e6c0cb"
         }
       ],
       "source_type": "github",
@@ -76,7 +76,7 @@
         {
           "filename": "Ryubing",
           "url": "https://git.ryujinx.app/projects/Ryubing",
-          "sha256": "453c9ececebf1ea36b7834dd2953ea4208876afaa854f8c87b819589502afa0b"
+          "sha256": "bda8702c29e303a4935ae2dbd37633a41bfc72fd430d99d2a15ef7b3e297a3a2"
         }
       ],
       "source_type": "forgejo",
@@ -91,7 +91,7 @@
         {
           "filename": "Kenji-NX",
           "url": "https://git.ryujinx.app/projects/Kenji-NX",
-          "sha256": "3fe4745c544357089fe0ae541bff98d20b157362713d884f06faeb86712ff808"
+          "sha256": "42616f1763978cb88c3206ca08197d177629c1c264cb688aae3b2ea2843fff46"
         }
       ],
       "source_type": "forgejo",
