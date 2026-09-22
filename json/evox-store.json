@@ -1,6 +1,6 @@
 {
   "name": "EvoX Universal Store",
-  "updated_at": "2026-09-21T21:54:24.949946Z",
+  "updated_at": "2026-09-22T04:28:50.102506Z",
   "store": [
     {
       "category": "forgejo_test",
@@ -70,23 +70,23 @@
         {
           "name": "Ryujinx-Nextendo",
           "description": "Ryujinx-Nextendo",
-          "version": "v1.8.5",
-          "release_notes": "> **If you installed 1.8.4, please update.** That build could not reach the Nextendo servers at all — no online, no NAT check, empty friend list — and its auto-updater could not install anything. It has been removed. This release fixes all of it. 1.8.3 was never affected.\r\n\r\n## Crash Team Racing Nitro-Fueled\r\n\r\nCTR now plays online on Nextendo. Built-in patches for build `1C689518406930512C13DDF4217E7676` (game version **1.0.15**) — another game update would not receive them and could not reach our servers.\r\n\r\n**Signed authentication.** CTR embeds Demonware's RSA public key and checks the response signature in `bdAuth::validateResponseSignature` *before* it ever looks at the login ticket. An unsigned reply fails outright, no matter how correct the rest of it is. The patch replaces that key so our signed replies verify.\r\n\r\n**Friends past the first twenty.** CTR sorts your friend list and only ever asks the server about the first 20 names, so a friend ranked below that was invisible to room lookup — in both directions, which is why two people could each fail to see the other's room. `maxUserIdsPerQuery` is lifted from 20 to 300.\r\n\r\n**Demonware routing.** Activision titles never touch Nintendo's services: authentication over TLS, the lobby and NAT discovery on port 3074, and the shared `stun.<region>` responders all live under `demonware.net`, which is now redirected alongside the Nintendo hostnames.\r\n\r\n## Nintendo 64 – Nintendo Classics, and Metal Gear Solid: Peace Walker\r\n\r\nBoth already had built-in patches in Citron but not here. Ported across byte-for-byte:\r\n\r\n- Nintendo 64 – Nintendo Classics **4.2.0** (unreleased still / just added patches). \r\n- METAL GEAR SOLID: Peace Walker – Master Collection\r\n\r\n## Its own account identity\r\n\r\nRyujinx now signs in as `nextendo-ryujinx` rather than sharing the generic `nextendo-emulator` client ID, and requests the full scope set. This lets the account portal tell the clients apart and give each one its own branding and permissions.\r\n\r\nThe BAAS id_token also now carries the installed game version, so version compatibility can be enforced server-side instead of relying only on the client's own table.\r\n\r\n---\r\n\r\n> ⚠️ **Crash Team Racing needs game version 1.0.15.** The patches are tied to that exact build ID; any other update will not receive them and will not connect.",
+          "version": "v1.8.6",
+          "release_notes": "## Ryujinx-Nextendo 1.8.6 | Closed API & Security Update\n\nThis mandatory update transitions Nextendo Network to registered application authentication, preventing unauthorized access, botting, and token harvesting.\n\n### What's Changed\n- **Registered Application Identity:** Ryujinx now authenticates all account and network endpoints using its registered official Nextendo client application identity.\n- **Closed API Enforcement:** Integrates the required application headers for the updated Nextendo Network gateway.\n- **Security & Anti-Leak Hardening:** Scrubbed build pipeline and isolated client identity credentials.\n\n> ⚠️ **Mandatory Update:** Previous versions (< 1.8.6) will be blocked from online features by the server update gate.",
           "assets": [
             {
-              "filename": "Ryujinx-Nextendo-1.8.5-linux_x64.tar.gz",
-              "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.8.5/Ryujinx-Nextendo-1.8.5-linux_x64.tar.gz",
-              "sha256": "be290780becfc53b89028d45764f9296ad3a0cf1d14db9428b103a5819225b62"
+              "filename": "Ryujinx-Nextendo-1.8.6-linux_x64.tar.gz",
+              "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.8.6/Ryujinx-Nextendo-1.8.6-linux_x64.tar.gz",
+              "sha256": "8062109e55965fb406ace0c9642c31324d3bc6a6d5a29de9c79a2e9cbe5a9b0d"
             },
             {
-              "filename": "Ryujinx-Nextendo-1.8.5-macos_universal.tar.gz",
-              "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.8.5/Ryujinx-Nextendo-1.8.5-macos_universal.tar.gz",
-              "sha256": "08f52052364d3d57a2998c03e81762b82540b6a95d90308d312c2b4525aa9b63"
+              "filename": "Ryujinx-Nextendo-1.8.6-macos_universal.tar.gz",
+              "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.8.6/Ryujinx-Nextendo-1.8.6-macos_universal.tar.gz",
+              "sha256": "79501f45a931b47da15702cdca9136b5e9ba19703357ad6d32fe42306eb1149d"
             },
             {
-              "filename": "Ryujinx-Nextendo-1.8.5-win_x64.zip",
-              "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.8.5/Ryujinx-Nextendo-1.8.5-win_x64.zip",
-              "sha256": "dc02e1f1e3450fe7695191a18b63a7cd1080bac4f0b1517c8b0405eda7e6c0cb"
+              "filename": "Ryujinx-Nextendo-1.8.6-win_x64.zip",
+              "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.8.6/Ryujinx-Nextendo-1.8.6-win_x64.zip",
+              "sha256": "692a8eccbcfe09de8749a5f84d0aa76fcffc58ff39d420b17572e550126ffa56"
             }
           ],
           "source_type": "github",
@@ -101,7 +101,7 @@
             {
               "filename": "Ryubing",
               "url": "https://git.ryujinx.app/projects/Ryubing",
-              "sha256": "b0c4e7431cbc6caa85155c7bc96097a4f2ff6c9ea2e1424fd4b9416ce602a03a"
+              "sha256": "d59753fa84e1a59f008cf432f0930a27ab616e238559957557edc00efa3ded49"
             }
           ],
           "source_type": "forgejo",
@@ -116,7 +116,7 @@
             {
               "filename": "Kenji-NX",
               "url": "https://git.ryujinx.app/projects/Kenji-NX",
-              "sha256": "da5b710a5f60c3ceceb141b0d6dcb222811298395a57b4545d7ac9cd28b6bf27"
+              "sha256": "e5e6e80ffff87ab2132bde5c5cf5f4eb9def24081d3a4c134e55e748dea2bff5"
             }
           ],
           "source_type": "forgejo",
@@ -337,7 +337,7 @@
             {
               "filename": "RetroArch-Win64-setup.exe",
               "url": "https://buildbot.libretro.com/nightly/windows/x86_64/RetroArch-Win64-setup.exe",
-              "sha256": "33a1f30c121639f2fbf1825dfb581e0a07b03d2ac33b1e907e9f510010d71004"
+              "sha256": "8ee4c5e80f227974245892b91c764d949e707979a20626ad26b1a2a2726caa7f"
             }
           ],
           "source_type": "generic",
