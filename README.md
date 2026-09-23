@@ -47,19 +47,19 @@ Le fichier `config.json` permet de personnaliser l'interface web du Store sans t
 <!-- START_APP_LIST -->
 | Catégorie | Sous-catégorie | Application | Version |
 | :--- | :--- | :--- | :--- |
-| forgejo_test | forgejo_test | elf-arsenal | v1.6.22 |
+| html_test | html_test | retroarch_windows_nightly | v1.0 |
 | Switch-Emu | Switch-Emu | Citron-neo_windows-nightly | nightly-windows |
 | Switch-Emu | Switch-Emu | Citron-neo_android-nightly | nightly-android |
-| Switch-Emu | Switch-Emu | Ryujinx-Nextendo | v1.8.6 |
+| Switch-Emu | Switch-Emu | Ryujinx-Nextendo | v1.8.8 |
 | Switch-Emu | Switch-Emu | Ryubing | v1.0 |
 | Switch-Emu | Switch-Emu | Kenji-NX | v1.0 |
 | Switch-Emu | Switch-Emu | eden-stable | v0.2.1 |
 | Switch-Emu | Switch-Emu | eden-nightly | v1789934660.a277b62fe4 |
-| html_test | html_test | retroarch_windows_nightly | v1.0 |
-| gitlab_test | gitlab_test | emulationstation-de | v3.4.1 |
+| forgejo_test | forgejo_test | elf-arsenal | v1.6.23 |
 | github_test | github_test | flycast | v2.7 |
 | github_test | github_test | flycast-dojo | dojo-6.46 |
 | github_test | github_test | duckstation | latest |
+| gitlab_test | gitlab_test | emulationstation-de | v3.4.1 |
 
 <!-- END_APP_LIST -->
 
