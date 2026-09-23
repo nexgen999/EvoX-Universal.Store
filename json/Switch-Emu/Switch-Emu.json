@@ -45,23 +45,23 @@
     {
       "name": "Ryujinx-Nextendo",
       "description": "Ryujinx-Nextendo",
-      "version": "v1.8.7",
-      "release_notes": "## Ryujinx-Nextendo 1.8.7 | Client Attestation\r\n\r\nThis mandatory update adds cryptographic client attestation on top of the 1.8.6 closed-API rollout.\r\n\r\n\r\n> ⚠️ **Mandatory update:** Previous versions (< 1.8.7) will be blocked from online features by the server update gate.\r\n\r\n## Signing in\r\n\r\nNothing changes on your end: sign in the same way as before. The signing happens transparently in the background.\r\n\r\n## SHA-256 checksums\r\n\r\n```\r\n5584720c1cb1d8144560908338818ab248675a059c612712be3bac2cf6d07de3  Ryujinx-Nextendo-1.8.7-win_x64.zip\r\n22b5aa4afe48380ed515cd9a238a7307bf28e73e7e92397fbb8da3c55f74ef87  Ryujinx-Nextendo-1.8.7-linux_x64.tar.gz\r\ne931635c90e1537c4339e55279f40ffe52e60010e002c4f772d3a7cfdd732139  Ryujinx-Nextendo-1.8.7-macos_universal.tar.gz\r\n```\r\n",
+      "version": "v1.8.6",
+      "release_notes": "## Ryujinx-Nextendo 1.8.6 | Closed API & Security Update\n\nThis mandatory update transitions Nextendo Network to registered application authentication, preventing unauthorized access, botting, and token harvesting.\n\n### What's Changed\n- **Registered Application Identity:** Ryujinx now authenticates all account and network endpoints using its registered official Nextendo client application identity.\n- **Closed API Enforcement:** Integrates the required application headers for the updated Nextendo Network gateway.\n- **Security & Anti-Leak Hardening:** Scrubbed build pipeline and isolated client identity credentials.\n\n> ⚠️ **Mandatory Update:** Previous versions (< 1.8.6) will be blocked from online features by the server update gate.",
       "assets": [
         {
-          "filename": "Ryujinx-Nextendo-1.8.7-linux_x64.tar.gz",
-          "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.8.7/Ryujinx-Nextendo-1.8.7-linux_x64.tar.gz",
-          "sha256": "22b5aa4afe48380ed515cd9a238a7307bf28e73e7e92397fbb8da3c55f74ef87"
+          "filename": "Ryujinx-Nextendo-1.8.6-linux_x64.tar.gz",
+          "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.8.6/Ryujinx-Nextendo-1.8.6-linux_x64.tar.gz",
+          "sha256": "8062109e55965fb406ace0c9642c31324d3bc6a6d5a29de9c79a2e9cbe5a9b0d"
         },
         {
-          "filename": "Ryujinx-Nextendo-1.8.7-macos_universal.tar.gz",
-          "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.8.7/Ryujinx-Nextendo-1.8.7-macos_universal.tar.gz",
-          "sha256": "e931635c90e1537c4339e55279f40ffe52e60010e002c4f772d3a7cfdd732139"
+          "filename": "Ryujinx-Nextendo-1.8.6-macos_universal.tar.gz",
+          "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.8.6/Ryujinx-Nextendo-1.8.6-macos_universal.tar.gz",
+          "sha256": "79501f45a931b47da15702cdca9136b5e9ba19703357ad6d32fe42306eb1149d"
         },
         {
-          "filename": "Ryujinx-Nextendo-1.8.7-win_x64.zip",
-          "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.8.7/Ryujinx-Nextendo-1.8.7-win_x64.zip",
-          "sha256": "5584720c1cb1d8144560908338818ab248675a059c612712be3bac2cf6d07de3"
+          "filename": "Ryujinx-Nextendo-1.8.6-win_x64.zip",
+          "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.8.6/Ryujinx-Nextendo-1.8.6-win_x64.zip",
+          "sha256": "692a8eccbcfe09de8749a5f84d0aa76fcffc58ff39d420b17572e550126ffa56"
         }
       ],
       "source_type": "github",
@@ -76,7 +76,7 @@
         {
           "filename": "Ryubing",
           "url": "https://git.ryujinx.app/projects/Ryubing",
-          "sha256": "f55c0aa17f71b98685f0eb3b7fdff7ccbb56839a8117fff4f77d2bae1142591e"
+          "sha256": "a9cce09fadfeac9861bc503e871ea958d60177e598d826a42903e206b68ec525"
         }
       ],
       "source_type": "forgejo",
@@ -91,7 +91,7 @@
         {
           "filename": "Kenji-NX",
           "url": "https://git.ryujinx.app/projects/Kenji-NX",
-          "sha256": "f073fb59cfa7136d1718f5db5d985856b14a425223fdc17e15d76ccc980a6402"
+          "sha256": "dcb3f851ba4fee53f6ae42ab2b4dc24779302ac582da400144c30d2c5dad053b"
         }
       ],
       "source_type": "forgejo",
