@@ -26,17 +26,17 @@
       "name": "Citron-neo_android-nightly",
       "description": "Citron-neo_android-nightly",
       "version": "nightly-android",
-      "release_notes": "**Citron Upstream Commit:** [`59fa4b4`](https://github.com/citron-neo/emulator/commit/59fa4b4df1348aab4ed5ecc0114c35ba0f68ec8f)\n\nThis build is based on the latest Citron emulator source code from the **main** branch.\n\n**Build Details:**\n- Platform: Android (arm64-v8a)\n- Build Type: Nightly with LTO enabled\n- Date: 2026-09-24\n- Branch: main\n- Includes: Standard build + Snapdragon 8 Elite build with Qualcomm patches\n",
+      "release_notes": "**Citron Upstream Commit:** [`d277186`](https://github.com/citron-neo/emulator/commit/d27718633ed4c4b34f8f9068694dcecc958bfc7c)\n\nThis build is based on the latest Citron emulator source code from the **main** branch.\n\n**Build Details:**\n- Platform: Android (arm64-v8a)\n- Build Type: Nightly with LTO enabled\n- Date: 2026-09-25\n- Branch: main\n- Includes: Standard build + Snapdragon 8 Elite build with Qualcomm patches\n",
       "assets": [
         {
           "filename": "app-mainline-release.apk",
           "url": "https://github.com/citron-neo/CI/releases/download/nightly-android/app-mainline-release.apk",
-          "sha256": "9f91d490dadaa98b8f83bf169737b9c5be3f0752fbeed74667b7364fa55bc2ef"
+          "sha256": "3ed3d23320df6ba05fa37c8dc9bd92748eae58fe5d36068b1a6d24858fd9d954"
         },
         {
-          "filename": "Citron-29108-Android-8.Elite-Lyb.apk",
-          "url": "https://github.com/citron-neo/CI/releases/download/nightly-android/Citron-29108-Android-8.Elite-Lyb.apk",
-          "sha256": "9bd74ac855d3f5bdb04d244aa322acf7e4206b039e977e7f78c631b1a9d18658"
+          "filename": "Citron-29110-Android-8.Elite-Lyb.apk",
+          "url": "https://github.com/citron-neo/CI/releases/download/nightly-android/Citron-29110-Android-8.Elite-Lyb.apk",
+          "sha256": "4e34f3afbb92799bffe0ea17f7b3c89b029019bb801621365227e148c4845bd7"
         }
       ],
       "source_type": "github",
