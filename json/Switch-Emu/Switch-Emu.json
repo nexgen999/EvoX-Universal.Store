@@ -6,17 +6,17 @@
       "name": "Citron-neo_windows-nightly",
       "description": "Citron-neo_windows-nightly",
       "version": "nightly-windows",
-      "release_notes": "**Citron Upstream Commit:** [`6672fc9`](https://github.com/citron-neo/emulator/commit/6672fc97c09cb7aca41f47758f677c39750cf60d)\n\nThis build is based on the latest Citron emulator source code from the upstream repository.\n\n**Build Details:**\n- Platform: Windows (x64)\n- Toolchains: Clangtron and native clang-cl/MSVC ABI\n- Build Type: Nightly\n- Date: 2026-09-27\n",
+      "release_notes": "**Citron Upstream Commit:** [`590824f`](https://github.com/citron-neo/emulator/commit/590824fe71de39b0d7714e02e2a02c9c68a10f77)\n\nThis build is based on the latest Citron emulator source code from the upstream repository.\n\n**Build Details:**\n- Platform: Windows (x64)\n- Toolchains: Clangtron and native clang-cl/MSVC ABI\n- Build Type: Nightly\n- Date: 2026-09-28\n",
       "assets": [
         {
-          "filename": "Citron-windows-nightly-6672fc97c-x64-clang-cl.zip",
-          "url": "https://github.com/citron-neo/CI/releases/download/nightly-windows/Citron-windows-nightly-6672fc97c-x64-clang-cl.zip",
-          "sha256": "b096be921aab6a1402884a975615afe309eb860121dfcf9321e5f4bfca2a5a16"
+          "filename": "Citron-windows-nightly-590824fe7-x64-clang-cl.zip",
+          "url": "https://github.com/citron-neo/CI/releases/download/nightly-windows/Citron-windows-nightly-590824fe7-x64-clang-cl.zip",
+          "sha256": "1ff5c70a25185601ab046732a19dfa0fafc00108524d4dbbabfcc1164b9e69a8"
         },
         {
-          "filename": "Citron-windows-nightly-6672fc97c-x64-clangtron.zip",
-          "url": "https://github.com/citron-neo/CI/releases/download/nightly-windows/Citron-windows-nightly-6672fc97c-x64-clangtron.zip",
-          "sha256": "16feecb97f5f3b314b040a388be59ac95882f79555d8a631e0ce51cbdeeaad0e"
+          "filename": "Citron-windows-nightly-590824fe7-x64-clangtron.zip",
+          "url": "https://github.com/citron-neo/CI/releases/download/nightly-windows/Citron-windows-nightly-590824fe7-x64-clangtron.zip",
+          "sha256": "baef33a024a08be5724c175ebe8587a88a5bf5c6c6a710b7b0d86ecb1ff5753b"
         }
       ],
       "source_type": "github",
@@ -26,17 +26,17 @@
       "name": "Citron-neo_android-nightly",
       "description": "Citron-neo_android-nightly",
       "version": "nightly-android",
-      "release_notes": "**Citron Upstream Commit:** [`6672fc9`](https://github.com/citron-neo/emulator/commit/6672fc97c09cb7aca41f47758f677c39750cf60d)\n\nThis build is based on the latest Citron emulator source code from the **main** branch.\n\n**Build Details:**\n- Platform: Android (arm64-v8a)\n- Build Type: Nightly with LTO enabled\n- Date: 2026-09-27\n- Branch: main\n- Includes: Standard build + Snapdragon 8 Elite build with Qualcomm patches\n",
+      "release_notes": "**Citron Upstream Commit:** [`590824f`](https://github.com/citron-neo/emulator/commit/590824fe71de39b0d7714e02e2a02c9c68a10f77)\n\nThis build is based on the latest Citron emulator source code from the **main** branch.\n\n**Build Details:**\n- Platform: Android (arm64-v8a)\n- Build Type: Nightly with LTO enabled\n- Date: 2026-09-28\n- Branch: main\n- Includes: Standard build + Snapdragon 8 Elite build with Qualcomm patches\n",
       "assets": [
         {
           "filename": "app-mainline-release.apk",
           "url": "https://github.com/citron-neo/CI/releases/download/nightly-android/app-mainline-release.apk",
-          "sha256": "80f7ac8ddf0032e120e898082c3e49be0e591029be132d456925ad0e66d8bc3f"
+          "sha256": "84f755e48fae5bfd4cf01023573ce32ee642027e235244d885ef68b29a40cbb6"
         },
         {
-          "filename": "Citron-29130-Android-8.Elite-Lyb.apk",
-          "url": "https://github.com/citron-neo/CI/releases/download/nightly-android/Citron-29130-Android-8.Elite-Lyb.apk",
-          "sha256": "11e1202fd8e2f0636c7830ce5e68cff9ab85612bb2d48b0ceffa5e34d991ef1d"
+          "filename": "Citron-29144-Android-8.Elite-Lyb.apk",
+          "url": "https://github.com/citron-neo/CI/releases/download/nightly-android/Citron-29144-Android-8.Elite-Lyb.apk",
+          "sha256": "944a77f2f15cd3d66064159856921d6eb4e9c663401670b320a53891def394f3"
         }
       ],
       "source_type": "github",
@@ -45,18 +45,23 @@
     {
       "name": "Ryujinx-Nextendo",
       "description": "Ryujinx-Nextendo",
-      "version": "v1.8.8",
-      "release_notes": "## Nouveautes\n\n- Overcooked 2 (1.0.19) : patches NPLN integres pour jouer en ligne.\n\n## Notes\n\n- Windows et Linux disponibles immediatement, macOS suit automatiquement (build CI).\n",
+      "version": "v1.8.9",
+      "release_notes": "## What's new\r\n\r\n- Super Mario Odyssey 1.4.1: Nextendo online support, plus fixed nicknames and profile pictures in Balloon World @CollectingW \r\n- Pokémon Scarlet 4.0.0: support added, plus fixes for the Violet client @alyeri.\r\n- Pokémon Scarlet: BCAT events are now downloaded at launch, with a cache kept separate from Violet and Splatoon 2. While there is no Scarlet-specific package, the current shared event (Meowscarada) is used @alyeri, #38).\r\n\r\n## Notes\r\n\r\n- Windows, Linux and macOS builds are available below.\r\n",
       "assets": [
         {
-          "filename": "Nextendo-1.8.8-linux-x64.tar.gz",
-          "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.8.8/Nextendo-1.8.8-linux-x64.tar.gz",
-          "sha256": "83ead6fe0de170cda7c3086768e11af6c83b72d7c03c210a1765313c10bc4690"
+          "filename": "Nextendo-1.8.9-linux-x64.tar.gz",
+          "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.8.9/Nextendo-1.8.9-linux-x64.tar.gz",
+          "sha256": "60dbf2754d52cf7c27e88bc591c1b31bee79a99ac11ec0889c0cbe2b86111ca4"
         },
         {
-          "filename": "Nextendo-1.8.8-win-x64.zip",
-          "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.8.8/Nextendo-1.8.8-win-x64.zip",
-          "sha256": "6a4e660070df34acb21d749a217efb9f011d074d7ad221956f1b52542bc50c56"
+          "filename": "Nextendo-1.8.9-win-x64.zip",
+          "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.8.9/Nextendo-1.8.9-win-x64.zip",
+          "sha256": "d68c5d8ed1122078d646939ddb9b8e6d763ccab2c9df7e49987d3fc34b8dce9a"
+        },
+        {
+          "filename": "Ryujinx-Nextendo-1.8.9-macos_universal.tar.gz",
+          "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.8.9/Ryujinx-Nextendo-1.8.9-macos_universal.tar.gz",
+          "sha256": "c16596dfc1836396addb6db432f4b374711c3b1ab4a2e7c98a302019870bebf9"
         }
       ],
       "source_type": "github",
