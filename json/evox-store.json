@@ -1,6 +1,6 @@
 {
   "name": "EvoX Universal Store",
-  "updated_at": "2026-09-28T23:14:32.178980Z",
+  "updated_at": "2026-09-29T05:29:38.142397Z",
   "store": [
     {
       "category": "html_test",
@@ -15,7 +15,7 @@
             {
               "filename": "RetroArch-Win64-setup.exe",
               "url": "https://buildbot.libretro.com/nightly/windows/x86_64/RetroArch-Win64-setup.exe",
-              "sha256": "27a9b4784ca163cbe9f69baf4bd9ebb8bd68787597ba858125ad95f09ea8d280"
+              "sha256": "af90e89e63a14300795785d788d18479238fda32b0050884e7cba33c98a96ddb"
             }
           ],
           "source_type": "generic",
@@ -70,23 +70,23 @@
         {
           "name": "Ryujinx-Nextendo",
           "description": "Ryujinx-Nextendo",
-          "version": "v1.8.9",
-          "release_notes": "## What's new\r\n\r\n- Super Mario Odyssey 1.4.1: Nextendo online support, plus fixed nicknames and profile pictures in Balloon World @CollectingW \r\n- Pokémon Scarlet 4.0.0: support added, plus fixes for the Violet client @alyeri.\r\n- Pokémon Scarlet: BCAT events are now downloaded at launch, with a cache kept separate from Violet and Splatoon 2. While there is no Scarlet-specific package, the current shared event (Meowscarada) is used @alyeri, #38).\r\n\r\n## Notes\r\n\r\n- Windows, Linux and macOS builds are available below.\r\n",
+          "version": "v1.8.10",
+          "release_notes": "## What's new\n\n- Game invitations (Invite Friends): when a game opens the friend invitation screen, you now get a friend picker with search and online/offline sections, and the invite is sent through your Nextendo account. The friend receives a Game Invite notification with Accept and Decline, and pending invites stay listed in the Friends window until they expire (@CollectingW).\n- First-run wizard: the keys step now checks that the file really is a `prod.keys` before installing it (picking `title.keys` by mistake no longer breaks every game), and copies `title.keys` along when it sits next to it (@z1pp090, #32).\n- Updater: fixed the relaunch after an update on Windows, which failed with \"Windows cannot find the file `\\`\" (@z1pp090, #29).\n- Spanish: filled in the missing Spanish texts of the Nextendo dialogs (@z1pp090, #30).\n\n## Notes\n\n- Windows, Linux and macOS builds are available below.\n",
           "assets": [
             {
-              "filename": "Nextendo-1.8.9-linux-x64.tar.gz",
-              "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.8.9/Nextendo-1.8.9-linux-x64.tar.gz",
-              "sha256": "60dbf2754d52cf7c27e88bc591c1b31bee79a99ac11ec0889c0cbe2b86111ca4"
+              "filename": "Nextendo-1.8.10-linux-x64.tar.gz",
+              "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.8.10/Nextendo-1.8.10-linux-x64.tar.gz",
+              "sha256": "0ec7f514cdebcb93fe1e764de28be516e19cb0efc8c927a513484aab29478501"
             },
             {
-              "filename": "Nextendo-1.8.9-win-x64.zip",
-              "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.8.9/Nextendo-1.8.9-win-x64.zip",
-              "sha256": "d68c5d8ed1122078d646939ddb9b8e6d763ccab2c9df7e49987d3fc34b8dce9a"
+              "filename": "Nextendo-1.8.10-win-x64.zip",
+              "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.8.10/Nextendo-1.8.10-win-x64.zip",
+              "sha256": "7eae7af56017649a2e741552222e76d470c78acee02e0a219d4c0a51c88eaea1"
             },
             {
-              "filename": "Ryujinx-Nextendo-1.8.9-macos_universal.tar.gz",
-              "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.8.9/Ryujinx-Nextendo-1.8.9-macos_universal.tar.gz",
-              "sha256": "c16596dfc1836396addb6db432f4b374711c3b1ab4a2e7c98a302019870bebf9"
+              "filename": "Ryujinx-Nextendo-1.8.10-macos_universal.tar.gz",
+              "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.8.10/Ryujinx-Nextendo-1.8.10-macos_universal.tar.gz",
+              "sha256": "3433a92e07d466b5971a8121173ff784fc56beb2d2dcb132b13d1b04eb97108f"
             }
           ],
           "source_type": "github",

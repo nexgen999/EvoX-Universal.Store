@@ -50,7 +50,7 @@ Le fichier `config.json` permet de personnaliser l'interface web du Store sans t
 | html_test | html_test | retroarch_windows_nightly | v1.0 |
 | Switch-Emu | Switch-Emu | Citron-neo_windows-nightly | nightly-windows |
 | Switch-Emu | Switch-Emu | Citron-neo_android-nightly | nightly-android |
-| Switch-Emu | Switch-Emu | Ryujinx-Nextendo | v1.8.9 |
+| Switch-Emu | Switch-Emu | Ryujinx-Nextendo | v1.8.10 |
 | Switch-Emu | Switch-Emu | Ryubing | v1.0 |
 | Switch-Emu | Switch-Emu | Kenji-NX | v1.0 |
 | Switch-Emu | Switch-Emu | eden-stable | v0.2.1 |
