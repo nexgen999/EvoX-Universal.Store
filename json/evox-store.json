@@ -1,6 +1,6 @@
 {
   "name": "EvoX Universal Store",
-  "updated_at": "2026-09-29T12:40:46.305952Z",
+  "updated_at": "2026-09-29T22:13:33.098895Z",
   "store": [
     {
       "category": "html_test",
@@ -15,7 +15,7 @@
             {
               "filename": "RetroArch-Win64-setup.exe",
               "url": "https://buildbot.libretro.com/nightly/windows/x86_64/RetroArch-Win64-setup.exe",
-              "sha256": "fbd4c601bdd2e4331e14b2f1f7a0f81189dfab76889e693b5761d12610570131"
+              "sha256": "f31269d75f71a08bb3e14cfbf6edfab50b149686869c79a8993243d37b484fdd"
             }
           ],
           "source_type": "generic",
@@ -31,17 +31,17 @@
           "name": "Citron-neo_windows-nightly",
           "description": "Citron-neo_windows-nightly",
           "version": "nightly-windows",
-          "release_notes": "**Citron Upstream Commit:** [`590824f`](https://github.com/citron-neo/emulator/commit/590824fe71de39b0d7714e02e2a02c9c68a10f77)\n\nThis build is based on the latest Citron emulator source code from the upstream repository.\n\n**Build Details:**\n- Platform: Windows (x64)\n- Toolchains: Clangtron and native clang-cl/MSVC ABI\n- Build Type: Nightly\n- Date: 2026-09-28\n",
+          "release_notes": "**Citron Upstream Commit:** [`40212aa`](https://github.com/citron-neo/emulator/commit/40212aa3ecbda5588e456b57f875311baf9213d8)\n\nThis build is based on the latest Citron emulator source code from the upstream repository.\n\n**Build Details:**\n- Platform: Windows (x64)\n- Toolchains: Clangtron and native clang-cl/MSVC ABI\n- Build Type: Nightly\n- Date: 2026-09-29\n",
           "assets": [
             {
-              "filename": "Citron-windows-nightly-590824fe7-x64-clang-cl.zip",
-              "url": "https://github.com/citron-neo/CI/releases/download/nightly-windows/Citron-windows-nightly-590824fe7-x64-clang-cl.zip",
-              "sha256": "1ff5c70a25185601ab046732a19dfa0fafc00108524d4dbbabfcc1164b9e69a8"
+              "filename": "Citron-windows-nightly-40212aa3e-x64-clang-cl.zip",
+              "url": "https://github.com/citron-neo/CI/releases/download/nightly-windows/Citron-windows-nightly-40212aa3e-x64-clang-cl.zip",
+              "sha256": "321e5a8c469232be66909cf7c95dff77f688b59b5691c277962df0870dbce344"
             },
             {
-              "filename": "Citron-windows-nightly-590824fe7-x64-clangtron.zip",
-              "url": "https://github.com/citron-neo/CI/releases/download/nightly-windows/Citron-windows-nightly-590824fe7-x64-clangtron.zip",
-              "sha256": "baef33a024a08be5724c175ebe8587a88a5bf5c6c6a710b7b0d86ecb1ff5753b"
+              "filename": "Citron-windows-nightly-40212aa3e-x64-clangtron.zip",
+              "url": "https://github.com/citron-neo/CI/releases/download/nightly-windows/Citron-windows-nightly-40212aa3e-x64-clangtron.zip",
+              "sha256": "5e19390376a58658cbfea1f0d79275e5b897b5d2bafa77ebf8826c20e86b716b"
             }
           ],
           "source_type": "github",
