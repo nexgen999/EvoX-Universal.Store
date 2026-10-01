@@ -1,6 +1,6 @@
 {
   "name": "EvoX Universal Store",
-  "updated_at": "2026-10-01T05:30:54.767186Z",
+  "updated_at": "2026-10-01T13:02:02.987022Z",
   "store": [
     {
       "category": "html_test",
@@ -15,7 +15,7 @@
             {
               "filename": "RetroArch-Win64-setup.exe",
               "url": "https://buildbot.libretro.com/nightly/windows/x86_64/RetroArch-Win64-setup.exe",
-              "sha256": "635b79dbc27aff2d58a860284dc02c65dfa2587b3f2877ac9479c0e405658bc4"
+              "sha256": "226902b2a703aca4491790f8c566dc39754f3fea2766234677b98d750ea0ef5b"
             }
           ],
           "source_type": "generic",
@@ -86,7 +86,7 @@
             {
               "filename": "Ryujinx-Nextendo-1.8.11-macos_universal.tar.gz",
               "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.8.11/Ryujinx-Nextendo-1.8.11-macos_universal.tar.gz",
-              "sha256": "ea65d26a26db02fa2ba0120085148bdd457863a628cca4224816fc33f5a3e097"
+              "sha256": "447f5ef7c3d459e3f69a162115ff3f75b72864e5731834a2e24acc078273ff93"
             }
           ],
           "source_type": "github",

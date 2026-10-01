@@ -61,7 +61,7 @@
         {
           "filename": "Ryujinx-Nextendo-1.8.11-macos_universal.tar.gz",
           "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.8.11/Ryujinx-Nextendo-1.8.11-macos_universal.tar.gz",
-          "sha256": "ea65d26a26db02fa2ba0120085148bdd457863a628cca4224816fc33f5a3e097"
+          "sha256": "447f5ef7c3d459e3f69a162115ff3f75b72864e5731834a2e24acc078273ff93"
         }
       ],
       "source_type": "github",
