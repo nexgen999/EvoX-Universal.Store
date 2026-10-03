@@ -1,6 +1,6 @@
 {
   "name": "EvoX Universal Store",
-  "updated_at": "2026-10-03T16:09:52.860768Z",
+  "updated_at": "2026-10-03T21:00:30.964006Z",
   "store": [
     {
       "category": "html_test",
@@ -15,7 +15,7 @@
             {
               "filename": "RetroArch-Win64-setup.exe",
               "url": "https://buildbot.libretro.com/nightly/windows/x86_64/RetroArch-Win64-setup.exe",
-              "sha256": "179a39a47b54cbf08fb2ffec61b8965b117fce935038e0e8e0abd18895858f7e"
+              "sha256": "c117bb707d590d6e93fedf638d4bd6c3cc16f5efcdcbb92a7709a0b42926b1b2"
             }
           ],
           "source_type": "generic",
@@ -70,23 +70,23 @@
         {
           "name": "Ryujinx-Nextendo",
           "description": "Ryujinx-Nextendo",
-          "version": "v1.8.11",
-          "release_notes": "## What's new\r\n\r\n- Pokémon Legends: Z-A (version 2.0.2): Nextendo online support. Link Trades and private battles are confirmed working. Ranked Battles are supported (their terms page is now accepted automatically) but not tested yet, since they need four players (@CollectingW).\r\n- Pokémon Legends: Z-A: Nextendo's Mystery Gifts are downloaded when the game starts, with their own cache kept separate from Scarlet and Violet (@CollectingW).\r\n- Mario Golf: Super Rush 4.0.0 is now marked as online compatible (@CollectingW).\r\n- Mario Tennis Aces now connects to the main Nextendo server instead of being routed by GeoDNS (@CollectingW).\r\n\r\n## Notes\r\n\r\n- Windows, Linux and macOS builds are available below.\r\n",
+          "version": "v1.8.12",
+          "release_notes": "## Nextendo user panel\n- A new in-window dashboard replaces the old profile dialog: your account, friends, online status, lobby and game invitations in one place.\n- Press Ctrl+F to open or close it, even over a running game.\n- Friend profiles now show their play history.\n- Inviting friends to a game now happens inside the panel.\n- What's New now shows the notes of the latest release.\n- Fixed a crash that could close some games when a friends service request returned an error.\n\n## Splatoon 3\n- Splatoon 3 now downloads its BCAT data (schedules and events) from the Nextendo server and keeps it up to date.\n\nThanks to Mars-Hermetto for the user panel and to zara for Splatoon 3 BCAT.\n",
           "assets": [
             {
-              "filename": "Nextendo-1.8.11-linux-x64.tar.gz",
-              "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.8.11/Nextendo-1.8.11-linux-x64.tar.gz",
-              "sha256": "05596bb0988e4b9ef4da80565d4e0bd8275b12ac6eb82db2201b35afd6be8e76"
+              "filename": "Nextendo-1.8.12-linux-x64.tar.gz",
+              "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.8.12/Nextendo-1.8.12-linux-x64.tar.gz",
+              "sha256": "00bb3f316a94d4c1ff4a7f7035ca009bd4127010e30ae3109b62c306aba8bdb1"
             },
             {
-              "filename": "Nextendo-1.8.11-win-x64.zip",
-              "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.8.11/Nextendo-1.8.11-win-x64.zip",
-              "sha256": "223d53b4167eac0d2a223c86f3a94385631a8efad72afd869d80148ee6b34d75"
+              "filename": "Nextendo-1.8.12-win-x64.zip",
+              "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.8.12/Nextendo-1.8.12-win-x64.zip",
+              "sha256": "76dc61796555e4f75729675abde2ef6623cad9b4b4af45f6d6de3aba383f8957"
             },
             {
-              "filename": "Ryujinx-Nextendo-1.8.11-macos_universal.tar.gz",
-              "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.8.11/Ryujinx-Nextendo-1.8.11-macos_universal.tar.gz",
-              "sha256": "447f5ef7c3d459e3f69a162115ff3f75b72864e5731834a2e24acc078273ff93"
+              "filename": "Ryujinx-Nextendo-1.8.12-macos_universal.tar.gz",
+              "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.8.12/Ryujinx-Nextendo-1.8.12-macos_universal.tar.gz",
+              "sha256": "b4bb922cfed37c9010ffb7e4dd63b289d445741200f2ad6ffeb5463d10652444"
             }
           ],
           "source_type": "github",
