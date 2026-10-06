@@ -1,6 +1,6 @@
 {
   "name": "EvoX Universal Store",
-  "updated_at": "2026-10-06T06:13:37.882084Z",
+  "updated_at": "2026-10-06T18:19:38.591845Z",
   "store": [
     {
       "category": "html_test",
@@ -15,7 +15,7 @@
             {
               "filename": "RetroArch-Win64-setup.exe",
               "url": "https://buildbot.libretro.com/nightly/windows/x86_64/RetroArch-Win64-setup.exe",
-              "sha256": "57f494870fa57a4fc62a1263e4f383ce04d9b50647da8f1030dee6c8e308ba1d"
+              "sha256": "b368f4148ce916c3c0f9b26bb076e6b3cf615ac93bbcdc85da5c19d6bfc898f0"
             }
           ],
           "source_type": "generic",
@@ -70,23 +70,23 @@
         {
           "name": "Ryujinx-Nextendo",
           "description": "Ryujinx-Nextendo",
-          "version": "v1.8.12",
-          "release_notes": "## Nextendo user panel\n- A new in-window dashboard replaces the old profile dialog: your account, friends, online status, lobby and game invitations in one place.\n- Press Ctrl+F to open or close it, even over a running game.\n- Friend profiles now show their play history.\n- Inviting friends to a game now happens inside the panel.\n- What's New now shows the notes of the latest release.\n- Fixed a crash that could close some games when a friends service request returned an error.\n\n## Splatoon 3\n- Splatoon 3 now downloads its BCAT data (schedules and events) from the Nextendo server and keeps it up to date.\n\nThanks to Mars-Hermetto for the user panel and to zara for Splatoon 3 BCAT.\n",
+          "version": "v1.8.13",
+          "release_notes": "## Games\n- Super Mario 3D World + Bowser's Fury: the game library now shows its Nextendo compatibility badge (version 1.2.2) and its live player count.\n- Super Mario Bros. Wonder: friend rooms are found again. The friend list now uses the right account IDs and no longer stops after the first 10 friends.\n- Mario Party Superstars: two players on separate Ryujinx installs no longer get the \"multiple players are using the same save data\" error when joining a friend room.\n- ARMS: friends now see you as in an online match when you are actually in a session they can join.\n\n## About window\n- The About window now credits Nextendo Network and the Nextendo team, with a link to nextendo.network. Translated in all languages.\n- The repository now includes the full upstream Ryujinx history, so every original Ryujinx author is credited on GitHub.\n\nThanks to alyeri for the Super Mario 3D World, Wonder and Mario Party Superstars fixes, and to CollectingW for ARMS.\n",
           "assets": [
             {
-              "filename": "Nextendo-1.8.12-linux-x64.tar.gz",
-              "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.8.12/Nextendo-1.8.12-linux-x64.tar.gz",
-              "sha256": "00bb3f316a94d4c1ff4a7f7035ca009bd4127010e30ae3109b62c306aba8bdb1"
+              "filename": "Nextendo-1.8.13-linux-x64.tar.gz",
+              "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.8.13/Nextendo-1.8.13-linux-x64.tar.gz",
+              "sha256": "bff90cb911aac4abdcb6e12224090866be2cababdeb25d8a4d4e47879f77897e"
             },
             {
-              "filename": "Nextendo-1.8.12-win-x64.zip",
-              "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.8.12/Nextendo-1.8.12-win-x64.zip",
-              "sha256": "76dc61796555e4f75729675abde2ef6623cad9b4b4af45f6d6de3aba383f8957"
+              "filename": "Nextendo-1.8.13-win-x64.zip",
+              "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.8.13/Nextendo-1.8.13-win-x64.zip",
+              "sha256": "1f3760ddf045f62edaf08b470d0c596e0dd79df684b8478fb5c87e94cc5f30ad"
             },
             {
-              "filename": "Ryujinx-Nextendo-1.8.12-macos_universal.tar.gz",
-              "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.8.12/Ryujinx-Nextendo-1.8.12-macos_universal.tar.gz",
-              "sha256": "b4bb922cfed37c9010ffb7e4dd63b289d445741200f2ad6ffeb5463d10652444"
+              "filename": "Ryujinx-Nextendo-1.8.13-macos_universal.tar.gz",
+              "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.8.13/Ryujinx-Nextendo-1.8.13-macos_universal.tar.gz",
+              "sha256": "dac1a8a9971ae078f5c530db54f353bb0e4567637941d889de1f2d37344c0ea7"
             }
           ],
           "source_type": "github",
@@ -418,77 +418,77 @@
           "name": "duckstation",
           "description": "DuckStation - PlayStation 1, aka. PSX Emulator",
           "version": "latest",
-          "release_notes": "## Commits\r\n- 2781502e0 SPU: Streamline per-voice flag processing\r\n- 690ead7ee SPU: Vectorize Gaussian interpolation\r\n- 5a7a301a7 SPU: Consolidate capture buffer writes\r\n- a24350c47 SPU: Decode ADPCM nibbles in pairs\r\n- a4904189c VulkanDevice: Use timeline semaphores when available\r\n- ed6720bbf Tests: Fix core-tests building on Windows\r\n- 025ea24fc GPU/HW: Fix typo in CompilePipelines()\r\n- 88ccab2a2 Achievements: Fix some options potentially not live-updating\r\n- 16452a048 Achievements: Check for login request in LoadStateFromBuffer()\r\n- 3c141418a FullscreenUI: Fix extra uneven height in achievement notifications\r\n- 0910d4edc FullscreenUI: Reduce text size of small-mode category badges\r\n- 96268ab66 Qt: Remove empty widget text\r\n- 390c878f7 GameDB: Persona localizedName\r\n- e26fa6091 Update Italian translation (#3798)\r\n- 563c35513 TaskQueue: Add GetOutstandingTasks() and ExecuteOneTask()\r\n- efecb78db Threading: Add GetProcessorCount()\r\n- 0d2e66235 Core: Make TaskQueue thread count dynamic\r\n- 60b06c0e2 ObjectArchive: Use binary keys instead of strings\r\n- 3151c5256 ObjectArchive: Synchronize access internally\r\n- 79371c47a HTTPCache: Use object archive synchronization\r\n- 5420d699e GPUDevice: Use ObjectArchive for shader cache\r\n- 7951eba8a GPUDevice: Support looking up cached shaders and opaque keys\r\n- f541abb11 GPUDevice: Add LoadPipeline() for supported backends\r\n- 5ebeff9c2 GPU/HW: Use UIDs for shader generation\r\n- 7c239271f GPU/HW: Use UIDs as shader cache keys\r\n- 94e5f08f1 GPU/HW: Use multi-threaded shader compilation\r\n- 74a743a5e GPU/HW: Use multi-threaded pipeline compilation\r\n- 6fe06b99e VideoThread: Preserve command queue empty slot\r\n- 7c173d914 VideoThread: Enforce command producer ownership\r\n- 67d594312 VideoThread: Keep successful software fallback\r\n- e0519a899 VideoThread: Use video-owned fullscreen settings\r\n- 7131d9144 VideoThread: Destroy inline reconfigure commands\r\n- c54f16ae5 VideoThread: Snapshot fullscreen state for resize\r\n- 0cad5f505 VideoThread: Dispatch thread toggle failures safely\r\n- 8c6ff3bfc VideoThread: Propagate thread startup failure\r\n- b5f0fb9c3 FullscreenUI: Tweak separator style\r\n- c81a747ff Qt: Add multi-instruction selection to debugger\r\n- 5cc77ac18 Qt: Persist debugger window state\r\n- 9c335d9e0 Qt: Add icons to context menu\r\n- 0874ed65d Qt: Fix empty debugger toolbar window title\r\n- 5b056fc8d Qt: Fix icon missing on newly-added excluded paths\r\n- 024face27 Qt: Add context menu to game list exclusion list\r\n- 28ea031c4 GPU: Add Disable Upscaled Direct Textures option\r\n- 63d72ac15 GameDB: DisableUpscaledDirectTextures for Fear Effect\r\n- d7036f347 Qt: Persist use-serial-file-names in cover downloader\r\n- 6ef27141f MSBuild: Force SHA256 source file hashes\r\n- ef86bf11c InputManager: Add hotkey flag for UI-activatable\r\n- 396dae923 InputManager: Release cancelled hold bindings\r\n- 3d1646517 InputManager: Clear bindings when input is lost\r\n- 0ccc553df InputManager: Fix effect sync device matching\r\n- 3af2d36d6 ImGuiManager: Track text input separately\r\n- 500599143 InputManager: Type button transitions\r\n- e0e692023 FullscreenUI: Add 'Toggle Pause Menu' hotkey\r\n- 142bdc8c8 FullscreenUI: Make cheats/achievements/leadboards hotkeys toggles\r\n- b54fc14bc FullscreenUI: Synchronize pause menu toggle\r\n- 8051b4f0c PerformanceCounters: Ignore reset boundary sample\r\n- b7e20507b Qt: Remove unnecessary usage of QOverload (#3799)\r\n- 2f4724dd1 D3DCommon: Use once_flag for library loading\r\n- 7137ce2be Threading: Add lightweight Mutex/ConditionVariable wrappers\r\n- f46b6a834 Core: Use lock_guard for settings accessors\r\n- bbeac9cfe Core: Use Threading::Mutex for settings lock\r\n- 3bb2b0b1d CDROMAsyncReader: Use lightweight threading abstractions\r\n- 22072c934 Misc: Replace std::mutex with Threading::Mutex\r\n- 00d407c35 CDROMAsyncReader: Convert to namespace\r\n- dbe144407 GPU/HW: Fix missing mask-or application on texture fallback\r\n- ac0e3a5c8 GPU/HW: Add 'Filter Framebuffer Uploads' advanced option\r\n- aaa8a68df GameDB: Enable background texture filtering on more games\r\n- 04f821c04 Qt: Show inherited multi-sampling setting in game properties (#3800)\r\n- 045b83b2d GPU/HW: Add additional texture filters\r\n- a90f008cd GameDB: Fix typo in DisableUpscaledDirectTextures\r\n- 12a1bf9f0 GameDB: Add mouse for Panekit - Infinitive Crafting Toy Case\r\n- 742d2d11b CDROMAsyncReader: Use persistent thread\r\n- c309ca331 CDROM: Fix possible incorrect restart track when playing\r\n- 1b81e5813 FullscreenUI: Avoid double transition on achievements/leaderboards\r\n- 865ed04ef FullscreenUI: Fix toggling between windows with hotkeys\r\n- 3496b6206 FullscreenUI: Fix bullet separator at end of postfx settings\r\n- 61f954854 FullscreenUI: Use popup list for texture filter options\r\n- 24ecfdd94 Misc: Use C++23 elifdef/elifndef\r\n- d01e2ca61 System: Obey optimal frame pacing setting on Linux\r\n- 187ad8f00 GPUDevice: Remove multiple sources of truth for shader dump directory\r\n- bce5e3ddc StringUtil: Fix buffer overflow in BytePatternSearch()\r\n- 73b571c4b Timer: Use pause intrinsics when spin-sleeping\r\n- 3622df217 Common: Use __yield() for CPU-pause on ARM\r\n- 228745147 PageFaultHandler: Fix unused variable warning\r\n- fc8675c95 dep/vixl: Fix deprecated-literal-operator warning\r\n- 60a798cdc StringUtil: Return first match in BytePatternSearch()\r\n- 42cf88c4b dep/googletest: Update to v1.18.0\r\n- 831305b5d Threading: Detect recursive locks in debug builds\r\n- 46532474a Error: Add wrappers for translating messages without object\r\n- 1067ebe9e HTTPDownloader: Use string view and move semantics for callback error\r\n- 46fca8f0d HTTPDownloader: Ensure all callbacks invoke through PollEvents()\r\n- 31a610358 Settings: Turn debug window visiblity into a bitmask\r\n- 5684d1b00 Achievements: Replace recursive mutex with lightweight mutex\r\n- 8f99b60ef Qt: Add missing help text for savetitle/localizedtitle\r\n- 4cd6e30de FullscreenUI: Replace recursive_mutex with lightweight mutex\r\n- 108e721f5 FullscreenUI: Allow verification of runtime-populated images\r\n- 4224e9aab Updater: Directly wait for parent to exit instead of using shell\r\n- 2c9866ef9 Qt: Dynamically adjust log window colours to theme\r\n- 3cb7b0650 Disable auto analog in Trap Gunner; add missing traits for Spyro x Sparx (#3801)\r\n- 473025995 Tests: Fix directory not cleaned up\r\n- 8148a8196 Threading: Add SharedMutex lightweight wrapper\r\n- f0fb6f7e7 Achievements: Avoid deadlock with leaderboard trackers disabled\r\n- 7326f90c9 Achievements: Avoid lock when settings unchanged\r\n- 31d44058a Achievements: Use a second mutex for notification state\r\n- 86b333d18 Qt: Fix per-game achievement notification duration sliders\r\n- bbd84255e Qt: Simplify output latency widget updates\r\n- cd5066662 Qt: Bind audio output volume through regular settings updates\r\n- 288eee1d2 Update duckstation-qt_es.ts (#3802)\r\n- 8e4dbf153 Qt: Fix latency description not updating\r\n- 0d8dda34d Spanish (Spain) translation update 2026/09/24 (#3803)\r\n- 62299a509 LightgunController: Create base class for lightgun controllers\r\n- e68536dcd NeGcon: Create common base class for NeGcon controllers\r\n- d9cb895dd Controller: Unify some of the translation strings\r\n- 73b5a2416 Threading: Add SharedLockGuard helper\r\n- 687178a00 InputManager: Internalise private functions\r\n- ee8b45a83 InputManager: Use atomics for rawinput/pointer count\r\n- 58efbb8c8 InputManager: Use atomics for host pointer position\r\n- 0ae22c1a9 ImGuiManager: Read pointer state directly from InputManager\r\n- 501d3a989 InputManager: Reload input bindings after source hotplug\r\n- d76435ca7 InputManager: Extract internal state to private header\r\n- eed22aa28 InputManager: Use a shared mutex for synchronization\r\n- 7a8e8a077 InputManager: Use SmallString for binding conversions\r\n- aa77ed54d Qt: Move DS5 player LED setting into LED dialog\r\n- 64b1e2b46 SDLInputSource: Simplify polling\r\n- 59e2f1da2 SDLInputSource: Poll immediately after initializing\r\n- 7495b7624 SDLInputSource: Rely on reload to enable accelerometer\r\n- edd41dff1 SDLInputSource: Use persistent identifiers when mapping\r\n- d04078319 GameList: Fix possible null string-view construction\r\n- bbebc317a Common: Use second thread for assertion dialogs\r\n- 608a0c3c2 Common: Use single isb for ARM PauseCPU()\r\n- 4c721f375 VideoThread: Use dynamic spin loop on ARM\r\n- 85c4acea8 Timer: Use global initializer for timer frequency on Windows\r\n- 202c7d839 Qt: Add pill-label css class\r\n- 8293e84b8 Qt: Display bound devices in controller pages\r\n- 62e48451a Win32RawInputSource: Fix wrong OnInputDeviceConnected() call\r\n- a2aa7295e GameList: Use correct string_view constructor\r\n- 79fc5454d Common: Remove unnecessary include\r\n- f9e12bb1e Qt: Simplify mute setting callback\r\n- 56dbfea7f Qt: Fix doubled-up help description\r\n- f1359f0b4 Update duckstation-qt_es.ts (#3805)\r\n- f9ba75404 Atualização Português do Brasil (#3806)\r\n- a2edf2d0f Update Italian translation (#3807)\r\n- 0619481dc MetalDevice: Drop feedback loop path\r\n- dc4e77298 VulkanDevice: Fix incorrect hazard tracking in stream buffer\r\n- 5e54cade9 GPU/HW: Fix background replacements disappearing after TC toggled off\r\n- 10632b92e GPU/HW: Simplify pipeline layouts\r\n- 2ab88c6d9 ImGuiManager: Move blur constants into main UBO\r\n- 285916255 GPUDevice: Remove MultiTextureAndUBO pipeline layout\r\n- de1fd8c66 GPUDevice: Move UNIFORM_PUSH_CONSTANTS_SIZE into base class\r\n- 9fcff157a D3D12Device: Remove MAX_UNIFORM_BUFFER_SIZE\r\n- d901b2590 D3D12Device: Ensure all samplers are initialized in LookupSingle()\r\n- f3d284354 FullscreenUI: Add background image blurring for headers\r\n- c4b4496e9 FullscreenUI: Display subset icon as game icon in subset view\r\n- 616c41d49 ImGuiManager: Stash overlays in separate draw list when transition active\r\n- d78fd23db ImGuiManager: Avoid unsafe read of context pointer on core thread\r\n- 8a46ed8b7 Misc: Replace std::shared_mutex with Threading::SharedMutex\r\n- 60f7ffa2d GPU: Fix scanline sync before vertical_display_start\r\n- bfb23fb8c GPU: Improve CRTC function readability\r\n- 41c1fb10e Qt: Use posix_spawn for updater relaunch on Linux\r\n- a429876f5 Misc: Remove more unused include guards\r\n- 4091d2935 FullscreenUI: Fix change disc menu getting stuck in some scenarios\r\n- 2c1fba1cd FullscreenUI: Size loading screen text and progress separately\r\n- b3b2bbc75 FullscreenUI: Display progress for on-demand game list load\r\n- 2d8e5b68a MDEC: Don't clear output FIFO on new command\r\n- 8d42a0c02 FullscreenUI: Fix compiler warning\r\n- 003ff5a8d Qt: Update machine translations\r\n- 39a1e37be Qt: Update English translation catalog\r\n- 4d3dadd07 CDImageMemory: Read each sector in its native format\r\n- e68431fda CDImagePPF: Handle non-mode2 sectors\r\n- 3f037f268 CDImageCHD: Read out the correct sector size depending on mode\r\n- 8fa9ef539 FullscreenUI: Fix focus reset on escape in game list search\r\n- acad15618 Deps: Update to 20261001\r\n- 14c226762 Qt: Use AppRoot for translations\r\n- fd88101c8 VulkanDevice: Fix spec violation in ROV clear\r\n- 9d00d6b6e GPU/HW: Use correct format for ROV buffers\r\n- 4122fed9a INISettingsInterface: ClearSection() should not create an empty section",
+          "release_notes": "## Commits\n- a304c04: Update duckstation-qt_es.ts (#3808) (PeterDelta) [#3808](https://github.com/stenzek/duckstation/pull/3808)\n- Fix a bunch of incorrect release dates ([Stenzek](https://github.com/stenzek/duckstation/commit/898b6a3caada6ff6c1f7466c62f44f62bee0cca0))\n- Fix incorrect title being copied into save state header ([Stenzek](https://github.com/stenzek/duckstation/commit/baf6c425d0598782decd41c6ce71679cd5294959))\n- Use prefix path in cross appimage ([Stenzek](https://github.com/stenzek/duckstation/commit/697599c47a646a6cfcc4d246018adf4904d55001))",
           "assets": [
             {
               "filename": "DuckStation-arm64.AppImage",
               "url": "https://github.com/stenzek/duckstation/releases/download/latest/DuckStation-arm64.AppImage",
-              "sha256": "c571e315afcc91f93aab128ad0ec13af8c27e6db4da40333e4ec0834a17086a0"
+              "sha256": "0bb0afbb083dcd7af9a00a164f6ab4e1c9fe3caf6cda866417f031120630d852"
             },
             {
               "filename": "DuckStation-armhf.AppImage",
               "url": "https://github.com/stenzek/duckstation/releases/download/latest/DuckStation-armhf.AppImage",
-              "sha256": "c13f440b1a93378f04b63e2bd34e792b2dc81bdf5d6c2c934f73ef5a3013601f"
+              "sha256": "297a050b7c9fe6796bebaa16f8558176fb8c96ca711bdc9822d9f4edcaeacb69"
             },
             {
               "filename": "duckstation-mac-release.zip",
               "url": "https://github.com/stenzek/duckstation/releases/download/latest/duckstation-mac-release.zip",
-              "sha256": "04585557e843dc61bceb42742e44cdd94dc4870dad2005707c50f25e82b19489"
+              "sha256": "3463328c700766bbb5b1d28e1915e3cf5cadcec5b58589e2b28f067484845c8e"
             },
             {
               "filename": "duckstation-windows-arm64-installer.exe",
               "url": "https://github.com/stenzek/duckstation/releases/download/latest/duckstation-windows-arm64-installer.exe",
-              "sha256": "61a479b4d9190b57e3b4dc0bdc6c18303c3821a6717e3099a6c032ac407e3c68"
+              "sha256": "955bc44164c6554ffc74411c6f6bfe9bf57f70b537dc21d0e11569df84ca57df"
             },
             {
               "filename": "duckstation-windows-arm64-release-symbols.7z",
               "url": "https://github.com/stenzek/duckstation/releases/download/latest/duckstation-windows-arm64-release-symbols.7z",
-              "sha256": "3141b0e39043ca0257f45cf5d478a49360cb92a1c242d2f43248014baddb4378"
+              "sha256": "358f5319a55b847c8e77abe4f8af46faa459dd666ab75670693cde9f6e8153da"
             },
             {
               "filename": "duckstation-windows-arm64-release.zip",
               "url": "https://github.com/stenzek/duckstation/releases/download/latest/duckstation-windows-arm64-release.zip",
-              "sha256": "60fe9e061077588f572d552d324e41b14f95b22d01e66c85c81004d4f96dd827"
+              "sha256": "6f1515d962e470f48ff87a710aaea67197932fa8c0331064753f52c65fd35ea1"
             },
             {
               "filename": "duckstation-windows-x64-installer.exe",
               "url": "https://github.com/stenzek/duckstation/releases/download/latest/duckstation-windows-x64-installer.exe",
-              "sha256": "1b10be5dbc37bc8550ccda31ca4a1ee483ed18fe682f9455fed0745ed3539ec8"
+              "sha256": "5727af3ce244712bcaeb6c77993c47b169050252c716631f52bcdd38819a0a08"
             },
             {
               "filename": "duckstation-windows-x64-release-symbols.7z",
               "url": "https://github.com/stenzek/duckstation/releases/download/latest/duckstation-windows-x64-release-symbols.7z",
-              "sha256": "7978847480cf40f510508b67689c496cb429b55276a0fb7c227672731a7822b7"
+              "sha256": "518c223db632c3dc29ed03d7cf90e279993aaf6745e668cf72080f4ccb033f2d"
             },
             {
               "filename": "duckstation-windows-x64-release.zip",
               "url": "https://github.com/stenzek/duckstation/releases/download/latest/duckstation-windows-x64-release.zip",
-              "sha256": "1c6ce125f5bddb5d72b294335975b79eaa29e3f6686875537bfe4b61c9cc3973"
+              "sha256": "4813f22823e6aa262c46a4a516f10b01e1e2ddf6fcea82763e359ef9ac812a9d"
             },
             {
               "filename": "duckstation-windows-x64-sse2-installer.exe",
               "url": "https://github.com/stenzek/duckstation/releases/download/latest/duckstation-windows-x64-sse2-installer.exe",
-              "sha256": "38cc371ce2f8cf530c3aa7dfa8c3476f8399e0c54eeea3ecfa8164ddfb5891b9"
+              "sha256": "44a2f681d84ea53cf54505502cdbdfad681116666a1efc4cd199b5ebc852bd7f"
             },
             {
               "filename": "duckstation-windows-x64-sse2-release-symbols.7z",
               "url": "https://github.com/stenzek/duckstation/releases/download/latest/duckstation-windows-x64-sse2-release-symbols.7z",
-              "sha256": "3d73b0d586db55906dc9423081cc7627e4fc28c5452541661a7b39cda421f4b7"
+              "sha256": "59d07d9ee1d9e4aaa77f72be4ca4ed9c77d7be0d0724645b6f3765a13e98bb1c"
             },
             {
               "filename": "duckstation-windows-x64-sse2-release.zip",
               "url": "https://github.com/stenzek/duckstation/releases/download/latest/duckstation-windows-x64-sse2-release.zip",
-              "sha256": "c02d439ed53828073db474054afb6793982fce87bc801e1b2cb5d2abba79f908"
+              "sha256": "ba1709399a86759b0fe21f205401aa5d056daa9cc4417ceac17aecf69c8a22de"
             },
             {
               "filename": "DuckStation-x64-SSE2.AppImage",
               "url": "https://github.com/stenzek/duckstation/releases/download/latest/DuckStation-x64-SSE2.AppImage",
-              "sha256": "7af4db8c420b5c8d1b5461e943d828f9c7a46a6be700bd75667d15c018663ac2"
+              "sha256": "635984663f1b1e78d6d1a8579e5757a197d45dcf51cd62557b8ec1c8053449c1"
             },
             {
               "filename": "DuckStation-x64.AppImage",
               "url": "https://github.com/stenzek/duckstation/releases/download/latest/DuckStation-x64.AppImage",
-              "sha256": "df5bf413934e69e6820fff5ebe1d49c6bbb1ffb6477df4d757387a083661673b"
+              "sha256": "a7ae3d505f23985a241c3fd6b9beb69bbbd035bd70696835248960817f24f585"
             }
           ],
           "source_type": "github",
