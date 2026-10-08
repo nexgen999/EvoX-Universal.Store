@@ -45,23 +45,23 @@
     {
       "name": "Ryujinx-Nextendo",
       "description": "Ryujinx-Nextendo",
-      "version": "v1.8.13",
-      "release_notes": "## Games\n- Super Mario 3D World + Bowser's Fury: the game library now shows its Nextendo compatibility badge (version 1.2.2) and its live player count.\n- Super Mario Bros. Wonder: friend rooms are found again. The friend list now uses the right account IDs and no longer stops after the first 10 friends.\n- Mario Party Superstars: two players on separate Ryujinx installs no longer get the \"multiple players are using the same save data\" error when joining a friend room.\n- ARMS: friends now see you as in an online match when you are actually in a session they can join.\n\n## About window\n- The About window now credits Nextendo Network and the Nextendo team, with a link to nextendo.network. Translated in all languages.\n- The repository now includes the full upstream Ryujinx history, so every original Ryujinx author is credited on GitHub.\n\nThanks to alyeri for the Super Mario 3D World, Wonder and Mario Party Superstars fixes, and to CollectingW for ARMS.\n",
+      "version": "v1.8.14",
+      "release_notes": "## Games\n- Nintendo Switch Sports: graphics fixes (vertex data is now written before draws) and six-axis sensor calibration support, so the game renders and reads motion controls correctly.\n- Splatoon 2 on macOS and Linux: online matches no longer drop because a UDP hole-punch probe was mistaken for a disconnect.\n\n## Service catalog\n- The emulator now reads a signed catalog from Nextendo Network. New online titles and accepted game versions can be added from the server, without waiting for an emulator update.\n- Catalog titles show their supported version and live player count in the game library. A manual refresh is available in the Nextendo menu.\n- If a catalog title is not on a supported version, you get the usual warning and can still play offline.\n\n## macOS\n- Controllers no longer freeze the emulator when HD rumble is initialised.\n\n## Contributors\n- @Mythrax-ZS: Nintendo Switch Sports fixes (#51)\n- @alyeri: service catalog (#48)\n- @Zard-Studios: macOS and Splatoon 2 fixes (#28)\n- @CollectingW: review and merge of the Nintendo Switch Sports fixes\n",
       "assets": [
         {
-          "filename": "Nextendo-1.8.13-linux-x64.tar.gz",
-          "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.8.13/Nextendo-1.8.13-linux-x64.tar.gz",
-          "sha256": "bff90cb911aac4abdcb6e12224090866be2cababdeb25d8a4d4e47879f77897e"
+          "filename": "Nextendo-1.8.14-linux-x64.tar.gz",
+          "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.8.14/Nextendo-1.8.14-linux-x64.tar.gz",
+          "sha256": "b00e35c3f73bcab201988e2123f671c2740bb424ab57dc9b0348c00ed8f46fe1"
         },
         {
-          "filename": "Nextendo-1.8.13-win-x64.zip",
-          "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.8.13/Nextendo-1.8.13-win-x64.zip",
-          "sha256": "1f3760ddf045f62edaf08b470d0c596e0dd79df684b8478fb5c87e94cc5f30ad"
+          "filename": "Nextendo-1.8.14-win-x64.zip",
+          "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.8.14/Nextendo-1.8.14-win-x64.zip",
+          "sha256": "e3ca06e12255243ecb0e9279d793e92d5dafefd182444c38f4e2c3250ca49ab5"
         },
         {
-          "filename": "Ryujinx-Nextendo-1.8.13-macos_universal.tar.gz",
-          "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.8.13/Ryujinx-Nextendo-1.8.13-macos_universal.tar.gz",
-          "sha256": "dac1a8a9971ae078f5c530db54f353bb0e4567637941d889de1f2d37344c0ea7"
+          "filename": "Ryujinx-Nextendo-1.8.14-macos_universal.tar.gz",
+          "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.8.14/Ryujinx-Nextendo-1.8.14-macos_universal.tar.gz",
+          "sha256": "3c52be3e5039e7c2fad5ee70b8d56f04d7a2d925d6982c1210bf7600655edcf4"
         }
       ],
       "source_type": "github",
