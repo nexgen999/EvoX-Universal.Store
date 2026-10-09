@@ -55,7 +55,7 @@ Le fichier `config.json` permet de personnaliser l'interface web du Store sans t
 | Switch-Emu | Switch-Emu | Kenji-NX | v1.0 |
 | Switch-Emu | Switch-Emu | eden-stable | v0.2.1 |
 | Switch-Emu | Switch-Emu | eden-nightly | v1791499301.67bada77f8 |
-| forgejo_test | forgejo_test | elf-arsenal | v1.0 |
+| forgejo_test | forgejo_test | elf-arsenal | v1.6.23 |
 | github_test | github_test | flycast | v2.7 |
 | github_test | github_test | flycast-dojo | dojo-6.46 |
 | github_test | github_test | duckstation | latest |
