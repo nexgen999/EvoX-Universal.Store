@@ -1,6 +1,6 @@
 {
   "name": "EvoX Universal Store",
-  "updated_at": "2026-10-10T05:32:33.548045Z",
+  "updated_at": "2026-10-10T12:22:36.254482Z",
   "store": [
     {
       "category": "html_test",
@@ -15,7 +15,7 @@
             {
               "filename": "RetroArch-Win64-setup.exe",
               "url": "https://buildbot.libretro.com/nightly/windows/x86_64/RetroArch-Win64-setup.exe",
-              "sha256": "636aa2578a1b83c98325dcada42bb01a7c8c5fb562e07ce31289fc39e233aa9b"
+              "sha256": "9e3965dd0c237d52f6e4b5544e128d7b3c3f98ab7865080703984c6e0b6b7e05"
             }
           ],
           "source_type": "generic",
