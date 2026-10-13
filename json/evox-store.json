@@ -1,6 +1,6 @@
 {
   "name": "EvoX Universal Store",
-  "updated_at": "2026-10-12T15:13:35.429479Z",
+  "updated_at": "2026-10-13T00:34:36.278977Z",
   "store": [
     {
       "category": "html_test",
@@ -15,7 +15,7 @@
             {
               "filename": "RetroArch-Win64-setup.exe",
               "url": "https://buildbot.libretro.com/nightly/windows/x86_64/RetroArch-Win64-setup.exe",
-              "sha256": "cb360fccbb7dc03f8903554cb98ac26bc8ed0cee89dde2269b10c78e73071314"
+              "sha256": "a50693866b74223d59ff06eabee76045d7bd3f8685e604c5499bcc6828104351"
             }
           ],
           "source_type": "generic",
@@ -31,17 +31,17 @@
           "name": "Citron-neo_windows-nightly",
           "description": "Citron-neo_windows-nightly",
           "version": "nightly-windows",
-          "release_notes": "**Citron Upstream Commit:** [`3527589`](https://github.com/citron-neo/emulator/commit/352758980078ac0127fe95525b36746d041ca747)\n\nThis build is based on the latest Citron emulator source code from the upstream repository.\n\n**Build Details:**\n- Platform: Windows (x64)\n- Toolchains: Clangtron and native clang-cl/MSVC ABI\n- Build Type: Nightly\n- Date: 2026-10-10\n",
+          "release_notes": "**Citron Upstream Commit:** [`0ec79e4`](https://github.com/citron-neo/emulator/commit/0ec79e4ddedd26c75de2cc073e8e874a2b3c5ca4)\n\nThis build is based on the latest Citron emulator source code from the upstream repository.\n\n**Build Details:**\n- Platform: Windows (x64)\n- Toolchains: Clangtron and native clang-cl/MSVC ABI\n- Build Type: Nightly\n- Date: 2026-10-12\n",
           "assets": [
             {
-              "filename": "Citron-windows-nightly-352758980-x64-clang-cl.zip",
-              "url": "https://github.com/citron-neo/CI/releases/download/nightly-windows/Citron-windows-nightly-352758980-x64-clang-cl.zip",
-              "sha256": "3e2f49d4dc0e08b9dc4086a0d6cee2dfa0e2f48626dd5e9ad72397e28d351795"
+              "filename": "Citron-windows-nightly-0ec79e4dd-x64-clang-cl.zip",
+              "url": "https://github.com/citron-neo/CI/releases/download/nightly-windows/Citron-windows-nightly-0ec79e4dd-x64-clang-cl.zip",
+              "sha256": "74f3625614d8ad34c5e9421f0aa1727118105893abcbecd31bce35ae61f7c4be"
             },
             {
-              "filename": "Citron-windows-nightly-352758980-x64-clangtron.zip",
-              "url": "https://github.com/citron-neo/CI/releases/download/nightly-windows/Citron-windows-nightly-352758980-x64-clangtron.zip",
-              "sha256": "a895d9d176aacb5d0bfda36816fdb565868f0f4be5da702d25d80df45c6a50a3"
+              "filename": "Citron-windows-nightly-0ec79e4dd-x64-clangtron.zip",
+              "url": "https://github.com/citron-neo/CI/releases/download/nightly-windows/Citron-windows-nightly-0ec79e4dd-x64-clangtron.zip",
+              "sha256": "9f1eaf60f15dc4c0aa2a28406d8478519edadc46d946dead5847f82c1494d18d"
             }
           ],
           "source_type": "github",
@@ -51,17 +51,17 @@
           "name": "Citron-neo_android-nightly",
           "description": "Citron-neo_android-nightly",
           "version": "nightly-android",
-          "release_notes": "**Citron Upstream Commit:** [`a016e4d`](https://github.com/citron-neo/emulator/commit/a016e4d0c7a9e5597ee5583ea0519802292d72ca)\n\nThis build is based on the latest Citron emulator source code from the **main** branch.\n\n**Build Details:**\n- Platform: Android (arm64-v8a)\n- Build Type: Nightly with LTO enabled\n- Date: 2026-10-11\n- Branch: main\n- Includes: Standard build + Snapdragon 8 Elite build with Qualcomm patches\n",
+          "release_notes": "**Citron Upstream Commit:** [`0ec79e4`](https://github.com/citron-neo/emulator/commit/0ec79e4ddedd26c75de2cc073e8e874a2b3c5ca4)\n\nThis build is based on the latest Citron emulator source code from the **main** branch.\n\n**Build Details:**\n- Platform: Android (arm64-v8a)\n- Build Type: Nightly with LTO enabled\n- Date: 2026-10-12\n- Branch: main\n- Includes: Standard build + Snapdragon 8 Elite build with Qualcomm patches\n",
           "assets": [
             {
               "filename": "app-mainline-release.apk",
               "url": "https://github.com/citron-neo/CI/releases/download/nightly-android/app-mainline-release.apk",
-              "sha256": "98c363a6c529a5b0d74c004f3a370a09c14419dd50a9d779a589702ac19ef832"
+              "sha256": "3b276c23b3ce5a4737096c678c99fa90a2dac7901bd63b1b881db756da48e7c3"
             },
             {
-              "filename": "Citron-29258-Android-8.Elite-Lyb.apk",
-              "url": "https://github.com/citron-neo/CI/releases/download/nightly-android/Citron-29258-Android-8.Elite-Lyb.apk",
-              "sha256": "aa53d3b01e069fdf11464186323e0e91366cde38f0fef5f491dc00f63233ca8c"
+              "filename": "Citron-29265-Android-8.Elite-Lyb.apk",
+              "url": "https://github.com/citron-neo/CI/releases/download/nightly-android/Citron-29265-Android-8.Elite-Lyb.apk",
+              "sha256": "f567425029d7f275d3d0616424c157db5e48e0c7b136c36e8ee417f24a289907"
             }
           ],
           "source_type": "github",
