@@ -6,17 +6,17 @@
       "name": "Citron-neo_windows-nightly",
       "description": "Citron-neo_windows-nightly",
       "version": "nightly-windows",
-      "release_notes": "**Citron Upstream Commit:** [`0ec79e4`](https://github.com/citron-neo/emulator/commit/0ec79e4ddedd26c75de2cc073e8e874a2b3c5ca4)\n\nThis build is based on the latest Citron emulator source code from the upstream repository.\n\n**Build Details:**\n- Platform: Windows (x64)\n- Toolchains: Clangtron and native clang-cl/MSVC ABI\n- Build Type: Nightly\n- Date: 2026-10-12\n",
+      "release_notes": "**Citron Upstream Commit:** [`57b1925`](https://github.com/citron-neo/emulator/commit/57b1925f51f450759439603410333c85abf7becc)\n\nThis build is based on the latest Citron emulator source code from the upstream repository.\n\n**Build Details:**\n- Platform: Windows (x64)\n- Toolchains: Clangtron and native clang-cl/MSVC ABI\n- Build Type: Nightly\n- Date: 2026-10-14\n",
       "assets": [
         {
-          "filename": "Citron-windows-nightly-0ec79e4dd-x64-clang-cl.zip",
-          "url": "https://github.com/citron-neo/CI/releases/download/nightly-windows/Citron-windows-nightly-0ec79e4dd-x64-clang-cl.zip",
-          "sha256": "74f3625614d8ad34c5e9421f0aa1727118105893abcbecd31bce35ae61f7c4be"
+          "filename": "Citron-windows-nightly-57b1925f5-x64-clang-cl.zip",
+          "url": "https://github.com/citron-neo/CI/releases/download/nightly-windows/Citron-windows-nightly-57b1925f5-x64-clang-cl.zip",
+          "sha256": "0f3ae9fce08d1492a893d158ff97b1c402f7ba96854f2f3893d040d895d5f3df"
         },
         {
-          "filename": "Citron-windows-nightly-0ec79e4dd-x64-clangtron.zip",
-          "url": "https://github.com/citron-neo/CI/releases/download/nightly-windows/Citron-windows-nightly-0ec79e4dd-x64-clangtron.zip",
-          "sha256": "9f1eaf60f15dc4c0aa2a28406d8478519edadc46d946dead5847f82c1494d18d"
+          "filename": "Citron-windows-nightly-57b1925f5-x64-clangtron.zip",
+          "url": "https://github.com/citron-neo/CI/releases/download/nightly-windows/Citron-windows-nightly-57b1925f5-x64-clangtron.zip",
+          "sha256": "76ebdaf894ec7b7c7e9b50b4ae887c809817616cdf832bc67f3efa275e4efd31"
         }
       ],
       "source_type": "github",
@@ -25,18 +25,18 @@
     {
       "name": "Citron-neo_android-nightly",
       "description": "Citron-neo_android-nightly",
-      "version": "nightly-android",
-      "release_notes": "**Citron Upstream Commit:** [`0ec79e4`](https://github.com/citron-neo/emulator/commit/0ec79e4ddedd26c75de2cc073e8e874a2b3c5ca4)\n\nThis build is based on the latest Citron emulator source code from the **main** branch.\n\n**Build Details:**\n- Platform: Android (arm64-v8a)\n- Build Type: Nightly with LTO enabled\n- Date: 2026-10-12\n- Branch: main\n- Includes: Standard build + Snapdragon 8 Elite build with Qualcomm patches\n",
+      "version": "nightly-windows",
+      "release_notes": "**Citron Upstream Commit:** [`57b1925`](https://github.com/citron-neo/emulator/commit/57b1925f51f450759439603410333c85abf7becc)\n\nThis build is based on the latest Citron emulator source code from the upstream repository.\n\n**Build Details:**\n- Platform: Windows (x64)\n- Toolchains: Clangtron and native clang-cl/MSVC ABI\n- Build Type: Nightly\n- Date: 2026-10-14\n",
       "assets": [
         {
-          "filename": "app-mainline-release.apk",
-          "url": "https://github.com/citron-neo/CI/releases/download/nightly-android/app-mainline-release.apk",
-          "sha256": "3b276c23b3ce5a4737096c678c99fa90a2dac7901bd63b1b881db756da48e7c3"
+          "filename": "Citron-windows-nightly-57b1925f5-x64-clang-cl.zip",
+          "url": "https://github.com/citron-neo/CI/releases/download/nightly-windows/Citron-windows-nightly-57b1925f5-x64-clang-cl.zip",
+          "sha256": "0f3ae9fce08d1492a893d158ff97b1c402f7ba96854f2f3893d040d895d5f3df"
         },
         {
-          "filename": "Citron-29265-Android-8.Elite-Lyb.apk",
-          "url": "https://github.com/citron-neo/CI/releases/download/nightly-android/Citron-29265-Android-8.Elite-Lyb.apk",
-          "sha256": "f567425029d7f275d3d0616424c157db5e48e0c7b136c36e8ee417f24a289907"
+          "filename": "Citron-windows-nightly-57b1925f5-x64-clangtron.zip",
+          "url": "https://github.com/citron-neo/CI/releases/download/nightly-windows/Citron-windows-nightly-57b1925f5-x64-clangtron.zip",
+          "sha256": "76ebdaf894ec7b7c7e9b50b4ae887c809817616cdf832bc67f3efa275e4efd31"
         }
       ],
       "source_type": "github",
@@ -45,23 +45,23 @@
     {
       "name": "Ryujinx-Nextendo",
       "description": "Ryujinx-Nextendo",
-      "version": "v1.9.0",
-      "release_notes": "## qLaunch Beta 1 Update\n- The real HOME Menu of the Switch (qLaunch) now runs in the emulator: Nextendo > qLaunch, or Tools > HOME Menu. It needs an installed firmware, and the Nextendo additions below need firmware 22.5.0.\n- Your games show in the HOME Menu with their icons and start from it. The HOME button of your controller brings the menu back during a game.\n- On a new setup, the console's initial setup runs once: language, region, users, linking your Nextendo account, TV or handheld mode.\n- Settings of the HOME Menu (start with the emulator, in the background, fullscreen, homebrew menu) are in Nextendo > qLaunch.\n\n## Friends and profiles\n- Your real Nextendo friends in the HOME Menu: friend list, friend pages with the game being played, play history and friends-since date, friend requests sent and received.\n- Modern friend profiles: your Nextendo banner (animated GIF banners too), badges and rounded pictures, on your own page and on your friends' pages.\n- Discord avatar decorations of staff and donors show on their pictures, animated on your own picture in the HOME Menu and on your profile page.\n- \"A friend is online\" notifications from the console itself, with a larger friend picture.\n\n## HOME Menu\n- Themes page: Themezer themes applied on the fly, page by page, with a preview of each installed theme.\n- Your controller in the HOME Menu: its picture and button symbols follow the controller plugged in (PlayStation, Xbox), with the Joy-Con attach and detach effects.\n- Notifications in the style of the console: controller connected, battery, capture, game added, badge, server lost or back.\n- Nextendo News in the HOME Menu, with Featured News.\n- Virtual game cards: your .xci files can be used as game cards (option in Nextendo > qLaunch).\n- A \"Ryujinx | Nextendo\" section in the System Settings, users management, data management with real sizes, Wi-Fi and network pages that show your computer's connection.\n- The HOME Menu renders in 1080p in TV mode.\n- System Update in the HOME Menu checks for a newer emulator and installs it.\n- The album opens Sphaira, or hbmenu if you prefer.\n- \"Original HOME Menu\" option: the HOME Menu without any Nextendo addition. With a firmware other than 22.5.0, the additions are turned off automatically and come back when 22.5.0 is installed again.\n\n## Games\n- Super Mario Party Jamboree 2.3.0 connects to Nextendo without an external patch.\n- Splatoon 3: birthdays of plaza posts.\n- Nintendo Switch Sports: BCAT data tables are downloaded.\n\n## Bundled homebrew\n- Only Sphaira and hbmenu are bundled, with their licenses in THIRDPARTY.md.\n\n## Contributors\n- @alyeri: Super Mario Party Jamboree 2.3.0 patch (#54)\n- @cakezara: Splatoon 3 plaza post birthdays\n- @CollectingW: Nintendo Switch Sports BCAT data tables\n",
+      "version": "v1.9.2",
+      "release_notes": "## qLaunch\r\n- A game started from the HOME Menu can be started again after closing it. Before, the second launch failed (\"could not be loaded\"), or the game crashed at start.\r\n- Splatoon 3 and the other games that read BCAT data find it again when started from the HOME Menu after another game.\r\n- The game is suspended while the HOME Menu is in front, as on a console: the controller no longer plays the game behind the menu. Close Software ends it cleanly.\r\n- The System Update page names Ryujinx | Nextendo in every language (only French did).\r\n\r\n## Themes\r\n- Themes that bring their own HOME Menu layout (Persona 5 UI, Switch 2 and others) no longer crash the HOME Menu at start. The emulator now applies by itself the small HOME Menu patch these layouts need, which NXThemes Installer used to install.\r\n- A custom theme always uses Basic Black: its text is no longer dark on a dark background when Basic White was chosen before.\r\n\r\n## Games\r\n- Pac-Man 99: the supported version is now 1.1.1.0, the one Nextendo's servers use.\r\n",
       "assets": [
         {
-          "filename": "Nextendo-1.9.0-linux-x64.tar.gz",
-          "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.9.0/Nextendo-1.9.0-linux-x64.tar.gz",
-          "sha256": "330b69e2c71fd8acd815c81318ffd3222b5b3a3f859e2d63b2770e9ac0d87e4b"
+          "filename": "Nextendo-1.9.2-linux-x64.tar.gz",
+          "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.9.2/Nextendo-1.9.2-linux-x64.tar.gz",
+          "sha256": "9b32ba6bddfae04b976754aa910d570dfd70cf5e7cc7215bf59c6847ce60e60e"
         },
         {
-          "filename": "Nextendo-1.9.0-win-x64.zip",
-          "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.9.0/Nextendo-1.9.0-win-x64.zip",
-          "sha256": "3ba453d0fc512e684eb50a0ec3244df86f2b79ccb5afc9ffc8030c46c91f21a5"
+          "filename": "Nextendo-1.9.2-win-x64.zip",
+          "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.9.2/Nextendo-1.9.2-win-x64.zip",
+          "sha256": "5a68269b936fe948524a8e5ef6557e44726ae29281b56f614a4b91175806ff02"
         },
         {
-          "filename": "Ryujinx-Nextendo-1.9.0-macos_universal.tar.gz",
-          "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.9.0/Ryujinx-Nextendo-1.9.0-macos_universal.tar.gz",
-          "sha256": "64f83d9db3ac25ef3991c89d3072428e26bf46865fe1b5e88633d29665cc75da"
+          "filename": "Ryujinx-Nextendo-1.9.2-macos_universal.tar.gz",
+          "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.9.2/Ryujinx-Nextendo-1.9.2-macos_universal.tar.gz",
+          "sha256": "eb32c3ed24e2d2a86312588d81eeb94bb4edbc3b92c028929f7959e6887ebfa4"
         }
       ],
       "source_type": "github",
