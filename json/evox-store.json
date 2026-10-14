@@ -1,6 +1,6 @@
 {
   "name": "EvoX Universal Store",
-  "updated_at": "2026-10-14T11:41:45.950121Z",
+  "updated_at": "2026-10-14T17:08:57.274752Z",
   "store": [
     {
       "category": "html_test",
@@ -15,7 +15,7 @@
             {
               "filename": "RetroArch-Win64-setup.exe",
               "url": "https://buildbot.libretro.com/nightly/windows/x86_64/RetroArch-Win64-setup.exe",
-              "sha256": "3797a420e04bd7c1f666e66ec54b153936297ed76d2a04babf9147711b35a381"
+              "sha256": "84fff1695cd383d0a6497903f2d23e54d110610bf9922ac225d96553363dc3b5"
             }
           ],
           "source_type": "generic",
@@ -70,23 +70,23 @@
         {
           "name": "Ryujinx-Nextendo",
           "description": "Ryujinx-Nextendo",
-          "version": "v1.8.14",
-          "release_notes": "## Games\n- Nintendo Switch Sports: graphics fixes (vertex data is now written before draws) and six-axis sensor calibration support, so the game renders and reads motion controls correctly.\n- Splatoon 2 on macOS and Linux: online matches no longer drop because a UDP hole-punch probe was mistaken for a disconnect.\n\n## Service catalog\n- The emulator now reads a signed catalog from Nextendo Network. New online titles and accepted game versions can be added from the server, without waiting for an emulator update.\n- Catalog titles show their supported version and live player count in the game library. A manual refresh is available in the Nextendo menu.\n- If a catalog title is not on a supported version, you get the usual warning and can still play offline.\n\n## macOS\n- Controllers no longer freeze the emulator when HD rumble is initialised.\n\n## Contributors\n- @Mythrax-ZS: Nintendo Switch Sports fixes (#51)\n- @alyeri: service catalog (#48)\n- @Zard-Studios: macOS and Splatoon 2 fixes (#28)\n- @CollectingW: review and merge of the Nintendo Switch Sports fixes\n",
+          "version": "v1.9.0",
+          "release_notes": "## qLaunch Beta 1 Update\n- The real HOME Menu of the Switch (qLaunch) now runs in the emulator: Nextendo > qLaunch, or Tools > HOME Menu. It needs an installed firmware, and the Nextendo additions below need firmware 22.5.0.\n- Your games show in the HOME Menu with their icons and start from it. The HOME button of your controller brings the menu back during a game.\n- On a new setup, the console's initial setup runs once: language, region, users, linking your Nextendo account, TV or handheld mode.\n- Settings of the HOME Menu (start with the emulator, in the background, fullscreen, homebrew menu) are in Nextendo > qLaunch.\n\n## Friends and profiles\n- Your real Nextendo friends in the HOME Menu: friend list, friend pages with the game being played, play history and friends-since date, friend requests sent and received.\n- Modern friend profiles: your Nextendo banner (animated GIF banners too), badges and rounded pictures, on your own page and on your friends' pages.\n- Discord avatar decorations of staff and donors show on their pictures, animated on your own picture in the HOME Menu and on your profile page.\n- \"A friend is online\" notifications from the console itself, with a larger friend picture.\n\n## HOME Menu\n- Themes page: Themezer themes applied on the fly, page by page, with a preview of each installed theme.\n- Your controller in the HOME Menu: its picture and button symbols follow the controller plugged in (PlayStation, Xbox), with the Joy-Con attach and detach effects.\n- Notifications in the style of the console: controller connected, battery, capture, game added, badge, server lost or back.\n- Nextendo News in the HOME Menu, with Featured News.\n- Virtual game cards: your .xci files can be used as game cards (option in Nextendo > qLaunch).\n- A \"Ryujinx | Nextendo\" section in the System Settings, users management, data management with real sizes, Wi-Fi and network pages that show your computer's connection.\n- The HOME Menu renders in 1080p in TV mode.\n- System Update in the HOME Menu checks for a newer emulator and installs it.\n- The album opens Sphaira, or hbmenu if you prefer.\n- \"Original HOME Menu\" option: the HOME Menu without any Nextendo addition. With a firmware other than 22.5.0, the additions are turned off automatically and come back when 22.5.0 is installed again.\n\n## Games\n- Super Mario Party Jamboree 2.3.0 connects to Nextendo without an external patch.\n- Splatoon 3: birthdays of plaza posts.\n- Nintendo Switch Sports: BCAT data tables are downloaded.\n\n## Bundled homebrew\n- Only Sphaira and hbmenu are bundled, with their licenses in THIRDPARTY.md.\n\n## Contributors\n- @alyeri: Super Mario Party Jamboree 2.3.0 patch (#54)\n- @cakezara: Splatoon 3 plaza post birthdays\n- @CollectingW: Nintendo Switch Sports BCAT data tables\n",
           "assets": [
             {
-              "filename": "Nextendo-1.8.14-linux-x64.tar.gz",
-              "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.8.14/Nextendo-1.8.14-linux-x64.tar.gz",
-              "sha256": "b00e35c3f73bcab201988e2123f671c2740bb424ab57dc9b0348c00ed8f46fe1"
+              "filename": "Nextendo-1.9.0-linux-x64.tar.gz",
+              "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.9.0/Nextendo-1.9.0-linux-x64.tar.gz",
+              "sha256": "330b69e2c71fd8acd815c81318ffd3222b5b3a3f859e2d63b2770e9ac0d87e4b"
             },
             {
-              "filename": "Nextendo-1.8.14-win-x64.zip",
-              "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.8.14/Nextendo-1.8.14-win-x64.zip",
-              "sha256": "e3ca06e12255243ecb0e9279d793e92d5dafefd182444c38f4e2c3250ca49ab5"
+              "filename": "Nextendo-1.9.0-win-x64.zip",
+              "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.9.0/Nextendo-1.9.0-win-x64.zip",
+              "sha256": "3ba453d0fc512e684eb50a0ec3244df86f2b79ccb5afc9ffc8030c46c91f21a5"
             },
             {
-              "filename": "Ryujinx-Nextendo-1.8.14-macos_universal.tar.gz",
-              "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.8.14/Ryujinx-Nextendo-1.8.14-macos_universal.tar.gz",
-              "sha256": "3c52be3e5039e7c2fad5ee70b8d56f04d7a2d925d6982c1210bf7600655edcf4"
+              "filename": "Ryujinx-Nextendo-1.9.0-macos_universal.tar.gz",
+              "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.9.0/Ryujinx-Nextendo-1.9.0-macos_universal.tar.gz",
+              "sha256": "64f83d9db3ac25ef3991c89d3072428e26bf46865fe1b5e88633d29665cc75da"
             }
           ],
           "source_type": "github",
