@@ -45,23 +45,23 @@
     {
       "name": "Ryujinx-Nextendo",
       "description": "Ryujinx-Nextendo",
-      "version": "v1.9.2",
-      "release_notes": "## qLaunch\r\n- A game started from the HOME Menu can be started again after closing it. Before, the second launch failed (\"could not be loaded\"), or the game crashed at start.\r\n- Splatoon 3 and the other games that read BCAT data find it again when started from the HOME Menu after another game.\r\n- The game is suspended while the HOME Menu is in front, as on a console: the controller no longer plays the game behind the menu. Close Software ends it cleanly.\r\n- The System Update page names Ryujinx | Nextendo in every language (only French did).\r\n\r\n## Themes\r\n- Themes that bring their own HOME Menu layout (Persona 5 UI, Switch 2 and others) no longer crash the HOME Menu at start. The emulator now applies by itself the small HOME Menu patch these layouts need, which NXThemes Installer used to install.\r\n- A custom theme always uses Basic Black: its text is no longer dark on a dark background when Basic White was chosen before.\r\n\r\n## Games\r\n- Pac-Man 99: the supported version is now 1.1.1.0, the one Nextendo's servers use.\r\n",
+      "version": "v1.9.3",
+      "release_notes": "## Accounts\n- Several Nextendo accounts in one emulator. When two or more are signed in, a \"Who's playing?\" window lets you pick one before a game starts, and before your account, friends or lobby open. The same account cannot be added twice.\n\n## qLaunch\n- New friend list: each friend on a card, with a round picture and, under it, the nickname and the last time online.\n- Round profile pictures on a friend's page and on your own profile.\n- Discord avatar decorations (staff and donors) now move, and go past the edge of the round picture as on Discord: on a friend's page, on your own profile and in the friend list.\n- A friend's page shows what they are doing in their game, under the game (for example \"Offline · VS · 150cc\").\n- The banner of a friend's page no longer goes missing at times.\n- Friend Suggestions show their 3DS and Wii U illustrations again.\n\n## Fixes\n- A game started from the HOME Menu no longer builds its shader cache again each time.\n- Splatoon 3 gets its latest BCAT data when started from the HOME Menu.\n- Fixed a crash when closing an online game, and when the HOME Menu overlay started as emulation was stopping.\n\n## Games\n- Pac-Man 99: the supported version is now 1.1.0.\n- Metal Gear Solid: Peace Walker (US) starts again, and Monster Hunter Rise 16.0.2 gets its online patches (thanks to CollectingW).\n",
       "assets": [
         {
-          "filename": "Nextendo-1.9.2-linux-x64.tar.gz",
-          "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.9.2/Nextendo-1.9.2-linux-x64.tar.gz",
-          "sha256": "9b32ba6bddfae04b976754aa910d570dfd70cf5e7cc7215bf59c6847ce60e60e"
+          "filename": "Nextendo-1.9.3-linux-x64.tar.gz",
+          "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.9.3/Nextendo-1.9.3-linux-x64.tar.gz",
+          "sha256": "beb3aca67350dbd5baae3c87ba7495fb02547172019e4d3875625827952164a6"
         },
         {
-          "filename": "Nextendo-1.9.2-win-x64.zip",
-          "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.9.2/Nextendo-1.9.2-win-x64.zip",
-          "sha256": "5a68269b936fe948524a8e5ef6557e44726ae29281b56f614a4b91175806ff02"
+          "filename": "Nextendo-1.9.3-win-x64.zip",
+          "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.9.3/Nextendo-1.9.3-win-x64.zip",
+          "sha256": "c5a43b9aa0159ddd72fc1b4ea39d6ea458ebbbd23d93cbdc35f3f344200e23f8"
         },
         {
-          "filename": "Ryujinx-Nextendo-1.9.2-macos_universal.tar.gz",
-          "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.9.2/Ryujinx-Nextendo-1.9.2-macos_universal.tar.gz",
-          "sha256": "eb32c3ed24e2d2a86312588d81eeb94bb4edbc3b92c028929f7959e6887ebfa4"
+          "filename": "Ryujinx-Nextendo-1.9.3-macos_universal.tar.gz",
+          "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.9.3/Ryujinx-Nextendo-1.9.3-macos_universal.tar.gz",
+          "sha256": "37ea62a747f0a5df779324909f5d839a361b7de8a38241a3f624dfe0b97ff227"
         }
       ],
       "source_type": "github",
