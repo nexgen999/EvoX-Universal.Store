@@ -45,23 +45,23 @@
     {
       "name": "Ryujinx-Nextendo",
       "description": "Ryujinx-Nextendo",
-      "version": "v1.9.3",
-      "release_notes": "## Accounts\n- Several Nextendo accounts in one emulator. When two or more are signed in, a \"Who's playing?\" window lets you pick one before a game starts, and before your account, friends or lobby open. The same account cannot be added twice.\n\n## qLaunch\n- New friend list: each friend on a card, with a round picture and, under it, the nickname and the last time online.\n- Round profile pictures on a friend's page and on your own profile.\n- Discord avatar decorations (staff and donors) now move, and go past the edge of the round picture as on Discord: on a friend's page, on your own profile and in the friend list.\n- A friend's page shows what they are doing in their game, under the game (for example \"Offline · VS · 150cc\").\n- The banner of a friend's page no longer goes missing at times.\n- Friend Suggestions show their 3DS and Wii U illustrations again.\n\n## Fixes\n- A game started from the HOME Menu no longer builds its shader cache again each time.\n- Splatoon 3 gets its latest BCAT data when started from the HOME Menu.\n- Fixed a crash when closing an online game, and when the HOME Menu overlay started as emulation was stopping.\n\n## Games\n- Pac-Man 99: the supported version is now 1.1.0.\n- Metal Gear Solid: Peace Walker (US) starts again, and Monster Hunter Rise 16.0.2 gets its online patches (thanks to CollectingW).\n",
+      "version": "v1.9.4",
+      "release_notes": "## HOME Menu notifications\r\n- Notifications are detached from the screen edges with rounded corners, like PlayStation.\r\n- A friend coming online now shows a bigger profile picture and the icon of the game they are playing.\r\n- Donors and Nextendo staff show their animated Discord nameplate, with its colour gradient, in their notification.\r\n- The emulator's own notifications (controllers, connection) use the same style.\r\n- Fixed the icon of a friend's game staying on other notifications.\r\n\r\n## Friends\r\n- A friend online without a game no longer shows \"Loading failed\": their page shows the HOME Menu card, named in your console language.\r\n- Friends connected on the Nextendo App now appear online with a Nextendo App card.\r\n- Coming back to a friend's page keeps their banner, game details and avatar decoration.\r\n- The left column of a friend's page is centred.\r\n\r\n## Fixes\r\n- Games launched from the HOME Menu now use their own shader cache: no more wrong colours or broken ink in Splatoon 3. If the problem stays, clear the shader cache of that game once.\r\n- Fixed a crash of the notification overlay and a friend's picture appearing in the wrong place.\r\n- Removed leftover testing code.\r\n",
       "assets": [
         {
-          "filename": "Nextendo-1.9.3-linux-x64.tar.gz",
-          "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.9.3/Nextendo-1.9.3-linux-x64.tar.gz",
-          "sha256": "beb3aca67350dbd5baae3c87ba7495fb02547172019e4d3875625827952164a6"
+          "filename": "Nextendo-1.9.4-linux-x64.tar.gz",
+          "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.9.4/Nextendo-1.9.4-linux-x64.tar.gz",
+          "sha256": "45f03502f8be1e9a433c0f28384597f526211f4422827afc8f26c78a85644666"
         },
         {
-          "filename": "Nextendo-1.9.3-win-x64.zip",
-          "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.9.3/Nextendo-1.9.3-win-x64.zip",
-          "sha256": "c5a43b9aa0159ddd72fc1b4ea39d6ea458ebbbd23d93cbdc35f3f344200e23f8"
+          "filename": "Nextendo-1.9.4-win-x64.zip",
+          "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.9.4/Nextendo-1.9.4-win-x64.zip",
+          "sha256": "040709c5ad3a0e1ed5938a96006d778034dfe949119ea896c21bf4f5775584a3"
         },
         {
-          "filename": "Ryujinx-Nextendo-1.9.3-macos_universal.tar.gz",
-          "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.9.3/Ryujinx-Nextendo-1.9.3-macos_universal.tar.gz",
-          "sha256": "37ea62a747f0a5df779324909f5d839a361b7de8a38241a3f624dfe0b97ff227"
+          "filename": "Ryujinx-Nextendo-1.9.4-macos_universal.tar.gz",
+          "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.9.4/Ryujinx-Nextendo-1.9.4-macos_universal.tar.gz",
+          "sha256": "8ee751e4da964c4b2d6d652e57aab6246bd0e48507678f229993aa6cb53d6a6b"
         }
       ],
       "source_type": "github",
