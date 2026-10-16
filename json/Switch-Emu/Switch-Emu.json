@@ -11,12 +11,12 @@
         {
           "filename": "Citron-windows-nightly-598b70088-x64-clang-cl.zip",
           "url": "https://github.com/citron-neo/CI/releases/download/nightly-windows/Citron-windows-nightly-598b70088-x64-clang-cl.zip",
-          "sha256": "63172555b4b87bf9b04a44d39027492de578cea753f5ae03c55cf7b6da25eb1d"
+          "sha256": "f72cf26bef45d7c82593b8109585d879b65493a4dd6abb0e2ad69066d5cab29f"
         },
         {
           "filename": "Citron-windows-nightly-598b70088-x64-clangtron.zip",
           "url": "https://github.com/citron-neo/CI/releases/download/nightly-windows/Citron-windows-nightly-598b70088-x64-clangtron.zip",
-          "sha256": "2876ac13431c59e8de78da76b9c8ca2bd21f7e85428eab4141494599a5ed0816"
+          "sha256": "1a381aa3b41aa55a7dc00b0f4bdbf8501687ed5aff2c95cee1cbafc3e0b647ab"
         }
       ],
       "source_type": "github",
@@ -31,12 +31,12 @@
         {
           "filename": "app-mainline-release.apk",
           "url": "https://github.com/citron-neo/CI/releases/download/nightly-android/app-mainline-release.apk",
-          "sha256": "a2f5a9f01319f308272d8106326863ac517a5fa2621411a46c611d34d002d383"
+          "sha256": "607a856c8943f7d3ac02ccd39a29c16b46b5732d7e7ad0ad31e87ea9ce842f60"
         },
         {
           "filename": "Citron-29329-Android-8.Elite-Lyb.apk",
           "url": "https://github.com/citron-neo/CI/releases/download/nightly-android/Citron-29329-Android-8.Elite-Lyb.apk",
-          "sha256": "905a75fffc166c79b252038be37b08a545a15396e0fc8f094cda3fd46cd330d7"
+          "sha256": "8773d1b09cccc75b50cd45d97c4d681504f52707006aa8794547c30cef9266e6"
         }
       ],
       "source_type": "github",
