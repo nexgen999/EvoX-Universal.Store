@@ -45,23 +45,33 @@
     {
       "name": "Ryujinx-Nextendo",
       "description": "Ryujinx-Nextendo",
-      "version": "v1.9.4",
-      "release_notes": "## HOME Menu notifications\r\n- Notifications are detached from the screen edges with rounded corners, like PlayStation.\r\n- A friend coming online now shows a bigger profile picture and the icon of the game they are playing.\r\n- Donors and Nextendo staff show their animated Discord nameplate, with its colour gradient, in their notification.\r\n- The emulator's own notifications (controllers, connection) use the same style.\r\n- Fixed the icon of a friend's game staying on other notifications.\r\n\r\n## Friends\r\n- A friend online without a game no longer shows \"Loading failed\": their page shows the HOME Menu card, named in your console language.\r\n- Friends connected on the Nextendo App now appear online with a Nextendo App card.\r\n- Coming back to a friend's page keeps their banner, game details and avatar decoration.\r\n- The left column of a friend's page is centred.\r\n\r\n## Fixes\r\n- Games launched from the HOME Menu now use their own shader cache: no more wrong colours or broken ink in Splatoon 3. If the problem stays, clear the shader cache of that game once.\r\n- Fixed a crash of the notification overlay and a friend's picture appearing in the wrong place.\r\n- Removed leftover testing code.\r\n",
+      "version": "v1.9.5",
+      "release_notes": "## Smash Rework Update\r\n- Super Smash Bros. Ultimate now has its own BCAT delivery cache: the news ticker of the main menu, the Nextendo gift and the Nextendo announcements show in the main menu, translated in the 14 languages of the game. The ticker no longer says \"Connect to the Internet\".\r\n- Super Smash Bros. Ultimate gets the BCAT download action in the game list, like the other BCAT games.\r\n- Friend arenas are no longer empty: your friend list is ready as soon as the game asks for it, even when the first read failed at launch.\r\n- Fixed a Vulkan crash in Super Smash Bros. Ultimate after the web page: some of its shaders used more buffer bindings than the renderer had room for.\r\n\r\n## HOME Menu\r\n- Notifications in high definition: the game icon and the friend's picture have their own textures, they are no longer stretched and blurry. The game icon is centred in the frame.\r\n- A friend online without a game is now shown \"on the HOME Menu\" or \"on the Nextendo App\" instead of a plain \"Online\", with the matching icon on their profile.\r\n- When two friends come online together, each notification shows its own friend and game.\r\n- Your profile picture and name stay up to date: a change made on the website or in the Nextendo App is copied to the local profile, also right before the HOME Menu starts.\r\n- Your avatar decoration shows on the small picture at the top of your profile page.\r\n- The presence published while you are on the HOME Menu keeps the HOME Menu identity.\r\n\r\n## Update\r\n- The built-in updater offers this version (Help > Check for Updates, or System Update in the HOME Menu) and keeps your portable folder: keys, saves and account stay in place.\r\n\r\n## Contributors\r\n- @SoulToxic3119: HOME Menu identity in the published friend presence (#60)\r\n",
       "assets": [
         {
-          "filename": "Nextendo-1.9.4-linux-x64.tar.gz",
-          "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.9.4/Nextendo-1.9.4-linux-x64.tar.gz",
-          "sha256": "45f03502f8be1e9a433c0f28384597f526211f4422827afc8f26c78a85644666"
+          "filename": "Nextendo-1.9.5-linux-x64.tar.gz",
+          "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.9.5/Nextendo-1.9.5-linux-x64.tar.gz",
+          "sha256": "13c74fcd3176c6c656567e216b689e02e32de7902730ed185cb30bdf26df6a2d"
         },
         {
-          "filename": "Nextendo-1.9.4-win-x64.zip",
-          "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.9.4/Nextendo-1.9.4-win-x64.zip",
-          "sha256": "040709c5ad3a0e1ed5938a96006d778034dfe949119ea896c21bf4f5775584a3"
+          "filename": "Nextendo-1.9.5-win-x64.zip",
+          "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.9.5/Nextendo-1.9.5-win-x64.zip",
+          "sha256": "4e0caf41f19f9dbeda5cb80900dacfdb4ffa708deb770190672b6dd8deecb718"
         },
         {
-          "filename": "Ryujinx-Nextendo-1.9.4-macos_universal.tar.gz",
-          "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.9.4/Ryujinx-Nextendo-1.9.4-macos_universal.tar.gz",
-          "sha256": "8ee751e4da964c4b2d6d652e57aab6246bd0e48507678f229993aa6cb53d6a6b"
+          "filename": "Ryujinx-Nextendo-1.9.5-macos-arm64.tar.gz",
+          "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.9.5/Ryujinx-Nextendo-1.9.5-macos-arm64.tar.gz",
+          "sha256": "9be65f9a40e7df238430882bee59f2717cba72da774dcb9b3114879b18f9ddd9"
+        },
+        {
+          "filename": "Ryujinx-Nextendo-1.9.5-macos-x64.tar.gz",
+          "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.9.5/Ryujinx-Nextendo-1.9.5-macos-x64.tar.gz",
+          "sha256": "9be65f9a40e7df238430882bee59f2717cba72da774dcb9b3114879b18f9ddd9"
+        },
+        {
+          "filename": "Ryujinx-Nextendo-1.9.5-macos_universal.tar.gz",
+          "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.9.5/Ryujinx-Nextendo-1.9.5-macos_universal.tar.gz",
+          "sha256": "9be65f9a40e7df238430882bee59f2717cba72da774dcb9b3114879b18f9ddd9"
         }
       ],
       "source_type": "github",
