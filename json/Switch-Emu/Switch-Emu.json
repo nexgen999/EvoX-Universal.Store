@@ -45,33 +45,33 @@
     {
       "name": "Ryujinx-Nextendo",
       "description": "Ryujinx-Nextendo",
-      "version": "v1.9.5",
-      "release_notes": "## Smash Rework Update\r\n- Super Smash Bros. Ultimate now has its own BCAT delivery cache: the news ticker of the main menu, the Nextendo gift and the Nextendo announcements show in the main menu, translated in the 14 languages of the game. The ticker no longer says \"Connect to the Internet\".\r\n- Super Smash Bros. Ultimate gets the BCAT download action in the game list, like the other BCAT games.\r\n- Friend arenas are no longer empty: your friend list is ready as soon as the game asks for it, even when the first read failed at launch.\r\n- Fixed a Vulkan crash in Super Smash Bros. Ultimate after the web page: some of its shaders used more buffer bindings than the renderer had room for.\r\n\r\n## HOME Menu\r\n- Notifications in high definition: the game icon and the friend's picture have their own textures, they are no longer stretched and blurry. The game icon is centred in the frame.\r\n- A friend online without a game is now shown \"on the HOME Menu\" or \"on the Nextendo App\" instead of a plain \"Online\", with the matching icon on their profile.\r\n- When two friends come online together, each notification shows its own friend and game.\r\n- Your profile picture and name stay up to date: a change made on the website or in the Nextendo App is copied to the local profile, also right before the HOME Menu starts.\r\n- Your avatar decoration shows on the small picture at the top of your profile page.\r\n- The presence published while you are on the HOME Menu keeps the HOME Menu identity.\r\n\r\n## Update\r\n- The built-in updater offers this version (Help > Check for Updates, or System Update in the HOME Menu) and keeps your portable folder: keys, saves and account stay in place.\r\n\r\n## Contributors\r\n- @SoulToxic3119: HOME Menu identity in the published friend presence (#60)\r\n",
+      "version": "v1.9.6",
+      "release_notes": "## Mario Kart 8 Deluxe 4.0.1\n- Mario Kart 8 Deluxe online now requires version 4.0.1, like the Nextendo servers. Version 4.0.0 can no longer play online: update the game.\n- The online version check now accepts the required version or any newer update, for every Nextendo game. A game update released after this version no longer shows \"Online unavailable\" until the emulator is updated. CTGPDX is unchanged.\n- The game list badge shows the minimum version (for example v4.0.1+), and the wrong version message says which version or newer is needed.\n\n## Account\n- Your country flag now comes from your Nextendo account (shown in Mario Kart 8 Deluxe).\n- Your in-game name follows your Nextendo username: the local profile takes the name shown on the website, read again right before each game launch and every 5 minutes, so Mario Kart 8 Deluxe no longer keeps an old name.\n\n## Update\n- The built-in updater offers this version (Help > Check for Updates, or System Update in the HOME Menu) and keeps your portable folder: keys, saves and account stay in place.\n",
       "assets": [
         {
-          "filename": "Nextendo-1.9.5-linux-x64.tar.gz",
-          "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.9.5/Nextendo-1.9.5-linux-x64.tar.gz",
-          "sha256": "13c74fcd3176c6c656567e216b689e02e32de7902730ed185cb30bdf26df6a2d"
+          "filename": "Nextendo-1.9.6-linux-x64.tar.gz",
+          "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.9.6/Nextendo-1.9.6-linux-x64.tar.gz",
+          "sha256": "4a550faae9f7d9f92711350a62e741787ca2d09d8d45f1929097bae5aebf1d38"
         },
         {
-          "filename": "Nextendo-1.9.5-win-x64.zip",
-          "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.9.5/Nextendo-1.9.5-win-x64.zip",
-          "sha256": "4e0caf41f19f9dbeda5cb80900dacfdb4ffa708deb770190672b6dd8deecb718"
+          "filename": "Nextendo-1.9.6-win-x64.zip",
+          "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.9.6/Nextendo-1.9.6-win-x64.zip",
+          "sha256": "481387d681acf4200b4b8a33b0273b835840cd6cd4d2a5cb351c9cd628947181"
         },
         {
-          "filename": "Ryujinx-Nextendo-1.9.5-macos-arm64.tar.gz",
-          "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.9.5/Ryujinx-Nextendo-1.9.5-macos-arm64.tar.gz",
-          "sha256": "9be65f9a40e7df238430882bee59f2717cba72da774dcb9b3114879b18f9ddd9"
+          "filename": "Ryujinx-Nextendo-1.9.6-macos-arm64.tar.gz",
+          "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.9.6/Ryujinx-Nextendo-1.9.6-macos-arm64.tar.gz",
+          "sha256": "f9f702a7d27a8f4b6582d63483985969de767d4e0111a4d07fb9f0c31e93904d"
         },
         {
-          "filename": "Ryujinx-Nextendo-1.9.5-macos-x64.tar.gz",
-          "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.9.5/Ryujinx-Nextendo-1.9.5-macos-x64.tar.gz",
-          "sha256": "9be65f9a40e7df238430882bee59f2717cba72da774dcb9b3114879b18f9ddd9"
+          "filename": "Ryujinx-Nextendo-1.9.6-macos-x64.tar.gz",
+          "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.9.6/Ryujinx-Nextendo-1.9.6-macos-x64.tar.gz",
+          "sha256": "f9f702a7d27a8f4b6582d63483985969de767d4e0111a4d07fb9f0c31e93904d"
         },
         {
-          "filename": "Ryujinx-Nextendo-1.9.5-macos_universal.tar.gz",
-          "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.9.5/Ryujinx-Nextendo-1.9.5-macos_universal.tar.gz",
-          "sha256": "9be65f9a40e7df238430882bee59f2717cba72da774dcb9b3114879b18f9ddd9"
+          "filename": "Ryujinx-Nextendo-1.9.6-macos_universal.tar.gz",
+          "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.9.6/Ryujinx-Nextendo-1.9.6-macos_universal.tar.gz",
+          "sha256": "f9f702a7d27a8f4b6582d63483985969de767d4e0111a4d07fb9f0c31e93904d"
         }
       ],
       "source_type": "github",
