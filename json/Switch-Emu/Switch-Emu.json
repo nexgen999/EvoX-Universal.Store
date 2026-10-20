@@ -45,33 +45,33 @@
     {
       "name": "Ryujinx-Nextendo",
       "description": "Ryujinx-Nextendo",
-      "version": "v1.9.8",
-      "release_notes": "## macOS online fix\n- Splatoon 3 on macOS stopped at error 2321-4992 as soon as it tried to go online. The emulator handed the game an unknown network error code where it should have said \"no data yet\", so the game closed its connection to the Nextendo servers before logging in. This is fixed: Splatoon 3 connects again on macOS, and so do the other games that read the network the same way.\n- Windows and Linux are not affected by this bug and behave exactly as in 1.9.7.\n\n## Update\n- macOS players: update to this version to play Splatoon 3 online. The built-in updater offers it (Help > Check for Updates, or System Update in the HOME Menu) and keeps your data: keys, saves and account stay in place. You can also download Ryujinx-Nextendo-1.9.8-macos_universal.tar.gz below, extract it and replace Ryujinx.app (right-click > Open the first time, the app is not notarized).\n",
+      "version": "v1.9.9",
+      "release_notes": "## Animal Crossing: New Horizons\r\n- Best friends between the emulator and a real Switch: in Animal Crossing, the emulator now uses the same online identity as a Switch linked to the same Nextendo account, so players on Ryujinx and on Switch can become best friends. This turns on together with the matching Nextendo server update; until then, nothing changes.\r\n- Your island in the cloud: this turns on with the Nextendo server update.\r\n\r\n## Other changes\r\n- New user dashboard and translation fixes (Mars-Hermetto).\r\n- macOS: Artis Impact black screen fixed, kernel range check fixed, Chinese, Japanese, Korean, Arabic and Thai text no longer shows as boxes (gzdemon77).\r\n- UNO added to the Nextendo game table, version 1.1.17 (SoulToxic3119).\r\n- Monster Hunter Rise (Japan/Hong Kong) sends its own app_id (CollectingW).\r\n\r\n## Update\r\n- The built-in updater offers this version (Help > Check for Updates, or System Update in the HOME Menu) and keeps your portable folder: keys, saves and account stay in place.\r\n",
       "assets": [
         {
-          "filename": "Nextendo-1.9.8-linux-x64.tar.gz",
-          "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.9.8/Nextendo-1.9.8-linux-x64.tar.gz",
-          "sha256": "39f6427b1b194fbe0156bb87091b71fd19e04f69ce37716f177a5b13197e5750"
+          "filename": "Nextendo-1.9.9-linux-x64.tar.gz",
+          "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.9.9/Nextendo-1.9.9-linux-x64.tar.gz",
+          "sha256": "a9300d3a6fdf88ddbd6f884d119154f943efa8e6aa8a595eaa6020b44d66ddfb"
         },
         {
-          "filename": "Nextendo-1.9.8-win-x64.zip",
-          "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.9.8/Nextendo-1.9.8-win-x64.zip",
-          "sha256": "8e5305f44ae4eaded2e04ab85535a74e379d2e4340f34151aa72f1c4cc1170f5"
+          "filename": "Nextendo-1.9.9-win-x64.zip",
+          "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.9.9/Nextendo-1.9.9-win-x64.zip",
+          "sha256": "29ffb7244a50f33cfbb6a1a8e5725f221daf28ec2be7a0ee0bb68d2841960531"
         },
         {
-          "filename": "Ryujinx-Nextendo-1.9.8-macos-arm64.tar.gz",
-          "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.9.8/Ryujinx-Nextendo-1.9.8-macos-arm64.tar.gz",
-          "sha256": "965450461a107f90497e8fa699005b1fe86c879cc456c6b2f50b4ba5a26d3b05"
+          "filename": "Ryujinx-Nextendo-1.9.9-macos-arm64.tar.gz",
+          "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.9.9/Ryujinx-Nextendo-1.9.9-macos-arm64.tar.gz",
+          "sha256": "0e33ef8ea993cbfc756865900969454bcd8803d17e240646362d02a9f8cddc25"
         },
         {
-          "filename": "Ryujinx-Nextendo-1.9.8-macos-x64.tar.gz",
-          "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.9.8/Ryujinx-Nextendo-1.9.8-macos-x64.tar.gz",
-          "sha256": "965450461a107f90497e8fa699005b1fe86c879cc456c6b2f50b4ba5a26d3b05"
+          "filename": "Ryujinx-Nextendo-1.9.9-macos-x64.tar.gz",
+          "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.9.9/Ryujinx-Nextendo-1.9.9-macos-x64.tar.gz",
+          "sha256": "0e33ef8ea993cbfc756865900969454bcd8803d17e240646362d02a9f8cddc25"
         },
         {
-          "filename": "Ryujinx-Nextendo-1.9.8-macos_universal.tar.gz",
-          "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.9.8/Ryujinx-Nextendo-1.9.8-macos_universal.tar.gz",
-          "sha256": "965450461a107f90497e8fa699005b1fe86c879cc456c6b2f50b4ba5a26d3b05"
+          "filename": "Ryujinx-Nextendo-1.9.9-macos_universal.tar.gz",
+          "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.9.9/Ryujinx-Nextendo-1.9.9-macos_universal.tar.gz",
+          "sha256": "0e33ef8ea993cbfc756865900969454bcd8803d17e240646362d02a9f8cddc25"
         }
       ],
       "source_type": "github",
