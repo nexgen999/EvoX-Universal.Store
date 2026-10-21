@@ -1,6 +1,6 @@
 {
   "name": "EvoX Universal Store",
-  "updated_at": "2026-10-21T11:40:29.393261Z",
+  "updated_at": "2026-10-21T17:06:27.697315Z",
   "store": [
     {
       "category": "github_test",
@@ -221,33 +221,33 @@
         {
           "name": "Ryujinx-Nextendo",
           "description": "Ryujinx-Nextendo",
-          "version": "v1.9.9",
-          "release_notes": "## Animal Crossing: New Horizons\r\n- Best friends between the emulator and a real Switch: in Animal Crossing, the emulator now uses the same online identity as a Switch linked to the same Nextendo account, so players on Ryujinx and on Switch can become best friends. This turns on together with the matching Nextendo server update; until then, nothing changes.\r\n- Your island in the cloud: this turns on with the Nextendo server update.\r\n\r\n## Other changes\r\n- New user dashboard and translation fixes (Mars-Hermetto).\r\n- macOS: Artis Impact black screen fixed, kernel range check fixed, Chinese, Japanese, Korean, Arabic and Thai text no longer shows as boxes (gzdemon77).\r\n- UNO added to the Nextendo game table, version 1.1.17 (SoulToxic3119).\r\n- Monster Hunter Rise (Japan/Hong Kong) sends its own app_id (CollectingW).\r\n\r\n## Update\r\n- The built-in updater offers this version (Help > Check for Updates, or System Update in the HOME Menu) and keeps your portable folder: keys, saves and account stay in place.\r\n",
+          "version": "v1.10.0",
+          "release_notes": "## Portal 2\n- Online menus and the co-op lobby now run at full speed (60 FPS instead of 9 FPS, and under 1 FPS in the lobby).\n- Fixed a crash that could close the emulator after a failed join.\n- Portal 2 1.0.3 is the version required online.\n\n## Other changes\n- Network: a socket wait with a time limit no longer blocks the other network calls of the game.\n- Silent microphone: when no microphone is available, the emulator now fills its buffers in real time, like a real one.\n- Game version table: Minecraft 1.0.17 and Portal 2 1.0.3.\n\n## Update\n- The built-in updater offers this version (Help > Check for Updates, or System Update in the HOME Menu) and keeps your portable folder: keys, saves and account stay in place.\n\n",
           "assets": [
             {
-              "filename": "Nextendo-1.9.9-linux-x64.tar.gz",
-              "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.9.9/Nextendo-1.9.9-linux-x64.tar.gz",
-              "sha256": "a9300d3a6fdf88ddbd6f884d119154f943efa8e6aa8a595eaa6020b44d66ddfb"
+              "filename": "Nextendo-1.10.0-linux-x64.tar.gz",
+              "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.10.0/Nextendo-1.10.0-linux-x64.tar.gz",
+              "sha256": "b0b87790ceeb85590f7e74f26558cbd8fbf4702efe229036ca894a82d5a19ecb"
             },
             {
-              "filename": "Nextendo-1.9.9-win-x64.zip",
-              "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.9.9/Nextendo-1.9.9-win-x64.zip",
-              "sha256": "29ffb7244a50f33cfbb6a1a8e5725f221daf28ec2be7a0ee0bb68d2841960531"
+              "filename": "Nextendo-1.10.0-win-x64.zip",
+              "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.10.0/Nextendo-1.10.0-win-x64.zip",
+              "sha256": "eac0651a966103bd44aa7d298bfc8e0484673e382f6bee55d5ffb897e824c2c7"
             },
             {
-              "filename": "Ryujinx-Nextendo-1.9.9-macos-arm64.tar.gz",
-              "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.9.9/Ryujinx-Nextendo-1.9.9-macos-arm64.tar.gz",
-              "sha256": "0e33ef8ea993cbfc756865900969454bcd8803d17e240646362d02a9f8cddc25"
+              "filename": "Ryujinx-Nextendo-1.10.0-macos-arm64.tar.gz",
+              "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.10.0/Ryujinx-Nextendo-1.10.0-macos-arm64.tar.gz",
+              "sha256": "f5cf59d501df72bca725321c2272f82166f420b1806f3a65335c7dc209743356"
             },
             {
-              "filename": "Ryujinx-Nextendo-1.9.9-macos-x64.tar.gz",
-              "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.9.9/Ryujinx-Nextendo-1.9.9-macos-x64.tar.gz",
-              "sha256": "0e33ef8ea993cbfc756865900969454bcd8803d17e240646362d02a9f8cddc25"
+              "filename": "Ryujinx-Nextendo-1.10.0-macos-x64.tar.gz",
+              "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.10.0/Ryujinx-Nextendo-1.10.0-macos-x64.tar.gz",
+              "sha256": "f5cf59d501df72bca725321c2272f82166f420b1806f3a65335c7dc209743356"
             },
             {
-              "filename": "Ryujinx-Nextendo-1.9.9-macos_universal.tar.gz",
-              "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.9.9/Ryujinx-Nextendo-1.9.9-macos_universal.tar.gz",
-              "sha256": "0e33ef8ea993cbfc756865900969454bcd8803d17e240646362d02a9f8cddc25"
+              "filename": "Ryujinx-Nextendo-1.10.0-macos_universal.tar.gz",
+              "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.10.0/Ryujinx-Nextendo-1.10.0-macos_universal.tar.gz",
+              "sha256": "f5cf59d501df72bca725321c2272f82166f420b1806f3a65335c7dc209743356"
             }
           ],
           "source_type": "github",
