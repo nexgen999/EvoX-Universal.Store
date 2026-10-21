@@ -1,6 +1,6 @@
 {
   "name": "EvoX Universal Store",
-  "updated_at": "2026-10-21T17:06:27.697315Z",
+  "updated_at": "2026-10-21T21:36:14.165065Z",
   "store": [
     {
       "category": "github_test",
@@ -49,23 +49,23 @@
         {
           "name": "flycast-dojo",
           "description": "Flycast Dojo is a fork of Flycast, a multi-platform Sega Dreamcast, Naomi and Atomiswave emulator derived from Reicast, with a focus on netplay features and replay",
-          "version": "dojo-6.46",
-          "release_notes": "### Flycast Dojo 6.46 Changelog\r\n* Session Transmission: Send Spectate Start Message Once. Fixes Replays/Spectating.\r\n\r\n### Flycast Dojo 6.45 Changelog\r\n* Fightcade: Hide player names until received from service. Show correct order.\r\n* Session Stream: Enable guest score transmission\r\n\r\n### Flycast Dojo 6.44 Release Notes\r\n* Test Game: Fix Offline Game Launch\r\n\r\n_Flycast Dojo 6.43 includes various enhancements to Test Game mode, including loading controller profiles in the Settings prior to game launch for previews, as well as a Main Menu button to enter the emulator's main interface from the Test Game screen off of Fightcade. This new version also includes improved netplay savestate tracking for replays in preparation for netplay savestate auto-updating._\r\n\r\n![image](https://github.com/blueminder/flycast-dojo/assets/504581/8f7b29d3-c3b7-414b-b177-999fd2212c4a)\r\n\r\n### Flycast Dojo 6.43 Release Notes\r\n* Test Game: Fix Game Launch, Main Menu, Emulator Exit\r\n\r\n### Flycast Dojo 6.42 Release Notes\r\n* Netplay Savestates: Download list of commits locally with savestate download\r\n* Replays/Spectating: If commit from header unavailable, use Commit based on Quark Epoch\r\n\r\n### Flycast Dojo 6.39 Release Notes\r\n* Replays/Spectating: Get commit by Quark Epoch time & Game Name when missing from header\r\n* Replays/Spectating: Record current Savestate Commit on Session Start\r\n* Netplay Savestate Download: Make copy with commit extension for Replay versioning\r\n* Test Game: Add Main Menu Button\r\n\r\n### Flycast Dojo 6.36 Release Notes\r\n* Test Game: Load Button Names in Settings\r\n* Linux: Copy missing shared memory (EEPROM/NVMEM/VMU) from shared directory before game launch\r\n\r\n_Flycast Dojo 6.35 introduces more enhancements and bug fixes for controller mapping and button check. Button Check now also supports macro buttons, finally giving an accurate picture of what is seen in-game. To make button mapping more intuitive, the hovered row is now highlighted._\r\n\r\n![image](https://github.com/blueminder/flycast-dojo/assets/504581/f83dc976-ca56-4e93-b0bb-0e7680c332dd)\r\n\r\n### Flycast Dojo 6.35 Release Notes\r\n* Marvel vs. Capcom 2 (NAOMI): Change Button Names (Assist A/B -> 1/2, Strong -> Heavy)\r\n* Controller Mapping: Highlight hovered row for Button Assignment\r\n\r\n### Flycast Dojo 6.34 Release Notes\r\n* Macros: Refactor Macro Assignment, Show in Button Check\r\n\r\n_Flycast Dojo 6.33 is a minor update for Mac OS that fixes launching Dreamcast games from Fightcade and other clients using the included file definitions._\r\n\r\n### Flycast Dojo 6.33 Release Notes\r\n- Mac OS & Linux: Fix Game Entry JSON location, Use base directory env vars when available\r\n\r\n_Flycast Dojo 6.32 includes bug fixes and features based on the feedback of the last Fightcade release. Test Game now loads all button and system definitions for the target game upon launch, and system selection is disabled in the controller mapping menu when a game is loaded to prevent player confusion._\r\n\r\n![image](https://github.com/blueminder/flycast-dojo/assets/504581/d20963b5-4890-4e92-bb68-aba083a72a73)\r\n\r\n_Many Lua functions were also added to give the modding community a head start in making interesting Training scripts in Flycast Dojo. You can now read signed integers and floats from memory, read frame number, draw color progress bars, as well as draw lines and rectangles for hitboxes. Special thanks to N-Bee, mountainmanjed, & Magnetro for suggestions and help._\r\n\r\n![image](https://github.com/blueminder/flycast-dojo/assets/504581/a9d59fc3-138a-4784-a0d0-d402f5675c7b)\r\n\r\n_Lastly, for those of you who want to stay on your controller during Training Mode dummy recording, I added buttons for cycling between input slots, playing, and recording your selection. They can be found in the Training Mode section of your Controller Mapping settings._\r\n\r\n![image](https://github.com/blueminder/flycast-dojo/assets/504581/d9f2630a-e46c-4d9a-bf74-68818ac064b3)\r\n\r\n### Flycast Dojo 6.32 Release Notes\r\n\r\n- Linux: Copy Default VMU from shared dir when supported game is detected.\r\n- Lua: Rectangles, Lines; Support Floating point numbers\r\n\r\n### Flycast Dojo 6.31 Release Notes\r\n\r\n- Lua: Get Frame Number\r\n- Training: Dummy Recording, Select/Record/Play Input Slot Button\r\n- Match Codes/Relays: Hide Code/Key command line toggle\r\n- Lua: Rectangles, Lines (`rect`, `line`)\r\n- Lua: Color Progress Bars (`bargraphColor`)\r\n- Lua: Read Signed Integers from Memory (`read8s`, `read16s`, `read32s`)\r\n- Lua: Read Float from Memory (`read32f`)\r\n- Game Entries: Add all DC multiplayer game filenames (according to MobyGames) from Redump collection\r\n- Test Game: Show Button Names without launching game. Leaving Button Check goes back to Test Game screen.\r\n- Training: Switch Player, Check for null gamepad\r\n- Credits: Update Patrons\r\n- Test Game: Restrict input mapping to target game system\r\n- Controller Mapping: Disable system select when in game. Default to loaded game platform.\r\n- Training: Load Lua scripts in Paxtez MvC2 mods\r\n\r\n_Flycast Dojo 6.30 contains more bug fixes, and the ability to spectate & watch replays from sessions held on relays in addition to Match Codes._\r\n\r\n![image](https://github.com/blueminder/flycast-dojo/assets/504581/cbcb1007-1303-49de-a801-542b4e2da550)\r\n\r\n_I also added an A+Start macro intended for Capcom vs SNK 2 players to perform a one-button taunt when playing the Dreamcast version._\r\n\r\n<img src=\"https://github.com/blueminder/flycast-dojo/assets/504581/1c08c0c3-e183-4119-bbb9-ee70c0f48f76\" width=\"440\">\r\n\r\n### Flycast Dojo 6.30 Release Notes\r\n* Stream Receive: Force virtual assignment when mode toggled. Should not be saved.\r\n\r\n### Flycast Dojo 6.29 Release Notes\r\n* GUI, Spectate Match Code Sessions & Relays, convert to Popup\r\n* Relays: Allow mode selection after GUI cancel\r\n* Rename SpectateMatchCode option to SpectateKey\r\n* Training, Replays: Disable \"Show Hotkeys\" button (Fixes crashes)\r\n* Relay Match Spectating & Replay streaming\r\n* A+Start Macro, for DC CvS2 one button taunt\r\n* Add proper ROM path to parent when data folder is detected\r\n* Match Codes, Relays: Send all netplay steps to stdout\r\n\r\n_Flycast Dojo 6.28 serves as a bug fix release for Flycast Dojo 6.26. This release fixes Match Code & Relay launching from command line, the Windows internal updater to accept new releases, allows games without savestates to be played online again, and cleans up integration details needed for matchmaking frontends. Special thanks to Ren, ToastRider, & pof for reporting bugs, integration, and debugging assistance._\r\n\r\n### Flycast Dojo 6.28 Release Notes\r\n* Mac: Set proper Content Path when `DOJO_BASE_DIR` is assigned\r\n* Relays, CMD: Use Relay Key entered in arguments (Thanks Ren) \r\n* Relays: Fix Relay command line start\r\n* Savestate Download: Don't show successful save if file is not found\r\n* Client Join: send to stdout\r\n\r\n### Flycast Dojo 6.27 Release Notes\r\n* Savestate Download: Fix flickering screen, allow game to be launched when missing savestate\r\n* Internal Updater, Windows: Fix Updater, Accepts `application/zip` content type (Thanks ToastRider)\r\n* Match Codes: Start matchmaking session after host/join selection\r\n* Match Codes, Relay Keys: Send codes to stdout\r\n* GGPO: Send session start to stdout\r\n\r\n_Flycast Dojo 6.26 introduces a new connection method: relay servers. For users on networks where a direct P2P connection over Match Codes do not work, relay servers will allow you to tunnel all game traffic through a server visible by both parties on the open internet. Just point to your server of choice, and exchange codes with your opponent like you would with Match Codes. This should serve as an alternative to Fightcade's own tunnels or using a Virtual LAN with Direct IP._\r\n\r\n![image](https://github.com/blueminder/flycast-dojo/assets/504581/7d51a6f0-4d7c-4852-a051-21bc47cbc904)\r\n\r\n_New UI changes where also made in this go-around. All modes and connection methods are now available in the drop-down on the main menu, and helpful description text is available for each selection. Icons now adorn the interface, and the netplay flow has been cleaned up for all connection methods._\r\n\r\n![image](https://github.com/blueminder/flycast-dojo/assets/504581/be076808-547b-495a-ae72-64e27e733a1e)\r\n\r\n_Since this is the first release with relays, this will be the first time they will be tested in the wild. I have put up 7 servers around the world according to the most active regions where Match Codes have been used. Once relays are in a solid place, I'll be releasing the server code so that people can host their own. Server capacity and new locations will be determined after initial testing and feedback of what is up now. (An extra special thanks to our [Patreon contributors](https://www.patreon.com/projectdojo), who make server deploys possible!)_\r\n\r\n_In future releases, I plan on combining the hole punching used in Match Codes with relays through automatic detection. In the mean time, you can start with Match Codes and switch over to a relay when that doesn't work._\r\n\r\n<a name=\"relay_servers\"></a>\r\n\r\n![image](https://github.com/blueminder/flycast-dojo/assets/504581/647fa5d0-ed90-4c9d-9588-76d915a70079)\r\n\r\n**Relay Servers**\r\n* us-west-1.match.dojo.ooo (Hillsboro, OR, USA)\r\n* us-east-1.match.dojo.ooo (Ashburn, VA, USA)\r\n* chl-1.match.dojo.ooo (Santiago, Chile)\r\n* esp-1.match.dojo.ooo (Madrid, Spain)\r\n* fin-1.match.dojo.ooo (Helsinki, Finland)\r\n* kor-1.match.dojo.ooo (Seoul, South Korea)\r\n* aus-1.match.dojo.ooo (Sydney, Australia)\r\n\r\n_For news, support, and potential matchmaking, head over to the [Dojo Project Discord](https://discord.gg/JKBJhjea3J). I'll be looking over the server performance and taking feedback there. Enjoy!_\r\n\r\n### Flycast Dojo 6.26 Release Notes\r\n* Relay Servers\r\n* Font Awesome Icon Integration\r\n* Connection Flow UI Overhaul\r\n  * Match Codes\r\n  * IP Entry\r\n* Main Screen: Mode & Connection Method Selection\r\n* Main Screen: Mode Descriptions\r\n* Savestate Download: Remove stuck modal on main menu return",
+          "version": "dojo-7.6",
+          "release_notes": "Automated release with builds for Windows, Linux, and macOS.\n\n**Full Changelog**: https://github.com/blueminder/flycast-dojo/compare/dojo-7-preview4...dojo-7.6",
           "assets": [
             {
-              "filename": "flycast-dojo-6.46.zip",
-              "url": "https://github.com/blueminder/flycast-dojo/releases/download/dojo-6.46/flycast-dojo-6.46.zip",
-              "sha256": "72379fd0bb9d1d1c09b4529b852069452c1066bc78f104156621d1b85bbfcaf8"
+              "filename": "flycast-dojo-linux.zip",
+              "url": "https://github.com/blueminder/flycast-dojo/releases/download/dojo-7.6/flycast-dojo-linux.zip",
+              "sha256": "84503366c50b7fd9ed4158775ab733f9fab4d784101dca7f082e421671cbcb77"
             },
             {
-              "filename": "linux-flycast-dojo-6.46.zip",
-              "url": "https://github.com/blueminder/flycast-dojo/releases/download/dojo-6.46/linux-flycast-dojo-6.46.zip",
-              "sha256": "ae72479e050ce40ece31debadfffb362d75861e33ae5869fc6f5cd18329d4181"
+              "filename": "flycast-dojo-windows.zip",
+              "url": "https://github.com/blueminder/flycast-dojo/releases/download/dojo-7.6/flycast-dojo-windows.zip",
+              "sha256": "28049ff11acfe1fc36e041f00a564908c491fed78b008cba6bb53d0d32378e05"
             },
             {
-              "filename": "macos-flycast-dojo-6.46.zip",
-              "url": "https://github.com/blueminder/flycast-dojo/releases/download/dojo-6.46/macos-flycast-dojo-6.46.zip",
-              "sha256": "c255b0986ea5ded77e367507582c6e67663ae5c62931a38546e26a7af15923b0"
+              "filename": "flycast.app.zip",
+              "url": "https://github.com/blueminder/flycast-dojo/releases/download/dojo-7.6/flycast.app.zip",
+              "sha256": "bffa1bad778810ddd741d307ea44c0c88dfbe0cec97d9d7489d45accb3313c57"
             }
           ],
           "source_type": "github",
@@ -166,7 +166,7 @@
             {
               "filename": "RetroArch-Win64-setup.exe",
               "url": "https://buildbot.libretro.com/nightly/windows/x86_64/RetroArch-Win64-setup.exe",
-              "sha256": "0ebf3eaaf836f6402ffbfc7060403ebcda022445628aede9afed2a36f0a933a6"
+              "sha256": "0a899b7b87fa73b51a9b2cb5be4ccc5dbf488512f0e542728a24f8b5c26035a4"
             }
           ],
           "source_type": "generic",
@@ -182,17 +182,17 @@
           "name": "Citron-neo_windows-nightly",
           "description": "Citron-neo_windows-nightly",
           "version": "nightly-windows",
-          "release_notes": "**Citron Upstream Commit:** [`e672bab`](https://github.com/citron-neo/emulator/commit/e672babee8238bd4e57d13edc37a7cfe77ef93b4)\n\nThis build is based on the latest Citron emulator source code from the upstream repository.\n\n**Build Details:**\n- Platform: Windows (x64)\n- Toolchains: Clangtron and native clang-cl/MSVC ABI\n- Build Type: Nightly\n- Date: 2026-10-20\n",
+          "release_notes": "**Citron Upstream Commit:** [`5b543e7`](https://github.com/citron-neo/emulator/commit/5b543e71769bdd4c116c8b66a8974224d0c1e1e8)\n\nThis build is based on the latest Citron emulator source code from the upstream repository.\n\n**Build Details:**\n- Platform: Windows (x64)\n- Toolchains: Clangtron and native clang-cl/MSVC ABI\n- Build Type: Nightly\n- Date: 2026-10-21\n",
           "assets": [
             {
-              "filename": "Citron-windows-nightly-e672babee-x64-clang-cl.zip",
-              "url": "https://github.com/citron-neo/CI/releases/download/nightly-windows/Citron-windows-nightly-e672babee-x64-clang-cl.zip",
-              "sha256": "e1fde207ded7e7dde14cf02cd31449d41b5225603bcec45667f18d09f5444a7d"
+              "filename": "Citron-windows-nightly-5b543e717-x64-clang-cl.zip",
+              "url": "https://github.com/citron-neo/CI/releases/download/nightly-windows/Citron-windows-nightly-5b543e717-x64-clang-cl.zip",
+              "sha256": "904bc309cd2cd5f0c283045071c8b98cc75ad9e531781d993a2bcbb1d93dc61e"
             },
             {
-              "filename": "Citron-windows-nightly-e672babee-x64-clangtron.zip",
-              "url": "https://github.com/citron-neo/CI/releases/download/nightly-windows/Citron-windows-nightly-e672babee-x64-clangtron.zip",
-              "sha256": "cc6164817428807ab06b77f98a6903ffc4dab94f829db078c9de1e04653fbf97"
+              "filename": "Citron-windows-nightly-5b543e717-x64-clangtron.zip",
+              "url": "https://github.com/citron-neo/CI/releases/download/nightly-windows/Citron-windows-nightly-5b543e717-x64-clangtron.zip",
+              "sha256": "81c4af5b2940e97a0bf009c09dbb14858e3773ccec0704ba38666b41be35967c"
             }
           ],
           "source_type": "github",
@@ -202,17 +202,17 @@
           "name": "Citron-neo_android-nightly",
           "description": "Citron-neo_android-nightly",
           "version": "nightly-android",
-          "release_notes": "**Citron Upstream Commit:** [`e672bab`](https://github.com/citron-neo/emulator/commit/e672babee8238bd4e57d13edc37a7cfe77ef93b4)\n\nThis build is based on the latest Citron emulator source code from the **main** branch.\n\n**Build Details:**\n- Platform: Android (arm64-v8a)\n- Build Type: Nightly with LTO enabled\n- Date: 2026-10-20\n- Branch: main\n- Includes: Standard build + Snapdragon 8 Elite build with Qualcomm patches\n",
+          "release_notes": "**Citron Upstream Commit:** [`5b543e7`](https://github.com/citron-neo/emulator/commit/5b543e71769bdd4c116c8b66a8974224d0c1e1e8)\n\nThis build is based on the latest Citron emulator source code from the **main** branch.\n\n**Build Details:**\n- Platform: Android (arm64-v8a)\n- Build Type: Nightly with LTO enabled\n- Date: 2026-10-21\n- Branch: main\n- Includes: Standard build + Snapdragon 8 Elite build with Qualcomm patches\n",
           "assets": [
             {
               "filename": "app-mainline-release.apk",
               "url": "https://github.com/citron-neo/CI/releases/download/nightly-android/app-mainline-release.apk",
-              "sha256": "da09d9e9c65e9680fc6258095ba9c3dca89715c5dfbe7110d2a88d849c0cea66"
+              "sha256": "5a79df770a8aeae16185c26a1155f29641032ab48a5bcb9224017f3a92eba6ee"
             },
             {
-              "filename": "Citron-29334-Android-8.Elite-Lyb.apk",
-              "url": "https://github.com/citron-neo/CI/releases/download/nightly-android/Citron-29334-Android-8.Elite-Lyb.apk",
-              "sha256": "863705334745f05140597361433d6cbc2bec93d5d8d8921d13d7f0175b146f6c"
+              "filename": "Citron-29341-Android-8.Elite-Lyb.apk",
+              "url": "https://github.com/citron-neo/CI/releases/download/nightly-android/Citron-29341-Android-8.Elite-Lyb.apk",
+              "sha256": "35270b818a28f164ba09bc74570d53455568116e249e9dcbcecfb10e6ba27cee"
             }
           ],
           "source_type": "github",
@@ -221,33 +221,33 @@
         {
           "name": "Ryujinx-Nextendo",
           "description": "Ryujinx-Nextendo",
-          "version": "v1.10.0",
-          "release_notes": "## Portal 2\n- Online menus and the co-op lobby now run at full speed (60 FPS instead of 9 FPS, and under 1 FPS in the lobby).\n- Fixed a crash that could close the emulator after a failed join.\n- Portal 2 1.0.3 is the version required online.\n\n## Other changes\n- Network: a socket wait with a time limit no longer blocks the other network calls of the game.\n- Silent microphone: when no microphone is available, the emulator now fills its buffers in real time, like a real one.\n- Game version table: Minecraft 1.0.17 and Portal 2 1.0.3.\n\n## Update\n- The built-in updater offers this version (Help > Check for Updates, or System Update in the HOME Menu) and keeps your portable folder: keys, saves and account stay in place.\n\n",
+          "version": "v1.10.1",
+          "release_notes": "## Friends\n- The friend list filter of a game (online, same game, favorites) is now applied before the list is cut to the game's buffer, so a game asking for friends in the same game gets them.\n- A friend is \"in the same game\" only when their presence names the game you are playing.\n- The friend panel and the \"Friend online\" notification show the name of the game, using the name sent by the Nextendo server when the title is unknown locally.\n- Splatoon 3 and Portal 2 added to the game name table.\n\n## Also in this version (from 1.10.0)\n- Portal 2: online menus and the co-op lobby run at full speed, crash after a failed join fixed, 1.0.3 required online.\n- Network: a socket wait with a time limit no longer blocks the other network calls of the game.\n- Game version table: Minecraft 1.0.17 and Portal 2 1.0.3.\n\n## Update\n- The built-in updater offers this version (Help > Check for Updates, or System Update in the HOME Menu) and keeps your portable folder: keys, saves and account stay in place.\n",
           "assets": [
             {
-              "filename": "Nextendo-1.10.0-linux-x64.tar.gz",
-              "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.10.0/Nextendo-1.10.0-linux-x64.tar.gz",
-              "sha256": "b0b87790ceeb85590f7e74f26558cbd8fbf4702efe229036ca894a82d5a19ecb"
+              "filename": "Nextendo-1.10.1-linux-x64.tar.gz",
+              "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.10.1/Nextendo-1.10.1-linux-x64.tar.gz",
+              "sha256": "8b43f7690bac044dace5d4141ee724078e765fbe2cc9452116183acfde25ffe2"
             },
             {
-              "filename": "Nextendo-1.10.0-win-x64.zip",
-              "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.10.0/Nextendo-1.10.0-win-x64.zip",
-              "sha256": "eac0651a966103bd44aa7d298bfc8e0484673e382f6bee55d5ffb897e824c2c7"
+              "filename": "Nextendo-1.10.1-win-x64.zip",
+              "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.10.1/Nextendo-1.10.1-win-x64.zip",
+              "sha256": "9887914b5178dc301b458bae7b4e4a403187ef2186679f106e3235912eadbcf9"
             },
             {
-              "filename": "Ryujinx-Nextendo-1.10.0-macos-arm64.tar.gz",
-              "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.10.0/Ryujinx-Nextendo-1.10.0-macos-arm64.tar.gz",
-              "sha256": "f5cf59d501df72bca725321c2272f82166f420b1806f3a65335c7dc209743356"
+              "filename": "Ryujinx-Nextendo-1.10.1-macos-arm64.tar.gz",
+              "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.10.1/Ryujinx-Nextendo-1.10.1-macos-arm64.tar.gz",
+              "sha256": "d7e752e09e07886b3181588b5eecb37db9dcb282e3037ae2861ab064ef99d199"
             },
             {
-              "filename": "Ryujinx-Nextendo-1.10.0-macos-x64.tar.gz",
-              "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.10.0/Ryujinx-Nextendo-1.10.0-macos-x64.tar.gz",
-              "sha256": "f5cf59d501df72bca725321c2272f82166f420b1806f3a65335c7dc209743356"
+              "filename": "Ryujinx-Nextendo-1.10.1-macos-x64.tar.gz",
+              "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.10.1/Ryujinx-Nextendo-1.10.1-macos-x64.tar.gz",
+              "sha256": "d7e752e09e07886b3181588b5eecb37db9dcb282e3037ae2861ab064ef99d199"
             },
             {
-              "filename": "Ryujinx-Nextendo-1.10.0-macos_universal.tar.gz",
-              "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.10.0/Ryujinx-Nextendo-1.10.0-macos_universal.tar.gz",
-              "sha256": "f5cf59d501df72bca725321c2272f82166f420b1806f3a65335c7dc209743356"
+              "filename": "Ryujinx-Nextendo-1.10.1-macos_universal.tar.gz",
+              "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.10.1/Ryujinx-Nextendo-1.10.1-macos_universal.tar.gz",
+              "sha256": "d7e752e09e07886b3181588b5eecb37db9dcb282e3037ae2861ab064ef99d199"
             }
           ],
           "source_type": "github",

@@ -6,17 +6,17 @@
       "name": "Citron-neo_windows-nightly",
       "description": "Citron-neo_windows-nightly",
       "version": "nightly-windows",
-      "release_notes": "**Citron Upstream Commit:** [`e672bab`](https://github.com/citron-neo/emulator/commit/e672babee8238bd4e57d13edc37a7cfe77ef93b4)\n\nThis build is based on the latest Citron emulator source code from the upstream repository.\n\n**Build Details:**\n- Platform: Windows (x64)\n- Toolchains: Clangtron and native clang-cl/MSVC ABI\n- Build Type: Nightly\n- Date: 2026-10-20\n",
+      "release_notes": "**Citron Upstream Commit:** [`5b543e7`](https://github.com/citron-neo/emulator/commit/5b543e71769bdd4c116c8b66a8974224d0c1e1e8)\n\nThis build is based on the latest Citron emulator source code from the upstream repository.\n\n**Build Details:**\n- Platform: Windows (x64)\n- Toolchains: Clangtron and native clang-cl/MSVC ABI\n- Build Type: Nightly\n- Date: 2026-10-21\n",
       "assets": [
         {
-          "filename": "Citron-windows-nightly-e672babee-x64-clang-cl.zip",
-          "url": "https://github.com/citron-neo/CI/releases/download/nightly-windows/Citron-windows-nightly-e672babee-x64-clang-cl.zip",
-          "sha256": "e1fde207ded7e7dde14cf02cd31449d41b5225603bcec45667f18d09f5444a7d"
+          "filename": "Citron-windows-nightly-5b543e717-x64-clang-cl.zip",
+          "url": "https://github.com/citron-neo/CI/releases/download/nightly-windows/Citron-windows-nightly-5b543e717-x64-clang-cl.zip",
+          "sha256": "904bc309cd2cd5f0c283045071c8b98cc75ad9e531781d993a2bcbb1d93dc61e"
         },
         {
-          "filename": "Citron-windows-nightly-e672babee-x64-clangtron.zip",
-          "url": "https://github.com/citron-neo/CI/releases/download/nightly-windows/Citron-windows-nightly-e672babee-x64-clangtron.zip",
-          "sha256": "cc6164817428807ab06b77f98a6903ffc4dab94f829db078c9de1e04653fbf97"
+          "filename": "Citron-windows-nightly-5b543e717-x64-clangtron.zip",
+          "url": "https://github.com/citron-neo/CI/releases/download/nightly-windows/Citron-windows-nightly-5b543e717-x64-clangtron.zip",
+          "sha256": "81c4af5b2940e97a0bf009c09dbb14858e3773ccec0704ba38666b41be35967c"
         }
       ],
       "source_type": "github",
@@ -26,17 +26,17 @@
       "name": "Citron-neo_android-nightly",
       "description": "Citron-neo_android-nightly",
       "version": "nightly-android",
-      "release_notes": "**Citron Upstream Commit:** [`e672bab`](https://github.com/citron-neo/emulator/commit/e672babee8238bd4e57d13edc37a7cfe77ef93b4)\n\nThis build is based on the latest Citron emulator source code from the **main** branch.\n\n**Build Details:**\n- Platform: Android (arm64-v8a)\n- Build Type: Nightly with LTO enabled\n- Date: 2026-10-20\n- Branch: main\n- Includes: Standard build + Snapdragon 8 Elite build with Qualcomm patches\n",
+      "release_notes": "**Citron Upstream Commit:** [`5b543e7`](https://github.com/citron-neo/emulator/commit/5b543e71769bdd4c116c8b66a8974224d0c1e1e8)\n\nThis build is based on the latest Citron emulator source code from the **main** branch.\n\n**Build Details:**\n- Platform: Android (arm64-v8a)\n- Build Type: Nightly with LTO enabled\n- Date: 2026-10-21\n- Branch: main\n- Includes: Standard build + Snapdragon 8 Elite build with Qualcomm patches\n",
       "assets": [
         {
           "filename": "app-mainline-release.apk",
           "url": "https://github.com/citron-neo/CI/releases/download/nightly-android/app-mainline-release.apk",
-          "sha256": "da09d9e9c65e9680fc6258095ba9c3dca89715c5dfbe7110d2a88d849c0cea66"
+          "sha256": "5a79df770a8aeae16185c26a1155f29641032ab48a5bcb9224017f3a92eba6ee"
         },
         {
-          "filename": "Citron-29334-Android-8.Elite-Lyb.apk",
-          "url": "https://github.com/citron-neo/CI/releases/download/nightly-android/Citron-29334-Android-8.Elite-Lyb.apk",
-          "sha256": "863705334745f05140597361433d6cbc2bec93d5d8d8921d13d7f0175b146f6c"
+          "filename": "Citron-29341-Android-8.Elite-Lyb.apk",
+          "url": "https://github.com/citron-neo/CI/releases/download/nightly-android/Citron-29341-Android-8.Elite-Lyb.apk",
+          "sha256": "35270b818a28f164ba09bc74570d53455568116e249e9dcbcecfb10e6ba27cee"
         }
       ],
       "source_type": "github",
@@ -45,33 +45,33 @@
     {
       "name": "Ryujinx-Nextendo",
       "description": "Ryujinx-Nextendo",
-      "version": "v1.10.0",
-      "release_notes": "## Portal 2\n- Online menus and the co-op lobby now run at full speed (60 FPS instead of 9 FPS, and under 1 FPS in the lobby).\n- Fixed a crash that could close the emulator after a failed join.\n- Portal 2 1.0.3 is the version required online.\n\n## Other changes\n- Network: a socket wait with a time limit no longer blocks the other network calls of the game.\n- Silent microphone: when no microphone is available, the emulator now fills its buffers in real time, like a real one.\n- Game version table: Minecraft 1.0.17 and Portal 2 1.0.3.\n\n## Update\n- The built-in updater offers this version (Help > Check for Updates, or System Update in the HOME Menu) and keeps your portable folder: keys, saves and account stay in place.\n\n",
+      "version": "v1.10.1",
+      "release_notes": "## Friends\n- The friend list filter of a game (online, same game, favorites) is now applied before the list is cut to the game's buffer, so a game asking for friends in the same game gets them.\n- A friend is \"in the same game\" only when their presence names the game you are playing.\n- The friend panel and the \"Friend online\" notification show the name of the game, using the name sent by the Nextendo server when the title is unknown locally.\n- Splatoon 3 and Portal 2 added to the game name table.\n\n## Also in this version (from 1.10.0)\n- Portal 2: online menus and the co-op lobby run at full speed, crash after a failed join fixed, 1.0.3 required online.\n- Network: a socket wait with a time limit no longer blocks the other network calls of the game.\n- Game version table: Minecraft 1.0.17 and Portal 2 1.0.3.\n\n## Update\n- The built-in updater offers this version (Help > Check for Updates, or System Update in the HOME Menu) and keeps your portable folder: keys, saves and account stay in place.\n",
       "assets": [
         {
-          "filename": "Nextendo-1.10.0-linux-x64.tar.gz",
-          "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.10.0/Nextendo-1.10.0-linux-x64.tar.gz",
-          "sha256": "b0b87790ceeb85590f7e74f26558cbd8fbf4702efe229036ca894a82d5a19ecb"
+          "filename": "Nextendo-1.10.1-linux-x64.tar.gz",
+          "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.10.1/Nextendo-1.10.1-linux-x64.tar.gz",
+          "sha256": "8b43f7690bac044dace5d4141ee724078e765fbe2cc9452116183acfde25ffe2"
         },
         {
-          "filename": "Nextendo-1.10.0-win-x64.zip",
-          "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.10.0/Nextendo-1.10.0-win-x64.zip",
-          "sha256": "eac0651a966103bd44aa7d298bfc8e0484673e382f6bee55d5ffb897e824c2c7"
+          "filename": "Nextendo-1.10.1-win-x64.zip",
+          "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.10.1/Nextendo-1.10.1-win-x64.zip",
+          "sha256": "9887914b5178dc301b458bae7b4e4a403187ef2186679f106e3235912eadbcf9"
         },
         {
-          "filename": "Ryujinx-Nextendo-1.10.0-macos-arm64.tar.gz",
-          "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.10.0/Ryujinx-Nextendo-1.10.0-macos-arm64.tar.gz",
-          "sha256": "f5cf59d501df72bca725321c2272f82166f420b1806f3a65335c7dc209743356"
+          "filename": "Ryujinx-Nextendo-1.10.1-macos-arm64.tar.gz",
+          "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.10.1/Ryujinx-Nextendo-1.10.1-macos-arm64.tar.gz",
+          "sha256": "d7e752e09e07886b3181588b5eecb37db9dcb282e3037ae2861ab064ef99d199"
         },
         {
-          "filename": "Ryujinx-Nextendo-1.10.0-macos-x64.tar.gz",
-          "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.10.0/Ryujinx-Nextendo-1.10.0-macos-x64.tar.gz",
-          "sha256": "f5cf59d501df72bca725321c2272f82166f420b1806f3a65335c7dc209743356"
+          "filename": "Ryujinx-Nextendo-1.10.1-macos-x64.tar.gz",
+          "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.10.1/Ryujinx-Nextendo-1.10.1-macos-x64.tar.gz",
+          "sha256": "d7e752e09e07886b3181588b5eecb37db9dcb282e3037ae2861ab064ef99d199"
         },
         {
-          "filename": "Ryujinx-Nextendo-1.10.0-macos_universal.tar.gz",
-          "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.10.0/Ryujinx-Nextendo-1.10.0-macos_universal.tar.gz",
-          "sha256": "f5cf59d501df72bca725321c2272f82166f420b1806f3a65335c7dc209743356"
+          "filename": "Ryujinx-Nextendo-1.10.1-macos_universal.tar.gz",
+          "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.10.1/Ryujinx-Nextendo-1.10.1-macos_universal.tar.gz",
+          "sha256": "d7e752e09e07886b3181588b5eecb37db9dcb282e3037ae2861ab064ef99d199"
         }
       ],
       "source_type": "github",
