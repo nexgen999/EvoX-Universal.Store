@@ -216,7 +216,7 @@
         {
           "filename": "Eden-Linux-v0.2.1-rog-ally-clang-pgo.AppImage",
           "url": "https://stable.eden-emu.dev/v0.2.1/Eden-Linux-v0.2.1-rog-ally-clang-pgo.AppImage",
-          "sha256": "024dfe307f7e5b539b3549bd9245f6b71c9baa9cc744f31d58d3181857d85ffc"
+          "sha256": ""
         },
         {
           "filename": "Eden-Linux-v0.2.1-rog-ally-gcc-standard.AppImage",
