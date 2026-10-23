@@ -45,23 +45,23 @@
     {
       "name": "flycast-dojo",
       "description": "Flycast Dojo is a fork of Flycast, a multi-platform Sega Dreamcast, Naomi and Atomiswave emulator derived from Reicast, with a focus on netplay features and replay",
-      "version": "dojo-7.7",
-      "release_notes": "Automated release with builds for Windows, Linux, and macOS.\n\n**Full Changelog**: https://github.com/blueminder/flycast-dojo/compare/dojo-7.6...dojo-7.7",
+      "version": "dojo-7.8",
+      "release_notes": "Automated release with builds for Windows, Linux, and macOS.\n\n**Full Changelog**: https://github.com/blueminder/flycast-dojo/compare/dojo-7.7...dojo-7.8",
       "assets": [
         {
           "filename": "flycast-dojo-linux.zip",
-          "url": "https://github.com/blueminder/flycast-dojo/releases/download/dojo-7.7/flycast-dojo-linux.zip",
-          "sha256": "cb96b1dcb24db3436cec6d71cf9c2d8fdbf5be4d845d12c99ee65ac8c34998be"
+          "url": "https://github.com/blueminder/flycast-dojo/releases/download/dojo-7.8/flycast-dojo-linux.zip",
+          "sha256": "88b8b9f3bb62b7b3d91408672a89b4951bc697b646667c1c3cbb7334c884406f"
         },
         {
           "filename": "flycast-dojo-windows.zip",
-          "url": "https://github.com/blueminder/flycast-dojo/releases/download/dojo-7.7/flycast-dojo-windows.zip",
-          "sha256": "8f52423958191a3129824b4db13c8c1f8dbc3be6f8856f0062b1457f3322c3ed"
+          "url": "https://github.com/blueminder/flycast-dojo/releases/download/dojo-7.8/flycast-dojo-windows.zip",
+          "sha256": "4399a84bd8f32403bf3a9f5d24c99a6b72b8df2269a8cdbb496b94336c3d1711"
         },
         {
           "filename": "flycast.app.zip",
-          "url": "https://github.com/blueminder/flycast-dojo/releases/download/dojo-7.7/flycast.app.zip",
-          "sha256": "f6f9d3b4c71f523ec938d0c174ca4e5c9c9939b0ba3eddc2dc233f9fa10256af"
+          "url": "https://github.com/blueminder/flycast-dojo/releases/download/dojo-7.8/flycast.app.zip",
+          "sha256": "73687d5af366348ef56edd23c9b0f383e9c5a26d1368aaccbbf4d55c4c13450d"
         }
       ],
       "source_type": "github",
