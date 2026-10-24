@@ -45,23 +45,23 @@
     {
       "name": "flycast-dojo",
       "description": "Flycast Dojo is a fork of Flycast, a multi-platform Sega Dreamcast, Naomi and Atomiswave emulator derived from Reicast, with a focus on netplay features and replay",
-      "version": "dojo-7.8",
-      "release_notes": "Automated release with builds for Windows, Linux, and macOS.\n\n**Full Changelog**: https://github.com/blueminder/flycast-dojo/compare/dojo-7.7...dojo-7.8",
+      "version": "dojo-7.8-3-g8cfd0cc12",
+      "release_notes": "Automated release with builds for Windows, Linux, and macOS.\n\n**Full Changelog**: https://github.com/blueminder/flycast-dojo/compare/dojo-7.8...dojo-7.8-3-g8cfd0cc12",
       "assets": [
         {
           "filename": "flycast-dojo-linux.zip",
-          "url": "https://github.com/blueminder/flycast-dojo/releases/download/dojo-7.8/flycast-dojo-linux.zip",
-          "sha256": "88b8b9f3bb62b7b3d91408672a89b4951bc697b646667c1c3cbb7334c884406f"
+          "url": "https://github.com/blueminder/flycast-dojo/releases/download/dojo-7.8-3-g8cfd0cc12/flycast-dojo-linux.zip",
+          "sha256": "d8a13df1109b752746f18113c308f200249015fdab8fdb5e874f06cc9ddd3d05"
         },
         {
           "filename": "flycast-dojo-windows.zip",
-          "url": "https://github.com/blueminder/flycast-dojo/releases/download/dojo-7.8/flycast-dojo-windows.zip",
-          "sha256": "4399a84bd8f32403bf3a9f5d24c99a6b72b8df2269a8cdbb496b94336c3d1711"
+          "url": "https://github.com/blueminder/flycast-dojo/releases/download/dojo-7.8-3-g8cfd0cc12/flycast-dojo-windows.zip",
+          "sha256": "c1852928c32b27aadfd6f139f786d09f60cb1868149dca06cd00533905a0f0aa"
         },
         {
           "filename": "flycast.app.zip",
-          "url": "https://github.com/blueminder/flycast-dojo/releases/download/dojo-7.8/flycast.app.zip",
-          "sha256": "73687d5af366348ef56edd23c9b0f383e9c5a26d1368aaccbbf4d55c4c13450d"
+          "url": "https://github.com/blueminder/flycast-dojo/releases/download/dojo-7.8-3-g8cfd0cc12/flycast.app.zip",
+          "sha256": "21507c066ef3382f36cadee7b7bcd6bd3501d3a8bde3f3aa4b1bd55d3b49d71d"
         }
       ],
       "source_type": "github",

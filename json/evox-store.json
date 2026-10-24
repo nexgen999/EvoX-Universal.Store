@@ -1,6 +1,6 @@
 {
   "name": "EvoX Universal Store",
-  "updated_at": "2026-10-24T15:50:02.830565Z",
+  "updated_at": "2026-10-24T20:38:40.531341Z",
   "store": [
     {
       "category": "html_test",
@@ -15,7 +15,7 @@
             {
               "filename": "RetroArch-Win64-setup.exe",
               "url": "https://buildbot.libretro.com/nightly/windows/x86_64/RetroArch-Win64-setup.exe",
-              "sha256": "fbc7c509488029cb6d5eee6e154aa2ba99bd313f9c11487fd12792ee52335d2f"
+              "sha256": "c7a2de2b17c08feae88fe3f9c99ed63dd2cd0a7cd1617b2349ad90978fa66aa7"
             }
           ],
           "source_type": "generic",
@@ -31,17 +31,17 @@
           "name": "Citron-neo_windows-nightly",
           "description": "Citron-neo_windows-nightly",
           "version": "nightly-windows",
-          "release_notes": "**Citron Upstream Commit:** [`f942c35`](https://github.com/citron-neo/emulator/commit/f942c356798800fbe17949fd5e563cc9eec3a7a6)\n\nThis build is based on the latest Citron emulator source code from the upstream repository.\n\n**Build Details:**\n- Platform: Windows (x64)\n- Toolchains: Clangtron and native clang-cl/MSVC ABI\n- Build Type: Nightly\n- Date: 2026-10-22\n",
+          "release_notes": "**Citron Upstream Commit:** [`52f3ea7`](https://github.com/citron-neo/emulator/commit/52f3ea79528dae53d98436792e02e48f7ec799d0)\n\nThis build is based on the latest Citron emulator source code from the upstream repository.\n\n**Build Details:**\n- Platform: Windows (x64)\n- Toolchains: Clangtron and native clang-cl/MSVC ABI\n- Build Type: Nightly\n- Date: 2026-10-24\n",
           "assets": [
             {
-              "filename": "Citron-windows-nightly-f942c3567-x64-clang-cl.zip",
-              "url": "https://github.com/citron-neo/CI/releases/download/nightly-windows/Citron-windows-nightly-f942c3567-x64-clang-cl.zip",
-              "sha256": "3b3978236d643b1ac088327204c702c16cd95d2aa491473839d7d84562d20f4e"
+              "filename": "Citron-windows-nightly-52f3ea795-x64-clang-cl.zip",
+              "url": "https://github.com/citron-neo/CI/releases/download/nightly-windows/Citron-windows-nightly-52f3ea795-x64-clang-cl.zip",
+              "sha256": "a1aa145f524d52f8c05aac3f3cd7f34d32c64a98650adf7b9b17cc701498ec7d"
             },
             {
-              "filename": "Citron-windows-nightly-f942c3567-x64-clangtron.zip",
-              "url": "https://github.com/citron-neo/CI/releases/download/nightly-windows/Citron-windows-nightly-f942c3567-x64-clangtron.zip",
-              "sha256": "e338c9948e7f5db8d3d05d7f1ece89e808469d6ba046cd40ee69b7eaba1cc31b"
+              "filename": "Citron-windows-nightly-52f3ea795-x64-clangtron.zip",
+              "url": "https://github.com/citron-neo/CI/releases/download/nightly-windows/Citron-windows-nightly-52f3ea795-x64-clangtron.zip",
+              "sha256": "06ccbcff690dd00741d54743b69ff8b6f91f03e8a26ea0ba110e9a1360a3fb98"
             }
           ],
           "source_type": "github",
@@ -51,17 +51,17 @@
           "name": "Citron-neo_android-nightly",
           "description": "Citron-neo_android-nightly",
           "version": "nightly-android",
-          "release_notes": "**Citron Upstream Commit:** [`f942c35`](https://github.com/citron-neo/emulator/commit/f942c356798800fbe17949fd5e563cc9eec3a7a6)\n\nThis build is based on the latest Citron emulator source code from the **main** branch.\n\n**Build Details:**\n- Platform: Android (arm64-v8a)\n- Build Type: Nightly with LTO enabled\n- Date: 2026-10-22\n- Branch: main\n- Includes: Standard build + Snapdragon 8 Elite build with Qualcomm patches\n",
+          "release_notes": "**Citron Upstream Commit:** [`52f3ea7`](https://github.com/citron-neo/emulator/commit/52f3ea79528dae53d98436792e02e48f7ec799d0)\n\nThis build is based on the latest Citron emulator source code from the **main** branch.\n\n**Build Details:**\n- Platform: Android (arm64-v8a)\n- Build Type: Nightly with LTO enabled\n- Date: 2026-10-24\n- Branch: main\n- Includes: Standard build + Snapdragon 8 Elite build with Qualcomm patches\n",
           "assets": [
             {
               "filename": "app-mainline-release.apk",
               "url": "https://github.com/citron-neo/CI/releases/download/nightly-android/app-mainline-release.apk",
-              "sha256": "3359bd5dc1d205e747ed4ae01ee7dcc5e325388d9d34198650a7e766ea13c303"
+              "sha256": "11355aef47e11739fa70e826322339c82c22d1406878d26a0a73e0543dee6b01"
             },
             {
-              "filename": "Citron-29343-Android-8.Elite-Lyb.apk",
-              "url": "https://github.com/citron-neo/CI/releases/download/nightly-android/Citron-29343-Android-8.Elite-Lyb.apk",
-              "sha256": "05436f319225b9f85a0e4f3afb13138217db9a1599b6d09617d38ee083866990"
+              "filename": "Citron-29348-Android-8.Elite-Lyb.apk",
+              "url": "https://github.com/citron-neo/CI/releases/download/nightly-android/Citron-29348-Android-8.Elite-Lyb.apk",
+              "sha256": "72209f5a27da50e2fca1112d9c1165014ca0a4088a8e565adbc7cfb27378c118"
             }
           ],
           "source_type": "github",
@@ -402,23 +402,23 @@
         {
           "name": "flycast-dojo",
           "description": "Flycast Dojo is a fork of Flycast, a multi-platform Sega Dreamcast, Naomi and Atomiswave emulator derived from Reicast, with a focus on netplay features and replay",
-          "version": "dojo-7.8",
-          "release_notes": "Automated release with builds for Windows, Linux, and macOS.\n\n**Full Changelog**: https://github.com/blueminder/flycast-dojo/compare/dojo-7.7...dojo-7.8",
+          "version": "dojo-7.8-3-g8cfd0cc12",
+          "release_notes": "Automated release with builds for Windows, Linux, and macOS.\n\n**Full Changelog**: https://github.com/blueminder/flycast-dojo/compare/dojo-7.8...dojo-7.8-3-g8cfd0cc12",
           "assets": [
             {
               "filename": "flycast-dojo-linux.zip",
-              "url": "https://github.com/blueminder/flycast-dojo/releases/download/dojo-7.8/flycast-dojo-linux.zip",
-              "sha256": "88b8b9f3bb62b7b3d91408672a89b4951bc697b646667c1c3cbb7334c884406f"
+              "url": "https://github.com/blueminder/flycast-dojo/releases/download/dojo-7.8-3-g8cfd0cc12/flycast-dojo-linux.zip",
+              "sha256": "d8a13df1109b752746f18113c308f200249015fdab8fdb5e874f06cc9ddd3d05"
             },
             {
               "filename": "flycast-dojo-windows.zip",
-              "url": "https://github.com/blueminder/flycast-dojo/releases/download/dojo-7.8/flycast-dojo-windows.zip",
-              "sha256": "4399a84bd8f32403bf3a9f5d24c99a6b72b8df2269a8cdbb496b94336c3d1711"
+              "url": "https://github.com/blueminder/flycast-dojo/releases/download/dojo-7.8-3-g8cfd0cc12/flycast-dojo-windows.zip",
+              "sha256": "c1852928c32b27aadfd6f139f786d09f60cb1868149dca06cd00533905a0f0aa"
             },
             {
               "filename": "flycast.app.zip",
-              "url": "https://github.com/blueminder/flycast-dojo/releases/download/dojo-7.8/flycast.app.zip",
-              "sha256": "73687d5af366348ef56edd23c9b0f383e9c5a26d1368aaccbbf4d55c4c13450d"
+              "url": "https://github.com/blueminder/flycast-dojo/releases/download/dojo-7.8-3-g8cfd0cc12/flycast.app.zip",
+              "sha256": "21507c066ef3382f36cadee7b7bcd6bd3501d3a8bde3f3aa4b1bd55d3b49d71d"
             }
           ],
           "source_type": "github",
