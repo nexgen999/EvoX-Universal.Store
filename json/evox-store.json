@@ -1,6 +1,6 @@
 {
   "name": "EvoX Universal Store",
-  "updated_at": "2026-10-25T20:46:21.937018Z",
+  "updated_at": "2026-10-26T04:25:43.979949Z",
   "store": [
     {
       "category": "html_test",
@@ -15,7 +15,7 @@
             {
               "filename": "RetroArch-Win64-setup.exe",
               "url": "https://buildbot.libretro.com/nightly/windows/x86_64/RetroArch-Win64-setup.exe",
-              "sha256": "235467a85d8a6096711a9d691e6e815cd0151ad649522de6ca6b57cd7db9ac90"
+              "sha256": "b807ae665f3ce9edef2faec88b4c937146a80c4c91b2bd97004dd3750497e594"
             }
           ],
           "source_type": "generic",
@@ -70,33 +70,18 @@
         {
           "name": "Ryujinx-Nextendo",
           "description": "Ryujinx-Nextendo",
-          "version": "v1.10.1",
-          "release_notes": "## Friends\n- The friend list filter of a game (online, same game, favorites) is now applied before the list is cut to the game's buffer, so a game asking for friends in the same game gets them.\n- A friend is \"in the same game\" only when their presence names the game you are playing.\n- The friend panel and the \"Friend online\" notification show the name of the game, using the name sent by the Nextendo server when the title is unknown locally.\n- Splatoon 3 and Portal 2 added to the game name table.\n\n## Also in this version (from 1.10.0)\n- Portal 2: online menus and the co-op lobby run at full speed, crash after a failed join fixed, 1.0.3 required online.\n- Network: a socket wait with a time limit no longer blocks the other network calls of the game.\n- Game version table: Minecraft 1.0.17 and Portal 2 1.0.3.\n\n## Update\n- The built-in updater offers this version (Help > Check for Updates, or System Update in the HOME Menu) and keeps your portable folder: keys, saves and account stay in place.\n",
+          "version": "v1.8.7",
+          "release_notes": "## Ryujinx-Nextendo 1.8.7 | Client Attestation\r\n\r\nThis mandatory update adds cryptographic client attestation on top of the 1.8.6 closed-API rollout.\r\n\r\n\r\n> ⚠️ **Mandatory update:** Previous versions (< 1.8.7) will be blocked from online features by the server update gate.\r\n\r\n## Signing in\r\n\r\nNothing changes on your end: sign in the same way as before. The signing happens transparently in the background.\r\n\r\n## SHA-256 checksums\r\n\r\n```\r\n5584720c1cb1d8144560908338818ab248675a059c612712be3bac2cf6d07de3  Ryujinx-Nextendo-1.8.7-win_x64.zip\r\n22b5aa4afe48380ed515cd9a238a7307bf28e73e7e92397fbb8da3c55f74ef87  Ryujinx-Nextendo-1.8.7-linux_x64.tar.gz\r\ne931635c90e1537c4339e55279f40ffe52e60010e002c4f772d3a7cfdd732139  Ryujinx-Nextendo-1.8.7-macos_universal.tar.gz\r\n```\r\n",
           "assets": [
             {
-              "filename": "Nextendo-1.10.1-linux-x64.tar.gz",
-              "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.10.1/Nextendo-1.10.1-linux-x64.tar.gz",
-              "sha256": "8b43f7690bac044dace5d4141ee724078e765fbe2cc9452116183acfde25ffe2"
+              "filename": "Ryujinx-Nextendo-1.8.7-linux_x64.tar.gz",
+              "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.8.7/Ryujinx-Nextendo-1.8.7-linux_x64.tar.gz",
+              "sha256": "22b5aa4afe48380ed515cd9a238a7307bf28e73e7e92397fbb8da3c55f74ef87"
             },
             {
-              "filename": "Nextendo-1.10.1-win-x64.zip",
-              "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.10.1/Nextendo-1.10.1-win-x64.zip",
-              "sha256": "9887914b5178dc301b458bae7b4e4a403187ef2186679f106e3235912eadbcf9"
-            },
-            {
-              "filename": "Ryujinx-Nextendo-1.10.1-macos-arm64.tar.gz",
-              "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.10.1/Ryujinx-Nextendo-1.10.1-macos-arm64.tar.gz",
-              "sha256": "d7e752e09e07886b3181588b5eecb37db9dcb282e3037ae2861ab064ef99d199"
-            },
-            {
-              "filename": "Ryujinx-Nextendo-1.10.1-macos-x64.tar.gz",
-              "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.10.1/Ryujinx-Nextendo-1.10.1-macos-x64.tar.gz",
-              "sha256": "d7e752e09e07886b3181588b5eecb37db9dcb282e3037ae2861ab064ef99d199"
-            },
-            {
-              "filename": "Ryujinx-Nextendo-1.10.1-macos_universal.tar.gz",
-              "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.10.1/Ryujinx-Nextendo-1.10.1-macos_universal.tar.gz",
-              "sha256": "d7e752e09e07886b3181588b5eecb37db9dcb282e3037ae2861ab064ef99d199"
+              "filename": "Ryujinx-Nextendo-1.8.7-win_x64.zip",
+              "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.8.7/Ryujinx-Nextendo-1.8.7-win_x64.zip",
+              "sha256": "5584720c1cb1d8144560908338818ab248675a059c612712be3bac2cf6d07de3"
             }
           ],
           "source_type": "github",
