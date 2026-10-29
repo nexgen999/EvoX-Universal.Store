@@ -1,6 +1,6 @@
 {
   "name": "EvoX Universal Store",
-  "updated_at": "2026-10-28T22:32:16.534714Z",
+  "updated_at": "2026-10-29T05:29:31.254270Z",
   "store": [
     {
       "category": "forgejo_test",
@@ -70,18 +70,18 @@
         {
           "name": "Ryujinx-Nextendo",
           "description": "Ryujinx-Nextendo",
-          "version": "v1.8.7",
-          "release_notes": "## Ryujinx-Nextendo 1.8.7 | Client Attestation\r\n\r\nThis mandatory update adds cryptographic client attestation on top of the 1.8.6 closed-API rollout.\r\n\r\n\r\n> ⚠️ **Mandatory update:** Previous versions (< 1.8.7) will be blocked from online features by the server update gate.\r\n\r\n## Signing in\r\n\r\nNothing changes on your end: sign in the same way as before. The signing happens transparently in the background.\r\n\r\n## SHA-256 checksums\r\n\r\n```\r\n5584720c1cb1d8144560908338818ab248675a059c612712be3bac2cf6d07de3  Ryujinx-Nextendo-1.8.7-win_x64.zip\r\n22b5aa4afe48380ed515cd9a238a7307bf28e73e7e92397fbb8da3c55f74ef87  Ryujinx-Nextendo-1.8.7-linux_x64.tar.gz\r\ne931635c90e1537c4339e55279f40ffe52e60010e002c4f772d3a7cfdd732139  Ryujinx-Nextendo-1.8.7-macos_universal.tar.gz\r\n```\r\n",
+          "version": "v1.10.2",
+          "release_notes": "## Mario Kart 8 Deluxe online fixed (2306-0502)\n- 1.10.0 started deferring every Bsd poll with a finite timeout. That broke the NEX connection of Mario Kart 8 Deluxe, which failed with error 2306-0502. MK8's ordinary NEX polls now use the blocking path again, as in 1.9.9; eventfd polls and the finite-timeout optimization of other games (Portal 2 and others) are unchanged (#75)\n\n## New online games\n- SpeedRunners 2: Nextendo routes scoped to the game, and a TLS peer reset during the handshake is now returned to the game as an SSL error instead of stopping the emulator (#79)\n- Just Dance 2022: Nextendo routes, exact-build TLS trust patch with native certificate verification kept on, and blocking UDP receives no longer hold the shared socket thread (#74)\n- Ultimate Chicken Horse 1.13.13.765: online support (#68)\n- Guilty Gear Strive: online services redirected to Nextendo (#77)\n- Nintendo Switch Online Classics: versions set for NES, SNES, Game Boy, Game Boy Advance, Nintendo 64 and SEGA Genesis, plus a Windows JIT fix (#69)\n\n## Other fixes\n- Steam Deck: touchscreen, rumble and gyro input (#76)\n- NPLN online patches are loaded from the signed patch catalog (#73)\n- nim: the IShopServiceAsync session is kept and shop requests are refused cleanly (#72)\n- SSL contexts now report their live connection count instead of a counter that only went up (#68)\n\n## Downloads\n- Windows x64: Nextendo-1.10.2-win-x64.zip\n- Linux x64: Nextendo-1.10.2-linux-x64.tar.gz\n- This release has no macOS build.\n\n## SHA256\n- Nextendo-1.10.2-win-x64.zip: 9a01066741e8f9f602c3e7c9382173788c8b476af86159277d9e646ef313de99\n- Nextendo-1.10.2-linux-x64.tar.gz: 99d8188fddd728e7fb277d7a433bcaccfae04e49cf9af25f7d414ee32340f049\n",
           "assets": [
             {
-              "filename": "Ryujinx-Nextendo-1.8.7-linux_x64.tar.gz",
-              "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.8.7/Ryujinx-Nextendo-1.8.7-linux_x64.tar.gz",
-              "sha256": "22b5aa4afe48380ed515cd9a238a7307bf28e73e7e92397fbb8da3c55f74ef87"
+              "filename": "Nextendo-1.10.2-linux-x64.tar.gz",
+              "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.10.2/Nextendo-1.10.2-linux-x64.tar.gz",
+              "sha256": "99d8188fddd728e7fb277d7a433bcaccfae04e49cf9af25f7d414ee32340f049"
             },
             {
-              "filename": "Ryujinx-Nextendo-1.8.7-win_x64.zip",
-              "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.8.7/Ryujinx-Nextendo-1.8.7-win_x64.zip",
-              "sha256": "5584720c1cb1d8144560908338818ab248675a059c612712be3bac2cf6d07de3"
+              "filename": "Nextendo-1.10.2-win-x64.zip",
+              "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.10.2/Nextendo-1.10.2-win-x64.zip",
+              "sha256": "9a01066741e8f9f602c3e7c9382173788c8b476af86159277d9e646ef313de99"
             }
           ],
           "source_type": "github",
@@ -332,7 +332,7 @@
             {
               "filename": "RetroArch-Win64-setup.exe",
               "url": "https://buildbot.libretro.com/nightly/windows/x86_64/RetroArch-Win64-setup.exe",
-              "sha256": "daefee9a0f5733d50192959b8b9d42c834d10fc16e403c5f39b6dba42102b7cc"
+              "sha256": "0c73928e67e31403c9cc647b85d0ce8646f80068f71bc52999d53a0418dbf9cc"
             }
           ],
           "source_type": "generic",
