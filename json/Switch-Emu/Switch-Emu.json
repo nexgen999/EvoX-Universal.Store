@@ -45,18 +45,18 @@
     {
       "name": "Ryujinx-Nextendo",
       "description": "Ryujinx-Nextendo",
-      "version": "v1.10.2",
-      "release_notes": "## Mario Kart 8 Deluxe online fixed (2306-0502)\n- 1.10.0 started deferring every Bsd poll with a finite timeout. That broke the NEX connection of Mario Kart 8 Deluxe, which failed with error 2306-0502. MK8's ordinary NEX polls now use the blocking path again, as in 1.9.9; eventfd polls and the finite-timeout optimization of other games (Portal 2 and others) are unchanged (#75)\n\n## New online games\n- SpeedRunners 2: Nextendo routes scoped to the game, and a TLS peer reset during the handshake is now returned to the game as an SSL error instead of stopping the emulator (#79)\n- Just Dance 2022: Nextendo routes, exact-build TLS trust patch with native certificate verification kept on, and blocking UDP receives no longer hold the shared socket thread (#74)\n- Ultimate Chicken Horse 1.13.13.765: online support (#68)\n- Guilty Gear Strive: online services redirected to Nextendo (#77)\n- Nintendo Switch Online Classics: versions set for NES, SNES, Game Boy, Game Boy Advance, Nintendo 64 and SEGA Genesis, plus a Windows JIT fix (#69)\n\n## Other fixes\n- Steam Deck: touchscreen, rumble and gyro input (#76)\n- NPLN online patches are loaded from the signed patch catalog (#73)\n- nim: the IShopServiceAsync session is kept and shop requests are refused cleanly (#72)\n- SSL contexts now report their live connection count instead of a counter that only went up (#68)\n\n## Downloads\n- Windows x64: Nextendo-1.10.2-win-x64.zip\n- Linux x64: Nextendo-1.10.2-linux-x64.tar.gz\n- This release has no macOS build.\n\n## SHA256\n- Nextendo-1.10.2-win-x64.zip: 9a01066741e8f9f602c3e7c9382173788c8b476af86159277d9e646ef313de99\n- Nextendo-1.10.2-linux-x64.tar.gz: 99d8188fddd728e7fb277d7a433bcaccfae04e49cf9af25f7d414ee32340f049\n",
+      "version": "v1.10.3",
+      "release_notes": "## Ryujinx | Nextendo 1.10.3\n\nThis update is mandatory.\n\n- Super Mario 3D World + Bowser's Fury: fixed the freeze on the password keyboard (thanks @alyeri)\n- HOME Menu: fixed startup on recent firmware (21.0.0 and later) (thanks @alyeri)\n- HOME Menu: no more repeated warnings in the log while the menu is open (thanks @alyeri)\n- Vulkan: fixed a crash and an empty screen when opening Sphaira from the Album on some GPUs (thanks @alyeri)\n- Fixed the slowdown, and the crash on exit, after leaving the HOME Menu open for a long time with a controller connected (thanks @z1pp090)\n- Fixed a crash when a game closes before showing its first frame (thanks @RobiiAragon)\n- Linux and macOS: games now receive the correct network error codes (thanks @RobiiAragon)\n- Stability improvements\n",
       "assets": [
         {
-          "filename": "Nextendo-1.10.2-linux-x64.tar.gz",
-          "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.10.2/Nextendo-1.10.2-linux-x64.tar.gz",
-          "sha256": "99d8188fddd728e7fb277d7a433bcaccfae04e49cf9af25f7d414ee32340f049"
+          "filename": "Nextendo-1.10.3-linux-x64.tar.gz",
+          "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.10.3/Nextendo-1.10.3-linux-x64.tar.gz",
+          "sha256": "197debba2e208f8e21459a29390ed20b843b46a35507471b0fe81821f8a48fd2"
         },
         {
-          "filename": "Nextendo-1.10.2-win-x64.zip",
-          "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.10.2/Nextendo-1.10.2-win-x64.zip",
-          "sha256": "9a01066741e8f9f602c3e7c9382173788c8b476af86159277d9e646ef313de99"
+          "filename": "Nextendo-1.10.3-win-x64.zip",
+          "url": "https://github.com/NextendoNetwork/Ryujinx-Nextendo/releases/download/v1.10.3/Nextendo-1.10.3-win-x64.zip",
+          "sha256": "7bb2defcced8ba70100ac9bc54a071c35f3ad09130c55430793d5b002f067891"
         }
       ],
       "source_type": "github",
@@ -71,7 +71,7 @@
         {
           "filename": "Ryubing",
           "url": "https://git.ryujinx.app/projects/Ryubing",
-          "sha256": "7b090fe50a7952fa488ecf009ecd9f800b2bf42b6a9165f0aed21446404f9df6"
+          "sha256": "c36e19d3d2e81d099f5404856df0871bac646df656785c1d9370f7492f1862dc"
         }
       ],
       "source_type": "forgejo",
@@ -86,7 +86,7 @@
         {
           "filename": "Kenji-NX",
           "url": "https://git.ryujinx.app/projects/Kenji-NX",
-          "sha256": "8d1025bdd3be578b2fc1d827feabd49537453211eeeb2342541e413d67df484a"
+          "sha256": "bb891a7c1c475298cf0caeb4d1f9199e8ec31a19ba603b4dc66f273a56e35de9"
         }
       ],
       "source_type": "forgejo",
