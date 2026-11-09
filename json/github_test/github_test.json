@@ -26,7 +26,7 @@
         {
           "filename": "flycast-macOS-2.7.zip",
           "url": "https://github.com/flyinghead/flycast/releases/download/v2.7/flycast-macOS-2.7.zip",
-          "sha256": ""
+          "sha256": "dbd59cb88f52a95ea4de90693bb4ac156530452d5457f2cc4f656fdfd242fc26"
         },
         {
           "filename": "flycast-win64-2.7.zip",
@@ -51,12 +51,12 @@
         {
           "filename": "flycast-dojo-linux.zip",
           "url": "https://github.com/blueminder/flycast-dojo/releases/download/dojo-7.9/flycast-dojo-linux.zip",
-          "sha256": ""
+          "sha256": "c7cae9767d8cc199dbc24cabb38978cb9bf4a6273165ca98bce06bcfae104a3d"
         },
         {
           "filename": "flycast-dojo-mac.zip",
           "url": "https://github.com/blueminder/flycast-dojo/releases/download/dojo-7.9/flycast-dojo-mac.zip",
-          "sha256": ""
+          "sha256": "5a9c5567442229fde3d27dd4961a36cb3bbfcf74525cb2d7c0c620236f039e8c"
         },
         {
           "filename": "flycast-dojo-windows.zip",
@@ -86,7 +86,7 @@
         {
           "filename": "duckstation-mac-release.zip",
           "url": "https://github.com/stenzek/duckstation/releases/download/latest/duckstation-mac-release.zip",
-          "sha256": ""
+          "sha256": "6918746eaa8baffc55c9d7d48fd72d3b51a4165a1b039b5c70183f15f4576346"
         },
         {
           "filename": "duckstation-windows-arm64-installer.exe",
@@ -101,12 +101,12 @@
         {
           "filename": "duckstation-windows-arm64-release.zip",
           "url": "https://github.com/stenzek/duckstation/releases/download/latest/duckstation-windows-arm64-release.zip",
-          "sha256": ""
+          "sha256": "d6caa5fd775dac8506365408b3f794c0ecfb1dca0069c30763b466dc76a2a52f"
         },
         {
           "filename": "duckstation-windows-x64-installer.exe",
           "url": "https://github.com/stenzek/duckstation/releases/download/latest/duckstation-windows-x64-installer.exe",
-          "sha256": ""
+          "sha256": "c8290dafa138a373cea4dd3c7d4469a74ee09c44a072b72bce0f48c79100dc47"
         },
         {
           "filename": "duckstation-windows-x64-release-symbols.7z",
@@ -116,7 +116,7 @@
         {
           "filename": "duckstation-windows-x64-release.zip",
           "url": "https://github.com/stenzek/duckstation/releases/download/latest/duckstation-windows-x64-release.zip",
-          "sha256": ""
+          "sha256": "ca02e8eac40c0c6de801638f6b16bec80b605b5df32e406fe2fba7f21016b14b"
         },
         {
           "filename": "duckstation-windows-x64-sse2-installer.exe",
@@ -126,12 +126,12 @@
         {
           "filename": "duckstation-windows-x64-sse2-release-symbols.7z",
           "url": "https://github.com/stenzek/duckstation/releases/download/latest/duckstation-windows-x64-sse2-release-symbols.7z",
-          "sha256": ""
+          "sha256": "acfa11473bb049613719b41d82f05fececc4e5f4ca9adb819af98f463c5da8b2"
         },
         {
           "filename": "duckstation-windows-x64-sse2-release.zip",
           "url": "https://github.com/stenzek/duckstation/releases/download/latest/duckstation-windows-x64-sse2-release.zip",
-          "sha256": ""
+          "sha256": "fd99507ee4785480f2a17005565012648f408cc93b28f408a5af81bd1973769a"
         },
         {
           "filename": "DuckStation-x64-SSE2.AppImage",
@@ -141,7 +141,7 @@
         {
           "filename": "DuckStation-x64.AppImage",
           "url": "https://github.com/stenzek/duckstation/releases/download/latest/DuckStation-x64.AppImage",
-          "sha256": ""
+          "sha256": "eef887bacce0b3cd9a943fb6718e7e2b8970edcf7e88c7eb30cee750d71037d5"
         }
       ],
       "source_type": "github",

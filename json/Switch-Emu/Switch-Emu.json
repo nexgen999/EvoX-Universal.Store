@@ -16,7 +16,7 @@
         {
           "filename": "Citron-windows-nightly-7dc47bab8-x64-clangtron.zip",
           "url": "https://github.com/citron-neo/CI/releases/download/nightly-windows/Citron-windows-nightly-7dc47bab8-x64-clangtron.zip",
-          "sha256": ""
+          "sha256": "eaf8ca764debde19e548a2b7fcc28b61119e9a6e3ff6ee6fb1ceee799176b6bd"
         }
       ],
       "source_type": "github",
@@ -66,7 +66,7 @@
         {
           "filename": "Ryubing",
           "url": "https://git.ryujinx.app/projects/Ryubing",
-          "sha256": "a38afaf7ecbd4d3dccea4917f4b89ab82012e8375834d8d817d3ea72f1a6029d"
+          "sha256": "6c410422fdc0b28f7b74bcc602ac05064487ddcba88a04fe70b2e9f8c2323ed9"
         }
       ],
       "source_type": "forgejo",
@@ -81,7 +81,7 @@
         {
           "filename": "Kenji-NX",
           "url": "https://git.ryujinx.app/projects/Kenji-NX",
-          "sha256": "30166a7fb7acd005d5d17008f8c29b9f76c496113bd4ca394e741d24a2789d25"
+          "sha256": "739e2b7357fa914345cdca467a701dc5098dcf55144b023989d0ab0734399732"
         }
       ],
       "source_type": "forgejo",
