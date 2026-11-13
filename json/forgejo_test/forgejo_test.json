@@ -11,7 +11,7 @@
         {
           "filename": "elf-arsenal.elf",
           "url": "https://git.etawen.dev/soniciso/elf-arsenal/releases/download/v1.6.23/elf-arsenal.elf",
-          "sha256": "20cdb0979ce627aff8e684a4506e18390a72492d5e3aa15ecef0bfe1bca08bb5"
+          "sha256": ""
         }
       ],
       "source_type": "forgejo",
