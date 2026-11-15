@@ -1,7 +1,49 @@
 {
   "name": "EvoX Universal Store",
-  "updated_at": "2026-11-14T22:13:44.894018Z",
+  "updated_at": "2026-11-15T05:59:04.735933Z",
   "store": [
+    {
+      "category": "html_test",
+      "subcategory": "html_test",
+      "apps": [
+        {
+          "name": "retroarch_windows_nightly",
+          "description": "retroarch",
+          "version": "v1.0",
+          "release_notes": "Fichier direct",
+          "assets": [
+            {
+              "filename": "RetroArch-Win64-setup.exe",
+              "url": "https://buildbot.libretro.com/nightly/windows/x86_64/RetroArch-Win64-setup.exe",
+              "sha256": "7b86138e7d9d0d77157528f2c323d5cac158b9224299216c6b3a2ac1205f8cdc"
+            }
+          ],
+          "source_type": "generic",
+          "repo_url": "https://buildbot.libretro.com/nightly/windows/x86_64/RetroArch-Win64-setup.exe"
+        }
+      ]
+    },
+    {
+      "category": "forgejo_test",
+      "subcategory": "forgejo_test",
+      "apps": [
+        {
+          "name": "elf-arsenal",
+          "description": "elf-arsenal",
+          "version": "v1.6.23",
+          "release_notes": "Firmware coverage, a PKG installer that takes links, and a download queue that\r\nstops hiding what it is doing.\r\n\r\n## PKG Installer\r\n\r\n**Install from a link.** Paste URLs one per line, or give it the address of a\r\npage that lists them — an archive.org item, an open directory index, anything\r\nthat is just anchors — and the console reads that page and hands back the .pkg\r\nlinks to pick from. Doing the fetch on the console also sidesteps the CORS\r\nrefusals a browser would hit. Links go on a queue with a single worker, since\r\ninstalls serialise down there anyway; it reports per-item state and refuses\r\nduplicates that are still pending.\r\n\r\n## Firmware coverage\r\n\r\nEvery payload is rebuilt against the current SDK, so all of them now carry the\r\nfull 3.00–13.60 dispatch. zftpd was the one that mattered: it stopped at 10.60\r\nand was reachable from the FTP daemon switch. The firmware check that catches\r\nthis now also runs on the argv spawn path, which was skipping it.\r\n\r\nThe ShellCore PPR patch gains tables for **6.50** and **10.60**, taking it to 50\r\nof 51 firmwares — only 9.05 is missing, and no image for it exists to derive one\r\nfrom. Both new tables were carried over from neighbouring firmwares rather than\r\nread off a console; `tools/verify-firmware-tables.py` checks every table against\r\na real firmware image and all 51 pass, 561 sites, nothing failing. The same tool\r\nverifies kmonitor's kernel offsets against decrypted kernels — 51 of 52.\r\n\r\n**The patcher now looks before it writes.** Each entry replaces a specific\r\ninstruction, and nothing checked that the instruction was there; an offset that\r\ndid not describe the running build was written anyway. Anything unexpected is\r\nskipped now, which is also what makes a derived table safe to ship.\r\n\r\n",
+          "assets": [
+            {
+              "filename": "elf-arsenal.elf",
+              "url": "https://git.etawen.dev/soniciso/elf-arsenal/releases/download/v1.6.23/elf-arsenal.elf",
+              "sha256": "20cdb0979ce627aff8e684a4506e18390a72492d5e3aa15ecef0bfe1bca08bb5"
+            }
+          ],
+          "source_type": "forgejo",
+          "repo_url": "https://git.etawen.dev/soniciso/elf-arsenal"
+        }
+      ]
+    },
     {
       "category": "Switch-Emu",
       "subcategory": "Switch-Emu",
@@ -70,7 +112,7 @@
             {
               "filename": "Ryubing",
               "url": "https://git.ryujinx.app/projects/Ryubing",
-              "sha256": "57a3b8f26fbbe78ee9ebccf8472dbf9b9057a5c5ddc2c2bbb26d3552029b127f"
+              "sha256": "c117c18d5a99ce48aec368d89bc5019365308cd49c5178f0dbec34b0e95615b0"
             }
           ],
           "source_type": "forgejo",
@@ -85,7 +127,7 @@
             {
               "filename": "Kenji-NX",
               "url": "https://git.ryujinx.app/projects/Kenji-NX",
-              "sha256": "d8023dea8b1374c9f43db32fcf58b5ebc20218ee2af1aa037c9fe07bbec1cf12"
+              "sha256": "738fe4bd7e3c5a8bf052390f99e3ee33631f0b1793783237e04058e7213df645"
             }
           ],
           "source_type": "forgejo",
@@ -279,38 +321,17 @@
         {
           "name": "eden-nightly",
           "description": "eden-nightly",
-          "version": "v1794611026.1848b23121",
-          "release_notes": "Nightly build of commit [`1848b23121`](https://git.eden-emu.dev/eden-emu/eden/compare/e9661b2a01..1848b231212a7562f58d54896eb3377c0cad5633).\n\n## Changelog\n\n- [bsd, renderer_vulkan] Report real sockaddr_in length; fix DrawTexture scissor, aliasing and blit state (#4559) [`1848b23121`](https://git.eden-emu.dev/eden-emu/eden/commit/1848b231212a7562f58d54896eb3377c0cad5633)\n  - PR #[4559](https://git.eden-emu.dev/eden-emu/eden/pulls/4559) merged on 2026-11-13 by PavelBARABANOV\n- [cheats] refactoring cheat codes to support cheats groups (#4616) [`63e957b1ca`](https://git.eden-emu.dev/eden-emu/eden/commit/63e957b1cad697558beb782b0947f01227efc826)\n  - PR #[4616](https://git.eden-emu.dev/eden-emu/eden/pulls/4616) merged on 2026-11-13 by Soar Qin\n- [fs] Convert `fs_paths` macros to constexpr strings (#4718) [`c17bb9052c`](https://git.eden-emu.dev/eden-emu/eden/commit/c17bb9052c1f6af79f8d6889e666716a58ef4a5b)\n  - PR #[4718](https://git.eden-emu.dev/eden-emu/eden/pulls/4718) merged on 2026-11-13 by crueter\n- [*] Remove `YUZU_NON_COPYABLE` and `YUZU_NON_MOVEABLE` (#4719) [`70960ba2ca`](https://git.eden-emu.dev/eden-emu/eden/commit/70960ba2cad342913666a70b06c6239fa8c4b609)\n  - PR #[4719](https://git.eden-emu.dev/eden-emu/eden/pulls/4719) merged on 2026-11-13 by crueter\n- [android] reload game library when a game folder is deleted (#4679) [`3cc996dfb7`](https://git.eden-emu.dev/eden-emu/eden/commit/3cc996dfb70cedd4f02bbd877616d39131876c7d)\n  - PR #[4679](https://git.eden-emu.dev/eden-emu/eden/pulls/4679) merged on 2026-11-13 by Nathantendo\n- [docs] miscellaneous typo fixes (#4681) [`8b4416b256`](https://git.eden-emu.dev/eden-emu/eden/commit/8b4416b256f985ab2e95fe9ebaf74081df8e7220)\n  - PR #[4681](https://git.eden-emu.dev/eden-emu/eden/pulls/4681) merged on 2026-11-13 by Nathantendo\n\n\n# Packages\n\n## Targets\n\nEach build is optimized for a specific architecture and uses a specific compiler.\n\n- **aarch64/arm64**: For devices that use the armv8-a instruction set; e.g. Snapdragon X, all Android devices, and Apple Silicon Macs.\n- **amd64**: For devices that use the amd64 (aka x86_64) instruction set; this is exclusively used by Intel and AMD CPUs and is only found on desktops.\n- **v3**: For devices that use the x86_64-v3 instruction set or newer; this is found on Ryzen, Intel 4th Generation (Haswell), and newer.\n\n### PGO\n\nPGO builds usually perform ~10-30% better than standard builds, and are thus generally recommended for all users.\n\n## Linux\n\nLinux packages are distributed via AppImage.\n[zsync](https://zsync.moria.org.uk/) files are provided for easier updating, such as via\n[AM](https://github.com/ivan-hc/AM).\n\n| Build Type | Standard | PGO (Recommended) | Notes |\n|------------|----------|-----------|-------|\n| amd64 | [Standard AppImage](https://nightly.eden-emu.dev/v1794611026.1848b23121/Eden-Linux-1848b23121-amd64-gcc-standard.AppImage) ([zsync](https://nightly.eden-emu.dev/v1794611026.1848b23121/Eden-Linux-amd64-gcc-standard.AppImage.zsync)) | [PGO AppImage](https://nightly.eden-emu.dev/v1794611026.1848b23121/Eden-Linux-1848b23121-amd64-clang-pgo.AppImage) ([zsync](https://nightly.eden-emu.dev/v1794611026.1848b23121/Eden-Linux-amd64-clang-pgo.AppImage.zsync)) |  |\n| Legacy amd64 | [Standard AppImage](https://nightly.eden-emu.dev/v1794611026.1848b23121/Eden-Linux-1848b23121-legacy-gcc-standard.AppImage) ([zsync](https://nightly.eden-emu.dev/v1794611026.1848b23121/Eden-Linux-legacy-gcc-standard.AppImage.zsync)) | [PGO AppImage](https://nightly.eden-emu.dev/v1794611026.1848b23121/Eden-Linux-1848b23121-legacy-clang-pgo.AppImage) ([zsync](https://nightly.eden-emu.dev/v1794611026.1848b23121/Eden-Linux-legacy-clang-pgo.AppImage.zsync)) | Pre-Ryzen or Haswell CPUs (expect sadness) |\n| Steam Deck | [Standard AppImage](https://nightly.eden-emu.dev/v1794611026.1848b23121/Eden-Linux-1848b23121-steamdeck-gcc-standard.AppImage) ([zsync](https://nightly.eden-emu.dev/v1794611026.1848b23121/Eden-Linux-steamdeck-gcc-standard.AppImage.zsync)) | [PGO AppImage](https://nightly.eden-emu.dev/v1794611026.1848b23121/Eden-Linux-1848b23121-steamdeck-clang-pgo.AppImage) ([zsync](https://nightly.eden-emu.dev/v1794611026.1848b23121/Eden-Linux-steamdeck-clang-pgo.AppImage.zsync)) | Zen 2 |\n| Zen 4 | [Standard AppImage](https://nightly.eden-emu.dev/v1794611026.1848b23121/Eden-Linux-1848b23121-rog-ally-gcc-standard.AppImage) ([zsync](https://nightly.eden-emu.dev/v1794611026.1848b23121/Eden-Linux-rog-ally-gcc-standard.AppImage.zsync)) | [PGO AppImage](https://nightly.eden-emu.dev/v1794611026.1848b23121/Eden-Linux-1848b23121-rog-ally-clang-pgo.AppImage) ([zsync](https://nightly.eden-emu.dev/v1794611026.1848b23121/Eden-Linux-rog-ally-clang-pgo.AppImage.zsync)) | Zen 4 (AMD Z1/Z2, ROG Ally X, Legion Go S) |\n| ARM (aarch64) | [Standard AppImage](https://nightly.eden-emu.dev/v1794611026.1848b23121/Eden-Linux-1848b23121-aarch64-gcc-standard.AppImage) ([zsync](https://nightly.eden-emu.dev/v1794611026.1848b23121/Eden-Linux-aarch64-gcc-standard.AppImage.zsync)) | [PGO AppImage](https://nightly.eden-emu.dev/v1794611026.1848b23121/Eden-Linux-1848b23121-aarch64-clang-pgo.AppImage) ([zsync](https://nightly.eden-emu.dev/v1794611026.1848b23121/Eden-Linux-aarch64-clang-pgo.AppImage.zsync)) |  |\n\n## Windows\n\nWindows packages are in-place zip files. Setup files are soon to come.\n\n| Build Type | Standard | PGO (Recommended) | Notes |\n|------------|----------|-------------------|-------|\n| amd64/x86_64 (MSVC) | [MSVC zip](https://nightly.eden-emu.dev/v1794611026.1848b23121/Eden-Windows-1848b23121-amd64-msvc-standard.zip) |  | Use if you encounter graphical issues on other builds (e.g. Pokemon Scarlet & Violet) |\n| amd64/x86_64 v3 | [Standard zip](https://nightly.eden-emu.dev/v1794611026.1848b23121/Eden-Windows-1848b23121-amd64-gcc-standard.zip) | [PGO zip](https://nightly.eden-emu.dev/v1794611026.1848b23121/Eden-Windows-1848b23121-amd64-clang-pgo.zip) | Built with MinGW. Requires Ryzen, 4th gen Intel, or newer |\n| Zen 4 | [Standard zip](https://nightly.eden-emu.dev/v1794611026.1848b23121/Eden-Windows-1848b23121-rog-ally-gcc-standard.zip) | [PGO zip](https://nightly.eden-emu.dev/v1794611026.1848b23121/Eden-Windows-1848b23121-rog-ally-clang-pgo.zip) | Requires Zen 4 or newer (e.g. ROG Ally X, Legion Go S). Incompatible with Intel |\n| aarch64/arm64 | [Standard zip](https://nightly.eden-emu.dev/v1794611026.1848b23121/Eden-Windows-1848b23121-arm64-clang-standard.zip) | [PGO zip](https://nightly.eden-emu.dev/v1794611026.1848b23121/Eden-Windows-1848b23121-arm64-clang-pgo.zip) | Snapdragon devices |\n\n## Android\n\n\n| Build Type |  | Notes |\n|------------|--|-------|\n| Standard | [Standard APK](https://nightly.eden-emu.dev/v1794611026.1848b23121/Eden-Android-1848b23121-standard.apk) |  | The standard build. Most users should use this. |\n| Genshin Spoof | [Genshin Spoof APK](https://nightly.eden-emu.dev/v1794611026.1848b23121/Eden-Android-1848b23121-optimized.apk) |  | Spoofs Eden as Genshin Impact, which may enable optimizations/frame generation on some flagship devices. |\n| Legacy | [Legacy APK](https://nightly.eden-emu.dev/v1794611026.1848b23121/Eden-Android-1848b23121-legacy.apk) |  | For Snapdragon 865 and other unsupported chipsets |\n\n## macOS\n\nmacOS comes in a DMG image. These builds are currently experimental, and you should expect major graphical glitches and crashes.\nIn order to run the app, you *may* need to go to System Settings -> Privacy & Security -> Security -> Allow untrusted app.\n\n- [macOS DMG](https://nightly.eden-emu.dev/v1794611026.1848b23121/Eden-macOS-1848b23121.dmg)\n\n## Torrent\n\nA torrent containing all artifacts. To use this, simply download the torrent and import it into your\nfavorite torrent client (BitTorrent only!), and artifacts will be downloaded automatically.\n- [Torrent](https://nightly.eden-emu.dev/v1794611026.1848b23121/Eden-1848b23121.torrent)",
+          "version": "v1794693050.6828dc59dc",
+          "release_notes": "Nightly build of commit [`6828dc59dc`](https://git.eden-emu.dev/eden-emu/eden/compare/1848b23121..6828dc59dc3dcc550c9f67675d4bcacae454f12b).\n\n## Changelog\n\n- [core, windows] Parse Ounce metadata and extracted NSP loading (AI-assisted) (#4619) [`6828dc59dc`](https://git.eden-emu.dev/eden-emu/eden/commit/6828dc59dc3dcc550c9f67675d4bcacae454f12b)\n  - PR #[4619](https://git.eden-emu.dev/eden-emu/eden/pulls/4619) merged on 2026-11-14 by simply0001\n- [android/loader] Show the shader progress until is done and add logo with banner animation (#4680) [`4a2c923419`](https://git.eden-emu.dev/eden-emu/eden/commit/4a2c923419da30bc272df6dbeb2866dd1b59cade)\n  - PR #[4680](https://git.eden-emu.dev/eden-emu/eden/pulls/4680) merged on 2026-11-14 by dandroboti\n\n\n# Packages\n\n## Targets\n\nEach build is optimized for a specific architecture and uses a specific compiler.\n\n- **aarch64/arm64**: For devices that use the armv8-a instruction set; e.g. Snapdragon X, all Android devices, and Apple Silicon Macs.\n- **amd64**: For devices that use the amd64 (aka x86_64) instruction set; this is exclusively used by Intel and AMD CPUs and is only found on desktops.\n- **v3**: For devices that use the x86_64-v3 instruction set or newer; this is found on Ryzen, Intel 4th Generation (Haswell), and newer.\n\n### PGO\n\nPGO builds usually perform ~10-30% better than standard builds, and are thus generally recommended for all users.\n\n## Linux\n\nLinux packages are distributed via AppImage.\n[zsync](https://zsync.moria.org.uk/) files are provided for easier updating, such as via\n[AM](https://github.com/ivan-hc/AM).\n\n| Build Type | Standard | PGO (Recommended) | Notes |\n|------------|----------|-----------|-------|\n| amd64 | [Standard AppImage](https://nightly.eden-emu.dev/v1794693050.6828dc59dc/Eden-Linux-6828dc59dc-amd64-gcc-standard.AppImage) ([zsync](https://nightly.eden-emu.dev/v1794693050.6828dc59dc/Eden-Linux-amd64-gcc-standard.AppImage.zsync)) | [PGO AppImage](https://nightly.eden-emu.dev/v1794693050.6828dc59dc/Eden-Linux-6828dc59dc-amd64-clang-pgo.AppImage) ([zsync](https://nightly.eden-emu.dev/v1794693050.6828dc59dc/Eden-Linux-amd64-clang-pgo.AppImage.zsync)) |  |\n| Legacy amd64 | [Standard AppImage](https://nightly.eden-emu.dev/v1794693050.6828dc59dc/Eden-Linux-6828dc59dc-legacy-gcc-standard.AppImage) ([zsync](https://nightly.eden-emu.dev/v1794693050.6828dc59dc/Eden-Linux-legacy-gcc-standard.AppImage.zsync)) | [PGO AppImage](https://nightly.eden-emu.dev/v1794693050.6828dc59dc/Eden-Linux-6828dc59dc-legacy-clang-pgo.AppImage) ([zsync](https://nightly.eden-emu.dev/v1794693050.6828dc59dc/Eden-Linux-legacy-clang-pgo.AppImage.zsync)) | Pre-Ryzen or Haswell CPUs (expect sadness) |\n| Steam Deck | [Standard AppImage](https://nightly.eden-emu.dev/v1794693050.6828dc59dc/Eden-Linux-6828dc59dc-steamdeck-gcc-standard.AppImage) ([zsync](https://nightly.eden-emu.dev/v1794693050.6828dc59dc/Eden-Linux-steamdeck-gcc-standard.AppImage.zsync)) | [PGO AppImage](https://nightly.eden-emu.dev/v1794693050.6828dc59dc/Eden-Linux-6828dc59dc-steamdeck-clang-pgo.AppImage) ([zsync](https://nightly.eden-emu.dev/v1794693050.6828dc59dc/Eden-Linux-steamdeck-clang-pgo.AppImage.zsync)) | Zen 2 |\n| Zen 4 | [Standard AppImage](https://nightly.eden-emu.dev/v1794693050.6828dc59dc/Eden-Linux-6828dc59dc-rog-ally-gcc-standard.AppImage) ([zsync](https://nightly.eden-emu.dev/v1794693050.6828dc59dc/Eden-Linux-rog-ally-gcc-standard.AppImage.zsync)) | [PGO AppImage](https://nightly.eden-emu.dev/v1794693050.6828dc59dc/Eden-Linux-6828dc59dc-rog-ally-clang-pgo.AppImage) ([zsync](https://nightly.eden-emu.dev/v1794693050.6828dc59dc/Eden-Linux-rog-ally-clang-pgo.AppImage.zsync)) | Zen 4 (AMD Z1/Z2, ROG Ally X, Legion Go S) |\n| ARM (aarch64) | [Standard AppImage](https://nightly.eden-emu.dev/v1794693050.6828dc59dc/Eden-Linux-6828dc59dc-aarch64-gcc-standard.AppImage) ([zsync](https://nightly.eden-emu.dev/v1794693050.6828dc59dc/Eden-Linux-aarch64-gcc-standard.AppImage.zsync)) | [PGO AppImage](https://nightly.eden-emu.dev/v1794693050.6828dc59dc/Eden-Linux-6828dc59dc-aarch64-clang-pgo.AppImage) ([zsync](https://nightly.eden-emu.dev/v1794693050.6828dc59dc/Eden-Linux-aarch64-clang-pgo.AppImage.zsync)) |  |\n\n## Windows\n\nWindows packages are in-place zip files. Setup files are soon to come.\n\n| Build Type | Standard | PGO (Recommended) | Notes |\n|------------|----------|-------------------|-------|\n| amd64/x86_64 (MSVC) | [MSVC zip](https://nightly.eden-emu.dev/v1794693050.6828dc59dc/Eden-Windows-6828dc59dc-amd64-msvc-standard.zip) |  | Use if you encounter graphical issues on other builds (e.g. Pokemon Scarlet & Violet) |\n| amd64/x86_64 v3 | [Standard zip](https://nightly.eden-emu.dev/v1794693050.6828dc59dc/Eden-Windows-6828dc59dc-amd64-gcc-standard.zip) | [PGO zip](https://nightly.eden-emu.dev/v1794693050.6828dc59dc/Eden-Windows-6828dc59dc-amd64-clang-pgo.zip) | Built with MinGW. Requires Ryzen, 4th gen Intel, or newer |\n| Zen 4 | [Standard zip](https://nightly.eden-emu.dev/v1794693050.6828dc59dc/Eden-Windows-6828dc59dc-rog-ally-gcc-standard.zip) | [PGO zip](https://nightly.eden-emu.dev/v1794693050.6828dc59dc/Eden-Windows-6828dc59dc-rog-ally-clang-pgo.zip) | Requires Zen 4 or newer (e.g. ROG Ally X, Legion Go S). Incompatible with Intel |\n| aarch64/arm64 | [Standard zip](https://nightly.eden-emu.dev/v1794693050.6828dc59dc/Eden-Windows-6828dc59dc-arm64-clang-standard.zip) | [PGO zip](https://nightly.eden-emu.dev/v1794693050.6828dc59dc/Eden-Windows-6828dc59dc-arm64-clang-pgo.zip) | Snapdragon devices |\n\n## Android\n\n\n| Build Type |  | Notes |\n|------------|--|-------|\n| Standard | [Standard APK](https://nightly.eden-emu.dev/v1794693050.6828dc59dc/Eden-Android-6828dc59dc-standard.apk) |  | The standard build. Most users should use this. |\n| Genshin Spoof | [Genshin Spoof APK](https://nightly.eden-emu.dev/v1794693050.6828dc59dc/Eden-Android-6828dc59dc-optimized.apk) |  | Spoofs Eden as Genshin Impact, which may enable optimizations/frame generation on some flagship devices. |\n| Legacy | [Legacy APK](https://nightly.eden-emu.dev/v1794693050.6828dc59dc/Eden-Android-6828dc59dc-legacy.apk) |  | For Snapdragon 865 and other unsupported chipsets |\n\n## macOS\n\nmacOS comes in a DMG image. These builds are currently experimental, and you should expect major graphical glitches and crashes.\nIn order to run the app, you *may* need to go to System Settings -> Privacy & Security -> Security -> Allow untrusted app.\n\n- [macOS DMG](https://nightly.eden-emu.dev/v1794693050.6828dc59dc/Eden-macOS-6828dc59dc.dmg)\n\n## Torrent\n\nA torrent containing all artifacts. To use this, simply download the torrent and import it into your\nfavorite torrent client (BitTorrent only!), and artifacts will be downloaded automatically.\n- [Torrent](https://nightly.eden-emu.dev/v1794693050.6828dc59dc/Eden-6828dc59dc.torrent)",
           "assets": [
             {
-              "filename": "nightly-v1794611026.1848b23121.zip",
-              "url": "https://git.eden-emu.dev/eden-ci/nightly/archive/v1794611026.1848b23121.zip",
+              "filename": "nightly-v1794693050.6828dc59dc.zip",
+              "url": "https://git.eden-emu.dev/eden-ci/nightly/archive/v1794693050.6828dc59dc.zip",
               "sha256": "7192da7cb76bc4befe1d30ec66a0d86ffff39a957743dcbea4f579e2e47f7a8d"
             }
           ],
           "source_type": "forgejo",
           "repo_url": "https://git.eden-emu.dev/eden-ci/nightly"
-        }
-      ]
-    },
-    {
-      "category": "forgejo_test",
-      "subcategory": "forgejo_test",
-      "apps": [
-        {
-          "name": "elf-arsenal",
-          "description": "elf-arsenal",
-          "version": "v1.6.23",
-          "release_notes": "Firmware coverage, a PKG installer that takes links, and a download queue that\r\nstops hiding what it is doing.\r\n\r\n## PKG Installer\r\n\r\n**Install from a link.** Paste URLs one per line, or give it the address of a\r\npage that lists them — an archive.org item, an open directory index, anything\r\nthat is just anchors — and the console reads that page and hands back the .pkg\r\nlinks to pick from. Doing the fetch on the console also sidesteps the CORS\r\nrefusals a browser would hit. Links go on a queue with a single worker, since\r\ninstalls serialise down there anyway; it reports per-item state and refuses\r\nduplicates that are still pending.\r\n\r\n## Firmware coverage\r\n\r\nEvery payload is rebuilt against the current SDK, so all of them now carry the\r\nfull 3.00–13.60 dispatch. zftpd was the one that mattered: it stopped at 10.60\r\nand was reachable from the FTP daemon switch. The firmware check that catches\r\nthis now also runs on the argv spawn path, which was skipping it.\r\n\r\nThe ShellCore PPR patch gains tables for **6.50** and **10.60**, taking it to 50\r\nof 51 firmwares — only 9.05 is missing, and no image for it exists to derive one\r\nfrom. Both new tables were carried over from neighbouring firmwares rather than\r\nread off a console; `tools/verify-firmware-tables.py` checks every table against\r\na real firmware image and all 51 pass, 561 sites, nothing failing. The same tool\r\nverifies kmonitor's kernel offsets against decrypted kernels — 51 of 52.\r\n\r\n**The patcher now looks before it writes.** Each entry replaces a specific\r\ninstruction, and nothing checked that the instruction was there; an offset that\r\ndid not describe the running build was written anyway. Anything unexpected is\r\nskipped now, which is also what makes a derived table safe to ship.\r\n\r\n",
-          "assets": [
-            {
-              "filename": "elf-arsenal.elf",
-              "url": "https://git.etawen.dev/soniciso/elf-arsenal/releases/download/v1.6.23/elf-arsenal.elf",
-              "sha256": "20cdb0979ce627aff8e684a4506e18390a72492d5e3aa15ecef0bfe1bca08bb5"
-            }
-          ],
-          "source_type": "forgejo",
-          "repo_url": "https://git.etawen.dev/soniciso/elf-arsenal"
         }
       ]
     },
@@ -462,27 +483,6 @@
           ],
           "source_type": "github",
           "repo_url": "https://github.com/stenzek/duckstation"
-        }
-      ]
-    },
-    {
-      "category": "html_test",
-      "subcategory": "html_test",
-      "apps": [
-        {
-          "name": "retroarch_windows_nightly",
-          "description": "retroarch",
-          "version": "v1.0",
-          "release_notes": "Fichier direct",
-          "assets": [
-            {
-              "filename": "RetroArch-Win64-setup.exe",
-              "url": "https://buildbot.libretro.com/nightly/windows/x86_64/RetroArch-Win64-setup.exe",
-              "sha256": "30a7650bcfc65bf3de90603daceced29f39974a002b331e172ec65cd6f12c57e"
-            }
-          ],
-          "source_type": "generic",
-          "repo_url": "https://buildbot.libretro.com/nightly/windows/x86_64/RetroArch-Win64-setup.exe"
         }
       ]
     },
