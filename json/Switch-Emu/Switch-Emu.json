@@ -5,18 +5,13 @@
     {
       "name": "Citron-neo_windows-nightly",
       "description": "Citron-neo_windows-nightly",
-      "version": "nightly-windows",
-      "release_notes": "**Citron Upstream Commit:** [`7dc47ba`](https://github.com/citron-neo/emulator/commit/7dc47bab8469fabf810fccf88f938f4e75fe3852)\n\nThis build is based on the latest Citron emulator source code from the upstream repository.\n\n**Build Details:**\n- Platform: Windows (x64)\n- Toolchains: Clangtron and native clang-cl/MSVC ABI\n- Build Type: Nightly\n- Date: 2026-11-06\n",
+      "version": "v1.0",
+      "release_notes": "Fichier direct",
       "assets": [
         {
-          "filename": "Citron-windows-nightly-7dc47bab8-x64-clang-cl.zip",
-          "url": "https://github.com/citron-neo/CI/releases/download/nightly-windows/Citron-windows-nightly-7dc47bab8-x64-clang-cl.zip",
-          "sha256": "0cd7ad5b566476e55cf7a766b3d3c370e471fdb950cdafc8fabada993a509ef5"
-        },
-        {
-          "filename": "Citron-windows-nightly-7dc47bab8-x64-clangtron.zip",
-          "url": "https://github.com/citron-neo/CI/releases/download/nightly-windows/Citron-windows-nightly-7dc47bab8-x64-clangtron.zip",
-          "sha256": "eaf8ca764debde19e548a2b7fcc28b61119e9a6e3ff6ee6fb1ceee799176b6bd"
+          "filename": "CI",
+          "url": "https://github.com/citron-neo/CI",
+          "sha256": ""
         }
       ],
       "source_type": "github",
@@ -25,18 +20,13 @@
     {
       "name": "Citron-neo_android-nightly",
       "description": "Citron-neo_android-nightly",
-      "version": "nightly-android",
-      "release_notes": "**Citron Upstream Commit:** [`7dc47ba`](https://github.com/citron-neo/emulator/commit/7dc47bab8469fabf810fccf88f938f4e75fe3852)\n\nThis build is based on the latest Citron emulator source code from the **main** branch.\n\n**Build Details:**\n- Platform: Android (arm64-v8a)\n- Build Type: Nightly with LTO enabled\n- Date: 2026-11-06\n- Branch: main\n- Includes: Standard build + Snapdragon 8 Elite build with Qualcomm patches\n",
+      "version": "v1.0",
+      "release_notes": "Fichier direct",
       "assets": [
         {
-          "filename": "app-mainline-release.apk",
-          "url": "https://github.com/citron-neo/CI/releases/download/nightly-android/app-mainline-release.apk",
-          "sha256": "2a5aef866a91e71bcd4fcffe24cd6bf96e6349f6ad196f1325b1865bf643fa26"
-        },
-        {
-          "filename": "Citron-29494-Android-8.Elite-Lyb.apk",
-          "url": "https://github.com/citron-neo/CI/releases/download/nightly-android/Citron-29494-Android-8.Elite-Lyb.apk",
-          "sha256": "d39629c63c72b9c4eda6f6b42d8424a8186d96890123bfd2d4fd0c554a3f55cb"
+          "filename": "CI",
+          "url": "https://github.com/citron-neo/CI",
+          "sha256": ""
         }
       ],
       "source_type": "github",
@@ -66,7 +56,7 @@
         {
           "filename": "Ryubing",
           "url": "https://git.ryujinx.app/projects/Ryubing",
-          "sha256": "ce7f7f4c34707d4dad762d5c7606a8274945f473f30108a557683d09a9fd3ca9"
+          "sha256": "1caae374ef9597fbb6fcc411150ff84353f1ce83dd384a7f41b07ad2479e8190"
         }
       ],
       "source_type": "forgejo",
@@ -81,7 +71,7 @@
         {
           "filename": "Kenji-NX",
           "url": "https://git.ryujinx.app/projects/Kenji-NX",
-          "sha256": "178f9c5e923188b4eaa4e1caa5fa57deacc2f76a0d3e4b2d4a4b792fcddad5a4"
+          "sha256": "9b591f58d33a6f939880ab81ca44cec5cd15e4176c73eede364f3430cf06f3f0"
         }
       ],
       "source_type": "forgejo",
