@@ -48,7 +48,7 @@ Le fichier `config.json` permet de personnaliser l'interface web du Store sans t
 | Catégorie | Sous-catégorie | Application | Version |
 | :--- | :--- | :--- | :--- |
 | html_test | html_test | retroarch_windows_nightly | v1.0 |
-| forgejo_test | forgejo_test | elf-arsenal | v1.0 |
+| forgejo_test | forgejo_test | elf-arsenal | v1.6.23 |
 | Switch-Emu | Switch-Emu | Citron-neo_windows-nightly | v1.0 |
 | Switch-Emu | Switch-Emu | Citron-neo_android-nightly | v1.0 |
 | Switch-Emu | Switch-Emu | Ryujinx-Nextendo | v1.0 |
