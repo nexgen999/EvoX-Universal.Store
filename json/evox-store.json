@@ -1,49 +1,7 @@
 {
   "name": "EvoX Universal Store",
-  "updated_at": "2026-11-18T15:29:48.044006Z",
+  "updated_at": "2026-11-19T00:10:37.030689Z",
   "store": [
-    {
-      "category": "html_test",
-      "subcategory": "html_test",
-      "apps": [
-        {
-          "name": "retroarch_windows_nightly",
-          "description": "retroarch",
-          "version": "v1.0",
-          "release_notes": "Fichier direct",
-          "assets": [
-            {
-              "filename": "RetroArch-Win64-setup.exe",
-              "url": "https://buildbot.libretro.com/nightly/windows/x86_64/RetroArch-Win64-setup.exe",
-              "sha256": "e5e8d05cbecfc307047078774378900db564fbf63860bf0e1b54b5cbdd1c3818"
-            }
-          ],
-          "source_type": "generic",
-          "repo_url": "https://buildbot.libretro.com/nightly/windows/x86_64/RetroArch-Win64-setup.exe"
-        }
-      ]
-    },
-    {
-      "category": "forgejo_test",
-      "subcategory": "forgejo_test",
-      "apps": [
-        {
-          "name": "elf-arsenal",
-          "description": "elf-arsenal",
-          "version": "v1.6.23",
-          "release_notes": "Firmware coverage, a PKG installer that takes links, and a download queue that\r\nstops hiding what it is doing.\r\n\r\n## PKG Installer\r\n\r\n**Install from a link.** Paste URLs one per line, or give it the address of a\r\npage that lists them — an archive.org item, an open directory index, anything\r\nthat is just anchors — and the console reads that page and hands back the .pkg\r\nlinks to pick from. Doing the fetch on the console also sidesteps the CORS\r\nrefusals a browser would hit. Links go on a queue with a single worker, since\r\ninstalls serialise down there anyway; it reports per-item state and refuses\r\nduplicates that are still pending.\r\n\r\n## Firmware coverage\r\n\r\nEvery payload is rebuilt against the current SDK, so all of them now carry the\r\nfull 3.00–13.60 dispatch. zftpd was the one that mattered: it stopped at 10.60\r\nand was reachable from the FTP daemon switch. The firmware check that catches\r\nthis now also runs on the argv spawn path, which was skipping it.\r\n\r\nThe ShellCore PPR patch gains tables for **6.50** and **10.60**, taking it to 50\r\nof 51 firmwares — only 9.05 is missing, and no image for it exists to derive one\r\nfrom. Both new tables were carried over from neighbouring firmwares rather than\r\nread off a console; `tools/verify-firmware-tables.py` checks every table against\r\na real firmware image and all 51 pass, 561 sites, nothing failing. The same tool\r\nverifies kmonitor's kernel offsets against decrypted kernels — 51 of 52.\r\n\r\n**The patcher now looks before it writes.** Each entry replaces a specific\r\ninstruction, and nothing checked that the instruction was there; an offset that\r\ndid not describe the running build was written anyway. Anything unexpected is\r\nskipped now, which is also what makes a derived table safe to ship.\r\n\r\n",
-          "assets": [
-            {
-              "filename": "elf-arsenal.elf",
-              "url": "https://git.etawen.dev/soniciso/elf-arsenal/releases/download/v1.6.23/elf-arsenal.elf",
-              "sha256": "20cdb0979ce627aff8e684a4506e18390a72492d5e3aa15ecef0bfe1bca08bb5"
-            }
-          ],
-          "source_type": "forgejo",
-          "repo_url": "https://git.etawen.dev/soniciso/elf-arsenal"
-        }
-      ]
-    },
     {
       "category": "Switch-Emu",
       "subcategory": "Switch-Emu",
@@ -102,7 +60,7 @@
             {
               "filename": "Ryubing",
               "url": "https://git.ryujinx.app/projects/Ryubing",
-              "sha256": "c2e118820d2ac01177b88c550812ad07e8b0df6b4d5c4adf95380e27be11a21f"
+              "sha256": "248b27f06f391dbf8bde1c4a3037cf35d50bf75d89da4c57e476200f74f2c6f1"
             }
           ],
           "source_type": "forgejo",
@@ -117,7 +75,7 @@
             {
               "filename": "Kenji-NX",
               "url": "https://git.ryujinx.app/projects/Kenji-NX",
-              "sha256": "e226476bbad434600a866f85fe40b20b0afa71d3bc9c04e3c819b72a3d07aef1"
+              "sha256": "928308caa5efaf55d6f8e2526e99d72d9f4c90f7055ab0d9de70f1a8c720c529"
             }
           ],
           "source_type": "forgejo",
@@ -326,6 +284,27 @@
       ]
     },
     {
+      "category": "forgejo_test",
+      "subcategory": "forgejo_test",
+      "apps": [
+        {
+          "name": "elf-arsenal",
+          "description": "elf-arsenal",
+          "version": "v1.6.23",
+          "release_notes": "Firmware coverage, a PKG installer that takes links, and a download queue that\r\nstops hiding what it is doing.\r\n\r\n## PKG Installer\r\n\r\n**Install from a link.** Paste URLs one per line, or give it the address of a\r\npage that lists them — an archive.org item, an open directory index, anything\r\nthat is just anchors — and the console reads that page and hands back the .pkg\r\nlinks to pick from. Doing the fetch on the console also sidesteps the CORS\r\nrefusals a browser would hit. Links go on a queue with a single worker, since\r\ninstalls serialise down there anyway; it reports per-item state and refuses\r\nduplicates that are still pending.\r\n\r\n## Firmware coverage\r\n\r\nEvery payload is rebuilt against the current SDK, so all of them now carry the\r\nfull 3.00–13.60 dispatch. zftpd was the one that mattered: it stopped at 10.60\r\nand was reachable from the FTP daemon switch. The firmware check that catches\r\nthis now also runs on the argv spawn path, which was skipping it.\r\n\r\nThe ShellCore PPR patch gains tables for **6.50** and **10.60**, taking it to 50\r\nof 51 firmwares — only 9.05 is missing, and no image for it exists to derive one\r\nfrom. Both new tables were carried over from neighbouring firmwares rather than\r\nread off a console; `tools/verify-firmware-tables.py` checks every table against\r\na real firmware image and all 51 pass, 561 sites, nothing failing. The same tool\r\nverifies kmonitor's kernel offsets against decrypted kernels — 51 of 52.\r\n\r\n**The patcher now looks before it writes.** Each entry replaces a specific\r\ninstruction, and nothing checked that the instruction was there; an offset that\r\ndid not describe the running build was written anyway. Anything unexpected is\r\nskipped now, which is also what makes a derived table safe to ship.\r\n\r\n",
+          "assets": [
+            {
+              "filename": "elf-arsenal.elf",
+              "url": "https://git.etawen.dev/soniciso/elf-arsenal/releases/download/v1.6.23/elf-arsenal.elf",
+              "sha256": "20cdb0979ce627aff8e684a4506e18390a72492d5e3aa15ecef0bfe1bca08bb5"
+            }
+          ],
+          "source_type": "forgejo",
+          "repo_url": "https://git.etawen.dev/soniciso/elf-arsenal"
+        }
+      ]
+    },
+    {
       "category": "github_test",
       "subcategory": "github_test",
       "apps": [
@@ -473,6 +452,27 @@
           ],
           "source_type": "github",
           "repo_url": "https://github.com/stenzek/duckstation"
+        }
+      ]
+    },
+    {
+      "category": "html_test",
+      "subcategory": "html_test",
+      "apps": [
+        {
+          "name": "retroarch_windows_nightly",
+          "description": "retroarch",
+          "version": "v1.0",
+          "release_notes": "Fichier direct",
+          "assets": [
+            {
+              "filename": "RetroArch-Win64-setup.exe",
+              "url": "https://buildbot.libretro.com/nightly/windows/x86_64/RetroArch-Win64-setup.exe",
+              "sha256": "6c41f676093a9749bdfd6d1e28f0b4a3c15a9736ec748c56b0cdc519c7b1bae7"
+            }
+          ],
+          "source_type": "generic",
+          "repo_url": "https://buildbot.libretro.com/nightly/windows/x86_64/RetroArch-Win64-setup.exe"
         }
       ]
     },
