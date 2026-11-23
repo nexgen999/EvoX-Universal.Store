@@ -1,7 +1,158 @@
 {
   "name": "EvoX Universal Store",
-  "updated_at": "2026-11-23T07:07:57.638025Z",
+  "updated_at": "2026-11-23T23:44:24.851365Z",
   "store": [
+    {
+      "category": "github_test",
+      "subcategory": "github_test",
+      "apps": [
+        {
+          "name": "flycast",
+          "description": "Flycast is a multi-platform Sega Dreamcast, Naomi, Naomi 2, and Atomiswave emulator",
+          "version": "v2.7",
+          "release_notes": "## New features\r\n* Frame rate detection and pacing\r\n* Localization (fr, hu, jp, pt_BR, sv)\r\n* Multiscreen support for Airline Pilot, Sega Strike Fighter and Derby Owners Club\r\n* Improved modem emulation\r\n* improved DreamPicoPort and DreamPotato support by @RikkiGibson, @Tails86 and @nexus382\r\n* Android: Google Auto Backup support for VMU saves and non-volatile memory\r\n\r\n## Fixed Games\r\n* Airline Pilot (Naomi, multiscreen)\r\n* Cyber Troopers Virtual-On: Oratorio Tangram (JP, online features)\r\n* Derby Owners Club (new)\r\n* Dinosaur King (ZH, new)\r\n* DreamParaPara by @dakrk (new)\r\n* F355 Challenge (JP, online features)\r\n* Fish Life (new)\r\n* Love & Berry 3 (ZH, new)\r\n* NFL 2K1, NFL 2K2, NBA 2K1, NBA 2K2 (freeze)\r\n* Power Smash (online lag)\r\n* Rune Jade (online features)\r\n* Samba de Amigo (Naomi, inputs)\r\n* Sega Strike Fighter (Naomi, multiscreen)\r\n\r\n## New Contributors\r\n* @Windsurf7 made their first contribution in https://github.com/flyinghead/flycast/pull/2229\r\n* @Kyuyrii made their first contribution in https://github.com/flyinghead/flycast/pull/2236\r\n* @eadmaster made their first contribution in https://github.com/flyinghead/flycast/pull/2252\r\n* @PLCodingStuff made their first contribution in https://github.com/flyinghead/flycast/pull/2274\r\n* @marcgardent made their first contribution in https://github.com/flyinghead/flycast/pull/2318\r\n* @AurisDSP made their first contribution in https://github.com/flyinghead/flycast/pull/2333\r\n* @engdyn made their first contribution in https://github.com/flyinghead/flycast/pull/2383\r\n\r\n**Full Changelog**: https://github.com/flyinghead/flycast/compare/v2.6...v2.7",
+          "assets": [
+            {
+              "filename": "flycast-2.7.apk",
+              "url": "https://github.com/flyinghead/flycast/releases/download/v2.7/flycast-2.7.apk",
+              "sha256": "1ac54d77b8283f6d58d077396d0916ec12c15b7e4ada9d957836a64590756c00"
+            },
+            {
+              "filename": "flycast-2.7.appx",
+              "url": "https://github.com/flyinghead/flycast/releases/download/v2.7/flycast-2.7.appx",
+              "sha256": "8b6f42e19577526366805c027afab2431af1a7aa71d7b068d9c7adb51441eae6"
+            },
+            {
+              "filename": "flycast-2.7.nro",
+              "url": "https://github.com/flyinghead/flycast/releases/download/v2.7/flycast-2.7.nro",
+              "sha256": "898bf81c24cdbcc1c95b3d7eccca059004c9887feb8628cb9f36444048b12678"
+            },
+            {
+              "filename": "flycast-macOS-2.7.zip",
+              "url": "https://github.com/flyinghead/flycast/releases/download/v2.7/flycast-macOS-2.7.zip",
+              "sha256": "dbd59cb88f52a95ea4de90693bb4ac156530452d5457f2cc4f656fdfd242fc26"
+            },
+            {
+              "filename": "flycast-win64-2.7.zip",
+              "url": "https://github.com/flyinghead/flycast/releases/download/v2.7/flycast-win64-2.7.zip",
+              "sha256": "7edf489ba6b3053703a18ce8233767eb71a2d89e4bda0421b312c2167a739161"
+            },
+            {
+              "filename": "flycast-x86_64-2.7.AppImage",
+              "url": "https://github.com/flyinghead/flycast/releases/download/v2.7/flycast-x86_64-2.7.AppImage",
+              "sha256": "5b9f8a636a6acb8446bc78fe96650d8cb8233ac9f8ce69665dab3f39a1cbaae1"
+            }
+          ],
+          "source_type": "github",
+          "repo_url": "https://github.com/flyinghead/flycast"
+        },
+        {
+          "name": "flycast-dojo",
+          "description": "Flycast Dojo is a fork of Flycast, a multi-platform Sega Dreamcast, Naomi and Atomiswave emulator derived from Reicast, with a focus on netplay features and replay",
+          "version": "dojo-7.9",
+          "release_notes": "Automated release with builds for Windows, Linux, and macOS.\r\n\r\n**Full Changelog**: https://github.com/blueminder/flycast-dojo/compare/dojo-7.8...dojo-7.9",
+          "assets": [
+            {
+              "filename": "flycast-dojo-linux.zip",
+              "url": "https://github.com/blueminder/flycast-dojo/releases/download/dojo-7.9/flycast-dojo-linux.zip",
+              "sha256": "c7cae9767d8cc199dbc24cabb38978cb9bf4a6273165ca98bce06bcfae104a3d"
+            },
+            {
+              "filename": "flycast-dojo-mac.zip",
+              "url": "https://github.com/blueminder/flycast-dojo/releases/download/dojo-7.9/flycast-dojo-mac.zip",
+              "sha256": "5a9c5567442229fde3d27dd4961a36cb3bbfcf74525cb2d7c0c620236f039e8c"
+            },
+            {
+              "filename": "flycast-dojo-windows.zip",
+              "url": "https://github.com/blueminder/flycast-dojo/releases/download/dojo-7.9/flycast-dojo-windows.zip",
+              "sha256": "92cba733d93f883568c2f55eadd55858ce55e0806c4dd810f0e9c48a1c8c4295"
+            }
+          ],
+          "source_type": "github",
+          "repo_url": "https://github.com/blueminder/flycast-dojo"
+        },
+        {
+          "name": "duckstation",
+          "description": "DuckStation - PlayStation 1, aka. PSX Emulator",
+          "version": "latest",
+          "release_notes": "## Commits\r\n- da82096f2 GPU: Decode GP1 command bits 29-31, only GP1(10h) ignores bits 30-31\r\n- a83110b6e Host: Move core thread handle to host\r\n- 4b07e3e01 CDROM: Clear active status bits before Stop acknowledge\r\n- 237f98f0d CDROM: Queue GetID response immediately\r\n- fe8075f69 CDROM: Any command replaces a second response not yet sent\r\n- ddf81ae7e CDROM: Keep the motor braking in the background after Stop\r\n- e006773d5 CDROM: Init spins up a stopped motor, after braking finishes\r\n- 6f60cacfc CDROM: Scale Stop time with the disc's angular velocity\r\n- 4c785b908 CDROM: Reject ReadTOC on vC0 mechacons\r\n- 6f7eac5fb CDROM: Retune speed change times to hardware measurements\r\n- 90808f100 CDROM: Don't delay for double speed change with the motor stopped\r\n- d2114ca61 CDROM: Overlap seeks with a pending speed change\r\n- 457d1f0b5 CDROM: Overlap a speed change with a seek in progress\r\n- 8fd049b16 CDROM: Don't cancel a speed change when switching back\r\n- 02198f61c GPU: Hold DMA request through polygon setup and quad first triangle\r\n- 4d053ecab GPU: Request next GP0 DMA block while at most one word is queued\r\n- c3740936e GameDB: Remove DMA timing overrides from Chrono Cross\r\n- 3975250db GPU: Hold DMA request until a poly-line's last segment starts\r\n- 4084c549a GPU: Report FIFO mode request from FIFO occupancy\r\n- 08aabb1d7 GPU: Remove FIFO size hack, use the hardware 16-word FIFO\r\n- f7fc96137 GPU: Look up GP0 command word counts in the command table\r\n- 459401870 GPU: Use measured FIFO slots held by quads in FIFO mode\r\n- cdf6694ef GPU: Don't postpone command completion when rescheduling\r\n- 6b47b1b15 Hotkeys: Fix frame number not toggling with OSD toggle\r\n- 66a76e05b Settings: Reduce default DMA max slice ticks to 200\r\n- 4f6c0f5e5 GameDB: Remove DMA slice overrides matching the new default\r\n- 65134f794 GPU: Count command ticks in system clock cycles\r\n- fe24c0636 GPU: Release held DMA requests at the release point\r\n- aa3d524a5 GPU: Use measured v2 polygon costs\r\n- 3e5410821 GPU: Use measured v2 rectangle and line costs\r\n- 9d1c0eb30 GPU: Use measured v2 fill and VRAM copy costs\r\n- 43a6a1f6d GPU: Drop unused bool return from GP0 command handlers\r\n- 389927b9c Settings: Don't save DMA and GPU timing tweaks\r\n- 4360c2c67 Settings: Rename DMA slice and GPU run-ahead keys\r\n- 779a94f3b GameDB: Remove more hacks\r\n- f26d44124 Update duckstation-qt_es.ts (#3821)\r\n- 3f2a9e8aa Host: Move QueueAsyncTask to host/remove WaitForAllAsyncTasks\r\n- 60b3239ea Common: Remove TaskQueue\r\n- 970fd6f99 GPU: Match v2 GPUSTAT.13 timing and hold it with interlace off\r\n- 4de442eb7 Bus: Reset RAM size when releasing memory map\r\n- a64888602 Qt: Add physical disc read speed override\r\n- c9dc22549 Android: Update translation strings\r\n- a6aabfb41 Update mmpx adv v3.5 (#3822)\r\n- e407375ce CPU: Fix COP0 debug enables and status-only breakpoints\r\n- d9f9b9623 CPU: Match LWR and SWR data breakpoints at the effective address\r\n- 19ae6db6d CPU: Preserve data breakpoint and alignment exception priority\r\n- 04e926f78 CPU: Check execution breakpoints on debug interpreter fetch faults\r\n- 6cc5ee22c CPU: Delay SR-enabled interrupts by one interpreter instruction\r\n- 6574d621f GTE: Handle RTPS and DCPL opcode aliases\r\n- 77c9a38b5 Sockets: Run SocketMultiplexer on a worker thread\r\n- 9a9beef55 System: Process core thread events while throttling with GDB clients\r\n- 73c4055ad MediaCapture: Fix default codec with mp3/wav containers\r\n- 6ebd1c851 mmpx adv: A bug fix and  minor optimizations (#3824)\r\n- 2b198f220 Update duckstation-qt_ru.ts (#3823)\r\n- 390021ab3 InputManager: Resume when controller reconnects after disconnect pause\r\n- c222a3dbd optimizations mmpx Enhanced (#3825)\r\n- f9d8bf5d2 Tests: Disable COP0 EXP1/unfetchable execution breakpoint tests\r\n- 2043b892b ShaderGen: Use GL_EXT_control_flow_attributes on Vulkan\r\n- df23e0313 GPUDevice: Fix Metal compute images aliasing sampled texture slots\r\n- dec5e71d0 VulkanDevice/D3D12Device: Fix compute dispatch texture state and group count\r\n- 32a9f32dc GPU/HW: Use compute shader for VRAM readback encoding\r\n- 387512fa9 GPU/HW: Fix reset not clearing framebuffer VRAM view\r\n- dafe785cf System: Reset components in Initialize() instead of resetting on boot\r\n- b0ee1ff8f Host: Add FormatByteSize() and use it for size displays\r\n- 7fd32ba2f ImGuiOverlays: Polish component debug windows\r\n- f30a3ca67 GPU: Use documented NTSC and PAL scanline lengths\r\n- 7da237bd5 GPU: Select NTSC on GP1(00h)\r\n- 3c24012d9 GPU: Use interlaced field lengths for CRTC timing\r\n- f24c2a42d GPU: Restart the Timer 0 dot count on every line\r\n- 841eaa380 GPU: Read GPUSTAT.31 as the displayed VRAM row parity in 240p\r\n- 9e009273e GPU: Hold the next field when interlace is turned off in scanline 311\r\n- b2185611f GPU: Run the line counter on when interlace is turned on in the field's last line\r\n- c1f10c822 DMA: Prevent GPU slicing from starving SPU transfers\r\n- 4e029cccd Qt: Update machine translations\r\n- e437ecd60 CPU/PGXP: Compute precise values for MVMVA in CPU mode\r\n- 20588b57f GameDB: Enable PGXP-CPU for Ape Escape\r\n- 59f500db2 GameDB: Enable PGXP-CPU for Crime Crackers\r\n- 51549e39d OpenGLDevice: Fix framebuffer fallback for depth copies\r\n- 47d484286 OpenGLDevice: Fix download buffer debug labels\r\n- a5afddf13 OpenGLDevice: Support compute shaders\r\n- d80aa509a InputManager: Fix binding capture of triggers and endpoint-rest axes\r\n- a4f6923c5 mmpx adv: minor optimizations (#3826)\r\n- bddb05f88 System: Report BIOS version/physical disc as title when not known\r\n- 9048217c0 VideoThread: Support changing thread enable without recreation\r\n- 714a2dd36 GPU: Add missing x/y flip to memory states\r\n- f01de48be CPU/PGXP: Keep exact halves when clearing bits shifted into packed X\r\n- 9ec8c968b CPU/PGXP: Make CPU_BITWISE funct a template parameter\r\n- 47cffd8b2 GameDB: Tekken 3: Use 512 PGXP depth threshold, drop tolerance\r\n- 0e090c3a4 Tests: Fix util-tests linking\r\n- 8d52737a8 Data: Remove old files\r\n- c6dad4b33 Qt: Add specialValueText for PGXP geometry tolerance\r\n- 162154847 Qt: Fix nullable handling for QComboBox\r\n- ad3b767f4 Regtest: Read back VRAM before hashing GPU dumps\r\n- ac8a8a6bd GPU: Add optional 2MB VRAM mode\r\n- e653310c4 GPU: Decode the texture palette per primitive instead of storing it\r\n- 54a059141 D3D12Device: Minor tidy-up\r\n- d9111a2e2 VideoThread: Move null backend helper to private header\r\n- 729190221 GPU: Better names for constants\r\n- abacee619 FullscreenUI: Add semantic colours derived from the theme\r\n- 7d4ef2632 Qt: Add Midnight Amber theme\r\n- 77c642c09 FullscreenUI: Add shared dashed empty slot tile\r\n- bb707e0e7 FullscreenUI: Add BeginScrollFade/EndScrollFade\r\n- 110a991ee SaveStateSelectorUI: Large preview with slot list, dashed empty slots\r\n- 8418685e1 FullscreenUI: Use dashed empty slot tile in save state selector\r\n- d77bd0050 Qt: Minor theme tweaks\r\n- 1faa1b77d Qt: Dim horizontal rule in settings help text\r\n- 6aaa70334 Qt: Use a dimmer selection colour in Dark Ocean theme\r\n- 79b027927 GameList: Add generated artwork monogram/colour helpers\r\n- 4fb49cd81 FullscreenUI: Use generated gradient artwork for missing covers\r\n- d5a37b52b Qt: Use generated gradient artwork for missing covers\r\n- 8fbe3f22f OpenGLDevice: Blacklist compute shaders on vmwgfx\r\n- aeb553de8 Qt: Show achievement progress as a ring in game list\r\n- 464b4607b OpenGLDevice: Fix compiler warning\r\n- 82a118249 Qt: Add search icon to SearchBox\r\n- 1cee85f09 Update duckstation-qt_es.ts (#3827)\r\n- 2ebc9788a Qt: Fix initial fullscreen action state\r\n- 34eb13978 GPUDevice: Fix incorrect texture format name\r\n- 2b24e2a4e GPU: Hold the DMA request while a polygon or line waits for parameters\r\n- e19ca161a GPU: Hold the DMA request until a poly-line's terminator\r\n- bfbdcc086 GPU: Request GP0 DMA during a VRAM read while the FIFO is empty\r\n- 57f9682a3 GPU: Count a pending VRAM read as a FIFO slot in FIFO mode\r\n- e627bd69e GPU: Remove 0xFFFFFFFF size hack\r\n- 9a4a1c4d2 GameDB: Remove full boot hack for Lomax\r\n- 5e1ded918 GameDB: Remove Nightmare Creatures full-boot hack\r\n- f695b26cf GPU: Match hardware for odd-length GPUREAD and interrupted VRAM writes\r\n- fde83cd9e Qt: Fix step values for overclocking\r\n- 983acec71 Settings: Merge RAM mapping/VRAM options into size enums with Forced variants\r\n- 2f7b0b3fb Data: Fix fxaa.fx compiling in D3D11\r\n- cf3100ca0 Update duckstation-qt_es.ts (#3828)\r\n- d180052a9 FullscreenUI: Use spinbox for CPU overclock\r\n- 0b388fbc6 Fix xdg-desktop-portal registration (#3829)\r\n- f4fc898d0 dep/reshadefx: Fix building with C++23\r\n- ae0ef0f50 CMake: Set the default standard to C17/C++23\r\n- 8d5a75b94 dep/cubeb: Don't override C/C++ standard\r\n- 3fb06e543 dep/rcheevos: Don't override C standard\r\n- 20e8382dc MSBuild: Don't override C++ standard for zydis\r\n- 30184b689 MSBuild: Work around /std:c++23 being unavailable in clang-cl",
+          "assets": [
+            {
+              "filename": "DuckStation-arm64.AppImage",
+              "url": "https://github.com/stenzek/duckstation/releases/download/latest/DuckStation-arm64.AppImage",
+              "sha256": "f1383beba0865c38fdc2d98ce3871366532b4fe99c7d3c862bb156d347daaab5"
+            },
+            {
+              "filename": "DuckStation-armhf.AppImage",
+              "url": "https://github.com/stenzek/duckstation/releases/download/latest/DuckStation-armhf.AppImage",
+              "sha256": "60feb029824e3076427763b05cc5333597ea48eca145a7a083725e37a0b9376f"
+            },
+            {
+              "filename": "duckstation-mac-release.zip",
+              "url": "https://github.com/stenzek/duckstation/releases/download/latest/duckstation-mac-release.zip",
+              "sha256": "841881242eacf78e4d168bb2ae46ebd18eb93fcd0674b96ebde935b9f5b00fc4"
+            },
+            {
+              "filename": "duckstation-windows-arm64-installer.exe",
+              "url": "https://github.com/stenzek/duckstation/releases/download/latest/duckstation-windows-arm64-installer.exe",
+              "sha256": "c85e2d5cceba360ae3576aff36f995dc404fa04974f8543113a7254b41c9ea6a"
+            },
+            {
+              "filename": "duckstation-windows-arm64-release-symbols.7z",
+              "url": "https://github.com/stenzek/duckstation/releases/download/latest/duckstation-windows-arm64-release-symbols.7z",
+              "sha256": "19a4bc827f164a16c79746c0d4a5a0e2f460390b9fe153d3ebcb81f50e059c23"
+            },
+            {
+              "filename": "duckstation-windows-arm64-release.zip",
+              "url": "https://github.com/stenzek/duckstation/releases/download/latest/duckstation-windows-arm64-release.zip",
+              "sha256": "f2ec48209c094e7cd884e32f261736feb7864a4aa1783aa379436d94b465d489"
+            },
+            {
+              "filename": "duckstation-windows-x64-installer.exe",
+              "url": "https://github.com/stenzek/duckstation/releases/download/latest/duckstation-windows-x64-installer.exe",
+              "sha256": "be1851ff0342b6742fd6eaf3518abfc74fde5a1883c5d38c7f153b47d36abe09"
+            },
+            {
+              "filename": "duckstation-windows-x64-release-symbols.7z",
+              "url": "https://github.com/stenzek/duckstation/releases/download/latest/duckstation-windows-x64-release-symbols.7z",
+              "sha256": "559ca8b194efcef27a82102a2eea9f3dccee98db2b36b4dc49fd263e7b3e6c23"
+            },
+            {
+              "filename": "duckstation-windows-x64-release.zip",
+              "url": "https://github.com/stenzek/duckstation/releases/download/latest/duckstation-windows-x64-release.zip",
+              "sha256": "6e3d9840cff53593cf1b8fc8540be163449c3606b1d17ae31d5f8b4db4944278"
+            },
+            {
+              "filename": "duckstation-windows-x64-sse2-installer.exe",
+              "url": "https://github.com/stenzek/duckstation/releases/download/latest/duckstation-windows-x64-sse2-installer.exe",
+              "sha256": "481b8cf15aec255a4ea53599da215223a7c8f8857becbfc4d5e632743222993f"
+            },
+            {
+              "filename": "duckstation-windows-x64-sse2-release-symbols.7z",
+              "url": "https://github.com/stenzek/duckstation/releases/download/latest/duckstation-windows-x64-sse2-release-symbols.7z",
+              "sha256": "2debfa12b88df5e23e674c43626f132a3ccb6abaeb10ae2ca4929e33932fc4a9"
+            },
+            {
+              "filename": "duckstation-windows-x64-sse2-release.zip",
+              "url": "https://github.com/stenzek/duckstation/releases/download/latest/duckstation-windows-x64-sse2-release.zip",
+              "sha256": "117cd9457633e9b4b1e6111d0788c989fc6b7e7635168d6cedf2d344bab6851d"
+            },
+            {
+              "filename": "DuckStation-x64-SSE2.AppImage",
+              "url": "https://github.com/stenzek/duckstation/releases/download/latest/DuckStation-x64-SSE2.AppImage",
+              "sha256": "ae0c91fbb904fdf7b1c26e8d42ac3c1c50bb8bf0069a37a9fa0119989f65bff7"
+            },
+            {
+              "filename": "DuckStation-x64.AppImage",
+              "url": "https://github.com/stenzek/duckstation/releases/download/latest/DuckStation-x64.AppImage",
+              "sha256": "1d3f8b11e9f9f82cd131c49624e8cda37548f8f50cefeab9fa44b11e164aa1ef"
+            }
+          ],
+          "source_type": "github",
+          "repo_url": "https://github.com/stenzek/duckstation"
+        }
+      ]
+    },
     {
       "category": "Switch-Emu",
       "subcategory": "Switch-Emu",
@@ -60,7 +211,7 @@
             {
               "filename": "Ryubing",
               "url": "https://git.ryujinx.app/projects/Ryubing",
-              "sha256": "b193ab604ac639203357cc528857ac8309820d2dd560dc44bc07247ca62ceec1"
+              "sha256": "533e33d9761dc222a90928cda6394c3bb2a3c8e8c355b468bd51ff2db65a7bca"
             }
           ],
           "source_type": "forgejo",
@@ -75,7 +226,7 @@
             {
               "filename": "Kenji-NX",
               "url": "https://git.ryujinx.app/projects/Kenji-NX",
-              "sha256": "9d20461b39901a0a8257b2c20ca1536253691cf61e9568ba9465b1d5ef53121a"
+              "sha256": "bd243523eb15133279329ad0d8c82244f3e7b60e27284e9b59644a3aca836dcf"
             }
           ],
           "source_type": "forgejo",
@@ -284,199 +435,6 @@
       ]
     },
     {
-      "category": "forgejo_test",
-      "subcategory": "forgejo_test",
-      "apps": [
-        {
-          "name": "elf-arsenal",
-          "description": "elf-arsenal",
-          "version": "v1.0",
-          "release_notes": "Fichier direct",
-          "assets": [
-            {
-              "filename": "elf-arsenal",
-              "url": "https://git.etawen.dev/soniciso/elf-arsenal",
-              "sha256": "0ddbe71762d0a0e398d272ea5d29fdb490a25eb5b02dcdee49fe33445f113ad5"
-            }
-          ],
-          "source_type": "forgejo",
-          "repo_url": "https://git.etawen.dev/soniciso/elf-arsenal"
-        }
-      ]
-    },
-    {
-      "category": "github_test",
-      "subcategory": "github_test",
-      "apps": [
-        {
-          "name": "flycast",
-          "description": "Flycast is a multi-platform Sega Dreamcast, Naomi, Naomi 2, and Atomiswave emulator",
-          "version": "v2.7",
-          "release_notes": "## New features\r\n* Frame rate detection and pacing\r\n* Localization (fr, hu, jp, pt_BR, sv)\r\n* Multiscreen support for Airline Pilot, Sega Strike Fighter and Derby Owners Club\r\n* Improved modem emulation\r\n* improved DreamPicoPort and DreamPotato support by @RikkiGibson, @Tails86 and @nexus382\r\n* Android: Google Auto Backup support for VMU saves and non-volatile memory\r\n\r\n## Fixed Games\r\n* Airline Pilot (Naomi, multiscreen)\r\n* Cyber Troopers Virtual-On: Oratorio Tangram (JP, online features)\r\n* Derby Owners Club (new)\r\n* Dinosaur King (ZH, new)\r\n* DreamParaPara by @dakrk (new)\r\n* F355 Challenge (JP, online features)\r\n* Fish Life (new)\r\n* Love & Berry 3 (ZH, new)\r\n* NFL 2K1, NFL 2K2, NBA 2K1, NBA 2K2 (freeze)\r\n* Power Smash (online lag)\r\n* Rune Jade (online features)\r\n* Samba de Amigo (Naomi, inputs)\r\n* Sega Strike Fighter (Naomi, multiscreen)\r\n\r\n## New Contributors\r\n* @Windsurf7 made their first contribution in https://github.com/flyinghead/flycast/pull/2229\r\n* @Kyuyrii made their first contribution in https://github.com/flyinghead/flycast/pull/2236\r\n* @eadmaster made their first contribution in https://github.com/flyinghead/flycast/pull/2252\r\n* @PLCodingStuff made their first contribution in https://github.com/flyinghead/flycast/pull/2274\r\n* @marcgardent made their first contribution in https://github.com/flyinghead/flycast/pull/2318\r\n* @AurisDSP made their first contribution in https://github.com/flyinghead/flycast/pull/2333\r\n* @engdyn made their first contribution in https://github.com/flyinghead/flycast/pull/2383\r\n\r\n**Full Changelog**: https://github.com/flyinghead/flycast/compare/v2.6...v2.7",
-          "assets": [
-            {
-              "filename": "flycast-2.7.apk",
-              "url": "https://github.com/flyinghead/flycast/releases/download/v2.7/flycast-2.7.apk",
-              "sha256": "1ac54d77b8283f6d58d077396d0916ec12c15b7e4ada9d957836a64590756c00"
-            },
-            {
-              "filename": "flycast-2.7.appx",
-              "url": "https://github.com/flyinghead/flycast/releases/download/v2.7/flycast-2.7.appx",
-              "sha256": "8b6f42e19577526366805c027afab2431af1a7aa71d7b068d9c7adb51441eae6"
-            },
-            {
-              "filename": "flycast-2.7.nro",
-              "url": "https://github.com/flyinghead/flycast/releases/download/v2.7/flycast-2.7.nro",
-              "sha256": "898bf81c24cdbcc1c95b3d7eccca059004c9887feb8628cb9f36444048b12678"
-            },
-            {
-              "filename": "flycast-macOS-2.7.zip",
-              "url": "https://github.com/flyinghead/flycast/releases/download/v2.7/flycast-macOS-2.7.zip",
-              "sha256": "dbd59cb88f52a95ea4de90693bb4ac156530452d5457f2cc4f656fdfd242fc26"
-            },
-            {
-              "filename": "flycast-win64-2.7.zip",
-              "url": "https://github.com/flyinghead/flycast/releases/download/v2.7/flycast-win64-2.7.zip",
-              "sha256": "7edf489ba6b3053703a18ce8233767eb71a2d89e4bda0421b312c2167a739161"
-            },
-            {
-              "filename": "flycast-x86_64-2.7.AppImage",
-              "url": "https://github.com/flyinghead/flycast/releases/download/v2.7/flycast-x86_64-2.7.AppImage",
-              "sha256": "5b9f8a636a6acb8446bc78fe96650d8cb8233ac9f8ce69665dab3f39a1cbaae1"
-            }
-          ],
-          "source_type": "github",
-          "repo_url": "https://github.com/flyinghead/flycast"
-        },
-        {
-          "name": "flycast-dojo",
-          "description": "Flycast Dojo is a fork of Flycast, a multi-platform Sega Dreamcast, Naomi and Atomiswave emulator derived from Reicast, with a focus on netplay features and replay",
-          "version": "dojo-7.9",
-          "release_notes": "Automated release with builds for Windows, Linux, and macOS.\r\n\r\n**Full Changelog**: https://github.com/blueminder/flycast-dojo/compare/dojo-7.8...dojo-7.9",
-          "assets": [
-            {
-              "filename": "flycast-dojo-linux.zip",
-              "url": "https://github.com/blueminder/flycast-dojo/releases/download/dojo-7.9/flycast-dojo-linux.zip",
-              "sha256": "c7cae9767d8cc199dbc24cabb38978cb9bf4a6273165ca98bce06bcfae104a3d"
-            },
-            {
-              "filename": "flycast-dojo-mac.zip",
-              "url": "https://github.com/blueminder/flycast-dojo/releases/download/dojo-7.9/flycast-dojo-mac.zip",
-              "sha256": "5a9c5567442229fde3d27dd4961a36cb3bbfcf74525cb2d7c0c620236f039e8c"
-            },
-            {
-              "filename": "flycast-dojo-windows.zip",
-              "url": "https://github.com/blueminder/flycast-dojo/releases/download/dojo-7.9/flycast-dojo-windows.zip",
-              "sha256": "92cba733d93f883568c2f55eadd55858ce55e0806c4dd810f0e9c48a1c8c4295"
-            }
-          ],
-          "source_type": "github",
-          "repo_url": "https://github.com/blueminder/flycast-dojo"
-        },
-        {
-          "name": "duckstation",
-          "description": "DuckStation - PlayStation 1, aka. PSX Emulator",
-          "version": "latest",
-          "release_notes": "## Commits\r\n- da82096f2 GPU: Decode GP1 command bits 29-31, only GP1(10h) ignores bits 30-31\r\n- a83110b6e Host: Move core thread handle to host\r\n- 4b07e3e01 CDROM: Clear active status bits before Stop acknowledge\r\n- 237f98f0d CDROM: Queue GetID response immediately\r\n- fe8075f69 CDROM: Any command replaces a second response not yet sent\r\n- ddf81ae7e CDROM: Keep the motor braking in the background after Stop\r\n- e006773d5 CDROM: Init spins up a stopped motor, after braking finishes\r\n- 6f60cacfc CDROM: Scale Stop time with the disc's angular velocity\r\n- 4c785b908 CDROM: Reject ReadTOC on vC0 mechacons\r\n- 6f7eac5fb CDROM: Retune speed change times to hardware measurements\r\n- 90808f100 CDROM: Don't delay for double speed change with the motor stopped\r\n- d2114ca61 CDROM: Overlap seeks with a pending speed change\r\n- 457d1f0b5 CDROM: Overlap a speed change with a seek in progress\r\n- 8fd049b16 CDROM: Don't cancel a speed change when switching back\r\n- 02198f61c GPU: Hold DMA request through polygon setup and quad first triangle\r\n- 4d053ecab GPU: Request next GP0 DMA block while at most one word is queued\r\n- c3740936e GameDB: Remove DMA timing overrides from Chrono Cross\r\n- 3975250db GPU: Hold DMA request until a poly-line's last segment starts\r\n- 4084c549a GPU: Report FIFO mode request from FIFO occupancy\r\n- 08aabb1d7 GPU: Remove FIFO size hack, use the hardware 16-word FIFO\r\n- f7fc96137 GPU: Look up GP0 command word counts in the command table\r\n- 459401870 GPU: Use measured FIFO slots held by quads in FIFO mode\r\n- cdf6694ef GPU: Don't postpone command completion when rescheduling\r\n- 6b47b1b15 Hotkeys: Fix frame number not toggling with OSD toggle\r\n- 66a76e05b Settings: Reduce default DMA max slice ticks to 200\r\n- 4f6c0f5e5 GameDB: Remove DMA slice overrides matching the new default\r\n- 65134f794 GPU: Count command ticks in system clock cycles\r\n- fe24c0636 GPU: Release held DMA requests at the release point\r\n- aa3d524a5 GPU: Use measured v2 polygon costs\r\n- 3e5410821 GPU: Use measured v2 rectangle and line costs\r\n- 9d1c0eb30 GPU: Use measured v2 fill and VRAM copy costs\r\n- 43a6a1f6d GPU: Drop unused bool return from GP0 command handlers\r\n- 389927b9c Settings: Don't save DMA and GPU timing tweaks\r\n- 4360c2c67 Settings: Rename DMA slice and GPU run-ahead keys\r\n- 779a94f3b GameDB: Remove more hacks\r\n- f26d44124 Update duckstation-qt_es.ts (#3821)\r\n- 3f2a9e8aa Host: Move QueueAsyncTask to host/remove WaitForAllAsyncTasks\r\n- 60b3239ea Common: Remove TaskQueue\r\n- 970fd6f99 GPU: Match v2 GPUSTAT.13 timing and hold it with interlace off\r\n- 4de442eb7 Bus: Reset RAM size when releasing memory map\r\n- a64888602 Qt: Add physical disc read speed override\r\n- c9dc22549 Android: Update translation strings\r\n- a6aabfb41 Update mmpx adv v3.5 (#3822)\r\n- e407375ce CPU: Fix COP0 debug enables and status-only breakpoints\r\n- d9f9b9623 CPU: Match LWR and SWR data breakpoints at the effective address\r\n- 19ae6db6d CPU: Preserve data breakpoint and alignment exception priority\r\n- 04e926f78 CPU: Check execution breakpoints on debug interpreter fetch faults\r\n- 6cc5ee22c CPU: Delay SR-enabled interrupts by one interpreter instruction\r\n- 6574d621f GTE: Handle RTPS and DCPL opcode aliases\r\n- 77c9a38b5 Sockets: Run SocketMultiplexer on a worker thread\r\n- 9a9beef55 System: Process core thread events while throttling with GDB clients\r\n- 73c4055ad MediaCapture: Fix default codec with mp3/wav containers\r\n- 6ebd1c851 mmpx adv: A bug fix and  minor optimizations (#3824)\r\n- 2b198f220 Update duckstation-qt_ru.ts (#3823)\r\n- 390021ab3 InputManager: Resume when controller reconnects after disconnect pause\r\n- c222a3dbd optimizations mmpx Enhanced (#3825)\r\n- f9d8bf5d2 Tests: Disable COP0 EXP1/unfetchable execution breakpoint tests\r\n- 2043b892b ShaderGen: Use GL_EXT_control_flow_attributes on Vulkan\r\n- df23e0313 GPUDevice: Fix Metal compute images aliasing sampled texture slots\r\n- dec5e71d0 VulkanDevice/D3D12Device: Fix compute dispatch texture state and group count\r\n- 32a9f32dc GPU/HW: Use compute shader for VRAM readback encoding\r\n- 387512fa9 GPU/HW: Fix reset not clearing framebuffer VRAM view\r\n- dafe785cf System: Reset components in Initialize() instead of resetting on boot\r\n- b0ee1ff8f Host: Add FormatByteSize() and use it for size displays\r\n- 7fd32ba2f ImGuiOverlays: Polish component debug windows\r\n- f30a3ca67 GPU: Use documented NTSC and PAL scanline lengths\r\n- 7da237bd5 GPU: Select NTSC on GP1(00h)\r\n- 3c24012d9 GPU: Use interlaced field lengths for CRTC timing\r\n- f24c2a42d GPU: Restart the Timer 0 dot count on every line\r\n- 841eaa380 GPU: Read GPUSTAT.31 as the displayed VRAM row parity in 240p\r\n- 9e009273e GPU: Hold the next field when interlace is turned off in scanline 311\r\n- b2185611f GPU: Run the line counter on when interlace is turned on in the field's last line\r\n- c1f10c822 DMA: Prevent GPU slicing from starving SPU transfers\r\n- 4e029cccd Qt: Update machine translations\r\n- e437ecd60 CPU/PGXP: Compute precise values for MVMVA in CPU mode\r\n- 20588b57f GameDB: Enable PGXP-CPU for Ape Escape\r\n- 59f500db2 GameDB: Enable PGXP-CPU for Crime Crackers\r\n- 51549e39d OpenGLDevice: Fix framebuffer fallback for depth copies\r\n- 47d484286 OpenGLDevice: Fix download buffer debug labels\r\n- a5afddf13 OpenGLDevice: Support compute shaders\r\n- d80aa509a InputManager: Fix binding capture of triggers and endpoint-rest axes\r\n- a4f6923c5 mmpx adv: minor optimizations (#3826)\r\n- bddb05f88 System: Report BIOS version/physical disc as title when not known\r\n- 9048217c0 VideoThread: Support changing thread enable without recreation\r\n- 714a2dd36 GPU: Add missing x/y flip to memory states\r\n- f01de48be CPU/PGXP: Keep exact halves when clearing bits shifted into packed X\r\n- 9ec8c968b CPU/PGXP: Make CPU_BITWISE funct a template parameter\r\n- 47cffd8b2 GameDB: Tekken 3: Use 512 PGXP depth threshold, drop tolerance\r\n- 0e090c3a4 Tests: Fix util-tests linking\r\n- 8d52737a8 Data: Remove old files\r\n- c6dad4b33 Qt: Add specialValueText for PGXP geometry tolerance\r\n- 162154847 Qt: Fix nullable handling for QComboBox\r\n- ad3b767f4 Regtest: Read back VRAM before hashing GPU dumps\r\n- ac8a8a6bd GPU: Add optional 2MB VRAM mode\r\n- e653310c4 GPU: Decode the texture palette per primitive instead of storing it\r\n- 54a059141 D3D12Device: Minor tidy-up\r\n- d9111a2e2 VideoThread: Move null backend helper to private header\r\n- 729190221 GPU: Better names for constants\r\n- abacee619 FullscreenUI: Add semantic colours derived from the theme\r\n- 7d4ef2632 Qt: Add Midnight Amber theme\r\n- 77c642c09 FullscreenUI: Add shared dashed empty slot tile\r\n- bb707e0e7 FullscreenUI: Add BeginScrollFade/EndScrollFade\r\n- 110a991ee SaveStateSelectorUI: Large preview with slot list, dashed empty slots\r\n- 8418685e1 FullscreenUI: Use dashed empty slot tile in save state selector\r\n- d77bd0050 Qt: Minor theme tweaks\r\n- 1faa1b77d Qt: Dim horizontal rule in settings help text\r\n- 6aaa70334 Qt: Use a dimmer selection colour in Dark Ocean theme\r\n- 79b027927 GameList: Add generated artwork monogram/colour helpers\r\n- 4fb49cd81 FullscreenUI: Use generated gradient artwork for missing covers\r\n- d5a37b52b Qt: Use generated gradient artwork for missing covers\r\n- 8fbe3f22f OpenGLDevice: Blacklist compute shaders on vmwgfx\r\n- aeb553de8 Qt: Show achievement progress as a ring in game list\r\n- 464b4607b OpenGLDevice: Fix compiler warning\r\n- 82a118249 Qt: Add search icon to SearchBox\r\n- 1cee85f09 Update duckstation-qt_es.ts (#3827)\r\n- 2ebc9788a Qt: Fix initial fullscreen action state\r\n- 34eb13978 GPUDevice: Fix incorrect texture format name\r\n- 2b24e2a4e GPU: Hold the DMA request while a polygon or line waits for parameters\r\n- e19ca161a GPU: Hold the DMA request until a poly-line's terminator\r\n- bfbdcc086 GPU: Request GP0 DMA during a VRAM read while the FIFO is empty\r\n- 57f9682a3 GPU: Count a pending VRAM read as a FIFO slot in FIFO mode\r\n- e627bd69e GPU: Remove 0xFFFFFFFF size hack\r\n- 9a4a1c4d2 GameDB: Remove full boot hack for Lomax\r\n- 5e1ded918 GameDB: Remove Nightmare Creatures full-boot hack\r\n- f695b26cf GPU: Match hardware for odd-length GPUREAD and interrupted VRAM writes\r\n- fde83cd9e Qt: Fix step values for overclocking\r\n- 983acec71 Settings: Merge RAM mapping/VRAM options into size enums with Forced variants\r\n- 2f7b0b3fb Data: Fix fxaa.fx compiling in D3D11\r\n- cf3100ca0 Update duckstation-qt_es.ts (#3828)\r\n- d180052a9 FullscreenUI: Use spinbox for CPU overclock\r\n- 0b388fbc6 Fix xdg-desktop-portal registration (#3829)\r\n- f4fc898d0 dep/reshadefx: Fix building with C++23\r\n- ae0ef0f50 CMake: Set the default standard to C17/C++23\r\n- 8d5a75b94 dep/cubeb: Don't override C/C++ standard\r\n- 3fb06e543 dep/rcheevos: Don't override C standard\r\n- 20e8382dc MSBuild: Don't override C++ standard for zydis\r\n- 30184b689 MSBuild: Work around /std:c++23 being unavailable in clang-cl",
-          "assets": [
-            {
-              "filename": "DuckStation-arm64.AppImage",
-              "url": "https://github.com/stenzek/duckstation/releases/download/latest/DuckStation-arm64.AppImage",
-              "sha256": "f1383beba0865c38fdc2d98ce3871366532b4fe99c7d3c862bb156d347daaab5"
-            },
-            {
-              "filename": "DuckStation-armhf.AppImage",
-              "url": "https://github.com/stenzek/duckstation/releases/download/latest/DuckStation-armhf.AppImage",
-              "sha256": "60feb029824e3076427763b05cc5333597ea48eca145a7a083725e37a0b9376f"
-            },
-            {
-              "filename": "duckstation-mac-release.zip",
-              "url": "https://github.com/stenzek/duckstation/releases/download/latest/duckstation-mac-release.zip",
-              "sha256": "841881242eacf78e4d168bb2ae46ebd18eb93fcd0674b96ebde935b9f5b00fc4"
-            },
-            {
-              "filename": "duckstation-windows-arm64-installer.exe",
-              "url": "https://github.com/stenzek/duckstation/releases/download/latest/duckstation-windows-arm64-installer.exe",
-              "sha256": "c85e2d5cceba360ae3576aff36f995dc404fa04974f8543113a7254b41c9ea6a"
-            },
-            {
-              "filename": "duckstation-windows-arm64-release-symbols.7z",
-              "url": "https://github.com/stenzek/duckstation/releases/download/latest/duckstation-windows-arm64-release-symbols.7z",
-              "sha256": "19a4bc827f164a16c79746c0d4a5a0e2f460390b9fe153d3ebcb81f50e059c23"
-            },
-            {
-              "filename": "duckstation-windows-arm64-release.zip",
-              "url": "https://github.com/stenzek/duckstation/releases/download/latest/duckstation-windows-arm64-release.zip",
-              "sha256": "f2ec48209c094e7cd884e32f261736feb7864a4aa1783aa379436d94b465d489"
-            },
-            {
-              "filename": "duckstation-windows-x64-installer.exe",
-              "url": "https://github.com/stenzek/duckstation/releases/download/latest/duckstation-windows-x64-installer.exe",
-              "sha256": "be1851ff0342b6742fd6eaf3518abfc74fde5a1883c5d38c7f153b47d36abe09"
-            },
-            {
-              "filename": "duckstation-windows-x64-release-symbols.7z",
-              "url": "https://github.com/stenzek/duckstation/releases/download/latest/duckstation-windows-x64-release-symbols.7z",
-              "sha256": "559ca8b194efcef27a82102a2eea9f3dccee98db2b36b4dc49fd263e7b3e6c23"
-            },
-            {
-              "filename": "duckstation-windows-x64-release.zip",
-              "url": "https://github.com/stenzek/duckstation/releases/download/latest/duckstation-windows-x64-release.zip",
-              "sha256": "6e3d9840cff53593cf1b8fc8540be163449c3606b1d17ae31d5f8b4db4944278"
-            },
-            {
-              "filename": "duckstation-windows-x64-sse2-installer.exe",
-              "url": "https://github.com/stenzek/duckstation/releases/download/latest/duckstation-windows-x64-sse2-installer.exe",
-              "sha256": "481b8cf15aec255a4ea53599da215223a7c8f8857becbfc4d5e632743222993f"
-            },
-            {
-              "filename": "duckstation-windows-x64-sse2-release-symbols.7z",
-              "url": "https://github.com/stenzek/duckstation/releases/download/latest/duckstation-windows-x64-sse2-release-symbols.7z",
-              "sha256": "2debfa12b88df5e23e674c43626f132a3ccb6abaeb10ae2ca4929e33932fc4a9"
-            },
-            {
-              "filename": "duckstation-windows-x64-sse2-release.zip",
-              "url": "https://github.com/stenzek/duckstation/releases/download/latest/duckstation-windows-x64-sse2-release.zip",
-              "sha256": "117cd9457633e9b4b1e6111d0788c989fc6b7e7635168d6cedf2d344bab6851d"
-            },
-            {
-              "filename": "DuckStation-x64-SSE2.AppImage",
-              "url": "https://github.com/stenzek/duckstation/releases/download/latest/DuckStation-x64-SSE2.AppImage",
-              "sha256": "ae0c91fbb904fdf7b1c26e8d42ac3c1c50bb8bf0069a37a9fa0119989f65bff7"
-            },
-            {
-              "filename": "DuckStation-x64.AppImage",
-              "url": "https://github.com/stenzek/duckstation/releases/download/latest/DuckStation-x64.AppImage",
-              "sha256": "1d3f8b11e9f9f82cd131c49624e8cda37548f8f50cefeab9fa44b11e164aa1ef"
-            }
-          ],
-          "source_type": "github",
-          "repo_url": "https://github.com/stenzek/duckstation"
-        }
-      ]
-    },
-    {
-      "category": "html_test",
-      "subcategory": "html_test",
-      "apps": [
-        {
-          "name": "retroarch_windows_nightly",
-          "description": "retroarch",
-          "version": "v1.0",
-          "release_notes": "Fichier direct",
-          "assets": [
-            {
-              "filename": "RetroArch-Win64-setup.exe",
-              "url": "https://buildbot.libretro.com/nightly/windows/x86_64/RetroArch-Win64-setup.exe",
-              "sha256": "6c41f676093a9749bdfd6d1e28f0b4a3c15a9736ec748c56b0cdc519c7b1bae7"
-            }
-          ],
-          "source_type": "generic",
-          "repo_url": "https://buildbot.libretro.com/nightly/windows/x86_64/RetroArch-Win64-setup.exe"
-        }
-      ]
-    },
-    {
       "category": "gitlab_test",
       "subcategory": "gitlab_test",
       "apps": [
@@ -524,6 +482,48 @@
           ],
           "source_type": "gitlab",
           "repo_url": "https://gitlab.com/es-de/emulationstation-de"
+        }
+      ]
+    },
+    {
+      "category": "forgejo_test",
+      "subcategory": "forgejo_test",
+      "apps": [
+        {
+          "name": "elf-arsenal",
+          "description": "elf-arsenal",
+          "version": "v1.6.23",
+          "release_notes": "Firmware coverage, a PKG installer that takes links, and a download queue that\r\nstops hiding what it is doing.\r\n\r\n## PKG Installer\r\n\r\n**Install from a link.** Paste URLs one per line, or give it the address of a\r\npage that lists them — an archive.org item, an open directory index, anything\r\nthat is just anchors — and the console reads that page and hands back the .pkg\r\nlinks to pick from. Doing the fetch on the console also sidesteps the CORS\r\nrefusals a browser would hit. Links go on a queue with a single worker, since\r\ninstalls serialise down there anyway; it reports per-item state and refuses\r\nduplicates that are still pending.\r\n\r\n## Firmware coverage\r\n\r\nEvery payload is rebuilt against the current SDK, so all of them now carry the\r\nfull 3.00–13.60 dispatch. zftpd was the one that mattered: it stopped at 10.60\r\nand was reachable from the FTP daemon switch. The firmware check that catches\r\nthis now also runs on the argv spawn path, which was skipping it.\r\n\r\nThe ShellCore PPR patch gains tables for **6.50** and **10.60**, taking it to 50\r\nof 51 firmwares — only 9.05 is missing, and no image for it exists to derive one\r\nfrom. Both new tables were carried over from neighbouring firmwares rather than\r\nread off a console; `tools/verify-firmware-tables.py` checks every table against\r\na real firmware image and all 51 pass, 561 sites, nothing failing. The same tool\r\nverifies kmonitor's kernel offsets against decrypted kernels — 51 of 52.\r\n\r\n**The patcher now looks before it writes.** Each entry replaces a specific\r\ninstruction, and nothing checked that the instruction was there; an offset that\r\ndid not describe the running build was written anyway. Anything unexpected is\r\nskipped now, which is also what makes a derived table safe to ship.\r\n\r\n",
+          "assets": [
+            {
+              "filename": "elf-arsenal.elf",
+              "url": "https://git.etawen.dev/soniciso/elf-arsenal/releases/download/v1.6.23/elf-arsenal.elf",
+              "sha256": "20cdb0979ce627aff8e684a4506e18390a72492d5e3aa15ecef0bfe1bca08bb5"
+            }
+          ],
+          "source_type": "forgejo",
+          "repo_url": "https://git.etawen.dev/soniciso/elf-arsenal"
+        }
+      ]
+    },
+    {
+      "category": "html_test",
+      "subcategory": "html_test",
+      "apps": [
+        {
+          "name": "retroarch_windows_nightly",
+          "description": "retroarch",
+          "version": "v1.0",
+          "release_notes": "Fichier direct",
+          "assets": [
+            {
+              "filename": "RetroArch-Win64-setup.exe",
+              "url": "https://buildbot.libretro.com/nightly/windows/x86_64/RetroArch-Win64-setup.exe",
+              "sha256": "6c41f676093a9749bdfd6d1e28f0b4a3c15a9736ec748c56b0cdc519c7b1bae7"
+            }
+          ],
+          "source_type": "generic",
+          "repo_url": "https://buildbot.libretro.com/nightly/windows/x86_64/RetroArch-Win64-setup.exe"
         }
       ]
     }
