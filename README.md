@@ -56,7 +56,7 @@ Le fichier `config.json` permet de personnaliser l'interface web du Store sans t
 | Switch-Emu | Switch-Emu | Ryubing | v1.0 |
 | Switch-Emu | Switch-Emu | Kenji-NX | v1.0 |
 | Switch-Emu | Switch-Emu | eden-stable | v0.2.1 |
-| Switch-Emu | Switch-Emu | eden-nightly | v1795491592.b5d668560b |
+| Switch-Emu | Switch-Emu | eden-nightly | v1795656132.1cd2ecd562 |
 | gitlab_test | gitlab_test | emulationstation-de | v3.5.0 |
 | forgejo_test | forgejo_test | elf-arsenal | v1.6.23 |
 | html_test | html_test | retroarch_windows_nightly | v1.0 |
