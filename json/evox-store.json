@@ -1,158 +1,7 @@
 {
   "name": "EvoX Universal Store",
-  "updated_at": "2026-11-27T21:00:37.530687Z",
+  "updated_at": "2026-11-28T07:24:30.395036Z",
   "store": [
-    {
-      "category": "github_test",
-      "subcategory": "github_test",
-      "apps": [
-        {
-          "name": "flycast",
-          "description": "Flycast is a multi-platform Sega Dreamcast, Naomi, Naomi 2, and Atomiswave emulator",
-          "version": "v2.7",
-          "release_notes": "## New features\r\n* Frame rate detection and pacing\r\n* Localization (fr, hu, jp, pt_BR, sv)\r\n* Multiscreen support for Airline Pilot, Sega Strike Fighter and Derby Owners Club\r\n* Improved modem emulation\r\n* improved DreamPicoPort and DreamPotato support by @RikkiGibson, @Tails86 and @nexus382\r\n* Android: Google Auto Backup support for VMU saves and non-volatile memory\r\n\r\n## Fixed Games\r\n* Airline Pilot (Naomi, multiscreen)\r\n* Cyber Troopers Virtual-On: Oratorio Tangram (JP, online features)\r\n* Derby Owners Club (new)\r\n* Dinosaur King (ZH, new)\r\n* DreamParaPara by @dakrk (new)\r\n* F355 Challenge (JP, online features)\r\n* Fish Life (new)\r\n* Love & Berry 3 (ZH, new)\r\n* NFL 2K1, NFL 2K2, NBA 2K1, NBA 2K2 (freeze)\r\n* Power Smash (online lag)\r\n* Rune Jade (online features)\r\n* Samba de Amigo (Naomi, inputs)\r\n* Sega Strike Fighter (Naomi, multiscreen)\r\n\r\n## New Contributors\r\n* @Windsurf7 made their first contribution in https://github.com/flyinghead/flycast/pull/2229\r\n* @Kyuyrii made their first contribution in https://github.com/flyinghead/flycast/pull/2236\r\n* @eadmaster made their first contribution in https://github.com/flyinghead/flycast/pull/2252\r\n* @PLCodingStuff made their first contribution in https://github.com/flyinghead/flycast/pull/2274\r\n* @marcgardent made their first contribution in https://github.com/flyinghead/flycast/pull/2318\r\n* @AurisDSP made their first contribution in https://github.com/flyinghead/flycast/pull/2333\r\n* @engdyn made their first contribution in https://github.com/flyinghead/flycast/pull/2383\r\n\r\n**Full Changelog**: https://github.com/flyinghead/flycast/compare/v2.6...v2.7",
-          "assets": [
-            {
-              "filename": "flycast-2.7.apk",
-              "url": "https://github.com/flyinghead/flycast/releases/download/v2.7/flycast-2.7.apk",
-              "sha256": "1ac54d77b8283f6d58d077396d0916ec12c15b7e4ada9d957836a64590756c00"
-            },
-            {
-              "filename": "flycast-2.7.appx",
-              "url": "https://github.com/flyinghead/flycast/releases/download/v2.7/flycast-2.7.appx",
-              "sha256": "8b6f42e19577526366805c027afab2431af1a7aa71d7b068d9c7adb51441eae6"
-            },
-            {
-              "filename": "flycast-2.7.nro",
-              "url": "https://github.com/flyinghead/flycast/releases/download/v2.7/flycast-2.7.nro",
-              "sha256": "898bf81c24cdbcc1c95b3d7eccca059004c9887feb8628cb9f36444048b12678"
-            },
-            {
-              "filename": "flycast-macOS-2.7.zip",
-              "url": "https://github.com/flyinghead/flycast/releases/download/v2.7/flycast-macOS-2.7.zip",
-              "sha256": "dbd59cb88f52a95ea4de90693bb4ac156530452d5457f2cc4f656fdfd242fc26"
-            },
-            {
-              "filename": "flycast-win64-2.7.zip",
-              "url": "https://github.com/flyinghead/flycast/releases/download/v2.7/flycast-win64-2.7.zip",
-              "sha256": "7edf489ba6b3053703a18ce8233767eb71a2d89e4bda0421b312c2167a739161"
-            },
-            {
-              "filename": "flycast-x86_64-2.7.AppImage",
-              "url": "https://github.com/flyinghead/flycast/releases/download/v2.7/flycast-x86_64-2.7.AppImage",
-              "sha256": "5b9f8a636a6acb8446bc78fe96650d8cb8233ac9f8ce69665dab3f39a1cbaae1"
-            }
-          ],
-          "source_type": "github",
-          "repo_url": "https://github.com/flyinghead/flycast"
-        },
-        {
-          "name": "flycast-dojo",
-          "description": "Flycast Dojo is a fork of Flycast, a multi-platform Sega Dreamcast, Naomi and Atomiswave emulator derived from Reicast, with a focus on netplay features and replay",
-          "version": "dojo-7.9",
-          "release_notes": "Automated release with builds for Windows, Linux, and macOS.\r\n\r\n**Full Changelog**: https://github.com/blueminder/flycast-dojo/compare/dojo-7.8...dojo-7.9",
-          "assets": [
-            {
-              "filename": "flycast-dojo-linux.zip",
-              "url": "https://github.com/blueminder/flycast-dojo/releases/download/dojo-7.9/flycast-dojo-linux.zip",
-              "sha256": "c7cae9767d8cc199dbc24cabb38978cb9bf4a6273165ca98bce06bcfae104a3d"
-            },
-            {
-              "filename": "flycast-dojo-mac.zip",
-              "url": "https://github.com/blueminder/flycast-dojo/releases/download/dojo-7.9/flycast-dojo-mac.zip",
-              "sha256": "5a9c5567442229fde3d27dd4961a36cb3bbfcf74525cb2d7c0c620236f039e8c"
-            },
-            {
-              "filename": "flycast-dojo-windows.zip",
-              "url": "https://github.com/blueminder/flycast-dojo/releases/download/dojo-7.9/flycast-dojo-windows.zip",
-              "sha256": "92cba733d93f883568c2f55eadd55858ce55e0806c4dd810f0e9c48a1c8c4295"
-            }
-          ],
-          "source_type": "github",
-          "repo_url": "https://github.com/blueminder/flycast-dojo"
-        },
-        {
-          "name": "duckstation",
-          "description": "DuckStation - PlayStation 1, aka. PSX Emulator",
-          "version": "latest",
-          "release_notes": "## Commits\r\n- 35a791fe8 dep/rcheevos: Bump to a1ba160\r\n- 4077754a6 FullscreenUI: Chain pending transition callbacks instead of running inline\r\n- fb6d3627e GameDB: Force recompiler ICache for Tomba!/Tombi!/Ore! Tomba\r\n- 0d7d4b7d9 Scripts: Add TIM texture replacement name generator\r\n- ea48b1cff GPUTextureCache: Hash reduced palette range from pal_min\r\n- 6d7977782 GPUTextureCache: Track fifth page of unaligned 8-bit palettes\r\n- f4e98e72d GPUTextureCache: Fix VRAM write splitting\r\n- 88c60c567 GPUTextureCache: Parse MaxVRAMWriteSplits as an integer in config.yaml\r\n- dbefb5471 GPUTextureCache: Don't merge VRAM writes that have already been drawn with\r\n- 2c8e8c1c4 GPUTextureCache: Fix RectDistance() for picking the closest draw rect\r\n- af7dda34a GPUTextureCache: Don't retry loading replacement images that failed to load\r\n- e647d0845 GPUTextureCache: Initialize palette fields when parsing C16 replacement names\r\n- 0beda20e8 GPUTextureCache: Only apply replacements once for writes spanning pages\r\n- e0999bbb6 GPUTextureCache: Fix TextureReplacementIndex comparison\r\n- d468343c1 GPUTextureCache: Fix argument order in missing alias file error\r\n- c9d1f5ca3 GPUTextureCache: Dump original pixels before local VRAM copies\r\n- eadb46105 SPU: Clock noise on quarter/eighth-period slots\r\n- 64629f2d1 SPU: Apply Phase bit in exponential decrease sweeps\r\n- 90cce7fef SPU: Don't set STATX busy during DMA writes\r\n- 970044fac SPU: Apply the first block's loop start on the key on header fetches\r\n- 39f081e1a SPU: Interleave RAM transfers with sample generation\r\n- e83373430 SPU: Write the DMA FIFO to RAM at 32 cycles/halfword\r\n- a88c6b20e CDROM: Don't apply read speedup while playing CD-DA\r\n- aed260488 GPU: Limit the polyline buffer to 1MB\r\n- a48eb6ca8 System: Calculate save state size from active configuration\r\n- 734dc4d78 System: Add Fast Forward While Loading option\r\n- 6615fcc44 System: Reload patches when the patches directory changes\r\n- 1798a8be0 VideoPresenter: Include user border overlay presets\r\n- 3ab1c7a67 Qt: Add global folder settings\r\n- fb278f1c0 Qt: Move folder open/reset actions into overflow menu\r\n- 43be44d27 Qt: Move physical drive and readahead options to Advanced\r\n- 524858ede Qt: Split RAM/VRAM size into separate rows\r\n- e270cf538 Qt: Support drag and drop in game list settings\r\n- 065890c6f Qt: Improve game list settings layout and help\r\n- 71adff4bb Qt: Add icons to settings window footer buttons\r\n- 24036a307 Qt: Fix recompiler icache option not disabling\r\n- 102fbc673 CPU/Recompiler: Add LoadArgRegWithConstant()\r\n- 228ca362d CPU/Recompiler: Fast forward VWaitIdleLoop\r\n- 8b2532e05 Qt: Rename unofficial achievements to unpromoted\r\n- edfec5e7e README: Update feature list\r\n- 6f6ddd772 Settings: Disable idle-loop fast forward in safe mode\r\n- 0207c6d17 D3D12Device: Defer all pipeline and dynamic state to draw/dispatch time\r\n- 3d8f00a39 VulkanDevice: Defer graphics state until first graphics pipeline bind\r\n- e64403520 VulkanDevice: Defer all pipeline and dynamic state to draw/dispatch time\r\n- adf3d019e VulkanDevice: Enumerate validation layer extensions for debug instances\r\n- 43e017f56 VulkanDevice: Fix incorrect mask for default layout\r\n- 8a545fbe9 dep/rcheevos: Remove unused file\r\n- c5a755cfc Achievements: More unofficial -> unpromoted changes\r\n- 334fdbfe2 GameList: Add missing vector include\r\n- b7254cbb9 GPUDevice: Fix typo in texture format table\r\n- cd3b0c3f7 Android: Update translation strings\r\n- e39940aca Data: Remove now-unused cover placeholder\r\n- ccaf22207 Scripts: Remove AppStream metainfo from AppImage\r\n- d713f2f05 Qt: Highlight controller image part on binding hover/focus\r\n- ce8721b29 Qt: Add binding layouts for JogCon, DDGo and Popn controllers\r\n- a294f5661 GameList: Don't reference save callback from cover requests\r\n- 2af44e182 HTTPDownloader: Don't hold lock while waiting for requests\r\n- 3a49cb973 FullscreenUI: Create dialogs dynamically on a stack\r\n- 6384ada28 FullscreenUI: Replace fixed popup dialogs with callbacks\r\n- 108cc75ad InputManager: Play macros as sequences of binds and waits\r\n- 5e572bcc1 InputManager: Add macro recording, mapping input events to pad binds\r\n- bd32988f9 Qt: Edit and record macro sequences\r\n- a371a0dd1 Qt: Drop presses for held keys on Windows and Linux\r\n- f25bdda80 Qt: Enable XKB detectable auto-repeat on X11\r\n- 263942a91 Qt: Add icons to controller settings footer buttons\r\n- 2f8508ad5 Qt: Improve the macro editor UI\r\n- 2fdf34a43 README: Update feature list\r\n- e2810577c LRUCache: Add optional weight-based eviction\r\n- 817991033 ImGuiManager: Consume texture updates after uploading\r\n- 20462d571 FullscreenUI: Render generated artwork to cached textures\r\n- e432fa8ea FullscreenUI: Limit texture cache by VRAM usage\r\n- 501848d26 Spanish (Spain) Translation Update 2026/11/22 (#3831)\r\n- a4a133fc2 ImGuiManager: Add PushNearestSampler()/PopNearestSampler()\r\n- cf27de080 FullscreenUI: Restore nav cursor after closing dialogs\r\n- 8b7ed4eef FullscreenUI: Add horizontal drag/fling\r\n- aa2109fe4 FullscreenUI: Add page header, segmented control and text style widgets\r\n- 147443725 FullscreenUI: Use page header in game list\r\n- 0cd011bba FullscreenUI: Add carousel game list view\r\n- 94f3ed89b FullscreenUI: Rework game list header\r\n- 8f24932a4 FullscreenUI: Draw small game icons with nearest filtering\r\n- b78a4147d FullscreenUI: Set blur/nearest callbacks after drawing\r\n- 11dec2c30 FullscreenUI: Fix order of options in game list settings\r\n- 9bfbaa29a FullscreenUI: Make search box expandable\r\n- 48ded08f2 Misc: Replace ENABLE_X11/ENABLE_WAYLAND with __linux__\r\n- 786deb897 Data: Update SDL game controller database\r\n- 43531c09f Host: Fix incorrect condition in relative time format\r\n- 0403d3c45 Update duckstation-qt_es.ts (#3833)\r\n- bdd45d2d9 Misc: Drop LoongArch64 support\r\n- 0c9a40334 CI: Switch to non-deprecated Windows image\r\n- 2de83b8a9 CI: Switch to XCode 27 MacOS image\r\n- b1571db5c Deps: Update to 20261125\r\n- d60127b90 Android: Update translation strings\r\n- 2c79bd36a Qt: Fix crash when resetting settings",
-          "assets": [
-            {
-              "filename": "DuckStation-arm64.AppImage",
-              "url": "https://github.com/stenzek/duckstation/releases/download/latest/DuckStation-arm64.AppImage",
-              "sha256": "3cd9e8465a6979e98eea69f5c512d4764b9f1f9d8cc58422665eede4b0a3e045"
-            },
-            {
-              "filename": "DuckStation-armhf.AppImage",
-              "url": "https://github.com/stenzek/duckstation/releases/download/latest/DuckStation-armhf.AppImage",
-              "sha256": "00a7fc8ec97885ce37a612fdd21f4c4f5506e1db2c1b3eb80012b66e2ed02f89"
-            },
-            {
-              "filename": "duckstation-mac-release.zip",
-              "url": "https://github.com/stenzek/duckstation/releases/download/latest/duckstation-mac-release.zip",
-              "sha256": "f8eab1682fecc5dc0bc0240f955799efb9471d4537b3a78a08eb04ad2fe75c84"
-            },
-            {
-              "filename": "duckstation-windows-arm64-installer.exe",
-              "url": "https://github.com/stenzek/duckstation/releases/download/latest/duckstation-windows-arm64-installer.exe",
-              "sha256": "ade12c8fd42c54c1addb9bcf00e9f89138b77c2f29fce6661228dd83cdb2a44e"
-            },
-            {
-              "filename": "duckstation-windows-arm64-release-symbols.7z",
-              "url": "https://github.com/stenzek/duckstation/releases/download/latest/duckstation-windows-arm64-release-symbols.7z",
-              "sha256": "20c10a29a2977ff5e3c0a3849daede6a8504e0851bb0842619462d4bf7d4715a"
-            },
-            {
-              "filename": "duckstation-windows-arm64-release.zip",
-              "url": "https://github.com/stenzek/duckstation/releases/download/latest/duckstation-windows-arm64-release.zip",
-              "sha256": "bde8bf32369e8fe6f5a7349a2fce2f180e16c71d41834a675a175819eb1dea69"
-            },
-            {
-              "filename": "duckstation-windows-x64-installer.exe",
-              "url": "https://github.com/stenzek/duckstation/releases/download/latest/duckstation-windows-x64-installer.exe",
-              "sha256": "d57c56af0f76562995abe6caaf22a54215b70b5808f9cd3969f62c4574718ef5"
-            },
-            {
-              "filename": "duckstation-windows-x64-release-symbols.7z",
-              "url": "https://github.com/stenzek/duckstation/releases/download/latest/duckstation-windows-x64-release-symbols.7z",
-              "sha256": "839fb6aafd51e8c7f435c63ce0f764bd8920dad2d1db956bc1e033341b2e8777"
-            },
-            {
-              "filename": "duckstation-windows-x64-release.zip",
-              "url": "https://github.com/stenzek/duckstation/releases/download/latest/duckstation-windows-x64-release.zip",
-              "sha256": "b8cdcdd1dda67dd16e1d040b42a99a48e23b67aff46e791be7805b3bdcb0fb07"
-            },
-            {
-              "filename": "duckstation-windows-x64-sse2-installer.exe",
-              "url": "https://github.com/stenzek/duckstation/releases/download/latest/duckstation-windows-x64-sse2-installer.exe",
-              "sha256": "ec39da9710aa18853f9d4cffde3bcc87d38b315650cfc265427e26b820d89d3b"
-            },
-            {
-              "filename": "duckstation-windows-x64-sse2-release-symbols.7z",
-              "url": "https://github.com/stenzek/duckstation/releases/download/latest/duckstation-windows-x64-sse2-release-symbols.7z",
-              "sha256": "3df942e812e9e3dc20ba39fe345dfa754fc059f34362716c6941818f22785e3b"
-            },
-            {
-              "filename": "duckstation-windows-x64-sse2-release.zip",
-              "url": "https://github.com/stenzek/duckstation/releases/download/latest/duckstation-windows-x64-sse2-release.zip",
-              "sha256": "561d46962923c461dbabb8e324733aeecc3a728a0f169ce5b121894d77213c5a"
-            },
-            {
-              "filename": "DuckStation-x64-SSE2.AppImage",
-              "url": "https://github.com/stenzek/duckstation/releases/download/latest/DuckStation-x64-SSE2.AppImage",
-              "sha256": "0107ae4cfc47333593d47055373b9fedc2899c799133b857e677649aade72a81"
-            },
-            {
-              "filename": "DuckStation-x64.AppImage",
-              "url": "https://github.com/stenzek/duckstation/releases/download/latest/DuckStation-x64.AppImage",
-              "sha256": "c1366ee5933d80a9df7ec337bf023da6ebaf92518b65df8a76c0dcc177b17a82"
-            }
-          ],
-          "source_type": "github",
-          "repo_url": "https://github.com/stenzek/duckstation"
-        }
-      ]
-    },
     {
       "category": "Switch-Emu",
       "subcategory": "Switch-Emu",
@@ -211,7 +60,7 @@
             {
               "filename": "Ryubing",
               "url": "https://git.ryujinx.app/projects/Ryubing",
-              "sha256": "31f1916c1dc9805a52f51a3576faaf65ee05da14857fea07c7f93e5227aecfda"
+              "sha256": "c69ca8761d55fb69936e51d965ef8f03d474b0360c592f0ee45adc557d779f71"
             }
           ],
           "source_type": "forgejo",
@@ -226,7 +75,7 @@
             {
               "filename": "Kenji-NX",
               "url": "https://git.ryujinx.app/projects/Kenji-NX",
-              "sha256": "754f701fd69c9aaf9a53bf6ff370a81cdfde37d76c05c15f425f41c8cb9514f7"
+              "sha256": "2e790fbabbd2dcbcfa6c95d5652a4ccadfbced8c089ec68f32ee71728f66e356"
             }
           ],
           "source_type": "forgejo",
@@ -431,6 +280,157 @@
           ],
           "source_type": "forgejo",
           "repo_url": "https://git.eden-emu.dev/eden-ci/nightly"
+        }
+      ]
+    },
+    {
+      "category": "github_test",
+      "subcategory": "github_test",
+      "apps": [
+        {
+          "name": "flycast",
+          "description": "Flycast is a multi-platform Sega Dreamcast, Naomi, Naomi 2, and Atomiswave emulator",
+          "version": "v2.7",
+          "release_notes": "## New features\r\n* Frame rate detection and pacing\r\n* Localization (fr, hu, jp, pt_BR, sv)\r\n* Multiscreen support for Airline Pilot, Sega Strike Fighter and Derby Owners Club\r\n* Improved modem emulation\r\n* improved DreamPicoPort and DreamPotato support by @RikkiGibson, @Tails86 and @nexus382\r\n* Android: Google Auto Backup support for VMU saves and non-volatile memory\r\n\r\n## Fixed Games\r\n* Airline Pilot (Naomi, multiscreen)\r\n* Cyber Troopers Virtual-On: Oratorio Tangram (JP, online features)\r\n* Derby Owners Club (new)\r\n* Dinosaur King (ZH, new)\r\n* DreamParaPara by @dakrk (new)\r\n* F355 Challenge (JP, online features)\r\n* Fish Life (new)\r\n* Love & Berry 3 (ZH, new)\r\n* NFL 2K1, NFL 2K2, NBA 2K1, NBA 2K2 (freeze)\r\n* Power Smash (online lag)\r\n* Rune Jade (online features)\r\n* Samba de Amigo (Naomi, inputs)\r\n* Sega Strike Fighter (Naomi, multiscreen)\r\n\r\n## New Contributors\r\n* @Windsurf7 made their first contribution in https://github.com/flyinghead/flycast/pull/2229\r\n* @Kyuyrii made their first contribution in https://github.com/flyinghead/flycast/pull/2236\r\n* @eadmaster made their first contribution in https://github.com/flyinghead/flycast/pull/2252\r\n* @PLCodingStuff made their first contribution in https://github.com/flyinghead/flycast/pull/2274\r\n* @marcgardent made their first contribution in https://github.com/flyinghead/flycast/pull/2318\r\n* @AurisDSP made their first contribution in https://github.com/flyinghead/flycast/pull/2333\r\n* @engdyn made their first contribution in https://github.com/flyinghead/flycast/pull/2383\r\n\r\n**Full Changelog**: https://github.com/flyinghead/flycast/compare/v2.6...v2.7",
+          "assets": [
+            {
+              "filename": "flycast-2.7.apk",
+              "url": "https://github.com/flyinghead/flycast/releases/download/v2.7/flycast-2.7.apk",
+              "sha256": "1ac54d77b8283f6d58d077396d0916ec12c15b7e4ada9d957836a64590756c00"
+            },
+            {
+              "filename": "flycast-2.7.appx",
+              "url": "https://github.com/flyinghead/flycast/releases/download/v2.7/flycast-2.7.appx",
+              "sha256": "8b6f42e19577526366805c027afab2431af1a7aa71d7b068d9c7adb51441eae6"
+            },
+            {
+              "filename": "flycast-2.7.nro",
+              "url": "https://github.com/flyinghead/flycast/releases/download/v2.7/flycast-2.7.nro",
+              "sha256": "898bf81c24cdbcc1c95b3d7eccca059004c9887feb8628cb9f36444048b12678"
+            },
+            {
+              "filename": "flycast-macOS-2.7.zip",
+              "url": "https://github.com/flyinghead/flycast/releases/download/v2.7/flycast-macOS-2.7.zip",
+              "sha256": "dbd59cb88f52a95ea4de90693bb4ac156530452d5457f2cc4f656fdfd242fc26"
+            },
+            {
+              "filename": "flycast-win64-2.7.zip",
+              "url": "https://github.com/flyinghead/flycast/releases/download/v2.7/flycast-win64-2.7.zip",
+              "sha256": "7edf489ba6b3053703a18ce8233767eb71a2d89e4bda0421b312c2167a739161"
+            },
+            {
+              "filename": "flycast-x86_64-2.7.AppImage",
+              "url": "https://github.com/flyinghead/flycast/releases/download/v2.7/flycast-x86_64-2.7.AppImage",
+              "sha256": "5b9f8a636a6acb8446bc78fe96650d8cb8233ac9f8ce69665dab3f39a1cbaae1"
+            }
+          ],
+          "source_type": "github",
+          "repo_url": "https://github.com/flyinghead/flycast"
+        },
+        {
+          "name": "flycast-dojo",
+          "description": "Flycast Dojo is a fork of Flycast, a multi-platform Sega Dreamcast, Naomi and Atomiswave emulator derived from Reicast, with a focus on netplay features and replay",
+          "version": "dojo-7.9",
+          "release_notes": "Automated release with builds for Windows, Linux, and macOS.\r\n\r\n**Full Changelog**: https://github.com/blueminder/flycast-dojo/compare/dojo-7.8...dojo-7.9",
+          "assets": [
+            {
+              "filename": "flycast-dojo-linux.zip",
+              "url": "https://github.com/blueminder/flycast-dojo/releases/download/dojo-7.9/flycast-dojo-linux.zip",
+              "sha256": "c7cae9767d8cc199dbc24cabb38978cb9bf4a6273165ca98bce06bcfae104a3d"
+            },
+            {
+              "filename": "flycast-dojo-mac.zip",
+              "url": "https://github.com/blueminder/flycast-dojo/releases/download/dojo-7.9/flycast-dojo-mac.zip",
+              "sha256": "5a9c5567442229fde3d27dd4961a36cb3bbfcf74525cb2d7c0c620236f039e8c"
+            },
+            {
+              "filename": "flycast-dojo-windows.zip",
+              "url": "https://github.com/blueminder/flycast-dojo/releases/download/dojo-7.9/flycast-dojo-windows.zip",
+              "sha256": "92cba733d93f883568c2f55eadd55858ce55e0806c4dd810f0e9c48a1c8c4295"
+            }
+          ],
+          "source_type": "github",
+          "repo_url": "https://github.com/blueminder/flycast-dojo"
+        },
+        {
+          "name": "duckstation",
+          "description": "DuckStation - PlayStation 1, aka. PSX Emulator",
+          "version": "latest",
+          "release_notes": "## Commits\r\n- 35a791fe8 dep/rcheevos: Bump to a1ba160\r\n- 4077754a6 FullscreenUI: Chain pending transition callbacks instead of running inline\r\n- fb6d3627e GameDB: Force recompiler ICache for Tomba!/Tombi!/Ore! Tomba\r\n- 0d7d4b7d9 Scripts: Add TIM texture replacement name generator\r\n- ea48b1cff GPUTextureCache: Hash reduced palette range from pal_min\r\n- 6d7977782 GPUTextureCache: Track fifth page of unaligned 8-bit palettes\r\n- f4e98e72d GPUTextureCache: Fix VRAM write splitting\r\n- 88c60c567 GPUTextureCache: Parse MaxVRAMWriteSplits as an integer in config.yaml\r\n- dbefb5471 GPUTextureCache: Don't merge VRAM writes that have already been drawn with\r\n- 2c8e8c1c4 GPUTextureCache: Fix RectDistance() for picking the closest draw rect\r\n- af7dda34a GPUTextureCache: Don't retry loading replacement images that failed to load\r\n- e647d0845 GPUTextureCache: Initialize palette fields when parsing C16 replacement names\r\n- 0beda20e8 GPUTextureCache: Only apply replacements once for writes spanning pages\r\n- e0999bbb6 GPUTextureCache: Fix TextureReplacementIndex comparison\r\n- d468343c1 GPUTextureCache: Fix argument order in missing alias file error\r\n- c9d1f5ca3 GPUTextureCache: Dump original pixels before local VRAM copies\r\n- eadb46105 SPU: Clock noise on quarter/eighth-period slots\r\n- 64629f2d1 SPU: Apply Phase bit in exponential decrease sweeps\r\n- 90cce7fef SPU: Don't set STATX busy during DMA writes\r\n- 970044fac SPU: Apply the first block's loop start on the key on header fetches\r\n- 39f081e1a SPU: Interleave RAM transfers with sample generation\r\n- e83373430 SPU: Write the DMA FIFO to RAM at 32 cycles/halfword\r\n- a88c6b20e CDROM: Don't apply read speedup while playing CD-DA\r\n- aed260488 GPU: Limit the polyline buffer to 1MB\r\n- a48eb6ca8 System: Calculate save state size from active configuration\r\n- 734dc4d78 System: Add Fast Forward While Loading option\r\n- 6615fcc44 System: Reload patches when the patches directory changes\r\n- 1798a8be0 VideoPresenter: Include user border overlay presets\r\n- 3ab1c7a67 Qt: Add global folder settings\r\n- fb278f1c0 Qt: Move folder open/reset actions into overflow menu\r\n- 43be44d27 Qt: Move physical drive and readahead options to Advanced\r\n- 524858ede Qt: Split RAM/VRAM size into separate rows\r\n- e270cf538 Qt: Support drag and drop in game list settings\r\n- 065890c6f Qt: Improve game list settings layout and help\r\n- 71adff4bb Qt: Add icons to settings window footer buttons\r\n- 24036a307 Qt: Fix recompiler icache option not disabling\r\n- 102fbc673 CPU/Recompiler: Add LoadArgRegWithConstant()\r\n- 228ca362d CPU/Recompiler: Fast forward VWaitIdleLoop\r\n- 8b2532e05 Qt: Rename unofficial achievements to unpromoted\r\n- edfec5e7e README: Update feature list\r\n- 6f6ddd772 Settings: Disable idle-loop fast forward in safe mode\r\n- 0207c6d17 D3D12Device: Defer all pipeline and dynamic state to draw/dispatch time\r\n- 3d8f00a39 VulkanDevice: Defer graphics state until first graphics pipeline bind\r\n- e64403520 VulkanDevice: Defer all pipeline and dynamic state to draw/dispatch time\r\n- adf3d019e VulkanDevice: Enumerate validation layer extensions for debug instances\r\n- 43e017f56 VulkanDevice: Fix incorrect mask for default layout\r\n- 8a545fbe9 dep/rcheevos: Remove unused file\r\n- c5a755cfc Achievements: More unofficial -> unpromoted changes\r\n- 334fdbfe2 GameList: Add missing vector include\r\n- b7254cbb9 GPUDevice: Fix typo in texture format table\r\n- cd3b0c3f7 Android: Update translation strings\r\n- e39940aca Data: Remove now-unused cover placeholder\r\n- ccaf22207 Scripts: Remove AppStream metainfo from AppImage\r\n- d713f2f05 Qt: Highlight controller image part on binding hover/focus\r\n- ce8721b29 Qt: Add binding layouts for JogCon, DDGo and Popn controllers\r\n- a294f5661 GameList: Don't reference save callback from cover requests\r\n- 2af44e182 HTTPDownloader: Don't hold lock while waiting for requests\r\n- 3a49cb973 FullscreenUI: Create dialogs dynamically on a stack\r\n- 6384ada28 FullscreenUI: Replace fixed popup dialogs with callbacks\r\n- 108cc75ad InputManager: Play macros as sequences of binds and waits\r\n- 5e572bcc1 InputManager: Add macro recording, mapping input events to pad binds\r\n- bd32988f9 Qt: Edit and record macro sequences\r\n- a371a0dd1 Qt: Drop presses for held keys on Windows and Linux\r\n- f25bdda80 Qt: Enable XKB detectable auto-repeat on X11\r\n- 263942a91 Qt: Add icons to controller settings footer buttons\r\n- 2f8508ad5 Qt: Improve the macro editor UI\r\n- 2fdf34a43 README: Update feature list\r\n- e2810577c LRUCache: Add optional weight-based eviction\r\n- 817991033 ImGuiManager: Consume texture updates after uploading\r\n- 20462d571 FullscreenUI: Render generated artwork to cached textures\r\n- e432fa8ea FullscreenUI: Limit texture cache by VRAM usage\r\n- 501848d26 Spanish (Spain) Translation Update 2026/11/22 (#3831)\r\n- a4a133fc2 ImGuiManager: Add PushNearestSampler()/PopNearestSampler()\r\n- cf27de080 FullscreenUI: Restore nav cursor after closing dialogs\r\n- 8b7ed4eef FullscreenUI: Add horizontal drag/fling\r\n- aa2109fe4 FullscreenUI: Add page header, segmented control and text style widgets\r\n- 147443725 FullscreenUI: Use page header in game list\r\n- 0cd011bba FullscreenUI: Add carousel game list view\r\n- 94f3ed89b FullscreenUI: Rework game list header\r\n- 8f24932a4 FullscreenUI: Draw small game icons with nearest filtering\r\n- b78a4147d FullscreenUI: Set blur/nearest callbacks after drawing\r\n- 11dec2c30 FullscreenUI: Fix order of options in game list settings\r\n- 9bfbaa29a FullscreenUI: Make search box expandable\r\n- 48ded08f2 Misc: Replace ENABLE_X11/ENABLE_WAYLAND with __linux__\r\n- 786deb897 Data: Update SDL game controller database\r\n- 43531c09f Host: Fix incorrect condition in relative time format\r\n- 0403d3c45 Update duckstation-qt_es.ts (#3833)\r\n- bdd45d2d9 Misc: Drop LoongArch64 support\r\n- 0c9a40334 CI: Switch to non-deprecated Windows image\r\n- 2de83b8a9 CI: Switch to XCode 27 MacOS image\r\n- b1571db5c Deps: Update to 20261125\r\n- d60127b90 Android: Update translation strings\r\n- 2c79bd36a Qt: Fix crash when resetting settings",
+          "assets": [
+            {
+              "filename": "DuckStation-arm64.AppImage",
+              "url": "https://github.com/stenzek/duckstation/releases/download/latest/DuckStation-arm64.AppImage",
+              "sha256": "3cd9e8465a6979e98eea69f5c512d4764b9f1f9d8cc58422665eede4b0a3e045"
+            },
+            {
+              "filename": "DuckStation-armhf.AppImage",
+              "url": "https://github.com/stenzek/duckstation/releases/download/latest/DuckStation-armhf.AppImage",
+              "sha256": "00a7fc8ec97885ce37a612fdd21f4c4f5506e1db2c1b3eb80012b66e2ed02f89"
+            },
+            {
+              "filename": "duckstation-mac-release.zip",
+              "url": "https://github.com/stenzek/duckstation/releases/download/latest/duckstation-mac-release.zip",
+              "sha256": "f8eab1682fecc5dc0bc0240f955799efb9471d4537b3a78a08eb04ad2fe75c84"
+            },
+            {
+              "filename": "duckstation-windows-arm64-installer.exe",
+              "url": "https://github.com/stenzek/duckstation/releases/download/latest/duckstation-windows-arm64-installer.exe",
+              "sha256": "ade12c8fd42c54c1addb9bcf00e9f89138b77c2f29fce6661228dd83cdb2a44e"
+            },
+            {
+              "filename": "duckstation-windows-arm64-release-symbols.7z",
+              "url": "https://github.com/stenzek/duckstation/releases/download/latest/duckstation-windows-arm64-release-symbols.7z",
+              "sha256": "20c10a29a2977ff5e3c0a3849daede6a8504e0851bb0842619462d4bf7d4715a"
+            },
+            {
+              "filename": "duckstation-windows-arm64-release.zip",
+              "url": "https://github.com/stenzek/duckstation/releases/download/latest/duckstation-windows-arm64-release.zip",
+              "sha256": "bde8bf32369e8fe6f5a7349a2fce2f180e16c71d41834a675a175819eb1dea69"
+            },
+            {
+              "filename": "duckstation-windows-x64-installer.exe",
+              "url": "https://github.com/stenzek/duckstation/releases/download/latest/duckstation-windows-x64-installer.exe",
+              "sha256": "d57c56af0f76562995abe6caaf22a54215b70b5808f9cd3969f62c4574718ef5"
+            },
+            {
+              "filename": "duckstation-windows-x64-release-symbols.7z",
+              "url": "https://github.com/stenzek/duckstation/releases/download/latest/duckstation-windows-x64-release-symbols.7z",
+              "sha256": "839fb6aafd51e8c7f435c63ce0f764bd8920dad2d1db956bc1e033341b2e8777"
+            },
+            {
+              "filename": "duckstation-windows-x64-release.zip",
+              "url": "https://github.com/stenzek/duckstation/releases/download/latest/duckstation-windows-x64-release.zip",
+              "sha256": "b8cdcdd1dda67dd16e1d040b42a99a48e23b67aff46e791be7805b3bdcb0fb07"
+            },
+            {
+              "filename": "duckstation-windows-x64-sse2-installer.exe",
+              "url": "https://github.com/stenzek/duckstation/releases/download/latest/duckstation-windows-x64-sse2-installer.exe",
+              "sha256": "ec39da9710aa18853f9d4cffde3bcc87d38b315650cfc265427e26b820d89d3b"
+            },
+            {
+              "filename": "duckstation-windows-x64-sse2-release-symbols.7z",
+              "url": "https://github.com/stenzek/duckstation/releases/download/latest/duckstation-windows-x64-sse2-release-symbols.7z",
+              "sha256": "3df942e812e9e3dc20ba39fe345dfa754fc059f34362716c6941818f22785e3b"
+            },
+            {
+              "filename": "duckstation-windows-x64-sse2-release.zip",
+              "url": "https://github.com/stenzek/duckstation/releases/download/latest/duckstation-windows-x64-sse2-release.zip",
+              "sha256": "561d46962923c461dbabb8e324733aeecc3a728a0f169ce5b121894d77213c5a"
+            },
+            {
+              "filename": "DuckStation-x64-SSE2.AppImage",
+              "url": "https://github.com/stenzek/duckstation/releases/download/latest/DuckStation-x64-SSE2.AppImage",
+              "sha256": "0107ae4cfc47333593d47055373b9fedc2899c799133b857e677649aade72a81"
+            },
+            {
+              "filename": "DuckStation-x64.AppImage",
+              "url": "https://github.com/stenzek/duckstation/releases/download/latest/DuckStation-x64.AppImage",
+              "sha256": "c1366ee5933d80a9df7ec337bf023da6ebaf92518b65df8a76c0dcc177b17a82"
+            }
+          ],
+          "source_type": "github",
+          "repo_url": "https://github.com/stenzek/duckstation"
         }
       ]
     },
